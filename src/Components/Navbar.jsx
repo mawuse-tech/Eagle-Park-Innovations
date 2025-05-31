@@ -5,11 +5,11 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-[#1C8057] text-white px-4 font-oswald">
+        <nav className="bg-[#1C8057] text-white px-4 font-oswald ">
             <div className="container mx-auto flex items-center justify-between flex-wrap">
 
                 <div>
-                    <img src={logo} className="h-25 w-auto" />
+                    <img src={logo} className="h-22 w-auto" />
                 </div>
 
 
