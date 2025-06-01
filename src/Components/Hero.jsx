@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import heroImg from '../assets/ealgle.png'
-import hero1Img from '../assets/eagle2.webp'
-import hero2Img from '../assets/eagle3.jpg'
+import hero1Img from '../assets/maizze.png'
+import hero2Img from '../assets/ealgle.png'
 
 
 
@@ -28,20 +28,20 @@ const slides = [
 ];
 
 const Hero = () => {
-      const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(0);
 
-      useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 5000); // every 5 seconds
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setIndex((prev) => (prev + 1) % slides.length);
+        }, 5000); // every 5 seconds
 
-    return () => clearInterval(timer);
-  }, []);
+        return () => clearInterval(timer);
+    }, []);
 
-  const current = slides[index];
+    const current = slides[index];
 
     return (
-        <section className="py-10 px-4 sm:px-6 md:px-10 lg:px-20 bg-[#F7F7F7] flex flex-col lg:flex-row items-center justify-between gap-10">
+       <section className="min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 bg-[#F7F7F7] flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-10 py-10">
   {/* Left content */}
   <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
     {/* Top Badge */}
@@ -87,9 +87,6 @@ const Hero = () => {
     </div>
   </div>
 </section>
-
-
-
 
     )
 }
