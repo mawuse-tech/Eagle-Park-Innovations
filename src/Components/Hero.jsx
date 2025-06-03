@@ -4,7 +4,7 @@ import hero1Img from '../assets/man.png'
 import hero2Img from '../assets/ealgle.png'
 import hero3Img from '../assets/cor.png'
 import field from '../assets/feild.webp'
-
+import HeroCompo from './HeroCompo'
 
 
 const slides = [
@@ -17,14 +17,14 @@ const slides = [
   },
   {
     image: heroImg,
-    title: "Healthy Grains",
-    subTitle: "Quality Groceriesdnhdnhd",
-    description: "Quality grains for your kitchen",
+    title: "Chicks & Farm-Fresh Eggs",
+    subTitle: "Carefully Nurtured for Health",
+    description: "Our poultry is raised in a clean, natural environment to ensure you get healthy",
   },
   {
     image: hero1Img,
-    title: "Organic Fruits",
-    subTitle: "Quality Groceriesdndjmsk",
+    title: "Manure & Farm-Fresh Eggs",
+    subTitle: "Carefully Nurtured for Health",
     description: "Naturally sweet and fresh",
   },
   {
@@ -51,28 +51,28 @@ const Hero = () => {
   return (
     <div>
 
- <section className="hero-section">
-      <div className="overlay"></div>
-      <div className="hero-text">
-        <h1>Transforming the World<br /><span>Through Agriculture</span></h1>
-        <p className="subtitle">
-          Empowering farmers, feeding nations, and building sustainable futures.
-        </p>
-       <div className="hidden md:flex items-center gap-1 font-medium">
-                    <button className="bg-[#1C8057] hover:bg-green-700 text-white px-6 py-3 text-sm sm:text-base rounded-full">
-                        Shop Now <i className="ri-arrow-right-line"></i>
-                    </button>
-                </div>
+      <section className="hero-section">
+        <div className="overlay"></div>
+        <div className="hero-text">
+          <h1>Transforming the World<br /><span>Through Agriculture</span></h1>
+          <p className="subtitle">
+            Empowering farmers, feeding nations, and building sustainable futures.
+          </p>
+          <div className="hidden md:flex items-center gap-1 font-medium">
+            <button className="bg-[#136b46d0] hover:bg-green-700 text-white px-6 py-3 text-sm sm:text-base rounded-full">
+              Get Started <i className="ri-arrow-right-line"></i>
+            </button>
+          </div>
 
-      </div>
-    </section>
+        </div>
+      </section>
 
       <section className="min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 bg-[#F7F7F7] flex flex-col lg:flex-row items-center justify-center lg:justify-between  py-10">
         {/* Left content */}
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
           {/* Top Badge */}
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 rounded-full w-max mx-auto lg:mx-0">
-            EAGLE PARK INNOVATION
+          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs sm:text-small font-medium px-3 sm:px-4 py-2 rounded-full w-max mx-auto lg:mx-0">
+            OUR NUTRITIOUS PRODUCTS
           </div>
 
           {/* Headings */}
@@ -112,6 +112,8 @@ const Hero = () => {
           </div>
         </div>
       </section>
+     
+     <HeroCompo/>
     </div>
 
   )

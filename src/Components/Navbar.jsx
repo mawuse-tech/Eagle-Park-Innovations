@@ -49,7 +49,7 @@ const Navbar = () => {
 
                 {/* Desktop Button */}
                 <div className="hidden md:flex items-center gap-1 font-medium">
-                    <button className="bg-yellow-400 hover:bg-green-700 text-green-800 px-6 py-3 text-sm sm:text-base rounded-full">
+                    <button className="bg-white hover:bg-green-700 text-green-800 px-6 py-3 text-sm sm:text-base rounded-full">
                         Shop Now <i className="ri-arrow-right-line"></i>
                     </button>
                 </div>

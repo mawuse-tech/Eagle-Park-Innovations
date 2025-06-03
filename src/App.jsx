@@ -2,6 +2,7 @@ import './App.css'
 import Footer from './Components/Footer'
 import Hero from './Components/Hero'
 import Navbar from './Components/Navbar'
+import MainAboutus from './Pages/AboutusPage/MainAboutus'
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
+      <MainAboutus/>
       <Footer />
     </>
   )
