@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import logo from '../assets/logo2.png'
+import logo from '../assets/logo.png'
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
@@ -8,11 +8,11 @@ const Navbar = () => {
 
     return (
         <nav className="bg-[#1C8057] text-white px-4 font-oswald sticky top-0 z-50">
-            <div className="container mx-auto flex items-center justify-between flex-wrap py-3">
+            <div className="container mx-auto flex items-center justify-between flex-wrap ">
 
                 {/* Logo */}
                 <div>
-                    <img src={logo} alt="Logo" className="h-20 w-auto" />
+                    <img src={logo} alt="Logo" className="h-30 w-auto lg:h-20 md:h-30" />
                 </div>
 
                 {/* Desktop Menu */}
@@ -49,22 +49,22 @@ const Navbar = () => {
 
                 {/* Desktop Button */}
                 <div className="hidden md:flex items-center gap-1 font-medium">
-                    <button className="bg-yellow-400 hover:bg-yellow-500 text-[#1C8057] px-6 py-2 rounded-lg shadow-sm font-semibold">
-                        Shop
+                    <button className="bg-yellow-400 hover:bg-green-700 text-green-800 px-6 py-3 text-sm sm:text-base rounded-full">
+                        Shop Now <i className="ri-arrow-right-line"></i>
                     </button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
                 <div className="md:hidden ml-auto">
                     <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                        <i className="ri-menu-line text-2xl text-white"></i>
+                        <i className="ri-menu-line text-5xl text-white"></i>
                     </button>
                 </div>
             </div>
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden mt-3 flex flex-col gap-2 text-sm font-medium px-4 pb-4">
+                <div className="md:hidden mt-3 flex flex-col gap-2 text-1xl font-medium px-4 pb-4">
                     <a href="#" className="hover:text-yellow-400">Home</a>
 
                     {/* Mobile About Us */}
