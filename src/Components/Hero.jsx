@@ -5,6 +5,7 @@ import hero2Img from '../assets/ealgle.png'
 import hero3Img from '../assets/cor.png'
 import field from '../assets/feild.webp'
 import HeroCompo from './HeroCompo'
+import Footer from './Footer'
 
 
 const slides = [
@@ -67,7 +68,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 bg-[#F7F7F7] flex flex-col lg:flex-row items-center justify-center lg:justify-between  py-10">
+      <section className="min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 bg-green-50 flex flex-col lg:flex-row items-center justify-center lg:justify-between  py-10">
         {/* Left content */}
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
           {/* Top Badge */}
@@ -112,8 +113,10 @@ const Hero = () => {
           </div>
         </div>
       </section>
-     
-     <HeroCompo/>
+
+      <HeroCompo />
+
+      <Footer />
     </div>
 
   )

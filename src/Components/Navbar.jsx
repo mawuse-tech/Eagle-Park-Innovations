@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
+import { NavLink, Link } from 'react-router';
+
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
@@ -17,15 +19,14 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-6 ml-6 text-[16px]">
-                    <a href="#" className="hover:text-yellow-400">Home</a>
+                    <NavLink to="/">Home</NavLink>
 
                     {/* About Us Dropdown */}
                     <div className="relative group">
-                        <a href="#" className="hover:text-yellow-400 flex items-center gap-1">
-                            About Us <i className="ri-arrow-down-s-line text-sm"></i>
-                        </a>
+
+                        <NavLink> About Us <i className="ri-arrow-down-s-line text-sm"></i></NavLink>
                         <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#1C8057] shadow-lg rounded-md min-w-[160px] z-50">
-                            <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</a>
+                            <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</NavLink>
                             <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Mission/Vision</a>
                             <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</a>
                         </div>
@@ -65,7 +66,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <div className="md:hidden mt-3 flex flex-col gap-2 text-1xl font-medium px-4 pb-4">
-                    <a href="#" className="hover:text-yellow-400">Home</a>
+                    <NavLink to="/"  className="hover:text-yellow-400">Home</NavLink>
 
                     {/* Mobile About Us */}
                     <div className="flex flex-col">
@@ -77,7 +78,7 @@ const Navbar = () => {
                         </button>
                         {isMobileAboutOpen && (
                             <div className="flex flex-col bg-white text-[#1C8057] shadow-lg rounded-md mt-1">
-                                <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</a>
+                                <NavLink to="/ourstory"   className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</NavLink>
                                 <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Mission/Vision</a>
                                 <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</a>
                             </div>
