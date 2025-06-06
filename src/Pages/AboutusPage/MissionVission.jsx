@@ -8,7 +8,7 @@ const MissionVision = () => {
   }, []);
 
   return (
-    <section className="bg-green-50 text-gray-800 py-16 px-6 md:px-20">
+    <section className="bg-[#021210] text-gray-800 py-16 px-6 md:px-20">
       <div className="max-w-6xl mx-auto">
         <h2
           className="text-4xl font-bold text-center text-green-700 mb-12"

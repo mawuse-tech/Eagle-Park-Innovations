@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import 'remixicon/fonts/remixicon.css';
 
 const Footer = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <footer className="bg-[#1C8057] text-white py-10 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-        
+    <footer className="bg-[#021210] text-white py-10 px-6 md:px-16">
+      <div
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+        data-aos="fade-up"
+      >
         {/* About */}
-        <div>
+        <div data-aos="fade-up" data-aos-delay="100">
           <h2 className="text-xl font-semibold mb-4">AgroFuture</h2>
           <p className="text-sm leading-relaxed">
             Building a sustainable future through smart farming, innovative tools, and community-driven agriculture.
@@ -14,7 +23,7 @@ const Footer = () => {
         </div>
 
         {/* Links */}
-        <div>
+        <div data-aos="fade-up" data-aos-delay="200">
           <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
           <ul className="space-y-2 text-sm">
             <li><a href="#" className="hover:text-green-300">Home</a></li>
@@ -25,7 +34,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Info */}
-        <div>
+        <div data-aos="fade-up" data-aos-delay="300">
           <h2 className="text-lg font-semibold mb-4">Contact</h2>
           <ul className="text-sm space-y-2">
             <li><i className="ri-map-pin-line mr-2"></i> 123 Green Farm Rd, Accra</li>
@@ -35,7 +44,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media */}
-        <div>
+        <div data-aos="fade-up" data-aos-delay="400">
           <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
           <div className="flex space-x-4 text-xl">
             <a href="#"><i className="ri-facebook-box-fill hover:text-green-300"></i></a>
@@ -47,11 +56,15 @@ const Footer = () => {
       </div>
 
       {/* Bottom Text */}
-      <div className="text-center text-sm mt-10 border-t border-green-700 pt-4">
+      <div
+        className="text-center text-sm mt-10 border-t border-green-700 pt-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
         &copy; {new Date().getFullYear()} AgroFuture. All rights reserved.
       </div>
     </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;

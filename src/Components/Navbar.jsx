@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
 
     return (
-        <nav className="bg-[#1C8057] text-white px-4 font-oswald sticky top-0 z-50">
+        <nav className="bg-[#021210] text-white px-4 font-oswald sticky top-0 z-50">
             <div className="container mx-auto flex items-center justify-between flex-wrap ">
 
                 {/* Logo */}
