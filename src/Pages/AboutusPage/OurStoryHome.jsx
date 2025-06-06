@@ -4,7 +4,6 @@ import OurStory from './OurStory';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import MissionVision from './MissionVission';
-import TrainPage from './TrainPage';
 
 const OurStoryHome = () => {
 

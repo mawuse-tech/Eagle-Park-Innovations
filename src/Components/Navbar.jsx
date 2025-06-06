@@ -29,6 +29,7 @@ const Navbar = () => {
                             <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</NavLink>
                             <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Mission/Vision</a>
                             <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</a>
+                             <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
                         </div>
                     </div>
 

@@ -4,6 +4,7 @@ import Footer from './Components/Footer'
 import Hero from './Components/Hero'
 import RootLayout from './Pages/RootLayout'
 import OurStoryHome from './Pages/AboutusPage/OurStoryHome'
+import TrainPage from './Pages/AboutusPage/TrainPage'
 
 
 const router = createBrowserRouter(([
@@ -20,6 +21,11 @@ const router = createBrowserRouter(([
         path: "ourstory",
         Component: OurStoryHome
       },
+
+      {
+        path: "train",
+        Component: TrainPage
+      }
 
     
     ]
