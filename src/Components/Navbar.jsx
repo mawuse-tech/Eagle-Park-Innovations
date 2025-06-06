@@ -25,11 +25,15 @@ const Navbar = () => {
                     <div className="relative group">
 
                         <NavLink> About Us <i className="ri-arrow-down-s-line text-sm"></i></NavLink>
+
                         <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#1C8057] shadow-lg rounded-md min-w-[160px] z-50">
                             <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</NavLink>
-                            <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Mission/Vision</a>
-                            <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</a>
-                             <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
+
+                           <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Mission/Vission</NavLink>
+
+                             <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</NavLink>
+
+                            <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
                         </div>
                     </div>
 
@@ -67,7 +71,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <div className="md:hidden mt-3 flex flex-col gap-2 text-1xl font-medium px-4 pb-4">
-                    <NavLink to="/"  className="hover:text-yellow-400">Home</NavLink>
+                    <NavLink to="/" className="hover:text-yellow-400">Home</NavLink>
 
                     {/* Mobile About Us */}
                     <div className="flex flex-col">
@@ -79,7 +83,7 @@ const Navbar = () => {
                         </button>
                         {isMobileAboutOpen && (
                             <div className="flex flex-col bg-white text-[#1C8057] shadow-lg rounded-md mt-1">
-                                <NavLink to="/ourstory"   className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</NavLink>
+                                <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</NavLink>
                                 <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Mission/Vision</a>
                                 <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</a>
                             </div>

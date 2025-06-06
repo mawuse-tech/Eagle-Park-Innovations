@@ -5,6 +5,8 @@ import Hero from './Components/Hero'
 import RootLayout from './Pages/RootLayout'
 import OurStoryHome from './Pages/AboutusPage/OurStoryHome'
 import TrainPage from './Pages/AboutusPage/TrainPage'
+import MissionVision from './Pages/AboutusPage/MissionVission'
+import TeamPage from './Pages/AboutusPage/AboutTeam'
 
 
 const router = createBrowserRouter(([
@@ -20,6 +22,16 @@ const router = createBrowserRouter(([
       {
         path: "ourstory",
         Component: OurStoryHome
+      },
+
+      {
+        path: "mission",
+        Component: MissionVision
+      },
+
+      {
+        path: "team",
+        Component: TeamPage
       },
 
       {
