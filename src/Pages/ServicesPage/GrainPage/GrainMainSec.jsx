@@ -1,26 +1,27 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import grainLady from "../GrainPage/grainLady.jpg"
 
 const grains = [
     {
         name: 'Maize',
-        image: '/maize.jpg',
+        image: grainLady,
         description: 'Maize is a versatile grain used for food, feed, and fuel. It thrives in many climates and is a staple for millions.',
     },
     {
         name: 'Millet',
-        image: '/millet.jpg',
+        image: grainLady,
         description: 'Millet is a resilient cereal ideal for dry regions. Rich in nutrients, it’s perfect for porridge and local dishes.',
     },
     {
         name: 'Rice',
-        image: '/rice.jpg',
+        image: grainLady,
         description: 'Rice is a major global food crop grown in flooded fields. It provides essential calories for over half the world.',
     },
     {
         name: 'Sorghum',
-        image: '/sorghum.jpg',
+        image: grainLady,
         description: 'Sorghum is drought-tolerant and packed with nutrients. It’s used in food, beverages, and animal feed.',
     },
 ];
