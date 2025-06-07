@@ -7,7 +7,7 @@ import hen from '../assets/hen.png'
 import man from '../assets/man.png'
 
 
-const BlogCards = () => {
+const Example = () => {
   useEffect(() => {
     AOS.init({ duration: 900, once: true });
   }, []);
@@ -72,4 +72,4 @@ const BlogCards = () => {
   );
 };
 
-export default BlogCards;
+export default Example;

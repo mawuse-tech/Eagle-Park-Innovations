@@ -3,8 +3,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'remixicon/fonts/remixicon.css';
 import HeroCompo from './HeroCompo';
-import BlogCards from './example';
 import CountSection from './CountSection';
+import Example from './Example';
 
 const Hero = () => {
   useEffect(() => {
@@ -34,7 +34,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <BlogCards />
+      <Example/>
       <HeroCompo />
       <CountSection/>
     </div>

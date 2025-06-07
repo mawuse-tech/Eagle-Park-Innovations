@@ -33,14 +33,18 @@ const OurStoryHome = () => {
           </div>
         </div>
 
-        {/* Right Image */}
-        <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center" data-aos="fade-left">
-          <img
-            src={women}
-            alt="Farmers smiling"
-            className="rounded-tl-[60px] rounded-br-[60px] w-full md:w-[90%] object-cover"
-          />
-        </div>
+        <div data-aos="fade-left">
+                           <div className="relative group">
+                               <div className="absolute top-0 left-0 w-full h-full bg-[#021210] rounded-tl-[80px] rounded-br-[80px] opacity-20 -z-10 rotate-2"></div>
+                               <div className="overflow-hidden shadow-2xl border-l-8 border-b-8 border-[#021210] rounded-tl-[80px] rounded-br-[80px] transform hover:scale-105 transition duration-500">
+                                   <img
+                                       src={women}
+                                       alt="Grain Farming"
+                                       className="w-full h-[400px] object-cover"
+                                   />
+                               </div>
+                           </div>
+                       </div>
       </section>
 
       <OurStory/>
