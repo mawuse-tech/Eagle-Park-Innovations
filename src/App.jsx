@@ -7,6 +7,7 @@ import OurStoryHome from './Pages/AboutusPage/OurStoryHome'
 import TrainPage from './Pages/AboutusPage/TrainPage'
 import MissionVision from './Pages/AboutusPage/MissionVission'
 import TeamPage from './Pages/AboutusPage/AboutTeam'
+import GrainHero from './Pages/ServicesPage/GrainPage/GrainHero'
 
 
 const router = createBrowserRouter(([
@@ -37,6 +38,11 @@ const router = createBrowserRouter(([
       {
         path: "train",
         Component: TrainPage
+      },
+
+      {
+        path: "grain",
+        Component: GrainHero
       }
 
     

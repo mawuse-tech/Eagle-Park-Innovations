@@ -38,6 +38,9 @@ const BlogCards = () => {
 
   return (
     <div className="bg-white min-h-screen py-16 px-6 md:px-20">
+      <h1 className="text-3xl md:text-4xl font-bold text-[#002920] text-center mb-12">
+        Our Main Products
+      </h1>
       <div className="grid md:grid-cols-3 gap-8">
         {cards.map((card, index) => (
           <div

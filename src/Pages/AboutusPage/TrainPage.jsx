@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
-import train from '../AboutusPage/train.jpg'
+import train from '../AboutusPage/train2.jpg'
 
 const TrainPage = () => {
     useEffect(() => {
@@ -8,7 +8,7 @@ const TrainPage = () => {
     }, []);
 
     return (
-        <div className="font-sans text-[#06360b]">
+        <div className=" text-[#06360b]">
             {/* Hero Section */}
             <section className="flex flex-col md:flex-row items-center justify-between bg-white text-[#1C8057] px-6 md:px-20 py-16">
                 {/* Left Content */}
