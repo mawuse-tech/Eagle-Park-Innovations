@@ -8,6 +8,8 @@ import TrainPage from './Pages/AboutusPage/TrainPage'
 import MissionVision from './Pages/AboutusPage/MissionVission'
 import TeamPage from './Pages/AboutusPage/AboutTeam'
 import GrainHero from './Pages/ServicesPage/GrainPage/GrainHero'
+import ContactUsPage from './Pages/ContactUsPage/ContactUs'
+import ShopItems from './Pages/ShopPage/ShopItems'
 
 
 const router = createBrowserRouter(([
@@ -43,9 +45,17 @@ const router = createBrowserRouter(([
       {
         path: "grain",
         Component: GrainHero
+      },
+      {
+        path: "contact",
+        Component: ContactUsPage
+      },
+
+      {
+        path: "shop",
+        Component: ShopItems
       }
 
-    
     ]
   }
 

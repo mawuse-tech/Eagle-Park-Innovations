@@ -29,9 +29,9 @@ const Navbar = () => {
                         <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#1C8057] shadow-lg rounded-md min-w-[160px] z-50">
                             <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-yellow-100">About</NavLink>
 
-                           <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Mission/Vission</NavLink>
+                            <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Mission/Vission</NavLink>
 
-                             <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</NavLink>
+                            <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</NavLink>
 
                             <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
                         </div>
@@ -53,14 +53,18 @@ const Navbar = () => {
                     </div>
 
                     <a href="#" className="hover:text-yellow-400">Blog</a>
-                    <a href="#" className="hover:text-yellow-400">Contact Us</a>
+
+                    <NavLink to="/contact" className="hover:text-yellow-400 flex items-center gap-1">
+                        Contact us
+                    </NavLink>
+
                 </div>
 
                 {/* Desktop Button */}
                 <div className="hidden md:flex items-center gap-1 font-medium">
-                    <button className="bg-white hover:bg-green-700 text-green-800 px-6 py-3 text-sm sm:text-base rounded-full">
+                    <NavLink to="/shop"><button className="bg-white hover:bg-green-700 text-green-800 px-6 py-3 text-sm sm:text-base rounded-full">
                         Shop Now <i className="ri-arrow-right-line"></i>
-                    </button>
+                    </button></NavLink>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -90,9 +94,9 @@ const Navbar = () => {
 
                                 <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-yellow-100">Mission/Vission</NavLink>
 
-                              <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</NavLink>
+                                <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</NavLink>
 
-                              <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
+                                <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
                             </div>
                         )}
                     </div>
