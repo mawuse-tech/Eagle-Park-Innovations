@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
 
     return (
-        <nav className="bg-[#021210] text-white px-4 font-oswald sticky top-0 z-50">
+        <nav className="bg-[#002920] text-[#ede8d0] px-4 font-oswald sticky top-0 z-50">
             <div className="container mx-auto flex items-center justify-between flex-wrap ">
 
                 {/* Logo */}
@@ -26,14 +26,14 @@ const Navbar = () => {
 
                         <NavLink> About Us <i className="ri-arrow-down-s-line text-sm"></i></NavLink>
 
-                        <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#1C8057] shadow-lg rounded-md min-w-[160px] z-50">
-                            <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-yellow-100">About</NavLink>
+                        <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-[#ede8d0] text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
+                            <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-white">About</NavLink>
 
-                            <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Mission/Vission</NavLink>
+                            <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-white">Our Mission/Vission</NavLink>
 
-                            <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</NavLink>
+                            <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-white">Our Team</NavLink>
 
-                            <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
+                            <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-white">Our Trainings</NavLink>
                         </div>
                     </div>
 
@@ -43,12 +43,12 @@ const Navbar = () => {
                             Products <i className="ri-arrow-down-s-line text-sm"></i>
                         </NavLink>
 
-                        <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#1C8057] shadow-lg rounded-md min-w-[160px] z-50">
+                        <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-[#ede8d0] text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
 
-                            <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-yellow-100">Grain Page</NavLink>
+                            <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-white">Grain Page</NavLink>
 
-                            <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Poultry Products</a>
-                            <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Certified Seeds</a>
+                            <a href="#" className="px-4 py-2 text-sm hover:bg-white">Poultry Products</a>
+                            <a href="#" className="px-4 py-2 text-sm hover:bg-white">Certified Seeds</a>
                         </div>
                     </div>
 
@@ -61,8 +61,8 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Button */}
-                <div className="hidden md:flex items-center gap-1 font-medium">
-                    <NavLink to="/shop"><button className="bg-white hover:bg-green-700 text-green-800 px-6 py-3 text-sm sm:text-base rounded-full">
+                <div className="hidden md:flex items-center gap-1 font-medium ">
+                    <NavLink to="/shop"><button className="bg-[#ede8d0] hover:bg-green-700 text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full">
                         Shop Now <i className="ri-arrow-right-line"></i>
                     </button></NavLink>
                 </div>
@@ -70,7 +70,7 @@ const Navbar = () => {
                 {/* Mobile Menu Toggle */}
                 <div className="md:hidden ml-auto">
                     <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                        <i className="ri-menu-line text-5xl text-white"></i>
+                        <i className="ri-menu-line text-5xl text-[#ede8d0]"></i>
                     </button>
                 </div>
             </div>
@@ -89,14 +89,14 @@ const Navbar = () => {
                             About Us <i className="ri-arrow-down-s-line text-sm"></i>
                         </button>
                         {isMobileAboutOpen && (
-                            <div className="flex flex-col bg-white text-[#1C8057] shadow-lg rounded-md mt-1">
-                                <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Story</NavLink>
+                            <div className="flex flex-col bg-[#ede8d0] text-[#002920] shadow-lg rounded-md mt-1">
+                                <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-white">Our Story</NavLink>
 
-                                <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-yellow-100">Mission/Vission</NavLink>
+                                <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-white">Mission/Vission</NavLink>
 
-                                <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Team</NavLink>
+                                <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-white">Our Team</NavLink>
 
-                                <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-yellow-100">Our Trainings</NavLink>
+                                <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-white">Our Trainings</NavLink>
                             </div>
                         )}
                     </div>
@@ -110,10 +110,10 @@ const Navbar = () => {
                             Products <i className="ri-arrow-down-s-line text-sm"></i>
                         </button>
                         {isMobileProductsOpen && (
-                            <div className="flex flex-col bg-white text-[#1C8057] shadow-lg rounded-md mt-1">
-                                <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Grains</a>
-                                <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Poultry Products</a>
-                                <a href="#" className="px-4 py-2 text-sm hover:bg-yellow-100">Certified Seeds</a>
+                            <div className="flex flex-col bg-[#ede8d0] text-[#002920] shadow-lg rounded-md mt-1">
+                                <a href="#" className="px-4 py-2 text-sm hover:bg-white">Grains</a>
+                                <a href="#" className="px-4 py-2 text-sm hover:bg-white">Poultry Products</a>
+                                <a href="#" className="px-4 py-2 text-sm hover:bg-white">Certified Seeds</a>
                             </div>
                         )}
                     </div>
@@ -122,7 +122,7 @@ const Navbar = () => {
                     <a href="#" className="hover:text-yellow-400">Contact Us</a>
 
                     <div className="mt-2">
-                        <button className="bg-yellow-400 hover:bg-yellow-500 text-[#1C8057] px-4 py-2 rounded-lg shadow-sm font-semibold w-full">
+                        <button className="bg-[#ede8d0] hover:bg-yellow-500 text-[#002920] px-4 py-2 rounded-lg shadow-sm font-semibold w-full">
                             Shop
                         </button>
                     </div>

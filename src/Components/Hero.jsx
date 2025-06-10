@@ -48,11 +48,11 @@ const Hero = () => {
             data-aos-delay="100"
           >
             Transforming the World<br />
-            <span className="text-[#1C8057]">Through Agriculture</span>
+            <span className="text-[#ede8d0]">Through Agriculture</span>
           </h1>
 
           <p
-            className="text-sm md:text-lg text-gray-200 mb-8 leading-relaxed"
+            className="text-sm md:text-lg text-[#ede8d0] mb-8 leading-relaxed"
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -64,9 +64,11 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <button className="bg-green-800 hover:bg-green-700 text-white px-6 py-3 text-sm rounded-full transition">
-              Get Started <i className="ri-arrow-right-line ml-1"></i>
-            </button>
+            <div className="hidden md:flex items-center gap-1 font-medium ">
+              <button className="bg-[#ede8d0] hover:bg-green-700 text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full">
+                Learn More <i className="ri-arrow-right-line"></i>
+              </button>
+            </div>
           </div>
         </div>
       </section>

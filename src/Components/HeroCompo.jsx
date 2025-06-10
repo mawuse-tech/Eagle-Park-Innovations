@@ -50,7 +50,7 @@ const promoCardsData = [
 
 export default function HeroCompo() {
   return (
-    <section className="bg-[#021210] py-16 px-4 md:px-10 overflow-visible">
+    <section className="bg-[#002920] py-16 px-4 md:px-10 overflow-visible">
       <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
         Navigate Our Pages
       </h1>
