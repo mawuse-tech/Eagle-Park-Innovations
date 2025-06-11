@@ -68,7 +68,7 @@ export default function HeroCompo() {
         >
           {promoCardsData.map((card) => (
             <SwiperSlide key={card.id}>
-              <div className="flex flex-col md:flex-row items-center justify-between border border-gray-200 rounded-xl p-8 shadow-lg min-h-[350px] bg-white">
+              <div className="flex flex-col md:flex-row items-center justify-between border border-gray-200 rounded-xl p-8 shadow-lg min-h-[350px] bg-[#f4f4f4]">
                 {/* Left Content */}
                 <div className="flex-1 mb-6 md:mb-0">
                   <div className="bg-yellow-300 text-gray-800 inline-block px-4 py-1 rounded-full text-sm mb-4">

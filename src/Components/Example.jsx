@@ -30,7 +30,7 @@ const Example = () => {
   ];
 
   return (
-    <div className="bg-[#ede8d0]  py-16 px-6 md:px-20">
+    <div className="bg-[#f4f4f4] py-16 px-6 md:px-20">
       <h1 className="text-3xl md:text-4xl font-bold text-[#002920] text-center mb-12">
         Our Main Products
       </h1>
@@ -43,11 +43,11 @@ const Example = () => {
             className="bg-[#002920] shadow-lg"
           >
             
-            <div className="p-6 text-[#ede8d0]">
+            <div className="p-6 text-white">
               <h3 className="text-lg md:text-xl font-semibold leading-tight mb-3">
                 {card.title}
               </h3>
-              <p className="text-sm text-[#ede8d0] mb-4">{card.text}</p>
+              <p className="text-sm text-white mb-4">{card.text}</p>
               <div className="flex items-center gap-1 text-[#e5bf4a] text-sm font-semibold cursor-pointer hover:underline">
                 Learn more <RiArrowRightSLine className="text-lg" />
               </div>
