@@ -32,8 +32,6 @@ const Navbar = () => {
                             <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Mission/Vission</NavLink>
 
                             <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Team</NavLink>
-
-                            <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Trainings</NavLink>
                         </div>
                     </div>
 
@@ -52,7 +50,7 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <a href="#" className="hover:text-yellow-400">Blog</a>
+                  <NavLink to="/train">Training</NavLink>
 
                     <NavLink to="/contact" className="hover:text-yellow-400 flex items-center gap-1">
                         Contact us

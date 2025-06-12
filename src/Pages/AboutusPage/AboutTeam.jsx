@@ -72,7 +72,7 @@ const TeamPage = () => {
   }, []);
 
   return (
-    <div className="py-16 px-6 md:px-20 bg-white text-[#06360b]">
+    <div className="py-16 px-6 md:px-20 bg-white text-[#002920]">
       <div className="text-center mb-12" data-aos="fade-up">
         <h2 className="text-3xl md:text-4xl font-bold">Meet Our Dedicated Team</h2>
         <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
@@ -95,7 +95,7 @@ const TeamPage = () => {
             <div className="p-6 text-center">
               <h3 className="text-xl font-semibold">{member.name}</h3>
               <p className="text-green-800 text-sm mb-4">{member.role}</p>
-              <div className="flex justify-center space-x-4 text-xl text-green-700">
+              <div className="flex justify-center space-x-4 text-xl text-[#002920]">
                 <a href={member.socials.linkedin} target="_blank" rel="noreferrer">
                   <i className="ri-linkedin-box-line hover:text-green-900"></i>
                 </a>

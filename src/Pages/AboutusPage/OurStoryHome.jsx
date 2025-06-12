@@ -14,19 +14,19 @@ const OurStoryHome = () => {
 
   return (
     <div>
-      <section className="flex flex-col md:flex-row items-center justify-between bg-white text-[#1C8057] px-6 md:px-20 py-16">
+      <section className="flex flex-col md:flex-row items-center justify-between bg-white text-[#002920] px-6 md:px-20 py-16">
         {/* Left Content */}
         <div className="md:w-1/2" data-aos="fade-right">
           <p className="text-yellow-400 font-medium mb-3">🌾 OUR STORY</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Discover the <span className="text-[#1C8057]">future</span> of agriculture
+            Discover the future of agriculture
           </h1>
-          <p className="text-black mb-6">
+          <p className="text-gray-600 mb-6">
             We specialize in seed production, poultry farming, grain processing,
             and agricultural education to empower the next generation of farmers.
           </p>
           <div className="flex items-center gap-4">
-            <button className="bg-[#1C8057] hover:bg-green-600 text-white font-semibold px-5 py-3 rounded-full">
+            <button className="bg-[#002920] hover:bg-green-600 text-white font-semibold px-5 py-3 rounded-full">
               Read More →
             </button>
 

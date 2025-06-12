@@ -64,13 +64,13 @@ export default function HeroCompo() {
                   <div className="bg-yellow-300 text-gray-800 inline-block px-4 py-1 rounded-full text-sm mb-4">
                     {card.discount}
                   </div>
-                  <h2 className="text-3xl font-bold mb-3">{card.title}</h2>
+                  <h2 className="text-3xl font-bold mb-3 text-[#002920]">{card.title}</h2>
 
                   <p className="text-gray-600 mb-6 max-w-md">{card.description}</p>
 
-                  <div className="hidden md:flex items-center gap-1 font-medium ">
+                  <div className="flex items-center gap-1 font-medium ">
                     <NavLink to="/shop"><button className="bg-[#002920] hover:bg-[#213b35] text-white px-6 py-3 text-sm sm:text-base rounded-full">
-                      Viwe Page <i className="ri-arrow-right-line"></i>
+                      View Page <i className="ri-arrow-right-line"></i>
                     </button></NavLink>
                   </div>
                 </div>

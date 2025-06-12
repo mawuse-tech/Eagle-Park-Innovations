@@ -16,7 +16,7 @@ const Footer = () => {
       >
         {/* About */}
         <div data-aos="fade-up" data-aos-delay="100">
-          <h2 className="text-xl font-semibold mb-4">AgroFuture</h2>
+          <h2 className="text-xl font-semibold mb-4">Eagle Park Innovations</h2>
           <p className="text-sm leading-relaxed">
             Building a sustainable future through smart farming, innovative tools, and community-driven agriculture.
           </p>
@@ -37,9 +37,10 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="300">
           <h2 className="text-lg font-semibold mb-4">Contact</h2>
           <ul className="text-sm space-y-2">
-            <li><i className="ri-map-pin-line mr-2"></i> 123 Green Farm Rd, Accra</li>
-            <li><i className="ri-phone-line mr-2"></i> +233 20 000 0000</li>
-            <li><i className="ri-mail-line mr-2"></i> hello@agrofuture.com</li>
+            <li><i className="ri-map-pin-line mr-2 "></i>Seeds/Grains: Nyankpala, North</li>
+            <li><i className="ri-map-pin-line mr-2 "></i>Poutry: Ankaase. Asante Region</li>
+            <li><i className="ri-phone-line mr-2"></i> +233 244175741</li>
+            <li><i className="ri-mail-line mr-2"></i>eagleparkinnovations@yahoo.com</li>
           </ul>
         </div>
 
@@ -61,7 +62,7 @@ const Footer = () => {
         data-aos="fade-up"
         data-aos-delay="500"
       >
-        &copy; {new Date().getFullYear()} AgroFuture. All rights reserved.
+        &copy; {new Date().getFullYear()} EagleParkInn. All rights reserved.
       </div>
     </footer>
   );

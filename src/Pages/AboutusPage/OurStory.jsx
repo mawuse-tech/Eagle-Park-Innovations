@@ -9,16 +9,17 @@ const OurStory = () => {
   }, []);
 
   return (
-    <section className="bg-white text-gray-800 py-16 px-6 md:px-20">
+    <section className="bg-[#f4f4f4] text-[#002920] py-16 px-6 md:px-20">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
         <div data-aos="fade-right">
-          <h2 className="text-4xl font-bold mb-4 text-green-700">Our Story</h2>
+          <h2 className="text-4xl font-bold mb-4 text-[#002920]">Our Story</h2>
           <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-            For over a decade, we’ve nurtured the soil, empowered communities, and built sustainable agricultural systems. Our journey began with a small seed — a passion for farming — and has grown into a movement.
+            Despite Ghana’s abundant arable land, food insecurity remains a critical issue due to low farm productivity and heavy reliance on imported staples. Farmers, especially women and youth, face limited access to quality seeds, poor soil health, inadequate extension services, and the growing threat of climate change. These challenges have left many communities vulnerable, with the COVID-19 pandemic further exposing the fragility of external food supply chains.
           </p>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Today, we specialize in high-quality seed production, poultry farming, and grain cultivation. Beyond farming, we are also educating the next generation of agriculturists with hands-on training and innovation.
+           Eagle Park Innovations Limited was founded on May 27, 2020, to respond to these challenges with homegrown solutions. Rooted in local farming communities, we develop innovative, sustainable practices that increase productivity and empower farmers. Our mission is to secure Ghana’s food future by promoting resilience, equity, and self-reliance in agriculture.
+
           </p>
         </div>
 

@@ -36,7 +36,7 @@ const GrainMain = () => {
     return (
         <div>
 
-            <section className="relative w-full bg-[#021210] pt-0 pb-20 px-4 md:px-16 overflow-hidden">
+            <section className="relative w-full bg-[#002920] pt-0 pb-20 px-4 md:px-16 overflow-hidden">
 
                 {/* Simple Wavy Top Shape */}
                 <div className="absolute top-0 left-0 w-full overflow-hidden z-10">
