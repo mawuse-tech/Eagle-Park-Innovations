@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import poultry from "../PoutryPage/poultryLady.jpg";
+import PoultryMainSec from './PoultryMainSec';
 // import GrainMain from './GrainMainSec';
 
 const PoultryHero = () => {
@@ -16,10 +17,11 @@ const PoultryHero = () => {
                 {/* Text Section */}
                 <div data-aos="fade-right" className="space-y-6">
                     <h1 className="text-4xl md:text-5xl font-extrabold text-[#002920] leading-tight">
-                        Grain is Life,<br /> Let’s Grow It Right
+                        Quality Poultry for<br /> Every Home
                     </h1>
                     <p className="text-gray-600 text-base md:text-lg">
-                        We specialize in the production, packaging, and export of premium grains. Empowering local farmers while feeding the world.
+                        We provide healthy, farm-raised poultry and fresh eggs to support nutrition, income, and sustainable farming across Ghana.
+
                     </p>
                     <div className="flex gap-4">
                         <button className="bg-[#002920] text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
@@ -46,7 +48,7 @@ const PoultryHero = () => {
                 </div>
             </div>
 
-          
+          <PoultryMainSec/>
         </section>
     );
 };
