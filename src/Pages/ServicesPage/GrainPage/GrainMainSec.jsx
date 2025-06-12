@@ -1,29 +1,31 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import grainLady from "../GrainPage/grainLady.jpg"
-import GrainCouter from './GrainCounter';
+import grain from "../GrainPage/maizegrain.jpg";
+import soy from "../GrainPage/soy.jpg";
+import millet from "../GrainPage/millet.avif";
+import rice from "../GrainPage/rice.jpg";
 import GrainCounter from './GrainCounter';
 
 const grains = [
     {
         name: 'Maize',
-        image: grainLady,
+        image: grain,
         description: 'Maize is a versatile grain used for food, feed, and fuel. It thrives in many climates and is a staple for millions.',
     },
     {
         name: 'Millet',
-        image: grainLady,
+        image: millet,
         description: 'Millet is a resilient cereal ideal for dry regions. Rich in nutrients, it’s perfect for porridge and local dishes.',
     },
     {
         name: 'Rice',
-        image: grainLady,
+        image: rice,
         description: 'Rice is a major global food crop grown in flooded fields. It provides essential calories for over half the world.',
     },
     {
-        name: 'Sorghum',
-        image: grainLady,
+        name: 'SoyBeans',
+        image: soy,
         description: 'Sorghum is drought-tolerant and packed with nutrients. It’s used in food, beverages, and animal feed.',
     },
 ];
@@ -76,8 +78,8 @@ const GrainMain = () => {
                                 className="h-48 w-full object-cover"
                             />
                             <div className="p-5 space-y-3">
-                                <h3 className="text-xl font-semibold text-green-800">{grain.name}</h3>
-                                <p className="text-gray-700 text-sm">{grain.description}</p>
+                                <h3 className="text-xl font-semibold text-[#002920]">{grain.name}</h3>
+                                <p className="text-gray-600 text-sm">{grain.description}</p>
                             </div>
                         </div>
                     ))}

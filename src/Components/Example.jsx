@@ -14,7 +14,7 @@ const Example = () => {
 
   const cards = [
     {
-      title: 'Premium Maize and Soyabean Grains',
+      title: 'Premium Maize and Soybean Grains',
       text: 'At the heart of our grain offerings are premium-quality maize and soyabean grains, carefully cultivated using sustainable farming practices.',
     },
     {
