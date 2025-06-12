@@ -11,6 +11,7 @@ import GrainHero from './Pages/ServicesPage/GrainPage/GrainHero'
 import ContactUsPage from './Pages/ContactUsPage/ContactUs'
 import ShopItems from './Pages/ShopPage/ShopItems'
 import PoultryHero from './Pages/ServicesPage/PoutryPage/PoultryHero'
+import SeedHero from './Pages/ServicesPage/SeedsPage/SeedHero'
 
 
 const router = createBrowserRouter(([
@@ -60,6 +61,11 @@ const router = createBrowserRouter(([
       {
         path: "poultry",
         Component: PoultryHero
+      },
+
+      {
+        path: "seed",
+        Component: SeedHero
       }
 
     ]
