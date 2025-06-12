@@ -5,7 +5,7 @@ import 'remixicon/fonts/remixicon.css';
 import HeroCompo from './HeroCompo';
 import CountSection from './CountSection';
 import Example from './Example';
-import hen from '../assets/hen.png';
+import hen from '../assets/heneggs.jpeg';
 import corn from '../assets/corn.webp';
 import soyabeans from '../assets/soyabeans.jpg';
 

@@ -8,43 +8,33 @@ import "swiper/css/autoplay";
 import farm from '../assets/corn.webp'
 import hens from '../assets/hens.jpg'
 import seeds from '../assets/seeds.jpg'
+import { NavLink } from "react-router";
 
 const promoCardsData = [
   {
     id: 1,
-    discount: "Flat 20% Discount",
-    title: "Purely Fresh Vegetables",
+    title: "Grains Page",
     description:
-      "Sourced from trusted local farms — rich in nutrients, naturally grown, and freshly harvested for your health.",
-    buttonText: "Shop Now →",
+      "Discover our premium selection of grains including maize, millet and sorghum",
     imageSrc: farm,
     imageAlt: "basket of vegetables",
-    bgColor: "bg-green-700",
-    hoverBgColor: "hover:bg-green-800",
+
   },
   {
     id: 2,
-    discount: "Save 15% Today",
-    title: "Organic Fruits Basket",
+    title: "Poultry Page",
     description:
-      "Handpicked organic fruits to nourish your body and delight your taste buds every day.",
-    buttonText: "Buy Fruits →",
+      "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost.",
     imageSrc: hens,
     imageAlt: "basket of fruits",
-    bgColor: "bg-red-600",
-    hoverBgColor: "hover:bg-red-700",
   },
   {
     id: 3,
-    discount: "Free Delivery",
-    title: "Farm Fresh Dairy",
+    title: "Seeds Page",
     description:
-      "Milk, cheese, and other dairy products delivered fresh from the farm to your doorstep.",
-    buttonText: "Order Dairy →",
+      "Discover our range of climate-smart certified seeds designed to thrive in diverse conditions.",
     imageSrc: seeds,
     imageAlt: "basket of dairy products",
-    bgColor: "bg-blue-700",
-    hoverBgColor: "hover:bg-blue-800",
   },
 ];
 
@@ -75,12 +65,14 @@ export default function HeroCompo() {
                     {card.discount}
                   </div>
                   <h2 className="text-3xl font-bold mb-3">{card.title}</h2>
+
                   <p className="text-gray-600 mb-6 max-w-md">{card.description}</p>
-                  <button
-                    className={`${card.bgColor} text-white px-6 py-3 rounded-full transition ${card.hoverBgColor}`}
-                  >
-                    {card.buttonText}
-                  </button>
+
+                  <div className="hidden md:flex items-center gap-1 font-medium ">
+                    <NavLink to="/shop"><button className="bg-[#002920] hover:bg-[#213b35] text-white px-6 py-3 text-sm sm:text-base rounded-full">
+                      Viwe Page <i className="ri-arrow-right-line"></i>
+                    </button></NavLink>
+                  </div>
                 </div>
 
                 {/* Right Image */}
