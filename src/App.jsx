@@ -10,6 +10,7 @@ import TeamPage from './Pages/AboutusPage/AboutTeam'
 import GrainHero from './Pages/ServicesPage/GrainPage/GrainHero'
 import ContactUsPage from './Pages/ContactUsPage/ContactUs'
 import ShopItems from './Pages/ShopPage/ShopItems'
+import PoultryHero from './Pages/ServicesPage/PoutryPage/PoultryHero'
 
 
 const router = createBrowserRouter(([
@@ -54,6 +55,11 @@ const router = createBrowserRouter(([
       {
         path: "shop",
         Component: ShopItems
+      },
+
+      {
+        path: "poultry",
+        Component: PoultryHero
       }
 
     ]

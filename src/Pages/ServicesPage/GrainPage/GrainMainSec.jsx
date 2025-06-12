@@ -5,7 +5,7 @@ import grain from "../GrainPage/maizegrain.jpg";
 import soy from "../GrainPage/soy.jpg";
 import millet from "../GrainPage/millet.avif";
 import rice from "../GrainPage/rice.jpg";
-import GrainCounter from './GrainCounter';
+import CountSection from '../../../Components/CountSection';
 
 const grains = [
     {
@@ -86,7 +86,7 @@ const GrainMain = () => {
                 </div>
             </section>
 
-              <GrainCounter/>
+              <CountSection/>
 
         </div>
     );

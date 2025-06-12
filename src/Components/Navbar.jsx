@@ -45,7 +45,8 @@ const Navbar = () => {
 
                             <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Grain Page</NavLink>
 
-                            <a href="#" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</a>
+                             <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Page</NavLink>
+
                             <a href="#" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified Seeds</a>
                         </div>
                     </div>
