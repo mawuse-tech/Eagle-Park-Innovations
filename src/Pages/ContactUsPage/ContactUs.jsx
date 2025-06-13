@@ -13,37 +13,37 @@ const ContactUsPage = () => {
         
         {/* Text and Info Section */}
         <div data-aos="fade-right">
-          <h2 className="text-4xl font-extrabold text-green-800 mb-4">
+          <h2 className="text-4xl font-extrabold text-[#002920] mb-4">
             Contact Us
           </h2>
           <p className="text-gray-700 text-lg mb-6">
             Got a question, want to register for a class, or collaborate with us? Reach out—we’d love to hear from you!
           </p>
 
-          <ul className="text-gray-800 space-y-4 text-sm">
-            <li><i className="ri-map-pin-line mr-2 text-green-800"></i> 123 Farm Road, Accra, Ghana</li>
-            <li><i className="ri-phone-line mr-2 text-green-800"></i> +233 20 000 0000</li>
-            <li><i className="ri-mail-line mr-2 text-green-800"></i> info@agrofuture.com</li>
+          <ul className="text-gray-600 space-y-4 text-sm">
+            <li><i className="ri-map-pin-line mr-2 text-[#002920]"></i> 123 Farm Road, Accra, Ghana</li>
+            <li><i className="ri-phone-line mr-2 text-[#002920]"></i> +233 20 000 0000</li>
+            <li><i className="ri-mail-line mr-2 text-[#002920]"></i> info@agrofuture.com</li>
           </ul>
         </div>
 
         {/* Form Section */}
         <div data-aos="fade-left">
-          <form className="bg-green-50 p-6 md:p-8 rounded-xl shadow-lg space-y-4">
+          <form className="bg-[#f4f4f4] p-6 md:p-8 rounded-xl shadow-lg space-y-4">
             <div>
-              <label className="block text-sm font-medium text-green-900 mb-1">Full Name</label>
+              <label className="block text-sm font-medium text-[#002920] mb-1">Full Name</label>
               <input
                 type="text"
-                className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-700"
+                className="w-full px-4 py-2 border border-[#002920] rounded focus:outline-none focus:ring-2 focus:ring-[#002920]"
                 placeholder="John Doe"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-green-900 mb-1">Email Address</label>
+              <label className="block text-sm font-medium text-[#002920] mb-1">Email Address</label>
               <input
                 type="email"
-                className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-700"
+                className="w-full px-4 py-2 border border-[#002920] rounded focus:outline-none focus:ring-2 focus:ring-green-700"
                 placeholder="john@example.com"
               />
             </div>
