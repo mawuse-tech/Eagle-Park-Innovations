@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
 
     return (
-        <nav className="bg-[#002920] text-white px-4 font-oswald sticky top-0 z-50">
+        <nav className="bg-green-900/90 text-white px-4 font-oswald sticky top-0 z-50">
             <div className="container mx-auto flex items-center justify-between flex-wrap ">
 
                 {/* Logo */}
@@ -61,7 +61,7 @@ const Navbar = () => {
 
                 {/* Desktop Button */}
                 <div className="hidden md:flex items-center gap-1 font-medium ">
-                    <NavLink to="/shop"><button className="bg-white hover:bg-[#ede8d0] text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full">
+                    <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-[#ede8d0] text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full">
                         Shop Now <i className="ri-arrow-right-line"></i>
                     </button></NavLink>
                 </div>

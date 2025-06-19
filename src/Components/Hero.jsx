@@ -5,15 +5,18 @@ import 'remixicon/fonts/remixicon.css';
 import HeroCompo from './HeroCompo';
 import CountSection from './CountSection';
 import Example from './Example';
-import hen from '../assets/heneggs.jpeg';
-import corn from '../assets/corn.webp';
-import soyabeans from '../assets/soyabeans.jpg';
+import maizefarm from '../assets/cornharvest.jpg';
+import happyfarmers from '../assets/happy-farm.jpg';
+import poultry from '../assets/poultry.jpg';
+import seeds from '../assets/seed.jpg';
 
 
 const images = [
-  corn,
-  soyabeans,
-  hen,
+  happyfarmers,
+  seeds,
+  maizefarm,
+  poultry,
+
 ];
 
 const Hero = () => {
@@ -38,21 +41,24 @@ const Hero = () => {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[#021210de] z-0"></div>
+        <div className="absolute inset-0 bg-[#0212107e] z-0"></div>
 
-        {/* Hero Text */}
-        <div className="relative z-10 max-w-3xl text-white" data-aos="fade-up">
+        {/* Stylish Green Text Container */}
+        <div
+          className="relative z-10 max-w-3xl w-full md:w-2/3 bg-green-900/60 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-white shadow-lg"
+          data-aos="fade-up"
+        >
           <h1
             className="text-3xl md:text-5xl font-bold mb-4 leading-tight"
             data-aos="fade-up"
             data-aos-delay="100"
           >
             Transforming the World<br />
-            <span className="text-white">Through Agriculture</span>
+            <span className="text-yellow-300">Through Agriculture</span>
           </h1>
 
           <p
-            className="text-sm md:text-lg text-white mb-8 leading-relaxed"
+            className="text-sm md:text-lg text-green-100 mb-8 leading-relaxed"
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -60,18 +66,17 @@ const Hero = () => {
           </p>
 
           <div
-            className="hidden md:flex items-center gap-2 font-medium"
+            className="flex items-center gap-2 font-medium"
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <div className="hidden md:flex items-center gap-1 font-medium ">
-              <button className="bg-white hover:bg-green-700 text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full">
-                Learn More <i className="ri-arrow-right-line"></i>
-              </button>
-            </div>
+            <button className="bg-white hover:bg-green-600 text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full transition">
+              Learn More <i className="ri-arrow-right-line ml-1"></i>
+            </button>
           </div>
         </div>
       </section>
+
 
       <Example />
       <HeroCompo />
