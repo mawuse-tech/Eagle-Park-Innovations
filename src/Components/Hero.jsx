@@ -9,6 +9,7 @@ import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import poultry from '../assets/poultry.jpg';
 import seeds from '../assets/bowlseeds.jpg';
+import Scroll from './scroll';
 
 
 const images = [
@@ -77,10 +78,8 @@ const Hero = () => {
         </div>
       </section>
 
-
-      <Example />
-      <HeroCompo />
-      <CountSection />
+       <Scroll />
+      
     </div>
   );
 };
