@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'remixicon/fonts/remixicon.css';
-import HeroCompo from './HeroCompo';
-import CountSection from './CountSection';
 import Example from './Example';
 import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import poultry from '../assets/poultry.jpg';
 import seeds from '../assets/bowlseeds.jpg';
-import Scroll from './scroll';
+import Fixed from './Fixed';
+
 
 
 const images = [
@@ -78,7 +77,7 @@ const Hero = () => {
         </div>
       </section>
 
-       <Scroll />
+      <Fixed/>
       
     </div>
   );

@@ -4,7 +4,7 @@ import HeroCompo from './HeroCompo';
 import CountSection from './CountSection';
 import Example from './Example';
 
-const Scroll = () => {
+const Fixed = () => {
     return (
         <div>
             <section>
@@ -27,7 +27,7 @@ const Scroll = () => {
                     data-aos-duration="1000"
                 >
                     <h1 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-                        Join our Training and <span className="text-green-400">Consultancy Hub</span>
+                        Join our Training and <span className="text-green-700">Consultancy Hub</span>
                     </h1>
 
                     <p className="text-base md:text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
@@ -54,4 +54,4 @@ const Scroll = () => {
     )
 }
 
-export default Scroll
+export default Fixed
