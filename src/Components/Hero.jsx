@@ -8,7 +8,7 @@ import Example from './Example';
 import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.png';
 import poultry from '../assets/poultry.jpg';
-import seeds from '../assets/seed.png';
+import seeds from '../assets/bowlseeds.png';
 
 
 const images = [
