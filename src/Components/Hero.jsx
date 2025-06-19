@@ -6,7 +6,7 @@ import HeroCompo from './HeroCompo';
 import CountSection from './CountSection';
 import Example from './Example';
 import maizefarm from '../assets/cornharvest.jpg';
-import happyfarmers from '../assets/happy-farm.jpg';
+import happyfarmers from '../assets/happy-farm.png';
 import poultry from '../assets/poultry.jpg';
 import seeds from '../assets/seed.jpg';
 
