@@ -28,7 +28,7 @@ const Example = () => {
   return (
     <div className="bg-[#f4f4f4] py-16 px-6 md:px-20">
       <h1 className="text-3xl md:text-4xl font-bold text-[#002920] text-center mb-12">
-        Our Main Products
+        Main Products And Services
       </h1>
       <div className="grid md:grid-cols-3 gap-8">
         {cards.map((card, index) => (
@@ -36,15 +36,14 @@ const Example = () => {
             key={index}
             data-aos="fade-up"
             data-aos-delay={index * 200}
-            className="bg-[#002920] shadow-lg"
+            className="bg-white shadow-md hover:shadow-lg rounded-lg border border-gray-200 transition duration-300"
           >
-            
-            <div className="p-6 text-white">
+            <div className="p-6 text-[#002920]">
               <h3 className="text-lg md:text-xl font-semibold leading-tight mb-3">
                 {card.title}
               </h3>
-              <p className="text-sm text-white mb-4">{card.text}</p>
-              <div className="flex items-center gap-1 text-[#e5bf4a] text-sm font-semibold cursor-pointer hover:underline">
+              <p className="text-sm text-gray-700 mb-4">{card.text}</p>
+              <div className="flex items-center gap-1 text-green-700 text-sm font-semibold cursor-pointer hover:underline">
                 Learn more <RiArrowRightSLine className="text-lg" />
               </div>
             </div>
