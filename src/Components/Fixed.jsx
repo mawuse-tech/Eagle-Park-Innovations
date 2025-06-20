@@ -1,8 +1,8 @@
 import React from 'react';
 import happyfarmers from '../assets/singlefarmer.jpg';
 import HeroCompo from './HeroCompo';
-import CountSection from './CountSection';
 import Example from './Example';
+import PartnersPage from './PartnersPage';
 
 const Fixed = () => {
     return (
@@ -46,7 +46,7 @@ const Fixed = () => {
                     <HeroCompo />
                 </div>
                 <div>
-                    <CountSection />
+                    <PartnersPage/>
                 </div>
             </section>
 
