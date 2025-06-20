@@ -8,34 +8,45 @@ import "swiper/css/autoplay";
 import farm from '../assets/corn.webp'
 import hens from '../assets/hens.jpg'
 import seeds from '../assets/seeds.jpg'
+import trainfarm from '../assets/trainfarm.jpg'
 import { NavLink } from "react-router";
 
 const promoCardsData = [
   {
     id: 1,
-    title: "Grains Page",
-    description:
-      "Discover our premium selection of grains including maize, millet and sorghum",
-    imageSrc: farm,
-    imageAlt: "basket of vegetables",
-
-  },
-  {
-    id: 2,
-    title: "Poultry Page",
-    description:
-      "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost.",
-    imageSrc: hens,
-    imageAlt: "basket of fruits",
-  },
-  {
-    id: 3,
-    title: "Seeds Page",
+    title: "  Certified Seeds",
     description:
       "Discover our range of climate-smart certified seeds designed to thrive in diverse conditions.",
     imageSrc: seeds,
-    imageAlt: "basket of dairy products",
+    imageAlt: "seeds page",
   },
+  {
+    id: 2,
+    title: "Poultry Products",
+    description:
+      "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost.",
+    imageSrc: hens,
+    imageAlt: "poultry page",
+  },
+  {
+    id: 3,
+    title: "Premium Grains",
+    description:
+      "Discover our premium selection of grains including maize, millet and sorghum",
+    imageSrc: farm,
+    imageAlt: "grain page",
+
+  },
+  {
+    id: 4,
+    title: "Training and consultancy Hub",
+    description:
+      "Discover our premium selection of grains including maize, millet and sorghum",
+    imageSrc: trainfarm,
+    imageAlt: "training page",
+
+  },
+
 ];
 
 export default function HeroCompo() {
@@ -65,13 +76,13 @@ export default function HeroCompo() {
                     {card.discount}
                   </div>
 
-                  <h2 className="text-3xl font-bold mb-3 text-[#002920]">{card.title}</h2>
+                  <h2 className="text-3xl font-bold mb-3 text-green-900">{card.title}</h2>
 
                   <p className="text-gray-700 mb-6 max-w-md">{card.description}</p>
 
                   <div className="flex items-center gap-1 font-medium">
                     <NavLink to="/shop">
-                      <button className="bg-[#002920] hover:bg-[#213b35] text-white px-6 py-3 text-sm sm:text-base rounded-full">
+                      <button className="bg-green-900 hover:bg-[#213b35] text-white px-6 py-3 text-sm sm:text-base rounded-full">
                         View Page <i className="ri-arrow-right-line"></i>
                       </button>
                     </NavLink>

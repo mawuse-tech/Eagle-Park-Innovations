@@ -1,5 +1,5 @@
 import React from 'react';
-import happyfarmers from '../assets/happy-farm.jpg';
+import happyfarmers from '../assets/singlefarmer.jpg';
 import HeroCompo from './HeroCompo';
 import CountSection from './CountSection';
 import Example from './Example';
@@ -18,7 +18,7 @@ const Fixed = () => {
                 style={{ backgroundImage: `url(${happyfarmers})` }}
             >
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-[#0212107e] z-0"></div>
+                <div className="absolute inset-0 bg-[#0212108a] z-0"></div>
 
                 {/* Content */}
                 <div
@@ -31,10 +31,10 @@ const Fixed = () => {
                     </h1>
 
                     <p className="text-base md:text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-                        Learn directly from experienced farmers and agricultural professionals. Whether you’re a beginner or looking to improve your skills, our classes are designed to empower and transform your farming journey.
+                        Learn directly from experienced farmers and agricultural professionals. 
                     </p>
 
-                    <button className="bg-green-400 hover:bg-green-600 text-white px-6 py-3 text-sm sm:text-base rounded-full transition">
+                    <button className="bg-green-700 hover:bg-green-600 text-white px-6 py-3 text-sm sm:text-base rounded-full transition">
                         Register now <i className="ri-arrow-right-line ml-1"></i>
                     </button>
                 </div>
