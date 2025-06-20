@@ -29,14 +29,14 @@ const PartnersPage = () => {
         Our Partners
       </h2>
 
-      <div className="overflow-hidden relative">
-        <div className="flex animate-scroll whitespace-nowrap gap-16">
+      <div className="overflow-x-hidden relative">
+        <div className="flex animate-scroll min-w-[200%] gap-10 items-center">
           {logos.concat(logos).map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="h-16 md:h-20 w-auto object-contain"
+              className="h-12 md:h-20 w-auto object-contain"
             />
           ))}
         </div>
