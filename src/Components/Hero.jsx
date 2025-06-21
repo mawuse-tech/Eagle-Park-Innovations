@@ -7,6 +7,7 @@ import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import poultry from '../assets/poultry.jpg';
 import seeds from '../assets/bowlseeds.jpg';
+// import poultrylady from '../assets/bowlseeds.jpg';
 import Fixed from './Fixed';
 
 
@@ -45,7 +46,7 @@ const Hero = () => {
 
         {/* Stylish Green Text Container */}
         <div
-          className="relative z-10 max-w-3xl w-full md:w-2/3 bg-green-900/60 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-white shadow-lg"
+          className="relative z-10 max-w-2xl w-full md:w-2/3 bg-green-900/60 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-white shadow-lg"
           data-aos="fade-up"
         >
           <h1
@@ -62,7 +63,7 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Empowering farmers, feeding nations, and building sustainable futures.
+           Cultivating Change. Empowering Futures.
           </p>
 
           <div

@@ -8,7 +8,7 @@ const MissionVision = () => {
   }, []);
 
   return (
-    <section className="bg-[#002920] py-16 px-6 md:px-20">
+    <section className="bg-green-900 py-16 px-6 md:px-20">
       <div className="max-w-6xl mx-auto">
         <h2
           className="text-4xl font-bold text-center text-white mb-12"
@@ -24,12 +24,11 @@ const MissionVision = () => {
             data-aos="flip-left"
           >
             <div className="flex items-center gap-4 mb-4">
-              <i className="ri-seedling-fill text-[#002920] text-3xl"></i>
-              <h3 className="text-2xl font-semibold text-[#002920]">Our Mission</h3>
+              <i className="ri-seedling-fill text-green-900 text-3xl"></i>
+              <h3 className="text-2xl font-semibold text-green-900">Our Mission</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-              To cultivate a greener future by empowering communities through sustainable agriculture. 
-              We aim to improve food security by providing quality seeds, poultry, grains, and practical education for upcoming agriculturists.
+              To put farmers and communities at the center of everything we do — delivering innovative, integrated agribusiness solutions that enhance agricultural sustainability, strengthen food security, boost local economies, and champion environmental stewardship across Africa.
             </p>
           </div>
 
@@ -39,19 +38,19 @@ const MissionVision = () => {
             data-aos="flip-right"
           >
             <div className="flex items-center gap-4 mb-4">
-              <i className="ri-eye-fill text-[#002920] text-3xl"></i>
-              <h3 className="text-2xl font-semibold text-[#002920]">Our Vision</h3>
+              <i className="ri-eye-fill text-green-900 text-3xl"></i>
+              <h3 className="text-2xl font-semibold text-green-900">Our Vision</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-              To become Africa’s leading agric-education and production brand, transforming rural livelihoods through innovation, inclusiveness, and a deep respect for the land we farm.
+             To be Africa’s leading agribusiness, driving agricultural transformation through sustainable innovation and circular economy practices — empowering communities, enriching livelihoods, and preserving the environment for generations to come
             </p>
           </div>
         </div>
 
         {/* Bottom Quote or Callout */}
         <div className="mt-16 text-center max-w-3xl mx-auto" data-aos="fade-up">
-          <i className="ri-plant-fill text-4xl text-white mb-4"></i>
-          <p className="text-lg text-gray-600 italic">
+          <i className="ri-plant-fill text-4xl text-yellow-300 mb-4"></i>
+          <p className="text-lg text-yellow-300 italic">
             “A seed today, a forest tomorrow. Together, we grow a sustainable future.”
           </p>
         </div>

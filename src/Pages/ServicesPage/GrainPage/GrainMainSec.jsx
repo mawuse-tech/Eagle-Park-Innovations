@@ -38,7 +38,7 @@ const GrainMain = () => {
     return (
         <div>
 
-            <section className="relative w-full bg-[#002920] pt-0 pb-20 px-4 md:px-16 overflow-hidden">
+            <section className="relative w-full bg-green-900 pt-0 pb-20 px-4 md:px-16 overflow-hidden">
 
                 {/* Simple Wavy Top Shape */}
                 <div className="absolute top-0 left-0 w-full overflow-hidden z-10">
@@ -59,7 +59,7 @@ const GrainMain = () => {
                     <h2 className="text-4xl font-bold text-white" data-aos="fade-down">
                         Our Focus Grains
                     </h2>
-                    <p className="text-green-100 mt-4 text-base md:text-lg" data-aos="fade-up">
+                    <p className="text-yellow-300 mt-4 text-base md:text-lg" data-aos="fade-up">
                         We specialize in key cereal grains to empower farmers and boost food security across communities.
                     </p>
                 </div>
@@ -79,7 +79,7 @@ const GrainMain = () => {
                             />
                             <div className="p-5 space-y-3">
                                 <h3 className="text-xl font-semibold text-[#002920]">{grain.name}</h3>
-                                <p className="text-gray-600 text-sm">{grain.description}</p>
+                                <p className="text-gray-700 text-sm">{grain.description}</p>
                             </div>
                         </div>
                     ))}
