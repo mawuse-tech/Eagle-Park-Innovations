@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import team1 from './gloria.JPG';
+import team1 from './gloria.png';
 import team2 from './godfred.jpg';
 import team3 from './paul.jpg';
 import team4 from './fusena.jpg';
