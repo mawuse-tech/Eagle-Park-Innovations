@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import seeds from "../SeedsPage/eagle1.jpg";
+import seeds from "../SeedsPage/handma.jpg";
 import SeedMainSec from './SeedMainSec';
 // import GrainMain from './GrainMainSec';
 

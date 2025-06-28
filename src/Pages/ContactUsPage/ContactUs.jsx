@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import bgimg from "../ContactUsPage/bgimg.JPG"
 
 const ContactUsPage = () => {
   useEffect(() => {
@@ -8,22 +9,33 @@ const ContactUsPage = () => {
   }, []);
 
   return (
-    <section className="bg-white py-16 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        
+    <section
+      className="relative bg-cover bg-center bg-no-repeat py-16 px-6 md:px-16"
+      style={{
+        backgroundImage: `url(${bgimg})`,
+      }}
+    >
+      {/* White overlay for readability */}
+      <div className="absolute inset-0 bg-[#0212107e]"></div>
+
+      <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Text and Info Section */}
         <div data-aos="fade-right">
-          <h2 className="text-4xl font-extrabold text-[#002920] mb-4">
-            Contact Us
-          </h2>
-          <p className="text-gray-700 text-lg mb-6">
+          <h2 className="text-4xl font-extrabold text-white mb-4">Contact Us</h2>
+          <p className="text-white text-lg mb-6">
             Got a question, want to register for a class, or collaborate with us? Reach out—we’d love to hear from you!
           </p>
 
-          <ul className="text-gray-600 space-y-4 text-sm">
-            <li><i className="ri-map-pin-line mr-2 text-[#002920]"></i> 123 Farm Road, Accra, Ghana</li>
-            <li><i className="ri-phone-line mr-2 text-[#002920]"></i> +233 20 000 0000</li>
-            <li><i className="ri-mail-line mr-2 text-[#002920]"></i> info@agrofuture.com</li>
+          <ul className="text-white space-y-4 text-sm">
+            <li>
+              <i className="ri-map-pin-line mr-2 text-[#002920]"></i> 123 Farm Road, Accra, Ghana
+            </li>
+            <li>
+              <i className="ri-phone-line mr-2 text-[#002920]"></i> +233 20 000 0000
+            </li>
+            <li>
+              <i className="ri-mail-line mr-2 text-[#002920]"></i> info@agrofuture.com
+            </li>
           </ul>
         </div>
 
@@ -74,7 +86,6 @@ const ContactUsPage = () => {
             </button>
           </form>
         </div>
-
       </div>
     </section>
   );

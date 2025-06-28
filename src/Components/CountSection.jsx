@@ -1,27 +1,30 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import CountUp from 'react-countup';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 const stats = [
   {
-    title: 'Fair pricing',
-    count: 10,
-    icon: 'ri-time-line',
+    title: '  Youth Trained',
+    count: 350,
+    icon:  <FontAwesomeIcon icon={faUserGraduate} className="text-3xl text-[#002920] mb-3" />,
   },
   {
-    title: 'Projects Completed',
-    count: 200,
+    title: 'Farmers Impacted',
+    count: 3000,
     icon: 'ri-leaf-line',
   },
   {
-    title: 'Happy Clients',
-    count: 150,
+    title: 'Businesses Supported',
+    count: 15,
     icon: 'ri-user-smile-line',
   },
   {
-    title: 'Trained Farmers',
-    count: 500,
+    title: 'Communities reached with tailored training',
+    count: 8,
     icon: 'ri-group-line',
   },
 ];
@@ -72,8 +75,9 @@ const CountSection = () => {
           >
             <i className={`${item.icon} text-2xl text-green-800 mb-2`}></i>
             <h3 className="text-xl font-bold text-green-900">
-              {hasAnimated ? <CountUp end={item.count} duration={2} /> : '0'}
+              {hasAnimated ? <><CountUp end={item.count} duration={2} />+</> : '0+'}
             </h3>
+
             <p className="text-xs mt-1 text-gray-600">{item.title}</p>
           </div>
         ))}

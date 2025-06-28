@@ -4,14 +4,14 @@ import Footer from './Components/Footer'
 import Hero from './Components/Hero'
 import RootLayout from './Pages/RootLayout'
 import OurStoryHome from './Pages/AboutusPage/OurStoryHome'
-import TrainPage from './Pages/AboutusPage/TrainPage'
+import TrainPage from './Pages/ServicesPage/TrainingPage/TrainPage'
 import MissionVision from './Pages/AboutusPage/MissionVission'
-import TeamPage from './Pages/AboutusPage/AboutTeam'
 import GrainHero from './Pages/ServicesPage/GrainPage/GrainHero'
 import ContactUsPage from './Pages/ContactUsPage/ContactUs'
 import ShopItems from './Pages/ShopPage/ShopItems'
 import PoultryHero from './Pages/ServicesPage/PoutryPage/PoultryHero'
 import SeedHero from './Pages/ServicesPage/SeedsPage/SeedHero'
+import TeamPage from './Pages/AboutusPage/AboutTeam'
 
 
 const router = createBrowserRouter(([

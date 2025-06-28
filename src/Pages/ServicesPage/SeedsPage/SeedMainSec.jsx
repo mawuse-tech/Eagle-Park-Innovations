@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import seeds from "../SeedsPage/eagle1.jpg"
 import corn from "../SeedsPage/corn.jpg"
 import soy from "../SeedsPage/soyb.jpeg"
 import cow from "../SeedsPage/cow.webp"

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'remixicon/fonts/remixicon.css';
-import Example from './Example';
 import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import poultry from '../assets/poultry.jpg';

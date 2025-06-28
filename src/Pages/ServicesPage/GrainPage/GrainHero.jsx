@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import grainLady from "../GrainPage/grainLady.jpg"
+import grainLady from "../GrainPage/grainf.jpg"
 import GrainMain from './GrainMainSec';
 
 const GrainHero = () => {
