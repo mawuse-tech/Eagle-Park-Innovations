@@ -19,10 +19,10 @@ const OurStoryHome = () => {
         <div className="md:w-1/2" data-aos="fade-right">
           <p className="text-yellow-300 font-medium mb-3">🌾 About Us</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Discover the future of agriculture
+           Empowering Farmers Through Integrated Solutions
           </h1>
           <p className="text-gray-700 mb-6">
-            We specialize in certified seed production, poultry farming, grain aggregation and market linkages, and agricultural education —empowering the next generation of farmers with the tools, knowledge, and opportunities to Succeed.
+           We specialize in certified seed production and distribution, poultry farming, grain aggregation and market linkages, and agricultural education—empowering farmers with the tools, knowledge, and opportunities to succeed.
           </p>
           <div className="flex items-center gap-4">
             <button className="bg-green-900 hover:bg-green-600 text-white font-semibold px-5 py-3 rounded-full">
@@ -35,7 +35,7 @@ const OurStoryHome = () => {
         <div data-aos="fade-left">
           <div className="relative group">
             <div className="absolute top-0 left-0 w-full h-full bg-yellow-300 rounded-tl-[80px] rounded-br-[80px] opacity-20 -z-10 rotate-2"></div>
-            <div className="overflow-hidden shadow-2xl border-l-8 border-b-8 border-yellow-300 rounded-tl-[80px] rounded-br-[80px] transform hover:scale-105 transition duration-500">
+            <div className="overflow-hidden shadow-2xl border-l-8 border-b-8 border-green-900 rounded-tl-[80px] rounded-br-[80px] transform hover:scale-105 transition duration-500">
               <img
                 src={women}
                 alt="Grain Farming"
