@@ -2,25 +2,27 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import eggs from "../PoutryPage/eggs.webp";
-import man from "../PoutryPage/man.png";
+import man from "../PoutryPage/mann.png";
 import hens from "../PoutryPage/chick.jpg";
 import CountSection from '../../../Components/CountSection';
+import { NavLink } from 'react-router';
+import WhyPoutryPage from './WhyPoultryPage';
 
 const grains = [
     {
-        name: 'Fresh Farm Eggs',
+        name: 'Fresh Eggs',
         image: eggs,
-        description: 'Maize is a versatile grain used for food, feed, and fuel. It thrives in many climates and is a staple for millions.',
+        description: 'We produce premium-grade eggs with a focus on freshness, consistency, and food safety. Our hens are raised in a clean, controlled environment with a nutrition-focused diet, ensuring top-tier egg quality for every batch.',
     },
     {
-        name: 'Organic Manure',
+        name: 'Compost – Waste to Wealth',
         image: man,
-        description: 'Millet is a resilient cereal ideal for dry regions. Rich in nutrients, it’s perfect for porridge and local dishes.',
+        description: 'As part of our sustainable farming system, EPI converts poultry waste into nutrient-rich organic fertilizer that enhances soil health and boosts crop yields. Our compost is fully matured and carefully handled to meet the needs of farmers and gardeners.',
     },
     {
-        name: 'Healthy Hens',
+        name: 'Live Birds for Chicken Meat',
         image: hens,
-        description: 'Rice is a major global food crop grown in flooded fields. It provides essential calories for over half the world.',
+        description: 'We supply healthy, well-raised live chickens ideal for meat. Our birds are raised and managed under strict hygiene, nutrition, and welfare standards, ensuring excellent body weight and meat yield, and taste.',
     },
     
 ];
@@ -33,7 +35,7 @@ const PoultryMainSec = () => {
     return (
         <div>
 
-            <section className="relative w-full bg-[#002920] pt-0 pb-20 px-4 md:px-16 overflow-hidden">
+            <section className="relative w-full bg-green-900 pt-0 pb-20 px-4 md:px-16 overflow-hidden">
 
                 {/* Simple Wavy Top Shape */}
                 <div className="absolute top-0 left-0 w-full overflow-hidden z-10">
@@ -54,8 +56,8 @@ const PoultryMainSec = () => {
                     <h2 className="text-4xl font-bold text-white" data-aos="fade-down">
                         Our Poultry Products
                     </h2>
-                    <p className="text-green-100 mt-4 text-base md:text-lg" data-aos="fade-up">
-                        We specialize in key cereal grains to empower farmers and boost food security across communities.
+                    <p className="text-yellow-300 mt-4 text-base md:text-lg" data-aos="fade-up">
+                       We provide high-quality poultry products and strengthen nutrition in our communities.
                     </p>
                 </div>
 
@@ -79,9 +81,19 @@ const PoultryMainSec = () => {
                         </div>
                     ))}
                 </div>
+
+                <div className="text-center mt-16">
+                    <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">
+                       Looking for healthy, high-quality poultry for food or farming?<br />
+                        Look no further — we’ve got you covered.
+                    </h2>
+                     <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 mt-6 text-sm sm:text-base rounded-full">
+                        Shop Now <i className="ri-arrow-right-line"></i>
+                    </button></NavLink>
+                </div>
             </section>
 
-              <CountSection/>
+           <WhyPoutryPage/>
 
         </div>
     );
