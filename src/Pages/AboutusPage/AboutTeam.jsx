@@ -70,7 +70,7 @@ const TeamPage = () => {
           >
             {/* Circle avatar with gray bg */}
             <div className="flex justify-center mb-4">
-              <div className="w-28 h-28 rounded-full bg-gray-300 overflow-hidden">
+              <div className="w-40 h-40 rounded-full bg-gray-300 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
