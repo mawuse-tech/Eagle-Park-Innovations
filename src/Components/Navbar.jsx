@@ -42,16 +42,17 @@ const Navbar = () => {
                         </NavLink>
 
                         <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
-
-                            <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Grain Page</NavLink>
-
-                             <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Page</NavLink>
-
                             <NavLink to="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified seeds</NavLink>
+
+                             <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</NavLink>
+
+                            <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</NavLink>
+
+                            
                         </div>
                     </div>
 
-                  <NavLink to="/train">Training</NavLink>
+                  <NavLink to="/train">Training and consultancy Hub </NavLink>
 
                     <NavLink to="/contact" className="hover:text-yellow-400 flex items-center gap-1">
                         Contact us

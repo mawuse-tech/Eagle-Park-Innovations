@@ -2,29 +2,29 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import seeds from "../SeedsPage/eagle1.jpg"
-import CountSection from '../../../Components/CountSection';
+import corn from "../SeedsPage/corn.jpg"
+import soy from "../SeedsPage/soyb.jpeg"
+import cow from "../SeedsPage/cow.webp"
+import WhySeedsPage from './WhySeedsPage';
+import { NavLink } from 'react-router';
 
 const grains = [
     {
         name: 'Maize',
-        image: seeds,
-        description: 'Maize is a versatile grain used for food, feed, and fuel. It thrives in many climates and is a staple for millions.',
+        image: corn,
+        description: 'We offer seeds of mainly hybrid maize varieties. These climate-smart varieties are naturally able to withstand drought, use soil nutrients efficiently, and tolerate common maize pests and diseases. The varieties also have an excellent nutritional profile, making them desirable for food, animal feed, and industrial uses.',
     },
     {
-        name: 'Millet',
-        image: seeds,
-        description: 'Millet is a resilient cereal ideal for dry regions. Rich in nutrients, it’s perfect for porridge and local dishes.',
+        name: 'Soybeans',
+        image: soy,
+        description: 'We offer climate-smart soyabean varieties with non-shattering pods, helping farmers reduce grain losses before and during harvest while improving overall yield quality. The varieties also have an excellent nutritional profile, making them desirable for food, animal feed, and industrial uses.',
     },
     {
-        name: 'Rice',
-        image: seeds,
-        description: 'Rice is a major global food crop grown in flooded fields. It provides essential calories for over half the world.',
+        name: 'Cowpea',
+        image: cow,
+        description: 'High-yielding, early-maturing, climate-smart varieties with strong resistance to major pests such as Aphis craccivora, Striga gesnerioides, Maruca, and Macrophomina disease, along with moderate drought tolerance. Our Maruca-resistant cowpea variety is transforming farming by cutting pesticide use, protecting the environment, and safeguarding farmer health for a safer, more sustainable future.',
     },
-    {
-        name: 'SoyBeans',
-        image: seeds,
-        description: 'Sorghum is drought-tolerant and packed with nutrients. It’s used in food, beverages, and animal feed.',
-    },
+    
 ];
 
 const SeedMainSec = () => {
@@ -35,7 +35,7 @@ const SeedMainSec = () => {
     return (
         <div>
 
-            <section className="relative w-full bg-[#002920] pt-0 pb-20 px-4 md:px-16 overflow-hidden">
+            <section className="relative w-full bg-green-900 pt-0 pb-20 px-4 md:px-16 overflow-hidden">
 
                 {/* Simple Wavy Top Shape */}
                 <div className="absolute top-0 left-0 w-full overflow-hidden z-10">
@@ -54,14 +54,14 @@ const SeedMainSec = () => {
                 {/* Section Content */}
                 <div className="max-w-7xl mx-auto text-center mb-12 pt-20 relative z-20">
                     <h2 className="text-4xl font-bold text-white" data-aos="fade-down">
-                        Our Focus Grains
+                        Our Focus Crops
                     </h2>
-                    <p className="text-green-100 mt-4 text-base md:text-lg" data-aos="fade-up">
-                        We specialize in key cereal grains to empower farmers and boost food security across communities.
+                    <p className="text-yellow-300 mt-4 text-base md:text-lg" data-aos="fade-up">
+                        high-quality, certified seeds of key food crops that are specially developed to perform well in tropical environments
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto relative z-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-20">
                     {grains.map((grain, index) => (
                         <div
                             key={index}
@@ -81,9 +81,19 @@ const SeedMainSec = () => {
                         </div>
                     ))}
                 </div>
+
+                <div className="text-center mt-16">
+                    <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">
+                       Looking for certified, high-yield seeds you can trust?<br />
+                        Look no further — we’ve got you covered.
+                    </h2>
+                     <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 mt-6 text-sm sm:text-base rounded-full">
+                        Shop Now <i className="ri-arrow-right-line"></i>
+                    </button></NavLink>
+                </div>
             </section>
 
-              <CountSection/>
+        <WhySeedsPage/>
 
         </div>
     );
