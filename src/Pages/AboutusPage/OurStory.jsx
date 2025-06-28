@@ -18,7 +18,10 @@ const OurStory = () => {
             Eagle Park Innovations Limited (EPI), incorporated on May 27, 2020, is an agribusiness advancing innovation, sustainability, and inclusive growth across Ghana’s agricultural value chain. We operate an integrated model that focuses on certified seeds, poultry, and grain aggregation and market linkages, while supporting farmers and value chain actors with training and technical assistance. Operating in the Northern and Ashanti Regions, we work with a growing network of distributors to deliver quality inputs, services, and fair market access to farmers nationwide.
           </p>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Eagle Park Innovations Limited (EPI), incorporated on May 27, 2020, is an agribusiness advancing innovation, sustainability, and inclusive growth across Ghana’s agricultural value chain. We operate an integrated model that focuses on certified seeds, poultry, and grain aggregation and market linkages, while supporting farmers and value chain actors with training and technical assistance. Operating in the Northern and Ashanti Regions, we work with a growing network of distributors to deliver quality inputs, services, and fair market access to farmers nationwide.
+            Grounded in the realities of rural livelihoods, our end-to-end solutions unlock potential, boost productivity, and build resilience to climate and economic challenges. We also strengthen food security and livelihoods by making nutritious, affordable food accessible to all.
+            At EPI, we don’t just sell products—we empower. Through our out-grower schemes and training programs, we equip youth, women, and smallholder farmers with skills and dignified livelihoods to thrive in agriculture and uplift their communities. Our gender-responsive, youth-led innovations create lasting social, environmental, and economic impact through strong partnerships.
+            Farming, to us, is more than a livelihood—it’s a journey to dignity, equity, and national transformation.
+
 
           </p>
         </div>

@@ -3,9 +3,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import grain from "../GrainPage/maizegrain.jpg";
 import soy from "../GrainPage/soy.jpg";
-import millet from "../GrainPage/millet.avif";
+import cowpea from "../GrainPage/cowpea.webp";
 import rice from "../GrainPage/rice.jpg";
+import nut from "../GrainPage/nut.jpeg";
 import CountSection from '../../../Components/CountSection';
+import WhyGrainPage from './WhyGrainPage';
+import { NavLink } from 'react-router';
 
 const grains = [
     {
@@ -14,9 +17,9 @@ const grains = [
         description: 'Maize is a versatile grain used for food, feed, and fuel. It thrives in many climates and is a staple for millions.',
     },
     {
-        name: 'Millet',
-        image: millet,
-        description: 'Millet is a resilient cereal ideal for dry regions. Rich in nutrients, it’s perfect for porridge and local dishes.',
+        name: 'Cowpea',
+        image: cowpea,
+        description: 'Cowpea is a drought-tolerant legume Packed with protein and fiber, it’s a staple in stews, soups, and local delicacies.',
     },
     {
         name: 'Rice',
@@ -27,6 +30,11 @@ const grains = [
         name: 'SoyBeans',
         image: soy,
         description: 'Sorghum is drought-tolerant and packed with nutrients. It’s used in food, beverages, and animal feed.',
+    },
+    {
+        name: 'Groundnut',
+        image: nut,
+        description: 'Groundnut is a protein-rich legume Commonly used in pastes, snacks, and sauces across many local cuisines.',
     },
 ];
 
@@ -64,7 +72,7 @@ const GrainMain = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto relative z-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto relative z-20">
                     {grains.map((grain, index) => (
                         <div
                             key={index}
@@ -84,12 +92,22 @@ const GrainMain = () => {
                         </div>
                     ))}
                 </div>
+
+                <div className="text-center mt-16">
+                    <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">
+                        In need of grains with an excellent nutrient profile for food, feed, or industrial use? <br />
+                        Look no further — we’ve got you covered.
+                    </h2>
+                     <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 mt-6 text-sm sm:text-base rounded-full">
+                        Shop Now <i className="ri-arrow-right-line"></i>
+                    </button></NavLink>
+                </div>
             </section>
 
-              <CountSection/>
+         <WhyGrainPage/>
 
         </div>
     );
-};
+}
 
 export default GrainMain;

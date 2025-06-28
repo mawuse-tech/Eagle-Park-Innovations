@@ -61,7 +61,7 @@ const Navbar = () => {
 
                 {/* Desktop Button */}
                 <div className="hidden md:flex items-center gap-1 font-medium ">
-                    <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-[#ede8d0] text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full">
+                    <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 text-sm sm:text-base rounded-full">
                         Shop Now <i className="ri-arrow-right-line"></i>
                     </button></NavLink>
                 </div>

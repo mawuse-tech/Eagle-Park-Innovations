@@ -22,7 +22,7 @@ const Example = () => {
     },
     {
       title: 'Premium Grains',
-      text: 'At the heart of our grain offerings are premium-quality maize and soyabean grains, carefully cultivated using sustainable farming practices.',
+      text: 'At the heart of our grain offerings are premium-quality maize and soyabean, cowpea, rice and grounnutgrains carefully cultivated using sustainable farming practices.',
     },
     {
       title: 'Training and consultancy services',

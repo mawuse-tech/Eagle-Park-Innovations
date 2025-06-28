@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 
 const stats = [
   {
-    title: 'Years of Experience',
+    title: 'Fair pricing',
     count: 10,
     icon: 'ri-time-line',
   },

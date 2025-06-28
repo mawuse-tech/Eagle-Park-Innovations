@@ -52,13 +52,13 @@ const TeamPage = () => {
       {/* Header */}
       <div className="text-center mb-16 z-10 relative" data-aos="fade-up">
         <h2 className="text-3xl md:text-4xl font-bold text-[#002920]">Meet Our Dedicated Team</h2>
-        <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
+        <p className="text-gray-700 mt-2 max-w-2xl mx-auto ">
           A passionate and experienced team, committed to delivering solutions tailored to your needs and goals.
         </p>
       </div>
 
       {/* Green Bar Background */}
-      <div className="absolute top-44 left-0 w-full h-[200px] bg-[#004d2b] z-0 rounded-xl"></div>
+      <div className="absolute top-44 left-0 w-full h-[200px] bg-[#004d2b] z-0 rounded-xl mt-6"></div>
 
       {/* Cards */}
       <div className="relative z-10 grid sm:grid-cols-2 md:grid-cols-3 gap-10">
