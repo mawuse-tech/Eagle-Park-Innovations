@@ -8,9 +8,9 @@ const productsData = [
 ];
 
 const ShopItems = () => {
-    const [cart, setCart] = useState(() =>{
-      const savedCart = localStorage.getItem('grainCart');
-        return savedCart? JSON.parse(savedCart) : []; 
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem('grainCart');
+        return savedCart ? JSON.parse(savedCart) : [];
     });
     const [search, setSearch] = useState('');
     const [showCart, setShowCart] = useState(false);
@@ -55,8 +55,9 @@ const ShopItems = () => {
     return (
         <div className="min-h-screen bg-white text-green-900 relative">
             <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-6">
                     <h1 className="text-3xl font-bold">Shop Our Products</h1>
+
                     <input
                         type="text"
                         placeholder="Search products..."
@@ -64,6 +65,7 @@ const ShopItems = () => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
+
                     <button
                         onClick={() => setShowCart(!showCart)}
                         className="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900"
@@ -71,6 +73,7 @@ const ShopItems = () => {
                         View Cart ({cart.length})
                     </button>
                 </div>
+
 
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {filteredProducts.map(product => {
