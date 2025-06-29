@@ -8,17 +8,20 @@ const productsData = [
 ];
 
 const ShopItems = () => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() =>{
+      const savedCart = localStorage.getItem('grainCart');
+        return savedCart? JSON.parse(savedCart) : []; 
+    });
     const [search, setSearch] = useState('');
     const [showCart, setShowCart] = useState(false);
 
     // Load cart from localStorage
-    useEffect(() => {
-        const savedCart = localStorage.getItem('grainCart');
-        if (savedCart) {
-            setCart(JSON.parse(savedCart));
-        }
-    }, []);
+    // useEffect(() => {
+    //     const savedCart = localStorage.getItem('grainCart');
+    //     if (savedCart) {
+    //         setCart(JSON.parse(savedCart));
+    //     }
+    // }, []);
 
     // Save cart to localStorage
     useEffect(() => {
@@ -60,7 +63,7 @@ const ShopItems = () => {
         <div className="min-h-screen bg-white text-green-900 relative">
             <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
                 <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-3xl font-bold">Shop Our Grains</h1>
+                    <h1 className="text-3xl font-bold">Shop Our Products</h1>
                     <input
                         type="text"
                         placeholder="Search products..."
@@ -85,7 +88,7 @@ const ShopItems = () => {
                                 <h2 className="text-xl font-semibold">{product.name}</h2>
                                 <p className="text-green-800 font-bold mb-2">GH₵{product.price}</p>
                                 <button
-                                    className={`w-full px-4 py-2 rounded-full ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-800 hover:bg-green-900'} text-white`}
+                                    className={`w-48 px-4 py-2 rounded-full ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
                                     onClick={() => handleAddOrRemove(product)}
                                 >
                                     {inCart ? 'Remove from Cart' : 'Add to Cart'}
