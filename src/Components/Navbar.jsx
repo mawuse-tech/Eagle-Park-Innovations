@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/log.png';
+import logo from '../assets/loggo.png';
 import { NavLink } from 'react-router';
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between flex-wrap ">
         {/* Logo */}
         <div>
-          <img src={logo} alt="Logo" className="h-30 w-auto lg:h-20 md:h-30" />
+          <NavLink to="/"><img src={logo} alt="Logo" className="h-30 w-auto lg:h-20 md:h-30" /></NavLink>
         </div>
 
         {/* Desktop Menu */}

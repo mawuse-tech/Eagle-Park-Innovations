@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { RiArrowRightSLine } from 'react-icons/ri';
+import { NavLink } from 'react-router';
 
 const Example = () => {
   useEffect(() => {
@@ -11,24 +12,25 @@ const Example = () => {
   const cards = [
     {
       title: 'Certified Seeds',
-      text: 'Our climate-smart certified seeds are drought-tolerant, pest-resistant, and ideal for boosting yields in changing weather conditions—empowering farmers to grow more sustainably.'
-
+      text: 'Our climate-smart certified seeds are drought-tolerant...',
+      link: '/seed',
     },
-
     {
       title: 'Poultry Products',
-      text: 'Enjoy the goodness of our fresh eggs, rich in flavor and nutrients, Pair it with our organic compost, made from natural farm waste for soil health.',
-
+      text: 'Enjoy the goodness of our fresh eggs...',
+      link: '/poultry',
     },
     {
       title: 'Premium Grains',
-      text: 'At the heart of our grain offerings are premium-quality maize and soyabean, cowpea, rice and grounnutgrains carefully cultivated using sustainable farming practices.',
+      text: 'At the heart of our grain offerings are premium-quality maize...',
+      link: '/grain',
     },
     {
       title: 'Training and consultancy services',
-      text: 'At the heart of our grain offerings are premium-quality maize and soyabean grains, carefully cultivated using sustainable farming practices.',
+      text: 'We offer personalized training and advisory services...',
+      link: '/train',
     },
-    
+
   ];
 
   return (
@@ -50,7 +52,10 @@ const Example = () => {
               </h3>
               <p className="text-sm text-gray-700 mb-4">{card.text}</p>
               <div className="flex items-center gap-1 text-green-700 text-sm font-semibold cursor-pointer hover:underline">
-                Learn more <RiArrowRightSLine className="text-lg" />
+                <NavLink to={card.link}
+                  className="flex items-center gap-1 text-green-700 text-sm font-semibold hover:underline">
+                  Learn more <RiArrowRightSLine className="text-lg" />
+                </NavLink>
               </div>
             </div>
           </div>

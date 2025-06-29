@@ -8,6 +8,7 @@ import poultry from '../assets/poultry.jpg';
 import seeds from '../assets/bowlseeds.jpg';
 // import poultrylady from '../assets/bowlseeds.jpg';
 import Fixed from './Fixed';
+import { NavLink } from 'react-router';
 
 
 
@@ -62,7 +63,7 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-           Cultivating Change. Empowering Futures.
+            Cultivating Change. Empowering Futures.
           </p>
 
           <div
@@ -70,15 +71,17 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <button className="bg-white hover:bg-green-600 text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full transition">
-              Learn More <i className="ri-arrow-right-line ml-1"></i>
-            </button>
+            <NavLink to="/ourstory">
+              <button className="bg-white hover:bg-green-600 text-[#002920] px-6 py-3 text-sm sm:text-base rounded-full transition">
+                Learn More <i className="ri-arrow-right-line ml-1"></i>
+              </button>
+            </NavLink>
           </div>
         </div>
       </section>
 
-      <Fixed/>
-      
+      <Fixed />
+
     </div>
   );
 };

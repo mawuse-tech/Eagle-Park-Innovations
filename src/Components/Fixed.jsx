@@ -3,6 +3,7 @@ import happyfarmers from '../assets/singlefarmer.jpg';
 import HeroCompo from './HeroCompo';
 import Example from './Example';
 import PartnersPage from './PartnersPage';
+import { NavLink } from 'react-router';
 
 const Fixed = () => {
     return (
@@ -34,9 +35,11 @@ const Fixed = () => {
                         Learn directly from experienced farmers and agricultural professionals. 
                     </p>
 
-                    <button className="bg-green-700 hover:bg-green-600 text-white px-6 py-3 text-sm sm:text-base rounded-full transition">
+                   <NavLink to="/train">
+                     <button className="bg-green-700 hover:bg-green-600 text-white px-6 py-3 text-sm sm:text-base rounded-full transition">
                         Register now <i className="ri-arrow-right-line ml-1"></i>
                     </button>
+                   </NavLink>
                 </div>
             </section>
 
