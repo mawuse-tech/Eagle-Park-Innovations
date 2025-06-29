@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import logo from '../assets/logo.png';
+import logo from '../assets/log.png';
 import { NavLink, Link } from 'react-router';
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
 
                         <NavLink> About Us <i className="ri-arrow-down-s-line text-sm"></i></NavLink>
 
-                        <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
+                        <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-green-900 shadow-lg rounded-md min-w-[160px] z-50">
                             <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">About</NavLink>
 
                             <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Mission/Vission</NavLink>
@@ -44,15 +44,15 @@ const Navbar = () => {
                         <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
                             <NavLink to="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified seeds</NavLink>
 
-                             <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</NavLink>
+                            <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</NavLink>
 
                             <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</NavLink>
 
-                            
+
                         </div>
                     </div>
 
-                  <NavLink to="/train">Training and consultancy Hub </NavLink>
+                    <NavLink to="/train">Training and consultancy Hub </NavLink>
 
                     <NavLink to="/contact" className="hover:text-yellow-400 flex items-center gap-1">
                         Contact us
@@ -89,14 +89,13 @@ const Navbar = () => {
                             About Us <i className="ri-arrow-down-s-line text-sm"></i>
                         </button>
                         {isMobileAboutOpen && (
-                            <div className="flex flex-col bg-white text-[#002920] shadow-lg rounded-md mt-1">
+                            <div className="flex flex-col bg-white text-green-900 shadow-lg rounded-md mt-1">
                                 <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Story</NavLink>
 
                                 <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Mission/Vission</NavLink>
 
                                 <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Team</NavLink>
 
-                                <NavLink to="/train" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Trainings</NavLink>
                             </div>
                         )}
                     </div>
@@ -110,21 +109,33 @@ const Navbar = () => {
                             Products <i className="ri-arrow-down-s-line text-sm"></i>
                         </button>
                         {isMobileProductsOpen && (
-                            <div className="flex flex-col bg-white text-[#002920] shadow-lg rounded-md mt-1">
-                                <a href="#" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Grains</a>
-                                <a href="#" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</a>
-                                <a href="#" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified Seeds</a>
+                            <div className="flex flex-col bg-white text-green-900 shadow-lg rounded-md mt-1">
+                               <NavLink to="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">
+                                 Certified seeds
+                               </NavLink>
+
+                               <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">
+                                 Poultry products
+                               </NavLink>
+
+                               <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">
+                                 Premium Grains
+                               </NavLink>
+
                             </div>
                         )}
                     </div>
 
-                    <a href="#" className="hover:text-yellow-400">Blog</a>
-                    <a href="#" className="hover:text-yellow-400">Contact Us</a>
+                     <NavLink to="/train" className="hover:text-yellow-400">Training and consultancy Hub</NavLink>
+
+                    <NavLink to="/contact" className="hover:text-yellow-400">Contact Us</NavLink>
 
                     <div className="mt-2">
-                        <button className="bg-white hover:bg-yellow-500 text-[#002920] px-4 py-2 rounded-lg shadow-sm font-semibold w-full">
-                            Shop
+                        <NavLink to="/shop">
+                            <button className="bg-yellow-300 hover:bg-yellow-500 text-green-900 px-4 py-2 rounded-lg shadow-sm font-semibold w-full text-2xl">
+                            Shop now <i className="ri-arrow-right-line"></i>
                         </button>
+                        </NavLink>
                     </div>
                 </div>
             )}

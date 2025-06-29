@@ -15,13 +15,6 @@ const ShopItems = () => {
     const [search, setSearch] = useState('');
     const [showCart, setShowCart] = useState(false);
 
-    // Load cart from localStorage
-    // useEffect(() => {
-    //     const savedCart = localStorage.getItem('grainCart');
-    //     if (savedCart) {
-    //         setCart(JSON.parse(savedCart));
-    //     }
-    // }, []);
 
     // Save cart to localStorage
     useEffect(() => {
