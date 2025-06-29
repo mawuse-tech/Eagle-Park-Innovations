@@ -38,7 +38,7 @@ const Footer = () => {
           <h2 className="text-lg font-semibold mb-4">Contact</h2>
           <ul className="text-sm space-y-2">
             <li><i className="ri-map-pin-line mr-2 "></i>Seeds/Grains: Nyankpala, North</li>
-            <li><i className="ri-map-pin-line mr-2 "></i>Poutry: Ankaase. Asante Region</li>
+            <li><i className="ri-map-pin-line mr-2 "></i>Poultry: Ankaase. Asante Region</li>
             <li><i className="ri-phone-line mr-2"></i> +233 244175741</li>
             <li><i className="ri-mail-line mr-2"></i>eagleparkinnovations@yahoo.com</li>
           </ul>
@@ -48,17 +48,17 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="400">
           <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
           <div className="flex space-x-4 text-xl">
-            <a href="#"><i className="ri-facebook-box-fill hover:text-green-300"></i></a>
-            <a href="#"><i className="ri-twitter-x-line hover:text-green-300"></i></a>
-            <a href="#"><i className="ri-instagram-line hover:text-green-300"></i></a>
-            <a href="#"><i className="ri-linkedin-box-line hover:text-green-300"></i></a>
+            <a href="#"><i className="ri-facebook-box-fill hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="#"><i className="ri-twitter-x-line  hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="#"><i className="ri-instagram-line  hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="#"><i className="ri-linkedin-box-line  hover:text-yellow-400 text-yellow-300"></i></a>
           </div>
         </div>
       </div>
 
       {/* Bottom Text */}
       <div
-        className="text-center text-sm mt-10 border-t border-green-700 pt-4"
+        className="text-center text-sm mt-10 border-t border-green-700 pt-4 text-yellow-300"
         data-aos="fade-up"
         data-aos-delay="500"
       >

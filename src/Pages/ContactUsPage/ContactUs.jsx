@@ -28,13 +28,17 @@ const ContactUsPage = () => {
 
           <ul className="text-white space-y-4 text-sm">
             <li>
-              <i className="ri-map-pin-line mr-2 text-[#002920]"></i> 123 Farm Road, Accra, Ghana
+             <i class="ri-map-pin-line mr-2"></i> HQ & seed/grain operations: Nyankpala, Northern Region
+            </li>
+
+            <li>
+             <i class="ri-map-pin-line mr-2"></i>Poultry farming: Ankaase, Ashanti Region
             </li>
             <li>
-              <i className="ri-phone-line mr-2 text-[#002920]"></i> +233 20 000 0000
+              <i class="ri-phone-line mr-2"></i> +233244175741
             </li>
             <li>
-              <i className="ri-mail-line mr-2 text-[#002920]"></i> info@agrofuture.com
+            <i class="ri-mail-fill mr-2"></i> eagleparkinnovations@yahoo.com
             </li>
           </ul>
         </div>
