@@ -12,22 +12,22 @@ const Example = () => {
   const cards = [
     {
       title: 'Certified Seeds',
-      text: 'Our climate-smart certified seeds are drought-tolerant...',
+      text: 'Discover our range of climate-smart certified seeds designed to thrive in diverse conditions.',
       link: '/seed',
     },
     {
       title: 'Poultry Products',
-      text: 'Enjoy the goodness of our fresh eggs...',
+      text: 'Explore our healthy and well-raised poultry products, including farm-fresh eggs and compost.',
       link: '/poultry',
     },
     {
       title: 'Premium Grains',
-      text: 'At the heart of our grain offerings are premium-quality maize...',
+      text: 'Discover our premium selection of grains including maize, soyabean and rice. ',
       link: '/grain',
     },
     {
       title: 'Training and consultancy services',
-      text: 'We offer personalized training and advisory services...',
+      text: 'Access expert-led training and agribusiness consultancy tailored to your needs. ',
       link: '/train',
     },
 
@@ -36,7 +36,7 @@ const Example = () => {
   return (
     <div className="bg-[#f4f4f4] py-16 px-6 md:px-20">
       <h1 className="text-3xl md:text-4xl font-bold text-green-900 text-center mb-12">
-        Main Products And Services
+        Main Products And Services:
       </h1>
       <div className="grid md:grid-cols-4 gap-8">
         {cards.map((card, index) => (

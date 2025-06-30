@@ -18,7 +18,7 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="100">
           <h2 className="text-xl font-semibold mb-4">Eagle Park Innovations</h2>
           <p className="text-sm leading-relaxed">
-            Building a sustainable future through smart farming, innovative tools, and community-driven agriculture.
+            Empowering farmers, feeding nations, and building sustainable futures.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="300">
           <h2 className="text-lg font-semibold mb-4">Contact</h2>
           <ul className="text-sm space-y-2">
-            <li><i className="ri-map-pin-line mr-2 "></i>Seeds/Grains: Nyankpala, North</li>
+            <li><i className="ri-map-pin-line mr-2 "></i>Seeds/Grains: Nyankpala, Northern region</li>
             <li><i className="ri-map-pin-line mr-2 "></i>Poultry: Ankaase. Asante Region</li>
             <li><i className="ri-phone-line mr-2"></i> +233 244175741</li>
             <li><i className="ri-mail-line mr-2"></i>eagleparkinnovations@yahoo.com</li>

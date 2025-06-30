@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import cow from "../ShopPage/cow.webp";
+import corn from "../ShopPage/corn.jpg";
+import white from "../ShopPage/whitem.jpeg";
+import soy from "../ShopPage/soyb.jpeg";
+import rice from "../ShopPage/rice.jpg";
+import nut from "../ShopPage/nut.jpeg";
+import hen from "../ShopPage/redhen.jpg";
+import eggs from "../ShopPage/eggs.webp";
+import man from "../ShopPage/mann.png";
 
 const productsData = [
-    { id: 1, name: "Maize", price: 25, image: "/maize.jpg" },
-    { id: 2, name: "Millet", price: 20, image: "/millet.jpg" },
-    { id: 3, name: "Sorghum", price: 30, image: "/sorghum.jpg" },
-    { id: 4, name: "Rice", price: 28, image: "/rice.jpg" },
+    { id: 1, name: "Cowpea/kg", price: 40, image: cow },
+    { id: 2, name: "Cowpea/50kg", price: 350, image: cow },
+    { id: 3, name: "Yellow Maize/50kg", price: 350, image: corn },
+    { id: 4, name: "White Maize/50kg", price: 350, image: white},
+    { id: 5, name: "Soyabeans(Favour)/kg", price: 25, image: soy },
+    { id: 6, name: "Soyabeans(Afayak)/kg", price: 25, image: soy },
+    { id: 7, name: "Soyabeans/50kg", price: 350, image: soy },
+    { id: 8, name: "Rice/50kg", price: 360, image: rice},
+    { id: 9, name: "Groundnut/50kg", price: 650, image: nut},
+    { id: 10, name: "Spent layer/50kg", price: 70, image: hen},
+    { id: 11, name: "   Crate of eggs/unsorted", price: 70, image: eggs},
+    { id: 12, name: "   Compost/kg", price: 70, image: man},
 ];
 
 const ShopItems = () => {

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import corn from "../SeedsPage/corn.jpg"
-import soy from "../SeedsPage/soyb.jpeg"
-import cow from "../SeedsPage/cow.webp"
+import corn from "../SeedsPage/cornseed.jpg"
+import soy from "../SeedsPage/bean.jpg"
+import cow from "../SeedsPage/soyseed.jpg"
 import WhySeedsPage from './WhySeedsPage';
 import { NavLink } from 'react-router';
 
@@ -11,17 +11,18 @@ const grains = [
     {
         name: 'Maize',
         image: corn,
-        description: 'We offer seeds of mainly hybrid maize varieties. These climate-smart varieties are naturally able to withstand drought, use soil nutrients efficiently, and tolerate common maize pests and diseases. The varieties also have an excellent nutritional profile, making them desirable for food, animal feed, and industrial uses.',
+        description: 'We offer seeds of mainly hybrid maize varieties that are climate-smart, drought-tolerant, and efficient in using soil nutrients, with tolerance to common pests and diseases which are excellent for food, feed, and industrial uses.'
+
     },
     {
         name: 'Soybeans',
         image: soy,
-        description: 'We offer climate-smart soyabean varieties with non-shattering pods, helping farmers reduce grain losses before and during harvest while improving overall yield quality. The varieties also have an excellent nutritional profile, making them desirable for food, animal feed, and industrial uses.',
+        description: 'We offer climate-smart soybean varieties with non-shattering pods that reduce harvest losses, improve yield quality, and are ideal for food, feed, and industrial use.',
     },
     {
         name: 'Cowpea',
         image: cow,
-        description: 'High-yielding, early-maturing, climate-smart varieties with strong resistance to major pests such as Aphis craccivora, Striga gesnerioides, Maruca, and Macrophomina disease, along with moderate drought tolerance. Our Maruca-resistant cowpea variety is transforming farming by cutting pesticide use, protecting the environment, and safeguarding farmer health for a safer, more sustainable future.',
+        description: 'We offer early-maturing, high-yielding cowpea varieties that resist key pests, reduce pesticide use, and support safer, sustainable farming.',
     },
     
 ];
@@ -56,7 +57,7 @@ const SeedMainSec = () => {
                         Our Focus Crops
                     </h2>
                     <p className="text-yellow-300 mt-4 text-base md:text-lg" data-aos="fade-up">
-                        high-quality, certified seeds of key food crops that are specially developed to perform well in tropical environments
+                       High-quality, certified seeds of key food crops that are specially developed to perform well in tropical environments.
                     </p>
                 </div>
 

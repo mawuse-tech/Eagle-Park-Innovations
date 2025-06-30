@@ -54,8 +54,8 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Transforming the World<br />
-            <span className="text-yellow-300">Through Agriculture</span>
+           Empowering farmers, feeding nations and<br />
+            <span className="text-yellow-300">building sustainable futures</span>
           </h1>
 
           <p

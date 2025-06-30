@@ -19,12 +19,10 @@ const TrainPage = () => {
                     {/* Text Section */}
                     <div data-aos="fade-right" className="space-y-6">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-green-900">
-                            Grow with Us: Join Our Training and Consultancy Programs
+                           Grow with Us: Join Our Training and Consultancy Programs
                         </h1>
                         <p className="text-gray-700 mb-6">
-                            Gain hands-on skills, expert guidance, and the tools you need to succeed in modern, sustainable agriculture. Learn, grow, and transform your farming journey.
-                            For agribusinesses, we provide proven strategies to scale, thrive, and stay resilient. Tap into our expertise to turn your investment into real market value and sustainable growth.
-
+                           Our comprehensive capacity-building program equips individuals and agribusinesses with hands-on skills, expert knowledge, and proven strategies tailored to their unique needs, thereby empowering farmers to transform their journey and helping agribusinesses grow, thrive, and stay resilient.
 
                         </p>
                         <div className="flex gap-4">
@@ -59,7 +57,7 @@ const TrainPage = () => {
                 <div className="text-center mb-12" data-aos="fade-up">
                     <h2 className="text-3xl md:text-4xl font-bold text-white">What We Offer</h2>
                     <p className="text-yellow-300 mt-2 max-w-xl mx-auto">
-                        Our comprehensive capacity-building programs equip individuals and agribusinesses with practical skills, expert knowledge, and proven strategies, tailored to the unique needs of each client. We offer support in the following key areas:
+                       Tap into our expertise to turn your passion for farming and agribusiness into profitable ventures and lasting impact. We offer training and consultancy services in the following key areas: 
                     </p>
                 </div>
 

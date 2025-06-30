@@ -24,17 +24,17 @@ const grains = [
     {
         name: 'Rice',
         image: rice,
-        description: 'Rice is a major global food crop grown in flooded fields. It provides essential calories for over half the world.',
+        description: 'Rice is a major global food crop grown in waterlogged fields. It provides essential calories for over half the world.',
     },
     {
-        name: 'SoyBeans',
+        name: 'SoyaBeans',
         image: soy,
-        description: 'Sorghum is drought-tolerant and packed with nutrients. It’s used in food, beverages, and animal feed.',
+        description: 'Soyabean is a multi-purpose crop packed with protein and healthy oils. Grown worldwide, it is a major source of food, feed, and industrial products.',
     },
     {
         name: 'Groundnut',
         image: nut,
-        description: 'Groundnut is a protein-rich legume Commonly used in pastes, snacks, and sauces across many local cuisines.',
+        description: 'Groundnut is a protein-rich legume with healthy oils, widely used in pastes, snacks, and sauces in local cuisines.',
     },
 ];
 
@@ -68,7 +68,7 @@ const GrainMain = () => {
                         Our Focus Grains
                     </h2>
                     <p className="text-yellow-300 mt-4 text-base md:text-lg" data-aos="fade-up">
-                        We specialize in key cereal grains to empower farmers and boost food security across communities.
+                       We specialize in key cereal and legume grains to empower farmers and boost food security across communities.
                     </p>
                 </div>
 

@@ -53,7 +53,7 @@ export default function HeroCompo() {
   return (
     <section className="bg-white py-10">
       <h1 className=" text-3xl md:text-4xl font-bold text-green-900 text-center mb-12">
-        Navigate Our Pages
+        Go Through Our Pages
       </h1>
 
       <div className="relative max-w-4xl mx-auto">

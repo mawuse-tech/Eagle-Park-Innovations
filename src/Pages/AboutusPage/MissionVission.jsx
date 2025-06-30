@@ -28,7 +28,7 @@ const MissionVision = () => {
               <h3 className="text-2xl font-semibold text-green-900">Our Mission</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-             To put farmers and communities at the center of everything we do — delivering innovative, integrated agribusiness solutions that enhance agricultural sustainability, strengthen food security, boost local economies, and champion environmental stewardship across Africa.
+             To place farmers and communities at the heart of everything we do by delivering innovative, integrated agribusiness solutions that promote agricultural sustainability, strengthen food security, drive local economic growth, and champion environmental stewardship across Africa.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ const MissionVision = () => {
               <h3 className="text-2xl font-semibold text-green-900">Our Vision</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-             To be Africa’s leading agribusiness, driving agricultural transformation through sustainable innovation and circular economy practices — empowering communities, enriching livelihoods, and preserving the environment for generations to come. 
+             To be Africa’s leading agribusiness, driving agricultural transformation through sustainable innovation and circular economy practices, while empowering communities, enriching livelihoods, and preserving the environment for generations to come.
             </p>
           </div>
         </div>
