@@ -4,6 +4,7 @@ import train from '../TrainingPage/train.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardTeacher, faCrow, faDove, faHandshake, faKiwiBird, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import CountSection from '../../../Components/CountSection';
+import { NavLink } from 'react-router';
 
 const TrainPage = () => {
     useEffect(() => {
@@ -26,9 +27,11 @@ const TrainPage = () => {
 
                         </p>
                         <div className="flex gap-4">
-                            <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
+                            <NavLink to="/contact">
+                                <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
                                 Register
                             </button>
+                            </NavLink>
                             <button className="border border-green-900 text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
                                 Learn More
                             </button>
@@ -121,9 +124,11 @@ const TrainPage = () => {
                     <p className="mb-6 text-gray-600">
                         Be part of a network of knowledgeable, empowered farmers and businesses transforming agriculture across the region.
                     </p>
-                    <button className="bg-green-900 hover:bg-green-700 text-white px-6 py-3 text-sm sm:text-base rounded-full">
+                    <NavLink to="/contact">
+                        <button className="bg-green-900 hover:bg-green-700 text-white px-6 py-3 text-sm sm:text-base rounded-full">
                         Register for our next class <i className="ri-arrow-right-line transition"></i>
                     </button>
+                    </NavLink>
                 </div>
             </section>
         </div>

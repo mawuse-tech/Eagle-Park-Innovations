@@ -28,11 +28,11 @@ const ContactUsPage = () => {
 
           <ul className="text-white space-y-4 text-sm">
             <li>
-             <i class="ri-map-pin-line mr-2"></i> HQ & seed/grain operations: Nyankpala, Northern Region
+             <i class="ri-map-pin-line mr-2"></i>Seeds/Grains: Nyankpala, Northern Region
             </li>
 
             <li>
-             <i class="ri-map-pin-line mr-2"></i>Poultry farming: Ankaase, Ashanti Region
+             <i class="ri-map-pin-line mr-2"></i>Poultry: Ankaase, Ashanti Region
             </li>
             <li>
               <i class="ri-phone-line mr-2"></i> +233244175741
