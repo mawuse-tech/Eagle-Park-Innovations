@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import seeds from "../SeedsPage/handma.jpg";
 import SeedMainSec from './SeedMainSec';
+import { NavLink } from 'react-router';
 // import GrainMain from './GrainMainSec';
 
 const SeedHero = () => {
@@ -24,9 +25,11 @@ const SeedHero = () => {
 
                     </p>
                     <div className="flex gap-4">
-                        <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
+                        <NavLink to="/shop">
+                            <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
                             shop now
                         </button>
+                        </NavLink>
                         <button className="border border-green-900 text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
                             Learn More
                         </button>

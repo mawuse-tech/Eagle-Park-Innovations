@@ -26,10 +26,10 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="200">
           <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-green-300">Home</a></li>
-            <li><a href="#" className="hover:text-green-300">About Us</a></li>
-            <li><a href="#" className="hover:text-green-300">Services</a></li>
-            <li><a href="#" className="hover:text-green-300">Contact</a></li>
+            <li><a href="/" className="hover:text-green-300">Home</a></li>
+            <li><a href="ourstory" className="hover:text-green-300">About Us</a></li>
+            <li><a href="shop" className="hover:text-green-300">Shop</a></li>
+            <li><a href="contact" className="hover:text-green-300">Contact</a></li>
           </ul>
         </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="300">
           <h2 className="text-lg font-semibold mb-4">Contact</h2>
           <ul className="text-sm space-y-2">
-            <li><i className="ri-map-pin-line mr-2 "></i>Seeds/Grains: Nyankpala, Northern region</li>
+            <li><i className="ri-map-pin-line mr-2 "></i>Seeds/Grains: Nyankpala, Northern Region</li>
             <li><i className="ri-map-pin-line mr-2 "></i>Poultry: Ankaase. Asante Region</li>
             <li><i className="ri-phone-line mr-2"></i> +233 244175741</li>
             <li><i className="ri-mail-line mr-2"></i>eagleparkinnovations@yahoo.com</li>

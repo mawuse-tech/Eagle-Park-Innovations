@@ -17,8 +17,14 @@ const Navbar = () => {
     <nav className="bg-green-900/90 text-white px-4 font-oswald sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between flex-wrap ">
         {/* Logo */}
-        <div>
-          <NavLink to="/"><img src={logo} alt="Logo" className="h-30 w-auto lg:h-20 md:h-30" /></NavLink>
+        <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition m-1.5">
+          <NavLink to="/">
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-[3.5rem] w-auto"
+            />
+          </NavLink>
         </div>
 
         {/* Desktop Menu */}

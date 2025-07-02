@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import poultry from "../PoutryPage/poultryLady.jpg";
 import PoultryMainSec from './PoultryMainSec';
+import { NavLink } from 'react-router';
 // import GrainMain from './GrainMainSec';
 
 const PoultryHero = () => {
@@ -23,9 +24,11 @@ const PoultryHero = () => {
                        At EPI, we provide high-quality eggs produced through responsible and scalable farming practices. Our circular economy model transforms poultry by-products into organic fertilizer, creating a closed-loop system that boosts sustainability and product quality.
                     </p>
                     <div className="flex gap-4">
-                        <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
+                         <NavLink to="/shop">
+                            <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
                             shop now
                         </button>
+                        </NavLink>
                         <button className="border border-[#002920] text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
                             Learn More
                         </button>

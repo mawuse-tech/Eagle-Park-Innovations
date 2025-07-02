@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import grainLady from "../GrainPage/grainLady.jpg"
 import GrainMain from './GrainMainSec';
+import { NavLink } from 'react-router';
 
 const GrainHero = () => {
     useEffect(() => {
@@ -22,9 +23,11 @@ const GrainHero = () => {
                        At EPI, we aggregate quality grains from our certified seed customers and other farmers, connecting them to reliable markets for smooth and efficient trade. By linking producers to buyers, we ensure fair pricing, reduce post-harvest losses, and promote inclusive rural growth, while making sure grains reach the plates where they are most needed.
                     </p>
                     <div className="flex gap-4">
-                        <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
+                         <NavLink to="/shop">
+                            <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
                             shop now
                         </button>
+                        </NavLink>
                         <button className="border border-[#002920] text-green-900 px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
                             Learn More
                         </button>

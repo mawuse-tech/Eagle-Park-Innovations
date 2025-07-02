@@ -10,18 +10,18 @@ import eggs from "../ShopPage/eggs.webp";
 import man from "../ShopPage/mann.png";
 
 const productsData = [
-    { id: 1, name: "Cowpea/kg", price: 40, image: cow },
-    { id: 2, name: "Cowpea/50kg", price: 350, image: cow },
-    { id: 3, name: "Yellow Maize/50kg", price: 350, image: corn },
-    { id: 4, name: "White Maize/50kg", price: 350, image: white},
-    { id: 5, name: "Soyabeans(Favour)/kg", price: 25, image: soy },
-    { id: 6, name: "Soyabeans(Afayak)/kg", price: 25, image: soy },
-    { id: 7, name: "Soyabeans/50kg", price: 350, image: soy },
-    { id: 8, name: "Rice/50kg", price: 360, image: rice},
-    { id: 9, name: "Groundnut/50kg", price: 650, image: nut},
-    { id: 10, name: "Spent layer/50kg", price: 70, image: hen},
-    { id: 11, name: "   Crate of eggs/unsorted", price: 70, image: eggs},
-    { id: 12, name: "   Compost/kg", price: 70, image: man},
+    { id: 1, name: "Cowpea/kg", price: 40, image: cow, category: "cowpea" },
+    { id: 2, name: "Cowpea/50kg", price: 350, image: cow, category: "cowpea" },
+    { id: 3, name: "Yellow Maize/50kg", price: 350, image: corn, category: "maize" },
+    { id: 4, name: "White Maize/50kg", price: 350, image: white, category: "maize" },
+    { id: 5, name: "Soyabeans(Favour)/kg", price: 25, image: soy, category: "soyabeans" },
+    { id: 6, name: "Soyabeans(Afayak)/kg", price: 25, image: soy, category: "soyabeans" },
+    { id: 7, name: "Soyabeans/50kg", price: 350, image: soy, category: "soyabeans" },
+    { id: 8, name: "Rice/50kg", price: 360, image: rice, category: "rice" },
+    { id: 9, name: "Groundnut/50kg", price: 650, image: nut, category: "groundnut" },
+    { id: 10, name: "Spent layer/50kg", price: 70, image: hen, category: "poultry" },
+    { id: 11, name: "   Crate of eggs/unsorted", price: 70, image: eggs, category: "poultry" },
+    { id: 12, name: "   Compost/kg", price: 70, image: man, category: "poultry" },
 ];
 
 const ShopItems = () => {
@@ -30,6 +30,7 @@ const ShopItems = () => {
         return savedCart ? JSON.parse(savedCart) : [];
     });
     const [search, setSearch] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('All');
     const [showCart, setShowCart] = useState(false);
 
 
@@ -38,9 +39,12 @@ const ShopItems = () => {
         localStorage.setItem('grainCart', JSON.stringify(cart));
     }, [cart]);
 
-    const filteredProducts = productsData.filter(product =>
-        product.name.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredProducts = productsData.filter((product) => {
+        const matchesSearch = product.name.toLowerCase().includes(search.toLowerCase());
+        const matchesCategory = selectedCategory === 'All' || product.category.toLowerCase() === selectedCategory.toLowerCase()
+        return matchesSearch && matchesCategory;
+    });
+
 
     const handleAddOrRemove = (product) => {
         const exists = cart.find(item => item.id === product.id);
@@ -82,6 +86,22 @@ const ShopItems = () => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
+
+                    <select
+                        className="border px-4 py-2 rounded-full"
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                    >
+                        <option value="All">All</option>
+                        <option value="cowpea">Cowpea</option>
+                        <option value="maize">Maize</option>
+                        <option value="soyabeans">Soyabeans</option>
+                        <option value="rice">Rice</option>
+                        <option value="groundnut">Groundnut</option>
+                        <option value="poultry">Poultry</option>
+                    </select>
+
+
 
                     <button
                         onClick={() => setShowCart(!showCart)}
