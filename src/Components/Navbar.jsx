@@ -42,8 +42,8 @@ const Navbar = () => {
             </NavLink>
             <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
               <NavLink to="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified seeds</NavLink>
-              <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</NavLink>
               <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</NavLink>
+              <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</NavLink>
             </div>
           </div>
 

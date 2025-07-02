@@ -19,6 +19,7 @@ const promoCardsData = [
       "Discover our range of climate-smart certified seeds designed to thrive in diverse conditions.",
     imageSrc: seeds,
     imageAlt: "seeds page",
+    link: '/shop',
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ const promoCardsData = [
       "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost.",
     imageSrc: hens,
     imageAlt: "poultry page",
+    link: '/shop',
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const promoCardsData = [
       "Discover our premium selection of grains including maize, millet and sorghum",
     imageSrc: farm,
     imageAlt: "grain page",
+    link: '/shop',
 
   },
   {
@@ -44,6 +47,7 @@ const promoCardsData = [
       "Discover our premium selection of grains including maize, millet and sorghum",
     imageSrc: trainfarm,
     imageAlt: "training page",
+    link: '/train',
 
   },
 
@@ -53,7 +57,7 @@ export default function HeroCompo() {
   return (
     <section className="bg-white py-10">
       <h1 className=" text-3xl md:text-4xl font-bold text-green-900 text-center mb-12">
-        Go Through Our Pages
+      Our Main Products and Services
       </h1>
 
       <div className="relative max-w-4xl mx-auto">
@@ -81,8 +85,8 @@ export default function HeroCompo() {
                   <p className="text-gray-700 mb-6 max-w-md">{card.description}</p>
 
                   <div className="flex items-center gap-1 font-medium">
-                    <NavLink to="/shop">
-                      <button className="bg-green-900 hover:bg-[#213b35] text-white px-6 py-3 text-sm sm:text-base rounded-full">
+                    <NavLink to={card.link}>
+                      <button className="bg-green-900 hover:bg-green-600 text-white px-6 py-3 text-sm sm:text-base rounded-full">
                         View Page <i className="ri-arrow-right-line"></i>
                       </button>
                     </NavLink>

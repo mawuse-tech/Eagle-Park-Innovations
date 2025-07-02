@@ -16,7 +16,7 @@ const GrainHero = () => {
                 {/* Text Section */}
                 <div data-aos="fade-right" className="space-y-6">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-green-900">
-                    Grains That Nourish, <br />Trade That Empowers.
+                    Grains That Nourish, <br />Trade That Empowers
                     </h1>
                     <p className="text-gray-700 mb-6">
                        At EPI, we aggregate quality grains from our certified seed customers and other farmers, connecting them to reliable markets for smooth and efficient trade. By linking producers to buyers, we ensure fair pricing, reduce post-harvest losses, and promote inclusive rural growth, while making sure grains reach the plates where they are most needed.

@@ -11,23 +11,23 @@ const Example = () => {
 
   const cards = [
     {
-      title: 'Certified Seeds',
-      text: 'Discover our range of climate-smart certified seeds designed to thrive in diverse conditions.',
+      title: 'Certified seed production and marketing',
+      text: 'We provide certified seeds of climate-resilient maize, soybean, and cowpea varieties, plus tailored farming advice to help farmers boost yields sustainably.',
       link: '/seed',
     },
     {
-      title: 'Poultry Products',
-      text: 'Explore our healthy and well-raised poultry products, including farm-fresh eggs and compost.',
+      title: 'Poultry farming',
+      text: ': We produce fresh, high-quality eggs through responsible farming, turning poultry waste into organic fertilizer to nourish crops and ensure zero-waste, sustainable production.',
       link: '/poultry',
     },
     {
-      title: 'Premium Grains',
-      text: 'Discover our premium selection of grains including maize, soyabean and rice. ',
+      title: 'Grain aggregation',
+      text: 'We aggregate quality grains from farmers and link them to reliable markets, ensuring fair prices, reduced postharvest losses, and inclusive rural growth. ',
       link: '/grain',
     },
     {
-      title: 'Training and consultancy services',
-      text: 'Access expert-led training and agribusiness consultancy tailored to your needs. ',
+      title: 'Training and Consultancy',
+      text: ': We equip farmers and agribusinesses with practical skills and personalized strategies to boost productivity, grow income, build resilience, and operate sustainably. ',
       link: '/train',
     },
 
@@ -36,7 +36,7 @@ const Example = () => {
   return (
     <div className="bg-[#f4f4f4] py-16 px-6 md:px-20">
       <h1 className="text-3xl md:text-4xl font-bold text-green-900 text-center mb-12">
-        Main Products And Services:
+        Explore How Our Solutions Connect <br /> to Empower Your Growth
       </h1>
       <div className="grid md:grid-cols-4 gap-8">
         {cards.map((card, index) => (
@@ -46,7 +46,7 @@ const Example = () => {
             data-aos-delay={index * 200}
             className="bg-white shadow-md hover:shadow-lg rounded-lg border border-gray-200 transition duration-300"
           >
-            <div className="p-6 text-green-900">
+            <div className="p-3 text-green-900">
               <h3 className="text-lg md:text-xl font-semibold leading-tight mb-3">
                 {card.title}
               </h3>
