@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import train from '../TrainingPage/train.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChalkboardTeacher, faCrow, faDove, faHandshake, faKiwiBird } from '@fortawesome/free-solid-svg-icons';
+import { faChalkboardTeacher, faCrow, faDove, faHandshake, faKiwiBird, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import CountSection from '../../../Components/CountSection';
 
 const TrainPage = () => {
@@ -99,6 +99,14 @@ const TrainPage = () => {
                         <h3 className="text-xl font-semibold mb-2">Mentorship/internship</h3>
                         <p className="text-sm text-gray-600">
                             Bridge the gap between knowledge and real-world experience. Our mentorship and internship program connects young agripreneurs and students with industry experts for hands-on experience, personalized guidance, and career readiness in agribusiness.
+                        </p>
+                    </div>
+
+                    <div className="bg-[#f3fdf5] p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className="text-3xl text-[[#002920]] mb-3" />
+                        <h3 className="text-xl font-semibold mb-2">Research and Consultancy</h3>
+                        <p className="text-sm text-gray-600">
+                            EPI is your go-to hub for agricultural research and consultancy, combining deep knowledge of Ghana’s agricultural landscape with rich industry experience to support proposal development, project implementation, value chain initiatives, and data-driven insights.
                         </p>
                     </div>
                 </div>
