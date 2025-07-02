@@ -95,12 +95,11 @@ const ShopItems = () => {
                         <option value="All">All</option>
                         <option value="cowpea">Cowpea</option>
                         <option value="maize">Maize</option>
-                        <option value="soyabeans">Soyabeans</option>
+                        <option value="soyabeans">Soyabean</option>
                         <option value="rice">Rice</option>
                         <option value="groundnut">Groundnut</option>
                         <option value="poultry">Poultry</option>
                     </select>
-
 
 
                     <button

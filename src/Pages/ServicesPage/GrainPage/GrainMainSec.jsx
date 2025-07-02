@@ -6,7 +6,6 @@ import soy from "../GrainPage/soy.jpg";
 import cowpea from "../GrainPage/cowpea.webp";
 import rice from "../GrainPage/rice.jpg";
 import nut from "../GrainPage/nut.jpeg";
-import CountSection from '../../../Components/CountSection';
 import WhyGrainPage from './WhyGrainPage';
 import { NavLink } from 'react-router';
 
