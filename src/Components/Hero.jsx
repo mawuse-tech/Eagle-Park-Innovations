@@ -17,7 +17,6 @@ const images = [
   seeds,
   maizefarm,
   poultry,
-
 ];
 
 const Hero = () => {
@@ -46,7 +45,7 @@ const Hero = () => {
 
         {/* Stylish Green Text Container */}
         <div
-          className="relative z-10 max-w-[35rem] w-full md:w-2/3 bg-green-900/60 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-white shadow-lg"
+          className="relative z-10 max-w-[40rem] w-full md:w-2/3 bg-green-900/60 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-white shadow-lg"
           data-aos="fade-up"
         >
           <h1
@@ -54,7 +53,7 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-           Empowering Farmers, Feeding Nations, and<br />
+           Empowering Farmers, Feeding Nations and<br />
             <span className="text-yellow-300">Building Sustainable Futures</span>
           </h1>
 

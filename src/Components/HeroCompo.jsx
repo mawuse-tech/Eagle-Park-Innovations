@@ -42,7 +42,7 @@ const promoCardsData = [
   },
   {
     id: 4,
-    title: "Training and consultancy Hub",
+    title: "Training and Consultancy Hub",
     description:
       "Discover our premium selection of grains including maize, millet and sorghum",
     imageSrc: trainfarm,

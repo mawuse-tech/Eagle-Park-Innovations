@@ -11,17 +11,17 @@ const Example = () => {
 
   const cards = [
     {
-      title: 'Certified seed production and marketing',
+      title: 'Certified Seed Production and Marketing',
       text: 'We provide certified seeds of climate-resilient maize, soybean, and cowpea varieties, plus tailored farming advice to help farmers boost yields sustainably.',
       link: '/seed',
     },
     {
-      title: 'Poultry farming',
+      title: 'Poultry Farming',
       text: ': We produce fresh, high-quality eggs through responsible farming, turning poultry waste into organic fertilizer to nourish crops and ensure zero-waste, sustainable production.',
       link: '/poultry',
     },
     {
-      title: 'Grain aggregation',
+      title: 'Grain Aggregation',
       text: 'We aggregate quality grains from farmers and link them to reliable markets, ensuring fair prices, reduced postharvest losses, and inclusive rural growth. ',
       link: '/grain',
     },

@@ -53,8 +53,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          <NavLink to="/train">Training and consultancy Hub</NavLink>
-          <NavLink to="/contact" className="hover:text-yellow-400 flex items-center gap-1">Contact us</NavLink>
+          <NavLink to="/train">Training and Consultancy Hub</NavLink>
+          <NavLink to="/contact" className="hover:text-yellow-400 flex items-center gap-1">Contact Us</NavLink>
         </div>
 
         {/* Desktop Button */}

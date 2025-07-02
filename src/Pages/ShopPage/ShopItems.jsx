@@ -10,18 +10,18 @@ import eggs from "../ShopPage/eggs.webp";
 import man from "../ShopPage/mann.png";
 
 const productsData = [
-    { id: 1, name: "Cowpea/kg", price: 40, image: cow, category: "cowpea" },
-    { id: 2, name: "Cowpea/50kg", price: 350, image: cow, category: "cowpea" },
-    { id: 3, name: "Yellow Maize/50kg", price: 350, image: corn, category: "maize" },
-    { id: 4, name: "White Maize/50kg", price: 350, image: white, category: "maize" },
-    { id: 5, name: "Soyabeans(Favour)/kg", price: 25, image: soy, category: "soyabean" },
-    { id: 6, name: "Soyabeans(Afayak)/kg", price: 25, image: soy, category: "soyabean" },
-    { id: 7, name: "Soyabeans/50kg", price: 350, image: soy, category: "soyabeans" },
-    { id: 8, name: "Rice/50kg", price: 360, image: rice, category: "rice" },
-    { id: 9, name: "Groundnut/50kg", price: 650, image: nut, category: "groundnut" },
-    { id: 10, name: "Spent layer/50kg", price: 70, image: hen, category: "poultry" },
-    { id: 11, name: "   Crate of eggs/unsorted", price: 70, image: eggs, category: "poultry" },
-    { id: 12, name: "   Compost/kg", price: 70, image: man, category: "poultry" },
+    { id: 1, name: "Cowpea/kg", price: 40, image: cow, category: "grain" },
+    { id: 2, name: "Cowpea/50kg", price: 350, image: cow, category: "grain" },
+    { id: 3, name: "Yellow Maize/50kg", price: 350, image: corn, category: "grain" },
+    { id: 4, name: "White Maize/50kg", price: 350, image: white, category: "grain" },
+    { id: 5, name: "Soyabeans(Favour)/kg", price: 25, image: soy, category: "grain" },
+    { id: 6, name: "Soyabeans(Afayak)/kg", price: 25, image: soy, category: "grain" },
+    { id: 7, name: "Soyabeans/50kg", price: 350, image: soy, category: "grain" },
+    { id: 8, name: "Rice/50kg", price: 360, image: rice, category: "grain" },
+    { id: 9, name: "Groundnut/50kg", price: 650, image: nut, category: "grain" },
+    { id: 10, name: "Spent layer/50kg", price: 70, image: hen, category: "poultry products" },
+    { id: 11, name: "   Crate of eggs/unsorted", price: 70, image: eggs, category: "poultry products" },
+    { id: 12, name: "   Compost/kg", price: 70, image: man, category: "poultry products" },
 ];
 
 const ShopItems = () => {
@@ -87,19 +87,31 @@ const ShopItems = () => {
                         onChange={(e) => setSearch(e.target.value)}
                     />
 
-                    <select
-                        className="border px-4 py-2 rounded-full"
-                        value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
-                    >
-                        <option value="All">All</option>
-                        <option value="cowpea">Cowpea</option>
-                        <option value="maize">Maize</option>
-                        <option value="soyabeans">Soyabean</option>
-                        <option value="rice">Rice</option>
-                        <option value="groundnut">Groundnut</option>
-                        <option value="poultry">Poultry</option>
-                    </select>
+                    <div className="relative inline-block">
+                        <select
+                            className="appearance-none border px-6 py-2 rounded-full pr-10"
+                            value={selectedCategory}
+                            onChange={(e) => setSelectedCategory(e.target.value)}
+                        >
+                            <option value="All">All</option>
+                            <option value="grain">Grains</option>
+                            <option value="poultry products">Poultry Products</option>
+                            <option value="seeds">Seeds</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+                            <svg
+                                className="w-4 h-4"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M10 12a1 1 0 01-.7-.3l-3-3a1 1 0 111.4-1.4L10 9.58l2.3-2.3a1 1 0 111.4 1.42l-3 3a1 1 0 01-.7.3z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                        </div>
+                    </div>
 
 
                     <button
@@ -110,12 +122,11 @@ const ShopItems = () => {
                     </button>
                 </div>
 
-
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {filteredProducts.map(product => {
                         const inCart = cart.find(item => item.id === product.id);
                         return (
-                            <div key={product.id} className="border shadow rounded-lg overflow-hidden p-4 text-center">
+                            <div key={product.id} className="border-gray-900 shadow-lg rounded-lg overflow-hidden p-4 text-center">
                                 <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-4" />
                                 <h2 className="text-xl font-semibold">{product.name}</h2>
                                 <p className="text-green-800 font-bold mb-2">GH₵{product.price}</p>
@@ -131,7 +142,6 @@ const ShopItems = () => {
                 </div>
             </div>
 
-            {/* Cart Sidebar */}
             {/* Cart Sidebar */}
             {showCart && (
                 <div className="fixed right-0 top-0 w-full sm:w-[400px] h-full bg-white shadow-lg border-l p-6 overflow-y-auto z-50">
