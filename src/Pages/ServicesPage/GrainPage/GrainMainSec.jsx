@@ -27,7 +27,7 @@ const grains = [
         description: 'Rice is a major global food crop grown in waterlogged fields. It provides essential calories for over half the world.',
     },
     {
-        name: 'SoyaBeans',
+        name: 'SoyaBean',
         image: soy,
         description: 'Soyabean is a multi-purpose crop packed with protein and healthy oils. Grown worldwide, it is a major source of food, feed, and industrial products.',
     },
