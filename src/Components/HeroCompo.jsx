@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import farm from '../assets/corn.webp'
-import hens from '../assets/hens.jpg'
+import hens from '../assets/cage.jpg'
 import seeds from '../assets/seeds.jpg'
 import trainfarm from '../assets/trainfarm.jpg'
 import { NavLink } from "react-router";
