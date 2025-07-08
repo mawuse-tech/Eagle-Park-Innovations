@@ -48,9 +48,10 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="400">
           <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
           <div className="flex space-x-4 text-xl">
-            <a href="#"><i className="ri-facebook-box-fill hover:text-yellow-400 text-yellow-300"></i></a>
-            <a href="#"><i className="ri-twitter-x-line  hover:text-yellow-400 text-yellow-300"></i></a>
-            <a href="#"><i className="ri-instagram-line  hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="https://www.facebook.com/share/1Ahtriscx4/?mibextid=WC7FNe" target='_blank' rel="noopener noreferrer"><i className="ri-facebook-box-fill hover:text-yellow-400 text-yellow-300"></i></a>
+
+            <a href="https://www.instagram.com/p/DLncarnsdyb/?igsh=MW1nZW92YTR0aHB0bA==" target='_blank' rel="noopener noreferrer"><i className="ri-instagram-line  hover:text-yellow-400 text-yellow-300"></i></a>
+
             <a href="#"><i className="ri-linkedin-box-line  hover:text-yellow-400 text-yellow-300"></i></a>
           </div>
         </div>

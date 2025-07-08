@@ -32,13 +32,13 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
 
           {/* About Us Dropdown */}
-          <div className="relative group">
-            <NavLink> About Us <i className="ri-arrow-down-s-line text-sm"></i></NavLink>
-            <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-green-900 shadow-lg rounded-md min-w-[160px] z-50">
+          <div>
+            <NavLink to='/ourstory'> About Us</NavLink>
+            {/* <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-green-900 shadow-lg rounded-md min-w-[160px] z-50">
               <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">About</NavLink>
               <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Mission/Vission</NavLink>
               <NavLink to="/team" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Team</NavLink>
-            </div>
+            </div> */}
           </div>
 
           {/* Products Dropdown */}

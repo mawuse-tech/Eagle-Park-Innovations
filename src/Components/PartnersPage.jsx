@@ -6,6 +6,7 @@ import kic from '../assets/kiclogo.png';
 import leverage from '../assets/levlogo.png';
 import nastag from '../assets/nastaglogo.png';
 import oca from '../assets/ocalogo.png';
+import gh from '../assets/ghlogo.png';
 
 const PartnersPage = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const PartnersPage = () => {
     leverage,
     nastag,
     oca,
+    gh
   ];
 
   return (

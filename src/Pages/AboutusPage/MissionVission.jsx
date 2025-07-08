@@ -20,7 +20,7 @@ const MissionVision = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Mission */}
           <div
-            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300"
+            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300 lg:h-60"
             data-aos="fade-left"
           >
             <div className="flex items-center gap-4 mb-4">
@@ -34,7 +34,7 @@ const MissionVision = () => {
 
           {/* Vision */}
           <div
-            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300"
+            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300 lg:h-60"
             data-aos="fade-right"
           >
             <div className="flex items-center gap-4 mb-4">

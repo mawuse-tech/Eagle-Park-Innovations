@@ -29,15 +29,15 @@ const router = createBrowserRouter(([
         Component: OurStoryHome
       },
 
-      {
-        path: "mission",
-        Component: MissionVision
-      },
+      // {
+      //   path: "mission",
+      //   Component: MissionVision
+      // },
 
-      {
-        path: "team",
-        Component: TeamPage
-      },
+      // {
+      //   path: "team",
+      //   Component: TeamPage
+      // },
 
       {
         path: "train",
