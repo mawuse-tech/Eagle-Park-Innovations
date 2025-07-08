@@ -107,20 +107,30 @@ export default function HeroCompo() {
 
         {/* Optional styles to enhance nav buttons */}
         <style>
-          {`
-            .swiper-button-next,
-            .swiper-button-prev {
-              color: #1f2937; /* Tailwind gray-800 */
-              top: 50%;
-              transform: translateY(-50%);
-              z-index: 10;
-            }
-            .swiper-button-next::after,
-            .swiper-button-prev::after {
-              font-size: 20px;
-            }
-          `}
-        </style>
+  {`
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #1f2937; /* Tailwind gray-800 */
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .swiper-button-prev {
+      left: -7px; /* move left arrow further left */
+    }
+
+    .swiper-button-next {
+      right: -7px; /* move right arrow further right */
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 30px; /* increase icon size */
+    }
+  `}
+</style>
+
       </div>
     </section>
   );

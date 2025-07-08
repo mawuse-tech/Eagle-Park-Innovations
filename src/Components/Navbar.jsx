@@ -29,11 +29,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6 ml-6 text-[16px]">
-          <NavLink to="/">Home</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-yellow-300" : "text-white"} to="/">Home</NavLink>
 
           {/* About Us Dropdown */}
           <div>
-            <NavLink to='/ourstory'> About Us</NavLink>
+            <NavLink className={({ isActive }) => isActive ? "text-yellow-300" : "text-white"} to='/ourstory'> About Us</NavLink>
             {/* <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-green-900 shadow-lg rounded-md min-w-[160px] z-50">
               <NavLink to="/ourstory" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">About</NavLink>
               <NavLink to="/mission" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Mission/Vission</NavLink>
@@ -53,8 +53,17 @@ const Navbar = () => {
             </div>
           </div>
 
-          <NavLink to="/train">Training and Consultancy Hub</NavLink>
-          <NavLink to="/contact" className="hover:text-yellow-400 flex items-center gap-1">Contact Us</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-yellow-300" : "text-white"} to="/train">Training and Consultancy Hub</NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `flex items-center gap-1 hover:text-yellow-400 ${isActive ? "text-yellow-300 font-semibold" : "text-white"
+              }`
+            }
+          >
+            Contact Us
+          </NavLink>
+
         </div>
 
         {/* Desktop Button */}
@@ -85,15 +94,15 @@ const Navbar = () => {
               onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
               className="flex items-center gap-1 hover:text-yellow-400 w-full text-left"
             >
-              About Us <i className="ri-arrow-down-s-line text-sm"></i>
+              <NavLink to='/ourstory' onClick={handleCloseMenu}> About Us </NavLink>
             </button>
-            {isMobileAboutOpen && (
+            {/* {isMobileAboutOpen && (
               <div className="flex flex-col bg-white text-green-900 shadow-lg rounded-md mt-1">
                 <NavLink to="/ourstory" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Story</NavLink>
                 <NavLink to="/mission" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Mission/Vission</NavLink>
                 <NavLink to="/team" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Our Team</NavLink>
               </div>
-            )}
+            )} */}
           </div>
 
           {/* Mobile Products */}
