@@ -6,18 +6,10 @@ import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import poultry from '../assets/poultry.jpg';
 import seeds from '../assets/bowlseeds.jpg';
-// import poultrylady from '../assets/bowlseeds.jpg';
 import Fixed from './Fixed';
 import { NavLink } from 'react-router';
 
-
-
-const images = [
-  happyfarmers,
-  seeds,
-  maizefarm,
-  poultry,
-];
+const images = [happyfarmers, seeds, maizefarm, poultry];
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -27,25 +19,31 @@ const Hero = () => {
 
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000); // Rotate every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div>
-      <section
-        className="relative w-full h-screen bg-center bg-cover bg-no-repeat flex items-center px-6 md:px-12 transition-all duration-1000"
-        style={{
-          backgroundImage: `url(${images[currentImage]})`,
-        }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[#0212107e] z-0"></div>
+      <section className="relative w-full h-screen flex items-center px-6 md:px-12 overflow-hidden">
+        {/* Backgrounds */}
+        {images.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 bg-center bg-cover transition-opacity duration-1000 ${
+              index === currentImage ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ backgroundImage: `url(${img})` }}
+          ></div>
+        ))}
 
-        {/* Stylish Green Text Container */}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#0212107e] z-10"></div>
+
+        {/* Text Box */}
         <div
-          className="relative z-10 max-w-[40rem] w-full md:w-2/3 bg-green-900/60 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-white shadow-lg"
+          className="relative z-20 max-w-[40rem] w-full md:w-2/3 bg-green-900/60 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-white shadow-lg"
           data-aos="fade-up"
         >
           <h1
@@ -53,7 +51,8 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-           Empowering Farmers, Feeding Nations and<br />
+            Empowering Farmers, Feeding Nations and
+            <br />
             <span className="text-yellow-300">Building Sustainable Futures</span>
           </h1>
 
@@ -62,7 +61,7 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-           Welcome to Eagle Park Innovations Ltd
+            Welcome to Eagle Park Innovations Ltd
           </p>
 
           <div
@@ -80,14 +79,8 @@ const Hero = () => {
       </section>
 
       <Fixed />
-
     </div>
   );
 };
 
 export default Hero;
-
-
-
-
-
