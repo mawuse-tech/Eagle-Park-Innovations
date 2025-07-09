@@ -16,18 +16,18 @@ const Example = () => {
       link: '/seed',
     },
     {
-      title: 'Poultry Farming',
-      text: ': We produce fresh, high-quality eggs through responsible farming, turning poultry waste into organic fertilizer to nourish crops and ensure zero-waste, sustainable production.',
-      link: '/poultry',
-    },
-    {
       title: 'Grain Aggregation',
       text: 'We aggregate quality grains from farmers and link them to reliable markets, ensuring fair prices, reduced postharvest losses, and inclusive rural growth. ',
       link: '/grain',
     },
     {
+      title: 'Poultry Farming',
+      text: 'We produce fresh, high-quality eggs through responsible farming, turning poultry waste into organic fertilizer to improve soil fertility and crop yields and ensure zero-waste, sustainable production.',
+      link: '/poultry',
+    },
+    {
       title: 'Training and Consultancy',
-      text: ': We equip farmers and agribusinesses with practical skills and personalized strategies to boost productivity, grow income, build resilience, and operate sustainably. ',
+      text: 'We equip farmers and agribusinesses with practical skills and personalized strategies to boost productivity, grow income, build resilience, and operate sustainably. ',
       link: '/train',
     },
 
@@ -46,7 +46,7 @@ const Example = () => {
             data-aos-delay={index * 200}
             className="bg-white shadow-md hover:shadow-lg rounded-lg border border-gray-200 transition duration-300"
           >
-            <div className="p-3 text-green-900">
+            <div className="p-3 text-green-900 ">
               <h3 className="text-lg md:text-xl font-semibold leading-tight mb-3">
                 {card.title}
               </h3>

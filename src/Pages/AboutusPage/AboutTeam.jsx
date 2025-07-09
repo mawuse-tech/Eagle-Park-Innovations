@@ -79,8 +79,8 @@ const TeamPage = () => {
               </div>
             </div>
 
-            <h3 className="text-lg font-semibold text-[#002920]">{member.name}</h3>
-            <p className="text-sm text-gray-600 mt-1">{member.role}</p>
+            <h3 className="text-lg font-semibold text-[#002920]">Name: {member.name}</h3>
+            <p className="text-sm text-gray-600 mt-1">Position: {member.role}</p>
 
             <p className="text-sm text-gray-500 mt-4">
               Sample text. Click to select the text box. Click again or double click to edit.

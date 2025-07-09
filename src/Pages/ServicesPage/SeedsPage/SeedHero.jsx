@@ -27,12 +27,12 @@ const SeedHero = () => {
                     <div className="flex gap-4">
                         <NavLink to="/shop">
                             <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
-                            shop now
+                            Shop Now <i className="ri-arrow-right-line"></i>
                         </button>
                         </NavLink>
-                        <button className="border border-green-900 text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
+                        {/* <button className="border border-green-900 text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
                             Learn More
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

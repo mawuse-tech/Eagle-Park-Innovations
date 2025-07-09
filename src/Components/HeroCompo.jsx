@@ -21,15 +21,7 @@ const promoCardsData = [
     imageAlt: "seeds page",
     link: '/shop',
   },
-  {
-    id: 2,
-    title: "Poultry Products",
-    description:
-      "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost.",
-    imageSrc: hens,
-    imageAlt: "poultry page",
-    link: '/shop',
-  },
+
   {
     id: 3,
     title: "Premium Grains",
@@ -40,6 +32,17 @@ const promoCardsData = [
     link: '/shop',
 
   },
+  
+  {
+    id: 2,
+    title: "Poultry Products",
+    description:
+      "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost.",
+    imageSrc: hens,
+    imageAlt: "poultry page",
+    link: '/shop',
+  },
+  
   {
     id: 4,
     title: "Training and Consultancy Hub",

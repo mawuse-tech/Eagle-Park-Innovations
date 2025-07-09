@@ -61,7 +61,7 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Welcome to Eagle Park Innovations Ltd
+            Welcome to EPI (Eagle Park Innovations Ltd) 
           </p>
 
           <div

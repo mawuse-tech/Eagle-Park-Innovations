@@ -18,7 +18,7 @@ const PoultryHero = () => {
                 {/* Text Section */}
                 <div data-aos="fade-right" className="space-y-6">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-green-900">
-                        Quality Poultry products <br /> for Every Home
+                        Quality Poultry Products <br />for Every Home
                     </h1>
                     <p className="text-gray-700 mb-6">
                        At EPI, we provide high-quality eggs produced through responsible and scalable farming practices. Our circular economy model transforms poultry by-products into organic fertilizer, creating a closed-loop system that boosts sustainability and product quality.
@@ -26,12 +26,12 @@ const PoultryHero = () => {
                     <div className="flex gap-4">
                          <NavLink to="/shop">
                             <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
-                            shop now
+                            Shop Now <i className="ri-arrow-right-line"></i>
                         </button>
                         </NavLink>
-                        <button className="border border-[#002920] text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
+                        {/* <button className="border border-[#002920] text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
                             Learn More
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

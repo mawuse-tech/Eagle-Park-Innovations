@@ -20,21 +20,25 @@ const TrainPage = () => {
                     {/* Text Section */}
                     <div data-aos="fade-right" className="space-y-6">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-green-900">
-                           Grow with Us: Join Our Training and Consultancy Programs
+                            Grow with Us: Join Our Training and Consultancy Programs
                         </h1>
                         <p className="text-gray-700 mb-6">
-                           Our comprehensive capacity-building program equips individuals and agribusinesses with hands-on skills, expert knowledge, and proven strategies tailored to their unique needs, thereby empowering farmers to transform their journey and helping agribusinesses grow, thrive, and stay resilient.
+                            Our comprehensive capacity-building program equips individuals and agribusinesses with hands-on skills, expert knowledge, and proven strategies tailored to their unique needs, thereby empowering farmers to transform their journey and helping agribusinesses grow, thrive, and stay resilient.
 
                         </p>
                         <div className="flex gap-4">
                             <NavLink to="/contact">
                                 <button className="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-[#1C8057] transition">
-                                Register
-                            </button>
+                                    Register
+                                </button>
                             </NavLink>
-                            <button className="border border-green-900 text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
-                                Learn More
-                            </button>
+
+                            <NavLink to="/ourstory">
+                                <button className="border border-green-900 text-[#1C8057] px-6 py-3 rounded-full hover:bg-[#1C8057] hover:text-white transition">
+                                    Learn More
+                                </button>
+                            </NavLink>
+
                         </div>
                     </div>
 
@@ -60,7 +64,7 @@ const TrainPage = () => {
                 <div className="text-center mb-12" data-aos="fade-up">
                     <h2 className="text-3xl md:text-4xl font-bold text-white">What We Offer</h2>
                     <p className="text-yellow-300 mt-2 max-w-xl mx-auto">
-                       Tap into our expertise to turn your passion for farming and agribusiness into profitable ventures and lasting impact. We offer training and consultancy services in the following key areas: 
+                        Tap into our expertise to turn your passion for farming and agribusiness into profitable ventures and lasting impact. We offer training and consultancy services in the following key areas:
                     </p>
                 </div>
 
@@ -120,14 +124,14 @@ const TrainPage = () => {
             {/* Call to Action */}
             <section className="bg-white text-green-900 py-16 px-6 md:px-20" data-aos="fade-up">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold mb-4">Ready to Grow Your Farming Skills?</h2>
+                    <h2 className="text-3xl font-bold mb-4">Ready to Grow Your Farming and Agribusiness Skills?</h2>
                     <p className="mb-6 text-gray-600">
                         Be part of a network of knowledgeable, empowered farmers and businesses transforming agriculture across the region.
                     </p>
                     <NavLink to="/contact">
                         <button className="bg-green-900 hover:bg-green-700 text-white px-6 py-3 text-sm sm:text-base rounded-full">
-                        Register for our next class <i className="ri-arrow-right-line transition"></i>
-                    </button>
+                            Register for our next class <i className="ri-arrow-right-line transition"></i>
+                        </button>
                     </NavLink>
                 </div>
             </section>

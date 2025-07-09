@@ -28,7 +28,7 @@ const Fixed = () => {
                     data-aos-duration="1000"
                 >
                     <h1 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-                        Join our Training and <span className="text-yellow-300">Consultancy Hub</span>
+                        Join Our Training and <span className="text-yellow-300">Consultancy Hub</span>
                     </h1>
 
                     <p className="text-base md:text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
