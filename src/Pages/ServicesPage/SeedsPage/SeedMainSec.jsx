@@ -17,12 +17,12 @@ const grains = [
     {
         name: 'Cowpea',
         image: soy,
-        description: 'We offer climate-smart soybean varieties with non-shattering pods that reduce harvest losses, improve yield quality, and are ideal for food, feed, and industrial use.',
+        description: 'We offer early-maturing, high-yielding cowpea varieties that resist key pests, reduce pesticide use, and support safer, sustainable farming.',
     },
     {
         name: 'Soyabean',
         image: cow,
-        description: 'We offer early-maturing, high-yielding cowpea varieties that resist key pests, reduce pesticide use, and support safer, sustainable farming.',
+        description: 'We offer climate-smart soyabean varieties with non-shattering pods that reduce harvest losses, improve yield quality, and are ideal for food, feed, and industrial use.',
     },
     
 ];

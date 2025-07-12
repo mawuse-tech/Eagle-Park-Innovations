@@ -16,7 +16,7 @@ const promoCardsData = [
     id: 1,
     title: "  Certified Seeds",
     description:
-      "Discover our range of climate-smart certified seeds designed to thrive in diverse conditions.",
+      "Discover our certified climate-smart seed varieties, bred to thrive in diverse, and challenging conditions",
     imageSrc: seeds,
     imageAlt: "seeds page",
     link: '/shop',
@@ -26,7 +26,7 @@ const promoCardsData = [
     id: 3,
     title: "Premium Grains",
     description:
-      "Discover our premium selection of grains including maize, millet and sorghum",
+      "Discover our premium selection of grains including maize, soyabean, rice and cowpea",
     imageSrc: farm,
     imageAlt: "grain page",
     link: '/shop',
@@ -37,7 +37,7 @@ const promoCardsData = [
     id: 2,
     title: "Poultry Products",
     description:
-      "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost.",
+      "Explore our healthy and well-raised poultry products, including farm-fresh eggs and organic compost",
     imageSrc: hens,
     imageAlt: "poultry page",
     link: '/shop',
@@ -47,7 +47,7 @@ const promoCardsData = [
     id: 4,
     title: "Training and Consultancy Hub",
     description:
-      "Discover our premium selection of grains including maize, millet and sorghum",
+      "Tap practical skills and proven strategies to boost yields, income, climate resilience, and sustainability",
     imageSrc: trainfarm,
     imageAlt: "training page",
     link: '/train',

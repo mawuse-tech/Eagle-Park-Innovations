@@ -13,27 +13,27 @@ const grains = [
     {
         name: 'Maize',
         image: grain,
-        description: 'Maize is a versatile grain used for food, feed, and fuel. It thrives in many climates and is a staple for millions.',
+        description: 'Maize is a versatile, nutrient rich grain high in carbohydrates, used for food, feed, and fuel, and a staple for millions.',
     },
     {
         name: 'Cowpea',
         image: cowpea,
-        description: 'Cowpea is a drought-tolerant legume Packed with protein and fiber, it’s a staple in stews, soups, and local delicacies.',
+        description: 'Cowpea is a protein rich legume, packed with fiber, vitamins, and minerals, perfect for soups, stews, and a wide variety of delicacies.',
     },
     {
         name: 'Rice',
         image: rice,
-        description: 'Rice is a major global food crop grown in waterlogged fields. It provides essential calories for over half the world.',
+        description: 'Rice is a vital global crop, providing essential calories to over half the world’s population.',
     },
     {
         name: 'Soyabean',
         image: soy,
-        description: 'Soyabean is a multi-purpose crop packed with protein and healthy oils. Grown worldwide, it is a major source of food, feed, and industrial products.',
+        description: 'Soyabean is a multi-purpose crop packed with protein and healthy oils. It is a major source of food, feed, and industrial products.',
     },
     {
         name: 'Groundnut',
         image: nut,
-        description: 'Groundnut is a protein-rich legume with healthy oils, widely used in pastes, snacks, and sauces in local cuisines.',
+        description: ': Groundnut is a protein-rich legume with healthy oils, commonly used in pastes, snacks, and sauces across many cuisines.',
     },
 ];
 
@@ -67,7 +67,7 @@ const GrainMain = () => {
                         Our Focus Grains
                     </h2>
                     <p className="text-yellow-300 mt-4 text-base md:text-lg" data-aos="fade-up">
-                       We specialize in key cereal and legume grains to empower farmers and boost food security across communities.
+                        We specialize in key cereal and legume grains to empower farmers and boost food security across communities.
                     </p>
                 </div>
 
@@ -97,13 +97,13 @@ const GrainMain = () => {
                         In need of grains with an excellent nutrient profile for food, feed, or industrial use? <br />
                         Look no further — we’ve got you covered.
                     </h2>
-                     <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 mt-6 text-sm sm:text-base rounded-full">
+                    <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 mt-6 text-sm sm:text-base rounded-full">
                         Shop Now <i className="ri-arrow-right-line"></i>
                     </button></NavLink>
                 </div>
             </section>
 
-         <WhyGrainPage/>
+            <WhyGrainPage />
 
         </div>
     );

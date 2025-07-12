@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import eggs from "../PoutryPage/eggs.webp";
-import man from "../PoutryPage/mann.png";
+import man from "../PoutryPage/cmp.jpg";
 import hens from "../PoutryPage/redhenn.jpg";
 import { NavLink } from 'react-router';
 import WhyPoutryPage from './WhyPoultryPage';
@@ -16,7 +16,7 @@ const grains = [
     {
         name: 'Compost – Waste to Wealth',
         image: man,
-        description: 'As part of our sustainable farming system, EPI converts poultry waste into nutrient-rich organic fertilizer that enhances soil health and boosts crop yields. Our compost is fully matured and carefully handled to meet the needs of farmers and gardeners.',
+        description: 'As part of our sustainable farming system, EPI converts poultry waste into nutrient-rich organic fertilizer that enhances soil health and boosts crop yields. Our compost is carefully handled to meet the needs of farmers and gardeners.',
     },
     {
         name: 'Live Birds for Chicken Meat',
@@ -83,7 +83,7 @@ const PoultryMainSec = () => {
 
                 <div className="text-center mt-16">
                     <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">
-                       Looking for healthy, high-quality poultry for food or farming?<br />
+                      Looking for healthy, high-quality poultry products for food or farming?<br />
                         Look no further — we’ve got you covered.
                     </h2>
                      <NavLink to="/shop"><button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 mt-6 text-sm sm:text-base rounded-full">

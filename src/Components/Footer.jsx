@@ -18,7 +18,7 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="100">
           <h2 className="text-xl font-semibold mb-4">Eagle Park Innovations</h2>
           <p className="text-sm leading-relaxed">
-            Empowering farmers, feeding nations, and building sustainable futures.
+            EPI: Empowering farmers, feeding nations, and building sustainable futures.
           </p>
         </div>
 

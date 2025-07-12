@@ -11,8 +11,8 @@ const Example = () => {
 
   const cards = [
     {
-      title: 'Certified Seed Production and Marketing',
-      text: 'We provide certified seeds of climate-resilient maize, soybean, and cowpea varieties, plus tailored farming advice to help farmers boost yields sustainably.',
+      title: 'Certified Seed Production and Distribution',
+      text: 'We provide certified seeds of climate-resilient maize, soyabean, and cowpea varieties, plus tailored farming advice to help farmers boost yields sustainably.',
       link: '/seed',
     },
     {
@@ -52,9 +52,10 @@ const Example = () => {
               </h3>
               <p className="text-sm text-gray-700 mb-4">{card.text}</p>
               <div className="flex items-center gap-1 text-green-700 text-sm font-semibold cursor-pointer hover:underline">
+                
                 <NavLink to={card.link}
                   className="flex items-center gap-1 text-green-700 text-sm font-semibold hover:underline">
-                  Learn more <RiArrowRightSLine className="text-lg" />
+                  Learn More <RiArrowRightSLine className="text-lg" />
                 </NavLink>
               </div>
             </div>

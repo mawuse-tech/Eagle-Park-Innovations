@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 const stats = [
   {
     title: 'Fair Pricing',
-    description: 'Transparent prices that boost farmer earnings.',
+    description: 'Better returns for farmers, affordable grains for users.',
     icon: 'ri-money-dollar-circle-line',
   },
   {

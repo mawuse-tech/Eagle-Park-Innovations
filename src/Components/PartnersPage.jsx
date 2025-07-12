@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import absa from '../assets/absalogo.png';
-import csir from '../assets/csirlogo.png';
 import giz from '../assets/gizlogo.png';
 import kic from '../assets/kiclogo.png';
 import leverage from '../assets/levlogo.png';
@@ -16,7 +15,6 @@ const PartnersPage = () => {
 
   const logos = [
     absa,
-    csir,
     giz,
     kic,
     leverage,

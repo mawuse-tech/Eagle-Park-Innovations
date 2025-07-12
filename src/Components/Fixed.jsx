@@ -37,7 +37,7 @@ const Fixed = () => {
 
                    <NavLink to="/train">
                      <button className="bg-green-700 hover:bg-green-600 text-white px-6 py-3 text-sm sm:text-base rounded-full transition">
-                        Register now <i className="ri-arrow-right-line ml-1"></i>
+                        Register Now <i className="ri-arrow-right-line ml-1"></i>
                     </button>
                    </NavLink>
                 </div>

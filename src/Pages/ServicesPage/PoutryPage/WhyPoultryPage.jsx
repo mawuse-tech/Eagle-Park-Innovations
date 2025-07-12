@@ -10,7 +10,7 @@ const stats = [
   },
   {
     title: 'Eco-Friendly Waste Management',
-    description: 'Organic waste transformed into valuable organic fertilizer',
+    description: 'Poultry waste transformed into valuable organic fertilizer',
     icon: 'ri-recycle-line',
   },
   {

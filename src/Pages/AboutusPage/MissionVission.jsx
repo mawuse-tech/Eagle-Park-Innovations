@@ -14,7 +14,7 @@ const MissionVision = () => {
           className="text-4xl font-bold text-center text-white mb-12"
           data-aos="zoom-in"
         >
-          Our Mission & Vision
+          Our Mission and Vision
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
