@@ -1,30 +1,52 @@
 import React, { useState, useEffect } from 'react';
-import cow from "../ShopPage/cow.webp";
-import corn from "../ShopPage/corn.jpg";
-import white from "../ShopPage/whitem.jpeg";
-import soy from "../ShopPage/soyb.jpeg";
-import rice from "../ShopPage/rice.jpg";
-import nut from "../ShopPage/nut.jpeg";
-import hen from "../ShopPage/redhen.jpg";
 import eggs from "../ShopPage/eggs.webp";
-import man from "../ShopPage/mann.png";
 import ep31 from "../ShopPage/ep31.png";
+import ep2 from "../ShopPage/ep2.png";
+import ep34 from "../ShopPage/ep34.png";
+import fav from "../ShopPage/fav.jpg";
+import wan from "../ShopPage/wan.jpg";
+import maone from "../ShopPage/maone.jpg";
+import matwo from "../ShopPage/matwo.jpg";
+import sograin from "../ShopPage/sog.jpg";
+import cow from "../ShopPage/cow.jpg";
+import rice from "../ShopPage/rice.jpg";
+import nut from "../ShopPage/ground.png";
+import compost from "../ShopPage/com.jpg";
+import sprint from "../ShopPage/sprint.jpg";
 
 const productsData = [
-    { id: 1, name: "Cowpea/kg", price: 40, image: cow, category: "grain" },
-    { id: 2, name: "Cowpea/50kg", price: 350, image: cow, category: "grain" },
-    { id: 3, name: "Yellow Maize/50kg", price: 350, image: corn, category: "grain" },
-    { id: 4, name: "White Maize/50kg", price: 350, image: white, category: "grain" },
-    { id: 5, name: "Soyabeans(Favour)/kg", price: 25, image: soy, category: "grain" },
-    { id: 6, name: "Soyabeans(Afayak)/kg", price: 25, image: soy, category: "grain" },
-    { id: 7, name: "Soyabeans/50kg", price: 350, image: soy, category: "grain" },
-    { id: 8, name: "Rice/50kg", price: 360, image: rice, category: "grain" },
-    { id: 9, name: "Groundnut/50kg", price: 650, image: nut, category: "grain" },
-    { id: 10, name: "Spent layer/50kg", price: 70, image: hen, category: "poultry products" },
-    { id: 11, name: " Crate of eggs/unsorted", price: 70, image: eggs, category: "poultry products" },
-    { id: 12, name: " Compost/kg", price: 70, image: man, category: "poultry products" },
-    { id: 13, name: "EP31", crop: "Hybrid Maize", days: "105 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 70, image: ep31, category: "seed" },
+    { id: 1, name: "EP31", crop: "Hybrid Maize", days: "85 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 45, image: ep31, category: "seeds" },
+
+    { id: 2, name: "EP32", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Drought Tolerant. Tolerant to common maize diseases", price: 40, image: ep2, category: "seeds" },
+
+    { id: 3, name: "EP34", crop: "Hybrid Maize", days: "90 days (Early)", color: "Yellow", potential: "6 t/ha", des: "Drought Tolerant Tolerant to common maize diseases", price: 40, image: ep34, category: "seeds" },
+
+    { id: 4, name: "Afayak", crop: "Soyabean", days: "115-118 days", color: "Yellow", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: ep34, category: "seeds" },
+
+    { id: 5, name: "Favour", crop: "Soyabean", days: "110-115 days (Early)", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
+
+    { id: 6, name: "Wang-Kai", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
+
+    { id: 7, name: "Maize", color: " Yellow", des: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution' ", price2: 350, image: maone, category: "grain" },
+
+    { id: 8, name: "Maize", color: " White", des: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution' ", price2: 350, image: matwo, category: "grain" },
+
+    { id: 9, name: "Soyabean", price2: 350, image: sograin, category: "grain" },
+
+    { id: 10, name: "Cowpea", price2: 1000, image: cow, category: "grain" },
+
+    { id: 11, name: "Rice(Parboiled)", price2: 360, image: rice, category: "grain" },
+
+    { id: 12, name: "Groundnut", price2: 650, image: nut, category: "grain" },
+
+    { id: 13, name: "Compost", price2: 70, image: compost, category: "poultry products" },
+
+    { id: 14, name: "Crate of Eggs(Unsorted)", price2: 57, image: eggs, category: "poultry products" },
+
+    { id: 15, name: "Sprint Layer(For meat)", price3: 80, image: sprint, category: "poultry products" },
+
 ];
+
 
 const ShopItems = () => {
     const [cart, setCart] = useState(() => {
@@ -128,24 +150,70 @@ const ShopItems = () => {
                     {filteredProducts.map(product => {
                         const inCart = cart.find(item => item.id === product.id);
                         return (
-                            <div key={product.id} className="border-gray-900 shadow-lg rounded-lg overflow-hidden p-4">
-                                <img src={product.image} alt={product.name} className="w-full h-64 object-cover " />
-                                <h2 className="text-xl font-semibold">{product.name}</h2>
+                            <div
+                                key={product.id}
+                                className="flex flex-col justify-between h-full border-gray-900 shadow-lg rounded-lg overflow-hidden p-4"
+                            >
+                                <div>
+                                    <img src={product.image} alt={product.name} className="w-full h-64 object-cover mb-4" />
+                                    <h2 className="text-xl font-semibold">{product.name}</h2>
 
-                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Crop: </span>{product.crop}</p>
+                                    {product.crop && (
+                                        <p className="text-gray-500 font-bold mb-2">
+                                            <span className="text-gray-600">Crop: </span>{product.crop}
+                                        </p>
+                                    )}
 
-                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Days of Maturity: </span>{product.days}</p>
+                                    {product.days && (
+                                        <p className="text-gray-500 font-bold mb-2">
+                                            <span className="text-gray-600">Days of Maturity: </span>{product.days}
+                                        </p>
+                                    )}
 
-                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Grain color: </span>{product.color}</p>
 
-                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Potential yeild: </span>{product.potential}</p>
+                                    {product.color && (
+                                        <p className="text-gray-500 font-bold mb-2">
+                                            <span className="text-gray-600">Grain Color: </span>{product.color}
+                                        </p>
+                                    )}
 
-                                <p className="text-gray-500 font-bold mb-2">{product.des}</p>
+                                    {product.color2 && (
+                                        <p className="text-gray-500 font-bold mb-2">
+                                            <span className="text-gray-600">Grain Color: </span>{product.color2}
+                                        </p>
+                                    )}
 
-                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Price: </span>GH₵{product.price}</p>
+                                    {product.potential && (
+                                        <p className="text-gray-500 font-bold mb-2">
+                                            <span className="text-gray-600">Potential yield: </span>{product.potential}
+                                        </p>
+                                    )}
+
+                                    {product.des && (
+                                        <p className="text-gray-500 font-bold mb-2">{product.des}</p>
+                                    )}
+
+                                    {product.price && (
+                                        <p className="text-gray-500 font-bold mb-4">
+                                            <span className="text-gray-600">Price: </span>GH₵{product.price}/kg
+                                        </p>
+                                    )}
+
+                                    {product.price2 && (
+                                        <p className="text-gray-500 font-bold mb-4">
+                                            <span className="text-gray-600">Price: </span>GH₵{product.price2}/50/kg
+                                        </p>
+                                    )}
+
+                                    {product.price3 && (
+                                        <p className="text-gray-500 font-bold mb-4">
+                                            <span className="text-gray-600">Price: </span>GH₵{product.price2}80/Bird
+                                        </p>
+                                    )}
+                                </div>
 
                                 <button
-                                    className={`w-48 px-4 py-2 rounded-full ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
+                                    className={`w-48 px-4 py-2 rounded-full mt-auto ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
                                     onClick={() => handleAddOrRemove(product)}
                                 >
                                     {inCart ? 'Remove from Cart' : 'Add to Cart'}
@@ -154,6 +222,7 @@ const ShopItems = () => {
                         );
                     })}
                 </div>
+
             </div>
 
             {/* Cart Sidebar */}
