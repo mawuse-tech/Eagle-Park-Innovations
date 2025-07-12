@@ -8,7 +8,7 @@ import nut from "../ShopPage/nut.jpeg";
 import hen from "../ShopPage/redhen.jpg";
 import eggs from "../ShopPage/eggs.webp";
 import man from "../ShopPage/mann.png";
-import soyaf from "../ShopPage/so1.png";
+import ep31 from "../ShopPage/ep31.png";
 
 const productsData = [
     { id: 1, name: "Cowpea/kg", price: 40, image: cow, category: "grain" },
@@ -23,7 +23,7 @@ const productsData = [
     { id: 10, name: "Spent layer/50kg", price: 70, image: hen, category: "poultry products" },
     { id: 11, name: " Crate of eggs/unsorted", price: 70, image: eggs, category: "poultry products" },
     { id: 12, name: " Compost/kg", price: 70, image: man, category: "poultry products" },
-    { id: 13, name: "EP31", crop: "Hybrid Maize", days: "105 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 70, image: soyaf, category: "seed" },
+    { id: 13, name: "EP31", crop: "Hybrid Maize", days: "105 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 70, image: ep31, category: "seed" },
 ];
 
 const ShopItems = () => {
