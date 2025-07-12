@@ -40,7 +40,7 @@ const TeamPage = () => {
     <section className="relative py-20 px-6 md:px-20 bg-[#f4f4f4]">
       {/* Header */}
       <div className="text-center mb-16 z-10 relative" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#002920]">Meet Our Dedicated Management Team</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-green-900">Meet Our Dedicated Management Team</h2>
         <p className="text-gray-700 mt-2 max-w-2xl mx-auto ">
           A passionate and experienced team, committed to delivering solutions tailored to your needs and goals.
         </p>

@@ -8,6 +8,7 @@ import nut from "../ShopPage/nut.jpeg";
 import hen from "../ShopPage/redhen.jpg";
 import eggs from "../ShopPage/eggs.webp";
 import man from "../ShopPage/mann.png";
+import soyaf from "../ShopPage/so1.png";
 
 const productsData = [
     { id: 1, name: "Cowpea/kg", price: 40, image: cow, category: "grain" },
@@ -20,8 +21,9 @@ const productsData = [
     { id: 8, name: "Rice/50kg", price: 360, image: rice, category: "grain" },
     { id: 9, name: "Groundnut/50kg", price: 650, image: nut, category: "grain" },
     { id: 10, name: "Spent layer/50kg", price: 70, image: hen, category: "poultry products" },
-    { id: 11, name: "   Crate of eggs/unsorted", price: 70, image: eggs, category: "poultry products" },
-    { id: 12, name: "   Compost/kg", price: 70, image: man, category: "poultry products" },
+    { id: 11, name: " Crate of eggs/unsorted", price: 70, image: eggs, category: "poultry products" },
+    { id: 12, name: " Compost/kg", price: 70, image: man, category: "poultry products" },
+    { id: 13, name: "EP31", crop: "Hybrid Maize", days: "105 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 70, image: soyaf, category: "seed" },
 ];
 
 const ShopItems = () => {
@@ -126,10 +128,22 @@ const ShopItems = () => {
                     {filteredProducts.map(product => {
                         const inCart = cart.find(item => item.id === product.id);
                         return (
-                            <div key={product.id} className="border-gray-900 shadow-lg rounded-lg overflow-hidden p-4 text-center">
-                                <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-4" />
+                            <div key={product.id} className="border-gray-900 shadow-lg rounded-lg overflow-hidden p-4">
+                                <img src={product.image} alt={product.name} className="w-full h-64 object-cover " />
                                 <h2 className="text-xl font-semibold">{product.name}</h2>
-                                <p className="text-green-800 font-bold mb-2">GH₵{product.price}</p>
+
+                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Crop: </span>{product.crop}</p>
+
+                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Days of Maturity: </span>{product.days}</p>
+
+                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Grain color: </span>{product.color}</p>
+
+                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Potential yeild: </span>{product.potential}</p>
+
+                                <p className="text-gray-500 font-bold mb-2">{product.des}</p>
+
+                                <p className="text-gray-500 font-bold mb-2"><span className='text-gray-600'>Price: </span>GH₵{product.price}</p>
+
                                 <button
                                     className={`w-48 px-4 py-2 rounded-full ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
                                     onClick={() => handleAddOrRemove(product)}
