@@ -95,7 +95,10 @@ const ShopItems = () => {
         setCart(updatedCart);
     };
 
-    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const total = cart.reduce((acc, item) => {
+        const unitPrice = item.price || item.price2 || item.price3 || 0;
+        return acc + unitPrice * item.quantity;
+    }, 0);
 
     return (
         <div className="min-h-screen bg-white text-green-900 relative">
@@ -248,7 +251,9 @@ const ShopItems = () => {
                                 <div key={item.id} className="flex items-center justify-between mb-4 border-b pb-2">
                                     <div>
                                         <h3 className="font-semibold">{item.name}</h3>
-                                        <p>GH₵{item.price} x {item.quantity}</p>
+                                        <p>
+                                            GH₵{item.price || item.price2 || item.price3} x {item.quantity}
+                                        </p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <button onClick={() => handleDecrease(item.id)} className="px-2 py-1 bg-gray-200 rounded">-</button>
