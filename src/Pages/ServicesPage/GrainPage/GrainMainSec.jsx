@@ -33,7 +33,7 @@ const grains = [
     {
         name: 'Groundnut',
         image: nut,
-        description: ': Groundnut is a protein-rich legume with healthy oils, commonly used in pastes, snacks, and sauces across many cuisines.',
+        description: 'Groundnut is a protein-rich legume with healthy oils, commonly used in pastes, snacks, and sauces across many cuisines.',
     },
 ];
 

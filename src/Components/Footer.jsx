@@ -16,9 +16,9 @@ const Footer = () => {
       >
         {/* About */}
         <div data-aos="fade-up" data-aos-delay="100">
-          <h2 className="text-xl font-semibold mb-4">Eagle Park Innovations</h2>
+          <h2 className="text-xl font-semibold mb-4">EPI</h2>
           <p className="text-sm leading-relaxed">
-            EPI: Empowering farmers, feeding nations, and building sustainable futures.
+          Empowering farmers, feeding nations, and building sustainable futures
           </p>
         </div>
 
@@ -52,7 +52,7 @@ const Footer = () => {
 
             <a href="https://www.instagram.com/p/DLncarnsdyb/?igsh=MW1nZW92YTR0aHB0bA==" target='_blank' rel="noopener noreferrer"><i className="ri-instagram-line  hover:text-yellow-400 text-yellow-300"></i></a>
 
-            <a href="#"><i className="ri-linkedin-box-line  hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="https://www.linkedin.com/company/eagle-park-innovations-limited/?viewAsMember=true" target='_blank'><i className="ri-linkedin-box-line  hover:text-yellow-400 text-yellow-300"></i></a>
           </div>
         </div>
       </div>

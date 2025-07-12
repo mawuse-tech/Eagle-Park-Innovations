@@ -5,7 +5,7 @@ import 'remixicon/fonts/remixicon.css';
 import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import poultry from '../assets/poultry.jpg';
-import seeds from '../assets/bowlseeds.jpg';
+import seeds from '../assets/bg.jpg';
 import Fixed from './Fixed';
 import { NavLink } from 'react-router';
 

@@ -10,10 +10,10 @@ const stats = [
   {
     title: '  Youth Trained',
     count: 350,
-    icon:  <FontAwesomeIcon icon={faUserGraduate} className="text-3xl text-[#002920] mb-3" />,
+    icon: " ri-team-line"
   },
   {
-    title: 'Farmers Impacted',
+    title: 'Farmers and Agripreneurs Impacted',
     count: 3000,
     icon: 'ri-leaf-line',
   },
