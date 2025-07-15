@@ -15,14 +15,14 @@ const teamMembers = [
     image: team1,
   },
   {
-    name: 'Godfred Owusu',
+    name: 'Mr. Godfred Owusu',
     role: 'General Manager',
     quali: "MSc. Soil Science, BSc. Agriculture, Dip. Education.",
     expertise: "7+ years in seed production, and team leadership, plus 3 years in commodity aggregation and sales.",
     image: team2,
   },
   {
-    name: 'Paul Berko',
+    name: 'Mr. Paul Berko',
     role: 'Chief Financial Officer',
     quali: "Chartered Accountant with CEMBA, BEd. Accounting, C.Dip. Forensic Audit (ICAG)",
     expertise: "23+ years in financial management, project accounts, and team training.",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import eggs from "../ShopPage/eggs.webp";
+import eggs from "../ShopPage/crate.jpg";
 import ep31 from "../ShopPage/ep31.png";
 import ep2 from "../ShopPage/ep2.png";
 import ep34 from "../ShopPage/ep34.png";
@@ -10,7 +10,7 @@ import matwo from "../ShopPage/matwo.jpg";
 import sograin from "../ShopPage/sog.jpg";
 import cow from "../ShopPage/cow.jpg";
 import rice from "../ShopPage/rice.jpg";
-import nut from "../ShopPage/ground.png";
+import nut from "../ShopPage/gnut.jpg";
 import compost from "../ShopPage/com.jpg";
 import sprint from "../ShopPage/sprint.jpg";
 
@@ -27,9 +27,9 @@ const productsData = [
 
     { id: 6, name: "Wang-Kai", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
 
-    { id: 7, name: "Maize", color: " Yellow", des: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution' ", price2: 350, image: maone, category: "grain" },
+    { id: 7, name: "Maize", color: " Yellow", price2: 350, image: maone, category: "grain" },
 
-    { id: 8, name: "Maize", color: " White", des: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution' ", price2: 350, image: matwo, category: "grain" },
+    { id: 8, name: "Maize", color: " White", price2: 350, image: matwo, category: "grain" },
 
     { id: 9, name: "Soyabean", price2: 350, image: sograin, category: "grain" },
 
