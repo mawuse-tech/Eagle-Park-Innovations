@@ -196,7 +196,7 @@ const ShopItems = () => {
                                 className="flex flex-col justify-between h-full border-gray-900 shadow-lg rounded-lg overflow-hidden p-4"
                             >
                                 <div>
-                                    <img src={product.image} alt={product.name} className="w-full h-64 object-cover mb-4" />
+                                    <img src={product.image} alt={product.name} loading='lazy' className="w-full h-64 object-cover mb-4" />
                                     <h2 className="text-xl font-semibold">{product.name}</h2>
 
                                     {product.crop && (
