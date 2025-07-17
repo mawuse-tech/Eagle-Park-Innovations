@@ -43,6 +43,7 @@ const PoultryHero = () => {
                             <img
                                 src={poultry}
                                 alt="Grain Farming"
+                                loading='lazy'
                                 className="w-full h-[400px] object-cover"
                             />
                         </div>

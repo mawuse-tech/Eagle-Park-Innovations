@@ -44,6 +44,7 @@ const SeedHero = () => {
                             <img
                                 src={seeds}
                                 alt="Grain Farming"
+                                loading='lazy'
                                 className="w-full h-[400px] object-cover"
                             />
                         </div>

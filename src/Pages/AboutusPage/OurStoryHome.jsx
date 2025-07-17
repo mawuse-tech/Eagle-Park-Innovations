@@ -42,6 +42,7 @@ const OurStoryHome = () => {
               <img
                 src={women}
                 alt="Grain Farming"
+                loading='lazy'
                 className="w-full h-[400px] object-cover"
               />
             </div>

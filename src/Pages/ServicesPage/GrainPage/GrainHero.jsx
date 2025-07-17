@@ -42,6 +42,7 @@ const GrainHero = () => {
                             <img
                                 src={grainLady}
                                 alt="Grain Farming"
+                                loading='lazy'
                                 className="w-full h-[400px] object-cover"
                             />
                         </div>
