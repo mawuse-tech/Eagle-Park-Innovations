@@ -15,7 +15,7 @@ import compost from "../ShopPage/com.jpg";
 import sprint from "../ShopPage/sprint.jpg";
 
 const productsData = [
-    { id: 1, name: "EP31", crop: "Hybrid Maize", days: "85 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 45, image: ep31, category: "seeds" },
+    { id: 1, name: "EP31", crop: "Hybrid Maize", days: "85 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
 
     { id: 2, name: "EP32", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Drought Tolerant. Tolerant to common maize diseases", price: 40, image: ep2, category: "seeds" },
 
@@ -58,6 +58,8 @@ const ShopItems = () => {
     const [showCart, setShowCart] = useState(false);
     const [email, setEmail] = useState('');
     const [wantsReceipt, setWantsReceipt] = useState(false);
+    const [phone, setPhone] = useState('');
+
 
 
     useEffect(() => {
@@ -115,21 +117,55 @@ const ShopItems = () => {
 
         // Set user email based on whether they want a receipt
         const userEmail = wantsReceipt && email.trim() !== ''
-            ? email
+            ? email.trim()
             : `guest_${Date.now()}@noemail.com`;
+            
+
+        const userPhone = phone.trim() || 'No phone number provided';
+
+        if (phone.trim() === '') {
+            alert("Please enter your phone number.");
+            return;
+        }
 
         const handler = window.PaystackPop.setup({
-            key: 'pk_live_1b8c09489c60a19e9bfc06bdab8490d7fb248fb3', // Replace with your actual public key
+            key: 'pk_live_1b8c09489c60a19e9bfc06bdab8490d7fb248fb3', // Replace with your public key
             email: userEmail,
-            amount: total * 100, // Paystack uses kobo/pesewas
+            amount: total * 100, // Convert to pesewas
             currency: 'GHS',
             ref: 'ref_' + Math.floor(Math.random() * 1000000000 + 1),
             callback: function (response) {
+                // 1. Show success alert
                 alert('🎉 Payment successful! Reference: ' + response.reference);
+
+                // 2. Build item summary
+                const orderDetails = cart.map(item =>
+                    `${item.name} x ${item.quantity} = GHS ${(item.price || item.price2 || item.price3) * item.quantity}`
+                ).join('\n');
+
+                // 3. Prepare form data for Formspree
+                const formData = new FormData();
+                formData.append('Customer Email', userEmail);
+                formData.append('Customer Phone', userPhone);
+                formData.append('Payment Reference', response.reference);
+                formData.append('Total Amount', `GHS ${total}`);
+                formData.append('Order Details', orderDetails);
+
+                // 4. Send to Formspree
+                fetch('https://formspree.io/f/mnnvkwly', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        Accept: 'application/json',
+                    },
+                });
+
+                // 5. Reset cart and form fields
                 setCart([]);
                 localStorage.removeItem('grainCart');
                 setShowCart(false);
                 setEmail('');
+                setPhone('');
                 setWantsReceipt(false);
             },
             onClose: function () {
@@ -286,7 +322,19 @@ const ShopItems = () => {
                                     </div>
                                 </div>
                             ))}
+
                             <div className="mt-6">
+                                {/* Phone number input */}
+                                <input
+                                    type="tel"
+                                    placeholder="Enter your phone number"
+                                    className="w-full border p-2 rounded mb-4"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    required
+                                />
+
+                                {/* Email receipt checkbox */}
                                 <label className="flex items-center gap-2 mb-2">
                                     <input
                                         type="checkbox"
@@ -297,6 +345,7 @@ const ShopItems = () => {
                                     <span className="text-sm">Email me a receipt</span>
                                 </label>
 
+                                {/* Email input (optional) */}
                                 {wantsReceipt && (
                                     <input
                                         type="email"
@@ -319,6 +368,7 @@ const ShopItems = () => {
                     )}
                 </div>
             )}
+
         </div>
     );
 };
