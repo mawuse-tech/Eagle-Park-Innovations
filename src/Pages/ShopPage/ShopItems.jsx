@@ -15,35 +15,35 @@ import compost from "../ShopPage/com.jpg";
 import sprint from "../ShopPage/sprint.jpg";
 
 const productsData = [
-    { id: 1, name: "EP31", crop: "Hybrid Maize", days: "85 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
+    { id: 1, name: "EP31", crop: "Hybrid Maize", days: "85 - 105 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
 
-    { id: 2, name: "EP32", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Drought Tolerant. Tolerant to common maize diseases", price: 40, image: ep2, category: "seeds" },
+    { id: 2, name: "EP32", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep2, category: "seeds" },
 
-    { id: 3, name: "EP34", crop: "Hybrid Maize", days: "90 days (Early)", color: "Yellow", potential: "6 t/ha", des: "Drought Tolerant Tolerant to common maize diseases", price: 40, image: ep34, category: "seeds" },
+    { id: 3, name: "EP34", crop: "Hybrid Maize", days: "90 days (Early)", color: "Yellow", potential: "6 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep34, category: "seeds" },
 
     { id: 4, name: "Afayak", crop: "Soyabean", days: "115-118 days", color: "Yellow", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: ep34, category: "seeds" },
 
     { id: 5, name: "Favour", crop: "Soyabean", days: "110-115 days (Early)", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
 
-    { id: 6, name: "Wang-Kai", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
+    { id: 6, name: "Wang-Kae", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5 t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
 
-    { id: 7, name: "Maize", color: " Yellow", price2: 350, image: maone, category: "grain" },
+    { id: 7, name: "Maize", color: " Yellow", price2: 350, image: maone, category: "grain", isPreOrder: true },
 
-    { id: 8, name: "Maize", color: " White", price2: 350, image: matwo, category: "grain" },
+    { id: 8, name: "Maize", color: " White", price2: 350, image: matwo, category: "grain", isPreOrder: true },
 
-    { id: 9, name: "Soyabean", price2: 350, image: sograin, category: "grain" },
+    { id: 9, name: "Soyabean", price2: 350, image: sograin, category: "grain", isPreOrder: true },
 
-    { id: 10, name: "Cowpea", price2: 1000, image: cow, category: "grain" },
+    { id: 10, name: "Cowpea", price2: 1000, image: cow, category: "grain", isPreOrder: true },
 
-    { id: 11, name: "Rice(Parboiled)", price2: 360, image: rice, category: "grain" },
+    { id: 11, name: "Rice(Parboiled)", price2: 360, image: rice, category: "grain", isPreOrder: true },
 
-    { id: 12, name: "Groundnut", price2: 650, image: nut, category: "grain" },
+    { id: 12, name: "Groundnut", price2: 650, image: nut, category: "grain", isPreOrder: true },
 
-    { id: 13, name: "Compost", price2: 70, image: compost, category: "poultry products" },
+    { id: 13, name: "Compost", price2: 70, image: compost, category: "poultry products", isPreOrder: true },
 
-    { id: 14, name: "Crate of Eggs(Unsorted)", price2: 57, image: eggs, category: "poultry products" },
+    { id: 14, name: "Crate of Eggs(Unsorted)", price4: 57, image: eggs, category: "poultry products", isPreOrder: true },
 
-    { id: 15, name: "Sprint Layer(For meat)", price3: 80, image: sprint, category: "poultry products" },
+    { id: 15, name: "Spent Layer(For meat)", price3: 80, image: sprint, category: "poultry products", isPreOrder: true },
 
 ];
 
@@ -98,7 +98,7 @@ const ShopItems = () => {
     };
 
     const total = cart.reduce((acc, item) => {
-        const unitPrice = item.price || item.price2 || item.price3 || 0;
+        const unitPrice = item.price || item.price2 || item.price3 || item.price4 || 0;
         return acc + unitPrice * item.quantity;
     }, 0);
 
@@ -119,7 +119,7 @@ const ShopItems = () => {
         const userEmail = wantsReceipt && email.trim() !== ''
             ? email.trim()
             : `guest_${Date.now()}@noemail.com`;
-            
+
 
         const userPhone = phone.trim() || 'No phone number provided';
 
@@ -229,8 +229,15 @@ const ShopItems = () => {
                         return (
                             <div
                                 key={product.id}
-                                className="flex flex-col justify-between h-full border-gray-900 shadow-lg rounded-lg overflow-hidden p-4"
+                                className="relative flex flex-col justify-between h-full border-gray-900 shadow-lg rounded-lg overflow-hidden p-4"
                             >
+
+                                {/* 🔶 Show banner if pre-order */}
+                                {product.isPreOrder && (
+                                    <div className="absolute top-0 left-0 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-tr-xl rounded-bl-xl">
+                                        Pre-Order: 70% Advance Payment
+                                    </div>
+                                )}
                                 <div>
                                     <img src={product.image} alt={product.name} loading='lazy' className="w-full h-64 object-cover mb-4" />
                                     <h2 className="text-xl font-semibold">{product.name}</h2>
@@ -242,17 +249,17 @@ const ShopItems = () => {
                                     )}
                                     {product.days && (
                                         <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Days of Maturity: </span>{product.days}
+                                            <span className="text-gray-600">Days to Maturity: </span>{product.days}
                                         </p>
                                     )}
                                     {product.color && (
                                         <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Grain Color: </span>{product.color}
+                                            <span className="text-gray-600">Grain Colour: </span>{product.color}
                                         </p>
                                     )}
                                     {product.color2 && (
                                         <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Grain Color: </span>{product.color2}
+                                            <span className="text-gray-600">Hilum Colour: </span>{product.color2}
                                         </p>
                                     )}
                                     {product.potential && (
@@ -276,6 +283,11 @@ const ShopItems = () => {
                                     {product.price3 && (
                                         <p className="text-gray-500 font-bold mb-4">
                                             <span className="text-gray-600">Price: </span>GH₵{product.price3}/Bird
+                                        </p>
+                                    )}
+                                    {product.price4 && (
+                                        <p className="text-gray-500 font-bold mb-4">
+                                            <span className="text-gray-600">Price: </span>GH₵{product.price4}/Crate
                                         </p>
                                     )}
                                 </div>
@@ -313,7 +325,7 @@ const ShopItems = () => {
                                 <div key={item.id} className="flex items-center justify-between mb-4 border-b pb-2">
                                     <div>
                                         <h3 className="font-semibold">{item.name}</h3>
-                                        <p>GH₵{item.price || item.price2 || item.price3} x {item.quantity}</p>
+                                        <p>GH₵{item.price || item.price2 || item.price3 || item.price4} x {item.quantity}</p>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <button onClick={() => handleDecrease(item.id)} className="px-2 py-1 bg-gray-200 rounded">-</button>
