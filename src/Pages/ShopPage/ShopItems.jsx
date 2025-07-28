@@ -13,6 +13,7 @@ import rice from "../ShopPage/rice.jpg";
 import nut from "../ShopPage/gnut.jpg";
 import compost from "../ShopPage/com.jpg";
 import sprint from "../ShopPage/sprint.jpg";
+import Swal from 'sweetalert2'
 
 const productsData = [
     { id: 1, name: "EP31", crop: "Hybrid Maize", days: "85 - 105 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
@@ -76,10 +77,20 @@ const ShopItems = () => {
         const exists = cart.find(item => item.id === product.id);
         if (exists) {
             setCart(cart.filter(item => item.id !== product.id));
-            alert(`${product.name} removed from cart.`);
+           Swal.fire({
+            icon: 'warning',
+            timer: 2000,
+            showConfirmButton: false,
+            text: `${product.name} is removed from cart`
+           })
         } else {
             setCart([...cart, { ...product, quantity: 1 }]);
-            alert(`${product.name} added to cart.`);
+           Swal.fire({
+            icon: 'success',
+            timer: 2000,
+            showConfirmButton: false,
+            text: `${product.name} is added to cart`
+           });
         }
     };
 
@@ -105,13 +116,18 @@ const ShopItems = () => {
     const handlePaystackPayment = () => {
         // Safety check: Make sure Paystack is loaded
         if (!window.PaystackPop) {
-            alert("Paystack is not ready. Please try again in a few seconds.");
+           Swal.fire({
+            text: '"Paystack is not ready. Please try again in a few seconds.',
+            timer: 2000
+           })
             return;
         }
 
         // If user wants a receipt but did not enter email, prompt them
         if (wantsReceipt && email.trim() === '') {
-            alert("Please enter your email to receive a receipt.");
+         Swal.fire({
+            text: 'Please enter your email to receive a receipt.'
+         });
             return;
         }
 
@@ -124,7 +140,9 @@ const ShopItems = () => {
         const userPhone = phone.trim() || 'No phone number provided';
 
         if (phone.trim() === '') {
-            alert("Please enter your phone number.");
+            Swal.fire({
+                text: "Please enter your phone number."
+            })
             return;
         }
 
@@ -136,7 +154,11 @@ const ShopItems = () => {
             ref: 'ref_' + Math.floor(Math.random() * 1000000000 + 1),
             callback: function (response) {
                 // 1. Show success alert
-                alert('🎉 Payment successful! Reference: ' + response.reference);
+              Swal.fire({
+                text: '🎉 Payment successful! Reference: ' + response.reference,
+                timer: 2000,
+                icon: 'success'
+              })
 
                 // 2. Build item summary
                 const orderDetails = cart.map(item =>
@@ -169,7 +191,10 @@ const ShopItems = () => {
                 setWantsReceipt(false);
             },
             onClose: function () {
-                alert('❌ Payment popup closed. Transaction not completed.');
+               Swal.fire({
+                 icon: 'warning',
+                text: 'Payment popup closed. Transaction not completed',
+               })
             }
         });
 
