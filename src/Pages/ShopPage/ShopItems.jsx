@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import eggs from "../ShopPage/crate.jpg";
+import eggs from "../ShopPage/eggs.jpg";
 import ep31 from "../ShopPage/ep31.png";
 import ep2 from "../ShopPage/ep2.png";
 import ep34 from "../ShopPage/ep34.png";
 import fav from "../ShopPage/fav.jpg";
 import wan from "../ShopPage/wan.jpg";
 import maone from "../ShopPage/maone.jpg";
-import matwo from "../ShopPage/matwo.jpg";
+import matwo from "../ShopPage/corn.jpg";
 import sograin from "../ShopPage/sog.jpg";
-import cow from "../ShopPage/cow.jpg";
+import cow from "../ShopPage/newbeans.jpg";
 import rice from "../ShopPage/rice.jpg";
 import nut from "../ShopPage/gnut.jpg";
 import compost from "../ShopPage/com.jpg";
@@ -16,35 +16,35 @@ import sprint from "../ShopPage/sprint.jpg";
 import Swal from 'sweetalert2'
 
 const productsData = [
-    { id: 1, name: "EP31", crop: "Hybrid Maize", days: "85 - 105 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
+    { id: 1, name: "EP31 (Certified Seeds)", crop: "Hybrid Maize", days: "105 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
 
-    { id: 2, name: "EP32", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep2, category: "seeds" },
+    { id: 2, name: "EP31 (Certified Seeds)", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep2, category: "seeds" },
 
-    { id: 3, name: "EP34", crop: "Hybrid Maize", days: "90 days (Early)", color: "Yellow", potential: "6 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep34, category: "seeds" },
+    { id: 3, name: "EP34 (Certified Seeds)", crop: "Hybrid Maize", days: "90 days (Early)", color: "Yellow", potential: "6 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep34, category: "seeds" },
 
-    { id: 4, name: "Afayak", crop: "Soyabean", days: "115-118 days", color: "Yellow", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: ep34, category: "seeds" },
+    { id: 4, name: "Afayak (Certified Seeds)", crop: "Soyabean", days: "110-115 days ", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: ep34, category: "seeds" },
 
-    { id: 5, name: "Favour", crop: "Soyabean", days: "110-115 days (Early)", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
+    { id: 5, name: "Favour (Certified Seeds)", crop: "Soyabean", days: "115-118 days (Early)", color: "Cream", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
 
-    { id: 6, name: "Wang-Kae", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5 t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
+    { id: 6, name: "Wang-Kae (Certified Seeds)", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5 t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
 
-    { id: 7, name: "Maize", color: " Yellow", price2: 350, image: maone, category: "grain", isPreOrder: true },
+    { id: 7, name: "Maize (Grains)", color: " Yellow", price2: 350, image: maone, category: "grain", isPreOrder: true },
 
-    { id: 8, name: "Maize", color: " White", price2: 350, image: matwo, category: "grain", isPreOrder: true },
+    { id: 8, name: "Maize (Grains)", color: " White", price2: 350, image: matwo, category: "grain", isPreOrder: true },
 
-    { id: 9, name: "Soyabean", price2: 350, image: sograin, category: "grain", isPreOrder: true },
+    { id: 9, name: "Soyabean (Grains)", price2: 350, image: sograin, category: "grain", isPreOrder: true },
 
-    { id: 10, name: "Cowpea", price2: 1000, image: cow, category: "grain", isPreOrder: true },
+    { id: 10, name: "Cowpea (Grains)", price2: 1000, image: cow, category: "grain", isPreOrder: true },
 
-    { id: 11, name: "Rice(Parboiled)", price2: 360, image: rice, category: "grain", isPreOrder: true },
+    { id: 11, name: "Rice (Parboiled)", price2: 360, image: rice, category: "grain", isPreOrder: true },
 
-    { id: 12, name: "Groundnut", price2: 650, image: nut, category: "grain", isPreOrder: true },
+    { id: 12, name: "Groundnut (Grains)", price2: 650, image: nut, category: "grain", isPreOrder: true },
 
     { id: 13, name: "Compost", price2: 70, image: compost, category: "poultry products", isPreOrder: true },
 
-    { id: 14, name: "Crate of Eggs(Unsorted)", price4: 57, image: eggs, category: "poultry products", isPreOrder: true },
+    { id: 14, name: "Crate of Eggs (Unsorted)", price4: 57, image: eggs, category: "poultry products", isPreOrder: true },
 
-    { id: 15, name: "Spent Layer(For meat)", price3: 80, image: sprint, category: "poultry products", isPreOrder: true },
+    { id: 15, name: "Spent Layer (For meat)", price3: 80, image: sprint, category: "poultry products", isPreOrder: true },
 
 ];
 

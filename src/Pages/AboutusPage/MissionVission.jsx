@@ -20,7 +20,7 @@ const MissionVision = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Mission */}
           <div
-            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300 lg:h-60"
+            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300 lg:h-50"
             data-aos="fade-left"
           >
             <div className="flex items-center gap-4 mb-4">
@@ -28,13 +28,13 @@ const MissionVision = () => {
               <h3 className="text-2xl font-semibold text-green-900">Our Mission</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-             To place farmers and communities at the heart of everything we do by delivering innovative, integrated agribusiness solutions that promote agricultural sustainability, strengthen food security, drive local economic growth, and champion environmental stewardship across Africa.
+            To advance sustainable agriculture through integrated, innovative solutions that prioritize people and the planet for food security and inclusive growth.
             </p>
           </div>
 
           {/* Vision */}
           <div
-            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300 lg:h-60"
+            className="bg-white shadow-md p-8 rounded-lg hover:shadow-xl transition duration-300 lg:h-50"
             data-aos="fade-right"
           >
             <div className="flex items-center gap-4 mb-4">
@@ -42,7 +42,7 @@ const MissionVision = () => {
               <h3 className="text-2xl font-semibold text-green-900">Our Vision</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-             To be Africa’s leading agribusiness, driving agricultural transformation through sustainable innovation and circular economy practices, while empowering communities, enriching livelihoods, and preserving the environment for generations to come.
+             To lead Africa’s sustainable agriculture transformation by empowering communities, enriching lives, and protecting the environment.
             </p>
           </div>
         </div>

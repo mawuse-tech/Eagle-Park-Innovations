@@ -15,14 +15,14 @@ const Navbar = () => {
 
   return (
     <nav className="bg-green-900/90 text-white px-4 font-oswald sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between flex-wrap ">
+      <div className="container mx-auto flex items-center justify-between flex-wrap py-1">
         {/* Logo */}
-        <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition m-1.5">
+        <div className="bg-white rounded-lg hover:shadow-lg transition m-1.5">
           <NavLink to="/">
             <img
               src={logo}
               alt="Logo"
-              className="h-[3.5rem] w-auto"
+              className="h-[3.5rem] w-auto items-center px-2"
             />
           </NavLink>
         </div>
@@ -43,9 +43,9 @@ const Navbar = () => {
 
           {/* Products Dropdown */}
           <div className="relative group">
-            <NavLink className="hover:text-yellow-400 flex items-center gap-1">
+           
               Products <i className="ri-arrow-down-s-line text-sm"></i>
-            </NavLink>
+         
             <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
               <NavLink to="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified seeds</NavLink>
               <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</NavLink>
