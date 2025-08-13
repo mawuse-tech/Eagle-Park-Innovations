@@ -24,7 +24,7 @@ const productsData = [
 
     { id: 4, name: "Afayak (Certified Seeds)", crop: "Soyabean", days: "110-115 days ", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: ep34, category: "seeds" },
 
-    { id: 5, name: "Favour (Certified Seeds)", crop: "Soyabean", days: "115-118 days (Early)", color: "Cream", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
+    { id: 5, name: "Favour (Certified Seeds)", crop: "Soyabean", days: "115-118 days", color: "Cream", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
 
     { id: 6, name: "Wang-Kae (Certified Seeds)", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5 t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
 
