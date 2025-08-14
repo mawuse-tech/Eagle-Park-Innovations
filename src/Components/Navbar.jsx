@@ -22,7 +22,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Logo"
-              className="h-[3.5rem] w-auto items-center px-2"
+              className="h-[3.5rem] w-auto items-center pr-2"
             />
           </NavLink>
         </div>
