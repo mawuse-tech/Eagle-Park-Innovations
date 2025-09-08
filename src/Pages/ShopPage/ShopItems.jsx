@@ -3,6 +3,7 @@ import eggs from "../ShopPage/eggs.jpg";
 import ep31 from "../ShopPage/ep31.png";
 import ep2 from "../ShopPage/ep2.png";
 import ep34 from "../ShopPage/ep34.png";
+import af from "../ShopPage/af.png";
 import fav from "../ShopPage/fav.jpg";
 import wan from "../ShopPage/wan.jpg";
 import maone from "../ShopPage/maone.jpg";
@@ -18,11 +19,11 @@ import Swal from 'sweetalert2'
 const productsData = [
     { id: 1, name: "EP31 (Certified Seeds)", crop: "Hybrid Maize", days: "105 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
 
-    { id: 2, name: "EP31 (Certified Seeds)", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep2, category: "seeds" },
+    { id: 2, name: "EP32 (Certified Seeds)", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep2, category: "seeds" },
 
     { id: 3, name: "EP34 (Certified Seeds)", crop: "Hybrid Maize", days: "90 days (Early)", color: "Yellow", potential: "6 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep34, category: "seeds" },
 
-    { id: 4, name: "Afayak (Certified Seeds)", crop: "Soyabean", days: "110-115 days ", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: ep34, category: "seeds" },
+    { id: 4, name: "Afayak (Certified Seeds)", crop: "Soyabean", days: "110-115 days ", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: af, category: "seeds" },
 
     { id: 5, name: "Favour (Certified Seeds)", crop: "Soyabean", days: "115-118 days", color: "Cream", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
 
