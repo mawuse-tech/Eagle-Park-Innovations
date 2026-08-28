@@ -12,6 +12,7 @@ import ShopItems from './Pages/ShopPage/ShopItems'
 import PoultryHero from './Pages/ServicesPage/PoutryPage/PoultryHero'
 import SeedHero from './Pages/ServicesPage/SeedsPage/SeedHero'
 import TeamPage from './Pages/AboutusPage/AboutTeam'
+import MaintenancePage from './Pages/MaintenancePage'
 
 
 const router = createBrowserRouter(([
@@ -74,6 +75,7 @@ const router = createBrowserRouter(([
 ]))
 
 const App = () => {
-  return <RouterProvider router={router} />
+  // To view the full website locally, replace the MaintenancePage return below with: return <RouterProvider router={router} />
+  return <MaintenancePage />
 }
 export default App
