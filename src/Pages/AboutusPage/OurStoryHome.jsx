@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import women from '../AboutusPage/women.jpg'
+import women from '../../assets/about/women.jpg'
 import OurStory from './OurStory';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import MissionVision from './MissionVission';
-import AboutTeam from './AboutTeam';
 import { NavLink } from 'react-router';
 
 const OurStoryHome = () => {
@@ -23,7 +22,7 @@ const OurStoryHome = () => {
             Empowering Farmers Through Integrated Solutions
           </h1>
           <p className="text-gray-700 mb-6">
-            We specialize in certified seed production and distribution, poultry farming, grain aggregation and market linkages, and agricultural education—empowering farmers with the tools, knowledge, and opportunities to succeed.
+            Our convenient end-to-end solution connects farmers to quality inputs, extension services, and reliable markets, helping them increase yields, earn more, and grow sustainably.
           </p>
           <div className="flex items-center gap-4">
             <NavLink to="/shop">
@@ -54,7 +53,7 @@ const OurStoryHome = () => {
 
       <MissionVision />
 
-      <AboutTeam />
+      <div className="h-8 md:h-12 bg-white" aria-hidden="true" />
 
     </div>
   );

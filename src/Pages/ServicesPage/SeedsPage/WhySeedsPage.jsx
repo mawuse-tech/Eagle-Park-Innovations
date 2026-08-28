@@ -6,24 +6,24 @@ import 'aos/dist/aos.css';
 
 const stats = [
     {
-        title: 'Expertise You Can Trust',
-        description: 'Led by a seasoned expert with 16+ years in plant breeding, seed systems, and agronomy.',
-        icon: 'ri-microscope-line',
+        title: 'All-in-One Convenience',
+        description: 'Quality inputs, expert guidance, and market access bundled in one package.',
+        icon: 'ri-box-3-line',
     },
     {
-        title: 'Customer-Centric Solutions',
-        description: 'Beyond quality seeds, we offer farming advisories and market access you can count on.',
+        title: 'Tailored Solutions',
+        description: 'Services designed around the needs and realities of each customer.',
         icon: 'ri-chat-smile-2-line',
     },
     {
-        title: 'Job Creation',
-        description: 'Ethically sourced from youth- and women-led out-growers, creating jobs and shared value.',
-        icon: 'ri-community-line',
+        title: 'Fair Prices, Every Step',
+        description: 'Fair pricing from inputs to markets, with no margins lost to middlemen.',
+        icon: 'ri-money-dollar-circle-line',
     },
     {
-        title: 'Sustainability',
-        description: 'Climate-smart, eco-friendly solutions for responsible production and land use.',
-        icon: 'ri-earth-line',
+        title: 'Built for Resilience',
+        description: 'Climate-smart practices and reliable buyers mean more predictable seasons and stable incomes.',
+        icon: 'ri-shield-check-line',
     },
 ];
 
@@ -36,7 +36,7 @@ const WhySeedsPage = () => {
   return (
     <section className="py-12 px-4 md:px-10 bg-[#f4f4f4] text-center overflow-hidden">
   <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-10" data-aos="fade-up">
-    Why Choose Us
+    Why Farmers Choose EPI?
   </h2>
 
   <div className="flex flex-wrap justify-center items-center gap-6">

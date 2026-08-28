@@ -42,7 +42,7 @@ const MissionVision = () => {
               <h3 className="text-2xl font-semibold text-green-900">Our Vision</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
-             To lead Africa’s sustainable agriculture transformation by empowering communities, enriching lives, and protecting the environment.
+             To lead Africa’s transformation towards sustainable agriculture by empowering communities, enriching lives, and protecting the environment.
             </p>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
-import train from '../TrainingPage/train.jpg';
+import train from '../../../assets/practical training and support.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChalkboardTeacher, faCrow, faDove, faHandshake, faKiwiBird, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faChalkboardTeacher, faCrow, faHandshake, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import CountSection from '../../../Components/CountSection';
 import { NavLink } from 'react-router';
 
@@ -20,10 +20,10 @@ const TrainPage = () => {
                     {/* Text Section */}
                     <div data-aos="fade-right" className="space-y-6">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-green-900">
-                            Grow with Us: Join Our Training and Consultancy Programs
+                            Learn, Grow, and <br /> Build with Us
                         </h1>
                         <p className="text-gray-700 mb-6">
-                            Our comprehensive capacity-building program equips individuals and agribusinesses with hands-on skills, expert knowledge, and proven strategies tailored to their unique needs, thereby empowering farmers to transform their journey and helping agribusinesses grow, thrive, and stay resilient.
+                            We equip farmers and agribusinesses with practical skills, actionable knowledge, and field-tested strategies to build resilient, profitable ventures.
 
                         </p>
                         <div className="flex gap-4">
@@ -69,15 +69,7 @@ const TrainPage = () => {
                     </p>
                 </div>
 
-                <div className="grid gap-10 md:grid-cols-3" data-aos="fade-up">
-                    <div className="bg-[#f3fdf5] p-6 rounded-xl shadow-md hover:shadow-lg transition">
-                        <i className="ri-seedling-fill text-3xl text-[#002920] mb-4"></i>
-                        <h3 className="text-xl font-semibold mb-2">Seed Production Techniques</h3>
-                        <p className="text-sm text-gray-600">
-                            Join our training program to master industry-validated seed production techniques. Our comprehensive curriculum equips participants to independently produce certified and early-generation seeds of hybrid, conventional, and open-pollinated crops that meet certification standards and support agricultural excellence.
-                        </p>
-                    </div>
-
+                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5" data-aos="fade-up">
                     <div className="bg-[#f3fdf5] p-6 rounded-xl shadow-md hover:shadow-lg transition">
                         <i className="ri-plant-line text-3xl text-[#002920] mb-4"></i>
                         <h3 className="text-xl font-semibold mb-2">Sustainable Agricultural Practices</h3>
@@ -112,10 +104,32 @@ const TrainPage = () => {
 
                     <div className="bg-[#f3fdf5] p-6 rounded-xl shadow-md hover:shadow-lg transition">
                         <FontAwesomeIcon icon={faMagnifyingGlass} className="text-3xl text-[[#002920]] mb-3" />
-                        <h3 className="text-xl font-semibold mb-2">Research and Consultancy</h3>
+                        <h3 className="text-xl font-semibold mb-2">Consultancy Services</h3>
                         <p className="text-sm text-gray-600">
-                            EPI is your go-to hub for agricultural research and consultancy, combining deep knowledge of Ghana’s agricultural landscape with rich industry experience to support proposal development, project implementation, value chain initiatives, and data-driven insights.
+                            EPI combines deep knowledge of Ghana’s agricultural sector with practical industry expertise to deliver trusted consultancy for agricultural initiatives, value-chain development, and credible data to guide your next strategic decision.
                         </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <div className="h-10 md:h-16 bg-white" aria-hidden="true" />
+
+            <section className="bg-green-900 py-16 px-6 md:px-20">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">Why Choose Us?</h2>
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                        {[
+                            ['Tailored Solutions', 'Services designed around each client’s goals and challenges.'],
+                            ['Expert-Led Delivery', 'Training backed by our affiliation with the Ghana TVET Service.'],
+                            ['A Partner in Growth, Not Just a Service Provider', 'We build lasting partnerships, not one-off transactions.'],
+                            ['Proven Impact', 'More than 9,000 farmers and agripreneurs supported, including women and youth.'],
+                        ].map(([title, description]) => (
+                            <div key={title} className="bg-white p-6 rounded-xl shadow-md">
+                                <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                                <p className="text-sm text-gray-600">{description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -125,13 +139,13 @@ const TrainPage = () => {
             {/* Call to Action */}
             <section className="bg-white text-green-900 py-16 px-6 md:px-20" data-aos="fade-up">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold mb-4">Ready to Grow Your Farming and Agribusiness Skills?</h2>
+                    <h2 className="text-3xl font-bold mb-4">Ready to strengthen your farming or agribusiness skills?</h2>
                     <p className="mb-6 text-gray-600">
-                        Be part of a network of knowledgeable, empowered farmers and businesses transforming agriculture across the region.
+                        Join EPI’s growing community of empowered agripreneurs driving agricultural transformation.
                     </p>
                     <NavLink to="/contact">
                         <button className="bg-green-900 hover:bg-green-700 text-white px-6 py-3 text-sm sm:text-base rounded-full">
-                            Register for our next class <i className="ri-arrow-right-line transition"></i>
+                            Get Started <i className="ri-arrow-right-line transition"></i>
                         </button>
                     </NavLink>
                 </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import grainLady from "../GrainPage/grainLady.jpg"
+import grainLady from "../../../assets/grain/grainLady.jpg"
 import GrainMain from './GrainMainSec';
 import { NavLink } from 'react-router';
 
@@ -17,10 +17,10 @@ const GrainHero = () => {
                 {/* Text Section */}
                 <div data-aos="fade-right" className="space-y-6">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-green-900">
-                    Grains That Nourish, <br />Trade That Empowers
+                    Grains That Nourish. <br />Partnerships That Empower.
                     </h1>
                     <p className="text-gray-700 mb-6">
-                       At EPI, we aggregate quality grains from our certified seed customers and other farmers, connecting them to reliable markets for smooth and efficient trade. By linking producers to buyers, we ensure fair pricing, reduce post-harvest losses, and promote inclusive rural growth, while making sure grains reach the plates where they are most needed.
+                       EPI sources quality grains directly from smallholder farmers and connects them to reliable buyers. Through fair pricing, reduced post-harvest losses, and stronger market linkages, we help farmers earn more while strengthening local food systems.
                     </p>
                     <div className="flex gap-4">
                          <NavLink to="/shop">
@@ -56,6 +56,4 @@ const GrainHero = () => {
 };
 
 export default GrainHero;
-
-
 

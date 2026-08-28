@@ -12,7 +12,6 @@ import ShopItems from './Pages/ShopPage/ShopItems'
 import PoultryHero from './Pages/ServicesPage/PoutryPage/PoultryHero'
 import SeedHero from './Pages/ServicesPage/SeedsPage/SeedHero'
 import TeamPage from './Pages/AboutusPage/AboutTeam'
-import MaintenancePage from './Pages/MaintenancePage'
 
 
 const router = createBrowserRouter(([
@@ -75,13 +74,6 @@ const router = createBrowserRouter(([
 ]))
 
 const App = () => {
-  const maintenanceMode = true
-
-  if (maintenanceMode) {
-    return <MaintenancePage />
-  }
-
   return <RouterProvider router={router} />
-
 }
 export default App

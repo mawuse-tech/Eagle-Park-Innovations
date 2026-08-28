@@ -7,6 +7,8 @@ import nastag from '../assets/nastaglogo.png';
 import oca from '../assets/ocalogo.png';
 import gh from '../assets/ghlogo.png';
 import tvet from '../assets/TVET logo.png';
+import fff from '../assets/large_1_fff-logo-mandala.jpg';
+import fao from '../assets/fao.jpg';
 
 
 
@@ -24,7 +26,9 @@ const PartnersPage = () => {
     nastag,
     oca,
     gh,
-    tvet
+    tvet,
+    fff,
+    fao
   ];
 
   return (

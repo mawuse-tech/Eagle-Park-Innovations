@@ -47,7 +47,7 @@ const Navbar = () => {
               Products <i className="ri-arrow-down-s-line text-sm"></i>
          
             <div className="absolute top-full left-0 mt-0 group-hover:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
-              <NavLink to="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified seeds</NavLink>
+              <NavLink to="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Bundled Services</NavLink>
               <NavLink to="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</NavLink>
               <NavLink to="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</NavLink>
             </div>
@@ -68,9 +68,9 @@ const Navbar = () => {
 
         {/* Desktop Button */}
         <div className="hidden md:flex items-center gap-1 font-medium ">
-          <NavLink to="/shop">
+          <NavLink to="/contact">
             <button className="bg-yellow-300 hover:bg-yellow-400 text-green-900 px-6 py-3 text-sm sm:text-base rounded-full">
-              Shop Now <i className="ri-arrow-right-line"></i>
+              Partner with Us <i className="ri-arrow-right-line"></i>
             </button>
           </NavLink>
         </div>
@@ -115,7 +115,7 @@ const Navbar = () => {
             </button>
             {isMobileProductsOpen && (
               <div className="flex flex-col bg-white text-green-900 shadow-lg rounded-md mt-1">
-                <NavLink to="/seed" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Certified seeds</NavLink>
+                <NavLink to="/seed" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Bundled Services</NavLink>
                 <NavLink to="/poultry" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry products</NavLink>
                 <NavLink to="/grain" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</NavLink>
               </div>
@@ -126,9 +126,9 @@ const Navbar = () => {
           <NavLink to="/contact" onClick={handleCloseMenu} className="hover:text-yellow-400">Contact Us</NavLink>
 
           <div className="mt-2">
-            <NavLink to="/shop" onClick={handleCloseMenu}>
+            <NavLink to="/contact" onClick={handleCloseMenu}>
               <button className="bg-yellow-300 hover:bg-yellow-500 text-green-900 px-4 py-2 rounded-lg shadow-sm font-semibold w-full">
-                Shop now <i className="ri-arrow-right-line"></i>
+                Partner with Us <i className="ri-arrow-right-line"></i>
               </button>
             </NavLink>
           </div>

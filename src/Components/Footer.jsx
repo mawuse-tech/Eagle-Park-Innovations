@@ -37,7 +37,7 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="300">
           <h2 className="text-lg font-semibold mb-4">Contact</h2>
           <ul className="text-sm space-y-2">
-            <li><i className="ri-map-pin-line mr-2 "></i>Seeds/Grains: Nyankpala, Northern Region</li>
+            <li><i className="ri-map-pin-line mr-2 "></i>Bundled Services/Grains: Nyankpala, Northern Region</li>
             <li><i className="ri-map-pin-line mr-2 "></i>Poultry: Ankaase. Ashanti Region</li>
             <li><i className="ri-phone-line mr-2"></i> +233 244175741</li>
             <li><i className="ri-mail-line mr-2"></i>eagleparkinnovations@yahoo.com</li>

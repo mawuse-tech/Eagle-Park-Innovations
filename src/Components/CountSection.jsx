@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import CountUp from 'react-countup';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -14,7 +12,7 @@ const stats = [
   },
   {
     title: 'Farmers and Agripreneurs Impacted',
-    count: 3000,
+    count: 9000,
     icon: 'ri-leaf-line',
   },
   {
@@ -46,13 +44,14 @@ const CountSection = () => {
       { threshold: 0.4 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (section) {
+        observer.unobserve(section);
       }
     };
   }, [hasAnimated]);
@@ -63,7 +62,7 @@ const CountSection = () => {
       ref={sectionRef}
     >
       <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-8" data-aos="fade-up">
-        Why Choose Us
+        Our Impact
       </h2>
       <div className="flex flex-wrap justify-center items-center gap-6">
         {stats.map((item, index) => (

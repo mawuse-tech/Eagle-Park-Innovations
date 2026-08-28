@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import team1 from './gloria.png';
-import team2 from './godfred.jpg';
-import team3 from './paul.jpg';
+import team1 from '../../assets/about/gloria.png';
+import team2 from '../../assets/about/godfred.jpg';
+import team3 from '../../assets/about/paul.jpg';
 
 const teamMembers = [
   {

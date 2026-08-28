@@ -6,10 +6,11 @@ import maizefarm from '../assets/cornharvest.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import poultry from '../assets/poultry.jpg';
 import seeds from '../assets/bg.jpg';
+import connectedServices from '../assets/hero section.jpg';
 import Fixed from './Fixed';
 import { NavLink } from 'react-router';
 
-const images = [happyfarmers, seeds, maizefarm, poultry];
+const images = [connectedServices, happyfarmers, seeds, maizefarm, poultry];
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -61,7 +62,7 @@ const Hero = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Welcome to EPI (Eagle Park Innovations Ltd) 
+            Welcome to Eagle Park Innovations Limited (EPI)
           </p>
 
           <div

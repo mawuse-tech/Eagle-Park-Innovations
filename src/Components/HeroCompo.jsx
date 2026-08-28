@@ -14,12 +14,12 @@ import { NavLink } from "react-router";
 const promoCardsData = [
   {
     id: 1,
-    title: "  Certified Seeds",
+    title: "Bundled Services",
     description:
-      "Discover our certified climate-smart seed varieties, bred to thrive in diverse, and challenging conditions",
+      "Discover our end-to-end solution, built to help farmers achieve higher yields, increased incomes, and sustainable growth.",
     imageSrc: seeds,
     imageAlt: "seeds page",
-    link: '/shop',
+    link: '/seed',
   },
 
   {

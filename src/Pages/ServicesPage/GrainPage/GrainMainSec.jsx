@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import grain from "../GrainPage/maizegrain.jpg";
-import soy from "../GrainPage/soy.jpg";
-import cowpea from "../GrainPage/cowpea.webp";
-import rice from "../GrainPage/rice.jpg";
-import nut from "../GrainPage/nut.jpeg";
+import grain from "../../../assets/grain/maizegrain.jpg";
+import soy from "../../../assets/grain/soy.jpg";
+import cowpea from "../../../assets/grain/cowpea.webp";
+import rice from "../../../assets/grain/rice.jpg";
+import nut from "../../../assets/grain/nut.jpeg";
 import WhyGrainPage from './WhyGrainPage';
 import { NavLink } from 'react-router';
 
@@ -67,7 +67,7 @@ const GrainMain = () => {
                         Our Focus Grains
                     </h2>
                     <p className="text-yellow-300 mt-4 text-base md:text-lg" data-aos="fade-up">
-                        We specialize in key cereal and legume grains to empower farmers and boost food security across communities.
+                        We transform cereal and legume harvests into higher incomes and stronger food security.
                     </p>
                 </div>
 

@@ -11,8 +11,8 @@ const Example = () => {
 
   const cards = [
     {
-      title: 'Certified Seed Production and Distribution',
-      text: 'We provide certified seeds of climate-resilient maize, soyabean, and cowpea varieties, plus tailored farming advice to help farmers boost yields sustainably.',
+      title: 'Bundled Services',
+      text: 'We provide farmers with timely access to quality inputs, expert extension services, and reliable markets to increase yields, earn more, and grow sustainably.',
       link: '/seed',
     },
     {
@@ -36,7 +36,7 @@ const Example = () => {
   return (
     <div className="bg-[#f4f4f4] py-16 px-6 md:px-20">
       <h1 className="text-3xl md:text-4xl font-bold text-green-900 text-center mb-12">
-        Explore How Our Solutions Connect <br /> to Empower Your Growth
+        Explore How Our Connected Solutions Drive Your Growth
       </h1>
       <div className="grid md:grid-cols-4 gap-8">
         {cards.map((card, index) => (

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import bgimg from "../ContactUsPage/bgimg.JPG"
+import bgimg from "../../assets/contact/bgimg.JPG"
 
 const ContactUsPage = () => {
   useEffect(() => {
@@ -29,7 +29,7 @@ const ContactUsPage = () => {
       } else {
         alert("Oops! Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch {
       alert("There was a network error.");
     }
   };
@@ -54,17 +54,17 @@ const ContactUsPage = () => {
 
           <ul className="text-white space-y-4 text-sm">
             <li>
-              <i class="ri-map-pin-line mr-2"></i>Seeds/Grains: Nyankpala, Northern Region
+              <i className="ri-map-pin-line mr-2"></i>Bundled Services/Grains: Nyankpala, Northern Region
             </li>
 
             <li>
-              <i class="ri-map-pin-line mr-2"></i>Poultry: Ankaase, Ashanti Region
+              <i className="ri-map-pin-line mr-2"></i>Poultry: Ankaase, Ashanti Region
             </li>
             <li>
-              <i class="ri-phone-line mr-2"></i> +233244175741
+              <i className="ri-phone-line mr-2"></i> +233244175741
             </li>
             <li>
-              <i class="ri-mail-fill mr-2"></i> eagleparkinnovations@yahoo.com
+              <i className="ri-mail-fill mr-2"></i> eagleparkinnovations@yahoo.com
             </li>
           </ul>
         </div>

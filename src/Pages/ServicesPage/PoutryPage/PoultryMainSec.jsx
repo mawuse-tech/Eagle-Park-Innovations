@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import eggs from "../PoutryPage/eggs.webp";
-import man from "../PoutryPage/cmp.jpg";
-import hens from "../PoutryPage/redhenn.jpg";
+import eggs from "../../../assets/poultry/eggs.webp";
+import man from "../../../assets/poultry/cmp.jpg";
+import hens from "../../../assets/poultry/redhenn.jpg";
 import { NavLink } from 'react-router';
 import WhyPoutryPage from './WhyPoultryPage';
 

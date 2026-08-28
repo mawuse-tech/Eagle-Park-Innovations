@@ -1,34 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import eggs from "../ShopPage/eggs.jpg";
-import ep31 from "../ShopPage/ep31.png";
-import ep2 from "../ShopPage/ep2.png";
-import ep34 from "../ShopPage/ep34.png";
-import af from "../ShopPage/af.png";
-import fav from "../ShopPage/fav.jpg";
-import wan from "../ShopPage/wan.jpg";
-import maone from "../ShopPage/maone.jpg";
-import matwo from "../ShopPage/corn.jpg";
-import sograin from "../ShopPage/sog.jpg";
-import cow from "../ShopPage/newbeans.jpg";
-import rice from "../ShopPage/rice.jpg";
-import nut from "../ShopPage/gnut.jpg";
-import compost from "../ShopPage/com.jpg";
-import sprint from "../ShopPage/sprint.jpg";
+import eggs from "../../assets/shop/eggs.jpg";
+import maone from "../../assets/shop/maone.jpg";
+import matwo from "../../assets/shop/corn.jpg";
+import sograin from "../../assets/shop/sog.jpg";
+import cow from "../../assets/shop/newbeans.jpg";
+import rice from "../../assets/shop/rice.jpg";
+import nut from "../../assets/shop/gnut.jpg";
+import compost from "../../assets/shop/com.jpg";
+import sprint from "../../assets/shop/sprint.jpg";
 import Swal from 'sweetalert2'
 
 const productsData = [
-    { id: 1, name: "EP31 (Certified Seeds)", crop: "Hybrid Maize", days: "105 - 110 days (Intermediate)", color: "Yellow", potential: "8.4 t/ha", des: "Tolerant to common maize diseases", price: 40, image: ep31, category: "seeds" },
-
-    { id: 2, name: "EP32 (Certified Seeds)", crop: "Hybrid Maize", days: "85 days (Extra-Early)", color: "White", potential: "5.5 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep2, category: "seeds" },
-
-    { id: 3, name: "EP34 (Certified Seeds)", crop: "Hybrid Maize", days: "90 days (Early)", color: "Yellow", potential: "6 t/ha", des: "Tolerant to drought, Striga, and common maize diseases.", price: 40, image: ep34, category: "seeds" },
-
-    { id: 4, name: "Afayak (Certified Seeds)", crop: "Soyabean", days: "110-115 days ", color: "Yellow", potential: "2.0-2.4 t/ha", des: "Non-shattering pods", price: 25, image: af, category: "seeds" },
-
-    { id: 5, name: "Favour (Certified Seeds)", crop: "Soyabean", days: "115-118 days", color: "Cream", potential: "2-3.5 t/ha", des: "Non-shattering pods", price: 25, image: fav, category: "seeds" },
-
-    { id: 6, name: "Wang-Kae (Certified Seeds)", crop: "Cowpea", days: "62-65 days (Early)", color: " Creamy White", color2: "Brown", potential: "2.5 t/ha", des: "Resistant to Aphids cracivora and Striga ", price: 40, image: wan, category: "seeds" },
-
     { id: 7, name: "Maize (Grains)", color: " Yellow", price2: 350, image: maone, category: "grain", isPreOrder: true },
 
     { id: 8, name: "Maize (Grains)", color: " White", price2: 350, image: matwo, category: "grain", isPreOrder: true },
@@ -53,7 +35,9 @@ const productsData = [
 const ShopItems = () => {
     const [cart, setCart] = useState(() => {
         const savedCart = localStorage.getItem('grainCart');
-        return savedCart ? JSON.parse(savedCart) : [];
+        return savedCart
+            ? JSON.parse(savedCart).filter((item) => item.category !== 'seeds')
+            : [];
     });
     const [search, setSearch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -227,7 +211,6 @@ const ShopItems = () => {
                                 <option value="All">All</option>
                                 <option value="grain">Grains</option>
                                 <option value="poultry products">Poultry Products</option>
-                                <option value="seeds">Seeds</option>
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
                                 <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">

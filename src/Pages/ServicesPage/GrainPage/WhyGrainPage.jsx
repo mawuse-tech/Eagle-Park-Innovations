@@ -4,24 +4,24 @@ import 'aos/dist/aos.css';
 
 const stats = [
   {
+    title: 'Inclusive Sourcing',
+    description: 'We source grains from local out-growers and cooperatives, including women and youth.',
+    icon: 'ri-community-line',
+  },
+  {
     title: 'Fair Pricing',
     description: 'Better returns for farmers, affordable grains for users.',
     icon: 'ri-money-dollar-circle-line',
   },
   {
-    title: 'Quality Assurance',
-    description: 'Strict quality control for access to premium markets.',
+    title: 'Shared Opportunity',
+    description: 'Our partnerships with farmers and local actors create jobs, income, and value across farming communities.',
+    icon: 'ri-hand-heart-line',
+  },
+  {
+    title: 'Quality Assured',
+    description: 'Our grains meet high-quality standards from production to delivery.',
     icon: 'ri-shield-check-line',
-  },
-  {
-    title: 'Market Access',
-    description: 'Direct links to reliable, ready buyers.',
-    icon: 'ri-store-2-line',
-  },
-  {
-    title: 'Capacity Building',
-    description: 'Comprehensive training of farmers to grow, store, and sell better.',
-    icon: 'ri-graduation-cap-line',
   },
 ];
 

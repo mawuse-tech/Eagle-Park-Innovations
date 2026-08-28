@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import poultry from "../PoutryPage/poultryLady.jpg";
+import poultry from "../../../assets/poultry/poultryLady.jpg";
 import PoultryMainSec from './PoultryMainSec';
 import { NavLink } from 'react-router';
 // import GrainMain from './GrainMainSec';
@@ -57,6 +57,5 @@ const PoultryHero = () => {
 };
 
 export default PoultryHero;
-
 
 
