@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/autoplay";
+@import "remixicon/fonts/remixicon.css";
+
+@keyframes scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll var(--scroll-speed, 40s) linear infinite;
+}
