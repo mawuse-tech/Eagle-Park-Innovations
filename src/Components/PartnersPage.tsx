@@ -34,8 +34,8 @@ const PartnersPage = () => {
   ];
 
   return (
-    <section className="bg-[#f4f4f4] py-16 px-6 md:px-20">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-green-900 mb-10">
+    <section className="bg-stone-50 py-16 px-6 md:px-20">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-900 mb-10">
         Our Partners
       </h2>
 

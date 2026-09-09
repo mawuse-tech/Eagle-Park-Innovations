@@ -12,14 +12,14 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-green-900 text-white py-10 px-6 md:px-16">
+    <footer className="bg-stone-900 text-stone-200 py-16 px-6 md:px-16">
       <div
         className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
         data-aos="fade-up"
       >
         {/* About */}
         <div data-aos="fade-up" data-aos-delay="100">
-          <h2 className="text-xl font-semibold mb-4">EPI</h2>
+          <h2 className="text-xl font-semibold mb-4">Eagle Park Innovations</h2>
           <p className="text-sm leading-relaxed">
           Empowering farmers, feeding nations, and building sustainable futures
           </p>
@@ -39,7 +39,7 @@ const Footer = () => {
         {/* Contact Info */}
         <div data-aos="fade-up" data-aos-delay="300">
           <h2 className="text-lg font-semibold mb-4">Contact</h2>
-          <ul className="text-sm space-y-2">
+          <ul className="text-sm space-y-2 break-words">
             <li><i className="ri-map-pin-line mr-2 "></i>Bundled Services/Grains: Nyankpala, Northern Region</li>
             <li><i className="ri-map-pin-line mr-2 "></i>Poultry: Ankaase. Ashanti Region</li>
             <li><i className="ri-phone-line mr-2"></i> +233 244175741</li>
@@ -51,18 +51,18 @@ const Footer = () => {
         <div data-aos="fade-up" data-aos-delay="400">
           <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
           <div className="flex space-x-4 text-xl">
-            <a href="https://www.facebook.com/share/1Ahtriscx4/?mibextid=WC7FNe" target='_blank' rel="noopener noreferrer"><i className="ri-facebook-box-fill hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="https://www.facebook.com/share/1Ahtriscx4/?mibextid=WC7FNe" target='_blank' rel="noopener noreferrer"><i className="ri-facebook-box-fill hover:text-yellow-400 text-stone-300"></i></a>
 
-            <a href="https://www.instagram.com/p/DLncarnsdyb/?igsh=MW1nZW92YTR0aHB0bA==" target='_blank' rel="noopener noreferrer"><i className="ri-instagram-line  hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="https://www.instagram.com/p/DLncarnsdyb/?igsh=MW1nZW92YTR0aHB0bA==" target='_blank' rel="noopener noreferrer"><i className="ri-instagram-line  hover:text-yellow-400 text-stone-300"></i></a>
 
-            <a href="https://www.linkedin.com/company/eagle-park-innovations-limited/?viewAsMember=true" target='_blank'><i className="ri-linkedin-box-line  hover:text-yellow-400 text-yellow-300"></i></a>
+            <a href="https://www.linkedin.com/company/eagle-park-innovations-limited/?viewAsMember=true" target='_blank'><i className="ri-linkedin-box-line  hover:text-yellow-400 text-stone-300"></i></a>
           </div>
         </div>
       </div>
 
       {/* Bottom Text */}
       <div
-        className="text-center text-sm mt-10 border-t border-green-700 pt-4 text-yellow-300"
+        className="text-center text-sm mt-10 border-t border-stone-700 pt-4 text-stone-300"
         data-aos="fade-up"
         data-aos-delay="500"
       >

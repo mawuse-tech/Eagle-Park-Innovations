@@ -301,7 +301,7 @@ const ShopItems = () => {
 
 
     return (
-        <div className="min-h-screen bg-white text-green-900 relative">
+        <div className="min-h-screen bg-white text-stone-900 relative">
             <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
                 <div className='sticky top-[4rem] z-40 bg-white py-4 px-4 md:px-8'>
                     <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-6">
@@ -351,7 +351,7 @@ const ShopItems = () => {
                         return (
                             <div
                                 key={product.id}
-                                className="relative flex flex-col justify-between h-full border-gray-900 shadow-lg rounded-lg overflow-hidden p-4"
+                                className="relative flex flex-col justify-between h-full border border-stone-200 rounded-lg overflow-hidden p-4"
                             >
 
                                 {/* 🔶 Show banner if pre-order */}

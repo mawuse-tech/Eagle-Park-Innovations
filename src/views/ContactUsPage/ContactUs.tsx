@@ -75,10 +75,10 @@ const ContactUsPage = () => {
         <div data-aos="fade-left">
           <form
       onSubmit={handleSubmit}
-      className="bg-[#f4f4f4] p-6 md:p-8 rounded-xl shadow-lg space-y-4"
+      className="bg-stone-50 p-6 md:p-8  space-y-4"
     >
       <div>
-        <label className="block text-sm font-medium text-[#002920] mb-1">Full Name</label>
+        <label className="block text-sm font-medium text-stone-900 mb-1">Full Name</label>
         <input
           type="text"
           name="name"
@@ -89,7 +89,7 @@ const ContactUsPage = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-[#002920] mb-1">Email Address</label>
+        <label className="block text-sm font-medium text-stone-900 mb-1">Email Address</label>
         <input
           type="email"
           name="email"
@@ -100,7 +100,7 @@ const ContactUsPage = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-green-900 mb-1">Reason for Contact</label>
+        <label className="block text-sm font-medium text-stone-900 mb-1">Reason for Contact</label>
         <select
           name="reason"
           className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-700"
@@ -112,7 +112,7 @@ const ContactUsPage = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-green-900 mb-1">Your Message</label>
+        <label className="block text-sm font-medium text-stone-900 mb-1">Your Message</label>
         <textarea
           name="message"
           rows={4}

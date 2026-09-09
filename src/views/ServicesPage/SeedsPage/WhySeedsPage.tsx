@@ -36,8 +36,8 @@ const WhySeedsPage = () => {
   }, []);
 
   return (
-    <section className="py-12 px-4 md:px-10 bg-[#f4f4f4] text-center overflow-hidden">
-  <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-10" data-aos="fade-up">
+    <section className="py-12 px-4 md:px-10 bg-stone-50 text-center overflow-hidden">
+  <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-10" data-aos="fade-up">
     Why Farmers Choose EPI?
   </h2>
 
@@ -45,12 +45,12 @@ const WhySeedsPage = () => {
     {stats.map((item, index) => (
       <div
         key={index}
-        className="bg-white w-64 h-52 rounded-xl shadow-md flex flex-col items-center justify-center p-4"
+        className="bg-transparent w-64 min-h-52 border-t border-stone-200 rounded-none  flex flex-col items-center justify-center p-4"
         data-aos="fade-up"
         data-aos-delay={index * 200}
       >
         <i className={`${item.icon} text-3xl text-green-800 mb-3`}></i>
-        <h3 className="text-lg font-semibold text-green-900 mb-1">{item.title}</h3>
+        <h3 className="text-lg font-semibold text-stone-900 mb-1">{item.title}</h3>
         <p className="text-sm text-gray-600">{item.description}</p>
       </div>
     ))}

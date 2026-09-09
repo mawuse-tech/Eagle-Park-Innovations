@@ -36,19 +36,19 @@ const Example = () => {
   ];
 
   return (
-    <div className="bg-[#f4f4f4] py-16 px-6 md:px-20">
-      <h1 className="text-3xl md:text-4xl font-bold text-green-900 text-center mb-12">
+    <div className="bg-stone-50 py-16 px-6 md:px-20">
+      <h1 className="text-3xl md:text-4xl font-bold text-stone-900 text-center mb-12">
         Explore How Our Connected Solutions Drive Your Growth
       </h1>
-      <div className="grid md:grid-cols-4 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {cards.map((card, index) => (
           <div
             key={index}
             data-aos="fade-up"
             data-aos-delay={index * 200}
-            className="bg-white shadow-md hover:shadow-lg rounded-lg border border-gray-200 transition duration-300"
+            className="border-t border-stone-300 pt-6"
           >
-            <div className="p-3 text-green-900 ">
+            <div className="py-3 text-stone-900 ">
               <h3 className="text-lg md:text-xl font-semibold leading-tight mb-3">
                 {card.title}
               </h3>

@@ -11,7 +11,7 @@ const OurStory = () => {
   }, []);
 
   return (
-    <section className="bg-white text-green-900 py-16 px-6 md:px-20">
+    <section className="bg-white text-stone-900 py-16 px-6 md:px-20">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
         <div data-aos="fade-right">
@@ -32,7 +32,7 @@ const OurStory = () => {
           <img
             src={story1.src}
             alt="Farm story"
-            className="rounded-tl-[40px] rounded-br-[40px] shadow-lg h-[450px] w-full object-cover"
+            className="rounded-lg h-[450px] w-full object-cover"
           />
         </div>
 

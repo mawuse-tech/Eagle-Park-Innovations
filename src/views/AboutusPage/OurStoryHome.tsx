@@ -16,7 +16,7 @@ const OurStoryHome = () => {
 
   return (
     <div>
-      <section className="flex flex-col md:flex-row items-center justify-between bg-[#f4f4f4] text-green-900 px-6 md:px-20 py-16">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-12 bg-stone-50 text-stone-900 px-6 md:px-20 py-16">
         {/* Left Content */}
         <div className="md:w-1/2" data-aos="fade-right">
 
@@ -38,8 +38,8 @@ const OurStoryHome = () => {
 
         <div data-aos="fade-left">
           <div className="relative group">
-            <div className="absolute top-0 left-0 w-full h-full bg-yellow-300 rounded-tl-[80px] rounded-br-[80px] opacity-20 -z-10 rotate-2"></div>
-            <div className="overflow-hidden shadow-2xl border-l-8 border-b-8 border-green-900 rounded-tl-[80px] rounded-br-[80px] transform hover:scale-105 transition duration-500">
+
+            <div className="overflow-hidden rounded-lg">
               <img
                 src={women.src}
                 alt="Grain Farming"
