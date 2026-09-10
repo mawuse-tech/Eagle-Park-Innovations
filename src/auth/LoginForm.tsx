@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, type FormEvent } from 'react';
 import Link from 'next/link';
+import Swal from 'sweetalert2';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from './AuthProvider';
 import { ApiError } from '@/src/lib/api';
@@ -57,7 +58,6 @@ export function LoginForm() {
       <div className="mb-7">
         <p className="text-sm font-semibold uppercase tracking-wider text-green-700">Welcome back</p>
         <h2 className="mt-1 text-3xl font-bold text-green-950">Sign in to your account</h2>
-        <p className="mt-2 text-sm leading-relaxed text-gray-600">Access your account and continue exploring Eagle Park products and services.</p>
       </div>
 
       {searchParams.get('registered') === 'true' && (
@@ -75,6 +75,9 @@ export function LoginForm() {
           <label htmlFor="login-password" className="mb-1.5 block text-sm font-semibold text-green-950">Password</label>
           <input id="login-password" type="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? 'login-password-error' : undefined} className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-green-700 focus:ring-2 focus:ring-green-700/20" placeholder="Enter your password" />
           {errors.password && <p id="login-password-error" className="mt-1.5 text-sm text-red-700">{errors.password}</p>}
+        </div>
+        <div className="flex flex-wrap items-center justify-end gap-2 text-sm">
+          <button type="button" onClick={() => { void Swal.fire({ icon: 'info', title: 'Coming soon', text: 'Password reset is not available yet. Please check back soon.', confirmButtonText: 'Got it', confirmButtonColor: '#386347' }); }} className="cursor-pointer font-medium text-green-800 underline-offset-4 hover:underline">Forgot password?</button>
         </div>
         <button type="submit" disabled={isSubmitting || isCheckingAuth} className="flex w-full items-center justify-center gap-2 rounded-full bg-green-900 px-5 py-3 font-semibold text-white transition hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60">
           {isSubmitting && <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" aria-hidden="true" />}

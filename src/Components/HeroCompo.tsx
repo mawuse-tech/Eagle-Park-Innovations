@@ -53,13 +53,13 @@ const promoCardsData = [
 export default function HeroCompo() {
   return (
     <section className="services-section">
-      <div className="section-heading"><div><p className="eyebrow">What we do</p><h2>Better farming. More possibilities.</h2></div><p>Support at every stage, from the first seed to the next opportunity.</p></div>
+      <div className="section-heading"><h2>Our Main Products and Services</h2></div>
       <div className="services-grid">
         {promoCardsData.map((card) => (
           <Link href={card.link} key={card.id} className="service-feature">
             <div className="service-photo"><Image src={card.imageSrc} alt={card.imageAlt} fill sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" /></div>
             <h3>{card.title}<i className="ri-arrow-right-up-line" aria-hidden="true" /></h3>
-            <p>{card.description}</p>
+            <p>{card.description}</p><span className="text-link">View Page <i className="ri-arrow-right-line" aria-hidden="true" /></span>
           </Link>
         ))}
       </div>

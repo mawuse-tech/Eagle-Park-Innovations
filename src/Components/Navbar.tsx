@@ -8,6 +8,9 @@ import { useAuth } from '@/src/auth/AuthProvider';
 
 const Navbar = () => {
   const pathname = usePathname();
+  const isProductPage = ['/seed', '/grain', '/poultry'].includes(pathname);
+  const productLinkClass = (href: string) =>
+    `px-4 py-2 text-sm ${pathname === href ? 'bg-[#e0e8d9] text-[#294834] font-semibold' : 'hover:bg-[#ede8d0]'}`;
   const { user, isLoading: isAuthLoading, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
@@ -36,12 +39,12 @@ const Navbar = () => {
           </div>
           <div className="relative group">
            
-              <button type="button" className="cursor-pointer">Products <i className="ri-arrow-down-s-line text-sm" aria-hidden="true"></i></button>
+              <button type="button" className={`cursor-pointer ${isProductPage ? 'text-green-800 font-semibold' : ''}`}>Products <i className="ri-arrow-down-s-line text-sm" aria-hidden="true"></i></button>
          
             <div className="absolute top-full left-0 mt-0 group-hover:flex group-focus-within:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
-              <Link href="/seed" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Bundled Services</Link>
-              <Link href="/grain" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</Link>
-              <Link href="/poultry" className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry Products</Link>
+              <Link href="/seed" aria-current={pathname === '/seed' ? 'page' : undefined} className={productLinkClass('/seed')}>Bundled Services</Link>
+              <Link href="/grain" aria-current={pathname === '/grain' ? 'page' : undefined} className={productLinkClass('/grain')}>Premium Grains</Link>
+              <Link href="/poultry" aria-current={pathname === '/poultry' ? 'page' : undefined} className={productLinkClass('/poultry')}>Poultry Products</Link>
             </div>
           </div>
 
@@ -79,15 +82,15 @@ const Navbar = () => {
             <button
               aria-expanded={isMobileProductsOpen}
               onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
-              className="flex items-center gap-1 hover:text-green-700 w-full text-left"
+              className={`flex items-center gap-1 hover:text-green-700 w-full text-left ${isProductPage ? 'text-green-800 font-semibold' : ''}`}
             >
               Products <i className="ri-arrow-down-s-line text-sm"></i>
             </button>
             {isMobileProductsOpen && (
               <div className="flex flex-col bg-white text-green-900 shadow-lg rounded-md mt-1">
-                <Link href="/seed" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Bundled Services</Link>
-                <Link href="/poultry" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Poultry products</Link>
-                <Link href="/grain" onClick={handleCloseMenu} className="px-4 py-2 text-sm hover:bg-[#ede8d0]">Premium Grains</Link>
+                <Link href="/seed" onClick={handleCloseMenu} aria-current={pathname === '/seed' ? 'page' : undefined} className={productLinkClass('/seed')}>Bundled Services</Link>
+                <Link href="/poultry" onClick={handleCloseMenu} aria-current={pathname === '/poultry' ? 'page' : undefined} className={productLinkClass('/poultry')}>Poultry products</Link>
+                <Link href="/grain" onClick={handleCloseMenu} aria-current={pathname === '/grain' ? 'page' : undefined} className={productLinkClass('/grain')}>Premium Grains</Link>
               </div>
             )}
           </div>

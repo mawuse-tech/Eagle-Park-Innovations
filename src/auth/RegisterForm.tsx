@@ -53,7 +53,6 @@ export function RegisterForm() {
       <div className="mb-7">
         <p className="text-sm font-semibold uppercase tracking-wider text-green-700">Join the marketplace</p>
         <h2 className="mt-1 text-3xl font-bold text-green-950">Create your account</h2>
-        <p className="mt-2 text-sm leading-relaxed text-gray-600">Register to build trusted connections across the agricultural value chain.</p>
       </div>
       {errors.form && <p className="mb-5 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700" role="alert">{errors.form}</p>}
       <form onSubmit={handleSubmit} noValidate className="space-y-5">

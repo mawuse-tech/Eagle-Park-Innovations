@@ -301,7 +301,7 @@ const ShopItems = () => {
 
 
     return (
-        <div className="min-h-screen bg-white text-stone-900 relative">
+        <div className="min-h-screen bg-white text-green-900 relative">
             <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
                 <div className='sticky top-[4rem] z-40 bg-white py-4 px-4 md:px-8'>
                     <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-6">
@@ -338,7 +338,7 @@ const ShopItems = () => {
 
                         <button
                             onClick={() => setShowCart(!showCart)}
-                            className="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900"
+                            className="bg-green-800 text-white px-4 py-2 rounded-md hover:bg-green-900"
                         >
                             View Cart ({cart.length})
                         </button>
@@ -351,7 +351,7 @@ const ShopItems = () => {
                         return (
                             <div
                                 key={product.id}
-                                className="relative flex flex-col justify-between h-full border border-stone-200 rounded-lg overflow-hidden p-4"
+                                className="relative flex flex-col justify-between h-full border-gray-900 shadow-lg rounded-lg overflow-hidden p-4"
                             >
 
                                 {/* 🔶 Show banner if pre-order */}
@@ -415,7 +415,7 @@ const ShopItems = () => {
                                 </div>
 
                                 <button
-                                    className={`w-48 px-4 py-2 rounded-full mt-auto ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
+                                    className={`w-48 px-4 py-2 rounded-md mt-auto ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
                                     onClick={() => handleAddOrRemove(product)}
                                     disabled={isAuthLoading}
                                 >
@@ -451,9 +451,9 @@ const ShopItems = () => {
                                         <p>GH₵{item.price || item.price2 || item.price3 || item.price4} x {item.quantity}</p>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <button onClick={() => handleDecrease(item.id)} className="px-2 py-1 bg-gray-200 rounded">-</button>
+                                        <button onClick={() => handleDecrease(item.id)} className="px-2 py-1 bg-gray-200 rounded-md">-</button>
                                         <span>{item.quantity}</span>
-                                        <button onClick={() => handleIncrease(item.id)} className="px-2 py-1 bg-gray-200 rounded">+</button>
+                                        <button onClick={() => handleIncrease(item.id)} className="px-2 py-1 bg-gray-200 rounded-md">+</button>
                                     </div>
                                 </div>
                             ))}
@@ -494,7 +494,7 @@ const ShopItems = () => {
                                 <div className="font-semibold mb-2">Total: GH₵{total}</div>
                                 <button
                                     onClick={handlePaystackPayment}
-                                    className="w-full bg-green-800 text-white py-2 rounded-full hover:bg-green-900"
+                                    className="w-full bg-green-800 text-white py-2 rounded-md hover:bg-green-900"
                                 >
                                     Click to Pay
                                 </button>
