@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import logo from '../assets/loggo.png';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -14,6 +15,11 @@ const Navbar = () => {
   const { user, isLoading: isAuthLoading, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
+
+  const handleLogout = async () => {
+    try { await logout(); }
+    catch { await Swal.fire({ icon: 'error', title: 'Logout failed', text: 'Please try again.', confirmButtonColor: '#386347' }); }
+  };
 
   const handleCloseMenu = () => {
     setIsMobileMenuOpen(false);
@@ -62,7 +68,7 @@ const Navbar = () => {
             <>
               {user.role === 'admin' && <Link href="/admin" className="mr-3 text-sm text-green-800 hover:text-green-700">Admin</Link>}
               <span className="mr-3 max-w-32 truncate text-sm" title={user.name}>{user.name}</span>
-              <button type="button" onClick={logout} className="rounded-full bg-stone-100 px-5 py-2.5 text-sm text-green-950 hover:bg-stone-200">Logout</button>
+              <button type="button" onClick={() => void handleLogout()} className="rounded-full bg-stone-100 px-5 py-2.5 text-sm text-green-950 hover:bg-stone-200">Logout</button>
             </>
           ) : !isAuthLoading ? (
             <Link href="/login" className="rounded-full bg-stone-100 px-6 py-3 text-sm text-green-950 hover:bg-stone-200">Login <i className="ri-login-box-line" aria-hidden="true" /></Link>
@@ -101,7 +107,7 @@ const Navbar = () => {
 
           <div className="mt-2">
             {!isAuthLoading && user ? (
-              <button type="button" onClick={() => { handleCloseMenu(); logout(); }} className="bg-stone-100 hover:bg-stone-200 text-green-900 px-4 py-2 rounded-lg shadow-sm font-semibold w-full">Logout</button>
+              <button type="button" onClick={() => { handleCloseMenu(); void handleLogout(); }} className="bg-stone-100 hover:bg-stone-200 text-green-900 px-4 py-2 rounded-lg shadow-sm font-semibold w-full">Logout</button>
             ) : !isAuthLoading ? (
               <Link href="/login" onClick={handleCloseMenu} className="block bg-stone-100 hover:bg-stone-200 text-green-900 px-4 py-2 rounded-lg shadow-sm font-semibold w-full text-center">Login</Link>
             ) : null}

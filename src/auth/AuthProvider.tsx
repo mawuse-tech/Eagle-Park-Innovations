@@ -1,15 +1,14 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { authApi } from '@/src/lib/auth-api';
 import type { AuthState, AuthUser, LoginCredentials, RegisterPayload, RegisterResponse } from '@/src/types/auth';
-import { tokenStorage } from './token-storage';
 
 interface AuthContextValue extends AuthState {
   login(credentials: LoginCredentials): Promise<AuthUser>;
   register(payload: RegisterPayload): Promise<RegisterResponse>;
-  logout(): void;
+  logout(): Promise<void>;
   refreshUser(): Promise<void>;
 }
 
@@ -17,23 +16,17 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 
 export function AuthProvider({ children }: Readonly<{ children: ReactNode }>) {
   const router = useRouter();
+  const sessionCheckStarted = useRef(false);
   const [user, setUser] = useState<AuthState['user']>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const clearSession = useCallback(() => {
-    tokenStorage.clear();
     setUser(null);
   }, []);
 
   const refreshUser = useCallback(async () => {
-    const token = tokenStorage.get();
-    if (!token) {
-      setUser(null);
-      setIsLoading(false);
-      return;
-    }
     try {
-      setUser(await authApi.me(token));
+      setUser(await authApi.me());
     } catch {
       clearSession();
     } finally {
@@ -42,23 +35,22 @@ export function AuthProvider({ children }: Readonly<{ children: ReactNode }>) {
   }, [clearSession]);
 
   useEffect(() => {
+    // React Strict Mode replays effects in development; check the session only once.
+    if (sessionCheckStarted.current) return;
+    sessionCheckStarted.current = true;
+    // Discard the legacy Bearer credential; all new sessions use HttpOnly cookies.
+    try { window.localStorage.removeItem('eagleParkAuthToken'); } catch { /* Storage may be disabled. */ }
     queueMicrotask(() => void refreshUser());
   }, [refreshUser]);
 
   const login = useCallback(async (credentials: LoginCredentials) => {
     const response = await authApi.login(credentials);
-    tokenStorage.set(response.token);
-    try {
-      const authenticatedUser = response.user ?? await authApi.me(response.token);
-      setUser(authenticatedUser);
-      return authenticatedUser;
-    } catch (error) {
-      clearSession();
-      throw error;
-    }
-  }, [clearSession]);
+    setUser(response.user);
+    return response.user;
+  }, []);
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
+    await authApi.logout();
     clearSession();
     router.replace('/login');
     router.refresh();

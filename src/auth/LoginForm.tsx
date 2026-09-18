@@ -18,7 +18,7 @@ export function LoginForm() {
   const [errors, setErrors] = useState<LoginErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const requestedDestination = searchParams.get('returnTo');
-  const safeReturnTo = requestedDestination?.startsWith('/') && !requestedDestination.startsWith('//')
+  const safeReturnTo = requestedDestination?.startsWith('/') && !requestedDestination.startsWith('//') && !requestedDestination.includes('\\')
     ? requestedDestination
     : '/';
 

@@ -8,8 +8,7 @@ export interface AuthUser {
 }
 
 export interface AuthResponse {
-  user?: AuthUser;
-  token: string;
+  user: AuthUser;
 }
 
 export interface LoginCredentials {

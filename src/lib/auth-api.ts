@@ -48,16 +48,15 @@ export const authApi = {
       method: 'POST',
       body: JSON.stringify(payload),
     });
-    const body = record(response);
-    const nested = record(body?.data);
-    const token = body?.token ?? body?.accessToken ?? nested?.token ?? nested?.accessToken;
-    if (typeof token !== 'string' || !token) {
-      throw new Error('The server did not return an authentication token.');
-    }
-    return { token, user: responseUser(response) };
+    const user = responseUser(response);
+    if (!user) throw new Error('The server returned an invalid user profile.');
+    return { user };
   },
-  async me(accessToken: string): Promise<AuthUser> {
-    const response = await apiRequest<unknown>('/api/auth/me', {}, accessToken);
+  async logout(): Promise<void> {
+    await apiRequest('/api/auth/logout', { method: 'POST' });
+  },
+  async me(): Promise<AuthUser> {
+    const response = await apiRequest<unknown>('/api/auth/me');
     const user = responseUser(response);
     if (!user) throw new Error('The server returned an invalid user profile.');
     return user;

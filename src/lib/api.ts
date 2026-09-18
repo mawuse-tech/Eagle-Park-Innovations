@@ -1,11 +1,3 @@
-const fallbackApiUrl = 'http://localhost:5050';
-
-export const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? fallbackApiUrl).replace(/\/$/, '');
-
-export function apiUrl(path: string): string {
-  return `${API_URL}${path.startsWith('/') ? path : `/${path}`}`;
-}
-
 export class ApiError extends Error {
   constructor(public readonly status: number, message: string) {
     super(message);
@@ -32,17 +24,15 @@ function errorMessage(body: unknown, status: number): string {
 export async function apiRequest<T>(
   path: string,
   options: RequestInit = {},
-  accessToken?: string,
 ): Promise<T> {
   const headers = new Headers(options.headers);
   if (options.body && !(options.body instanceof FormData)) {
     headers.set('Content-Type', 'application/json');
   }
-  if (accessToken) headers.set('Authorization', `Bearer ${accessToken}`);
 
   let response: Response;
   try {
-    response = await fetch(apiUrl(path), { ...options, headers });
+    response = await fetch(path, { ...options, headers, credentials: 'same-origin', cache: 'no-store' });
   } catch {
     throw new ApiError(0, 'Unable to reach the server. Please check your connection and try again.');
   }
