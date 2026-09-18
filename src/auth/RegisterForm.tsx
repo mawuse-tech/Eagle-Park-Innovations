@@ -29,7 +29,7 @@ export function RegisterForm() {
     if (!email.trim()) nextErrors.email = 'Email is required.';
     else if (!/^\S+@\S+\.\S+$/.test(email)) nextErrors.email = 'Enter a valid email address.';
     if (!password) nextErrors.password = 'Password is required.';
-    else if (password.length < 6) nextErrors.password = 'Password must contain at least 6 characters.';
+    else if (password.length < 8) nextErrors.password = 'Password must contain at least 8 characters.';
     if (Object.keys(nextErrors).length) {
       setErrors(nextErrors);
       return;
@@ -53,7 +53,6 @@ export function RegisterForm() {
       <div className="mb-7">
         <p className="text-sm font-semibold uppercase tracking-wider text-green-700">Join the marketplace</p>
         <h2 className="mt-1 text-3xl font-bold text-green-950">Create your account</h2>
-        <p className="mt-2 text-sm leading-relaxed text-gray-600">Register to build trusted connections across the agricultural value chain.</p>
       </div>
       {errors.form && <p className="mb-5 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700" role="alert">{errors.form}</p>}
       <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -69,8 +68,8 @@ export function RegisterForm() {
         </div>
         <div>
           <label htmlFor="register-password" className="mb-1.5 block text-sm font-semibold text-green-950">Password</label>
-          <input id="register-password" type="password" autoComplete="new-password" value={password} onChange={(event) => setPassword(event.target.value)} aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? 'register-password-error' : 'register-password-hint'} className={fieldClass} placeholder="At least 6 characters" />
-          <p id="register-password-hint" className="mt-1.5 text-xs text-gray-500">Use at least 6 characters.</p>
+          <input id="register-password" type="password" autoComplete="new-password" value={password} onChange={(event) => setPassword(event.target.value)} aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? 'register-password-error' : 'register-password-hint'} className={fieldClass} placeholder="At least 8 characters" />
+          <p id="register-password-hint" className="mt-1.5 text-xs text-gray-500">Use at least 8 characters.</p>
           {errors.password && <p id="register-password-error" className="mt-1.5 text-sm text-red-700">{errors.password}</p>}
         </div>
         <button type="submit" disabled={isSubmitting || isCheckingAuth} className="flex w-full items-center justify-center gap-2 rounded-full bg-green-900 px-5 py-3 font-semibold text-white transition hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60">

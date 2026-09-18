@@ -39,24 +39,24 @@ const TeamPage = () => {
   }, []);
 
   return (
-    <section className="relative py-20 px-6 md:px-20 bg-[#f4f4f4]">
+    <section className="relative py-20 px-6 md:px-20 bg-stone-50">
       {/* Header */}
       <div className="text-center mb-16 z-10 relative" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-green-900">Meet Our Dedicated Management Team</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-stone-900">Meet Our Dedicated Management Team</h2>
         <p className="text-gray-700 mt-2 max-w-2xl mx-auto ">
           A passionate and experienced team, committed to delivering solutions tailored to your needs and goals.
         </p>
       </div>
 
       {/* Green Bar Background */}
-      <div className="absolute top-44 left-0 w-full h-[200px] bg-[#004d2b] z-0 rounded-xl lg:mt-10 mt-20"></div>
+
 
       {/* Cards */}
       <div className="relative z-10 grid sm:grid-cols-2 md:grid-cols-3 gap-10">
         {teamMembers.map((member, index) => (
           <div
             key={index}
-            className="bg-[#eaeaea] rounded-lg shadow-lg p-6 "
+            className="bg-[#eaeaea] rounded-lg  p-6 "
             data-aos="fade-up"
           >
             {/* Circle avatar with gray bg */}
@@ -71,7 +71,7 @@ const TeamPage = () => {
               </div>
             </div>
 
-            <h3 className="text-lg font-bold text-[#002920]">Name: {member.name}</h3>
+            <h3 className="text-lg font-bold text-stone-900">Name: {member.name}</h3>
 
             <p className="text-sm text-gray-600 mt-1">
               <span className="font-bold">Position:</span> {member.role}

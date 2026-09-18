@@ -338,7 +338,7 @@ const ShopItems = () => {
 
                         <button
                             onClick={() => setShowCart(!showCart)}
-                            className="bg-green-800 text-white px-4 py-2 rounded-full hover:bg-green-900"
+                            className="bg-green-800 text-white px-4 py-2 rounded-md hover:bg-green-900"
                         >
                             View Cart ({cart.length})
                         </button>
@@ -415,7 +415,7 @@ const ShopItems = () => {
                                 </div>
 
                                 <button
-                                    className={`w-48 px-4 py-2 rounded-full mt-auto ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
+                                    className={`w-48 px-4 py-2 rounded-md mt-auto ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
                                     onClick={() => handleAddOrRemove(product)}
                                     disabled={isAuthLoading}
                                 >
@@ -451,9 +451,9 @@ const ShopItems = () => {
                                         <p>GH₵{item.price || item.price2 || item.price3 || item.price4} x {item.quantity}</p>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <button onClick={() => handleDecrease(item.id)} className="px-2 py-1 bg-gray-200 rounded">-</button>
+                                        <button onClick={() => handleDecrease(item.id)} className="px-2 py-1 bg-gray-200 rounded-md">-</button>
                                         <span>{item.quantity}</span>
-                                        <button onClick={() => handleIncrease(item.id)} className="px-2 py-1 bg-gray-200 rounded">+</button>
+                                        <button onClick={() => handleIncrease(item.id)} className="px-2 py-1 bg-gray-200 rounded-md">+</button>
                                     </div>
                                 </div>
                             ))}
@@ -494,7 +494,7 @@ const ShopItems = () => {
                                 <div className="font-semibold mb-2">Total: GH₵{total}</div>
                                 <button
                                     onClick={handlePaystackPayment}
-                                    className="w-full bg-green-800 text-white py-2 rounded-full hover:bg-green-900"
+                                    className="w-full bg-green-800 text-white py-2 rounded-md hover:bg-green-900"
                                 >
                                     Click to Pay
                                 </button>

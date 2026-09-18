@@ -1,18 +1,14 @@
 'use client';
+import { useState, type FormEvent } from 'react';
 
-import React, { useEffect, type FormEvent } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import bgimg from "../../assets/contact/bgimg.jpg"
-
-const ContactUsPage = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
+export default function ContactUsPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setStatus(null);
+    setIsSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
 
@@ -26,114 +22,24 @@ const ContactUsPage = () => {
       });
 
       if (response.ok) {
-        alert("Message sent successfully!");
+        setStatus("Message sent successfully!");
         form.reset(); // clear the form
       } else {
-        alert("Oops! Something went wrong. Please try again.");
+        setStatus("Oops! Something went wrong. Please try again.");
       }
     } catch {
-      alert("There was a network error.");
+      setStatus("There was a network error.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat py-16 px-6 md:px-16"
-      style={{
-        backgroundImage: `url(${bgimg.src})`,
-      }}
-    >
-      {/* White overlay for readability */}
-      <div className="absolute inset-0 bg-[#0212107e]"></div>
-
-      <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Text and Info Section */}
-        <div data-aos="fade-right">
-          <h2 className="text-4xl font-extrabold text-white mb-4">Contact Us</h2>
-          <p className="text-white text-lg mb-6">
-            Got a question, want to register for a class, or collaborate with us? Reach out—we’d love to hear from you!
-          </p>
-
-          <ul className="text-white space-y-4 text-sm">
-            <li>
-              <i className="ri-map-pin-line mr-2"></i>Bundled Services/Grains: Nyankpala, Northern Region
-            </li>
-
-            <li>
-              <i className="ri-map-pin-line mr-2"></i>Poultry: Ankaase, Ashanti Region
-            </li>
-            <li>
-              <i className="ri-phone-line mr-2"></i> +233244175741
-            </li>
-            <li>
-              <i className="ri-mail-fill mr-2"></i> eagleparkinnovations@yahoo.com
-            </li>
-          </ul>
-        </div>
-
-        {/* Form Section */}
-        <div data-aos="fade-left">
-          <form
-      onSubmit={handleSubmit}
-      className="bg-[#f4f4f4] p-6 md:p-8 rounded-xl shadow-lg space-y-4"
-    >
-      <div>
-        <label className="block text-sm font-medium text-[#002920] mb-1">Full Name</label>
-        <input
-          type="text"
-          name="name"
-          className="w-full px-4 py-2 border border-[#002920] rounded focus:outline-none focus:ring-2 focus:ring-[#002920]"
-          placeholder="John Doe"
-          required
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-[#002920] mb-1">Email Address</label>
-        <input
-          type="email"
-          name="email"
-          className="w-full px-4 py-2 border border-[#002920] rounded focus:outline-none focus:ring-2 focus:ring-green-700"
-          placeholder="john@example.com"
-          required
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-green-900 mb-1">Reason for Contact</label>
-        <select
-          name="reason"
-          className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-700"
-        >
-          <option value="Class Registration">Class Registration</option>
-          <option value="General Inquiry">General Inquiry</option>
-          <option value="Partnership or Collaboration">Partnership or Collaboration</option>
-        </select>
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-green-900 mb-1">Your Message</label>
-        <textarea
-          name="message"
-          rows={4}
-          className="w-full px-4 py-2 border border-green-300 rounded focus:outline-none focus:ring-2 focus:ring-green-700"
-          placeholder="Type your message here..."
-          required
-        ></textarea>
-      </div>
-
-      <button
-        type="submit"
-        className="w-full bg-green-800 text-white py-3 rounded hover:bg-green-900 transition"
-      >
-        Send Message
-      </button>
-    </form>
-
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default ContactUsPage;
+  return <div className="editorial-page"><header className="contact-heading editorial-width"><h1>Contact Us</h1><p>Got a question, want to register for a class, or collaborate with us? Reach out—we’d love to hear from you!</p></header>
+  <section className="contact-layout editorial-width"><aside><ul className="contact-original-info"><li>Bundled Services/Grains: Nyankpala, Northern Region</li><li>Poultry: Ankaase, Ashanti Region</li><li><a href="tel:+233244175741">+233244175741</a></li><li>
+    <a href="https://wa.me/233243919417" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp at +233 24 391 9417 (opens in a new tab)" className="inline-flex items-center gap-3 hover:text-green-800 transition-colors">
+      <i className="ri-whatsapp-line text-2xl text-green-700" aria-hidden="true" />
+      <span>WhatsApp: +233 24 391 9417</span>
+    </a>
+  </li><li><a href="mailto:eagleparkinnovations@yahoo.com">eagleparkinnovations@yahoo.com</a></li></ul></aside>
+  <form onSubmit={handleSubmit} className="contact-form"><div className="form-pair"><div><label htmlFor="contact-name">Full Name</label><input id="contact-name" name="name" autoComplete="name" placeholder="John Doe" required /></div><div><label htmlFor="contact-email">Email Address</label><input id="contact-email" type="email" name="email" autoComplete="email" placeholder="john@example.com" required /></div></div><label htmlFor="contact-reason">Reason for Contact</label><select id="contact-reason" name="reason"><option value="Class Registration">Class Registration</option><option value="General Inquiry">General Inquiry</option><option value="Partnership or Collaboration">Partnership or Collaboration</option></select><label htmlFor="contact-message">Your Message</label><textarea id="contact-message" name="message" rows={5} placeholder="Type your message here..." required /><div className="contact-submit"><button type="submit" className="primary-link" disabled={isSubmitting}>Send Message<i className="ri-arrow-right-up-line" aria-hidden="true" /></button></div><p role="status" aria-live="polite">{status}</p></form></section></div>;
+}

@@ -60,22 +60,22 @@ const CountSection = () => {
 
   return (
     <section
-      className="py-12 px-4 md:px-10 bg-[#f4f4f4] text-center overflow-hidden"
+      className="py-12 px-4 md:px-10 bg-stone-50 text-center overflow-hidden"
       ref={sectionRef}
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-8" data-aos="fade-up">
+      <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-8" data-aos="fade-up">
         Our Impact
       </h2>
       <div className="flex flex-wrap justify-center items-center gap-6">
         {stats.map((item, index) => (
           <div
             key={index}
-            className="bg-white w-40 h-40 rounded-xl shadow-md flex flex-col items-center justify-center"
+            className="bg-transparent w-52 min-h-40 border-t border-stone-300 flex flex-col items-center justify-center"
             data-aos="fade-right"
             data-aos-delay={index * 200}
           >
             <i className={`${item.icon} text-2xl text-green-800 mb-2`}></i>
-            <h3 className="text-xl font-bold text-green-900">
+            <h3 className="text-4xl font-medium text-stone-900">
               {hasAnimated ? <><CountUp end={item.count} duration={2} />+</> : '0+'}
             </h3>
 
