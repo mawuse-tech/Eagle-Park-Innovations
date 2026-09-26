@@ -2,67 +2,43 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import connectedServices from '../assets/hero section.jpg';
 import happyfarmers from '../assets/happy-farm.jpg';
 import maizefarm from '../assets/cornharvest.jpg';
 import poultry from '../assets/poultry.jpg';
 
-const images = [connectedServices, happyfarmers, maizefarm, poultry];
+const slides = [
+  { image: connectedServices, alt: 'Farmers working together at Eagle Park Innovations', label: 'Welcome to Eagle Park Innovations', title: 'Empowering Farmers, Feeding Nations and Building Sustainable Futures', description: 'Connected solutions. Stronger communities. A better tomorrow.', action: 'Discover Eagle Park', href: '/ourstory' },
+  { image: happyfarmers, alt: 'Farmers in their community', label: 'Bundled services', title: 'One System. Unlimited Growth for Farmers.', description: 'Quality inputs, expert guidance, and reliable markets. All connected.', action: 'Explore our services', href: '/seed' },
+  { image: maizefarm, alt: 'A thriving maize harvest', label: 'Premium grains', title: 'Grains That Nourish. Partnerships That Empower.', description: 'Quality harvests. Fair prices. Stronger local food systems.', action: 'Explore our grains', href: '/grain' },
+  { image: poultry, alt: 'Poultry raised at Eagle Park', label: 'Responsible farming', title: 'Quality Poultry Products for Every Home.', description: 'Farm-fresh eggs, healthy birds, and a circular approach to agriculture.', action: 'Discover our poultry', href: '/poultry' },
+];
 
 export default function HeroSlideshow() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hasFocus, setHasFocus] = useState(false);
   useEffect(() => {
-    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let interval: ReturnType<typeof setInterval> | undefined;
-
-    const updatePlayback = () => {
-      clearInterval(interval);
-      if (!isPaused && !motionPreference.matches) {
-        interval = setInterval(() => {
-          setCurrentImage((current) => (current + 1) % images.length);
-        }, 5000);
-      }
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const update = () => {
+      clearInterval(timer);
+      if (!paused && !hasFocus && !preference.matches) timer = setInterval(() => setCurrent(value => (value + 1) % slides.length), 7000);
     };
-
-    updatePlayback();
-    motionPreference.addEventListener('change', updatePlayback);
-    return () => {
-      clearInterval(interval);
-      motionPreference.removeEventListener('change', updatePlayback);
-    };
-  }, [isPaused]);
-
-  return (
-    <div className="home-hero-image" role="group" aria-label="Eagle Park farming images">
-      <div className="hero-image-window">
-      {images.map((image, index) => (
-        <div
-          key={image.src}
-          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImage ? 'opacity-100' : 'opacity-0'}`}
-          aria-hidden={index !== currentImage}
-        >
-          <Image
-            src={image}
-            alt="Agriculture and farming at Eagle Park Innovations"
-            fill
-            priority={index === 0}
-            placeholder="blur"
-            sizes="(max-width: 767px) 100vw, 50vw"
-            className="object-cover"
-          />
-        </div>
-      ))}
-      </div>
-      <button
-        type="button"
-        className="hero-slideshow-toggle"
-        aria-label={isPaused ? 'Resume image slideshow' : 'Pause image slideshow'}
-        onClick={() => setIsPaused((paused) => !paused)}
-      >
-        <i className={isPaused ? 'ri-play-fill' : 'ri-pause-fill'} aria-hidden="true" />
-      </button>
+    update();
+    preference.addEventListener('change', update);
+    return () => { clearInterval(timer); preference.removeEventListener('change', update); };
+  }, [paused, hasFocus]);
+  const slide = slides[current];
+  return <section className="photo-hero home-hero" aria-roledescription="carousel" aria-label="Discover Eagle Park" onFocusCapture={() => setHasFocus(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setHasFocus(false); }}>
+    <div className="hero-images" aria-hidden="true">{slides.map((item, index) => <Image key={item.image.src} src={item.image} alt="" fill preload={index === 0} sizes="100vw" className={`hero-background ${index === current ? 'is-visible' : ''}`} />)}</div>
+    <div className="hero-shade" />
+    <div className="hero-copy" aria-live="off"><p className="eyebrow">{slide.label}</p><h1>{slide.title}</h1><p className="hero-description">{slide.description}</p></div>
+    <div className="hero-controls">
+      <div className="slide-dots" aria-label="Choose a slide">{slides.map((item, index) => <button key={item.href} type="button" aria-label={`Show slide ${index + 1}: ${item.label}`} aria-pressed={current === index} onClick={() => { setCurrent(index); setPaused(true); }}><span /></button>)}</div>
+      <Link href={slide.href} className="outline-link">{slide.action}<i className="ri-arrow-right-line" aria-hidden="true" /></Link>
+      <button type="button" className="slideshow-toggle" aria-label={paused ? 'Resume slideshow' : 'Pause slideshow'} onClick={() => setPaused(value => !value)}><i className={paused ? 'ri-play-fill' : 'ri-pause-fill'} aria-hidden="true" /></button>
     </div>
-  );
+  </section>;
 }

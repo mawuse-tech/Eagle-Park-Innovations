@@ -60,7 +60,7 @@ const CountSection = () => {
 
   return (
     <section
-      className="py-12 px-4 md:px-10 bg-stone-50 text-center overflow-hidden"
+      className="impact-section editorial-width text-center overflow-hidden"
       ref={sectionRef}
     >
       <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-8" data-aos="fade-up">

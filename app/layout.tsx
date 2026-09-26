@@ -21,7 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body className={roboto.className}>
         <AuthProvider>
           <Navbar />
-          <main>{children}</main>
+          <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
         </AuthProvider>
         <Script src="https://js.paystack.co/v1/inline.js" strategy="afterInteractive" />

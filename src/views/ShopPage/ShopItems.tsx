@@ -13,7 +13,7 @@ import nut from "../../assets/shop/gnut.jpg";
 import compost from "../../assets/shop/com.jpg";
 import sprint from "../../assets/shop/sprint.jpg";
 import Swal from 'sweetalert2'
-import type { StaticImageData } from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 
 interface Product {
     id: number;
@@ -301,130 +301,32 @@ const ShopItems = () => {
 
 
     return (
-        <div className="min-h-screen bg-white text-green-900 relative">
-            <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-                <div className='sticky top-[4rem] z-40 bg-white py-4 px-4 md:px-8'>
-                    <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-6">
-                        <h1 className="text-3xl font-bold">Shop Our Products</h1>
-
-                        <input
-                            type="text"
-                            placeholder="Search products..."
-                            className="border px-4 py-2 rounded-full"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-
-                        <div className="relative inline-block">
-                            <select
-                                className="appearance-none border px-6 py-2 rounded-full pr-10"
-                                value={selectedCategory}
-                                onChange={(e) => setSelectedCategory(e.target.value)}
-                            >
-                                <option value="All">All</option>
-                                <option value="grain">Grains</option>
-                                <option value="poultry products">Poultry Products</option>
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
-                                <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M10 12a1 1 0 01-.7-.3l-3-3a1 1 0 111.4-1.4L10 9.58l2.3-2.3a1 1 0 111.4 1.42l-3 3a1 1 0 01-.7.3z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <button
-                            onClick={() => setShowCart(!showCart)}
-                            className="bg-green-800 text-white px-4 py-2 rounded-md hover:bg-green-900"
-                        >
-                            View Cart ({cart.length})
-                        </button>
+        <div className="shop-page">
+            <div className="shop-shell editorial-width">
+                <aside className="shop-filters">
+                    <p className="eyebrow">Find your next harvest</p>
+                    <h2>Shop by category</h2>
+                    <fieldset><legend className="sr-only">Product category</legend>{[['All', 'All products'], ['grain', 'Grains'], ['poultry products', 'Poultry products']].map(([value, label]) => <label key={value}><input type="radio" name="category" value={value} checked={selectedCategory === value} onChange={() => setSelectedCategory(value)} />{label}</label>)}</fieldset>
+                    <div className="shop-help"><i className="ri-customer-service-2-line" aria-hidden="true" /><h3>Need a hand?</h3><p>We’re here to help you find the right products.</p><a href="/contact" className="text-link">Talk to our team <i className="ri-arrow-right-line" aria-hidden="true" /></a></div>
+                </aside>
+                <section className="shop-results" aria-label="Products">
+                    <div className="shop-heading"><div><p className="eyebrow">From our farms to you</p><h1>Shop our products</h1></div><button onClick={() => setShowCart(!showCart)} className="primary-link"><i className="ri-shopping-bag-line" aria-hidden="true" />Cart ({cart.length})</button></div>
+                    <div className="shop-toolbar"><p role="status">{filteredProducts.length} products</p><label className="shop-search"><i className="ri-search-line" aria-hidden="true" /><span className="sr-only">Search products</span><input type="search" placeholder="Search products…" value={search} onChange={event => setSearch(event.target.value)} /></label></div>
+                    <div className="shop-product-grid">
+                        {filteredProducts.map(product => {
+                            const inCart = cart.find(item => item.id === product.id);
+                            const price = product.price || product.price2 || product.price3 || product.price4 || 0;
+                            const unit = product.price ? 'kg' : product.price2 ? '50kg' : product.price3 ? 'bird' : 'crate';
+                            return <article className="shop-product" key={product.id}>
+                                {product.isPreOrder && <div className="shop-preorder">Pre-order · 70% advance payment</div>}
+                                <Image src={product.image} alt={product.name} sizes="(max-width: 479px) 100vw, (max-width: 1199px) 40vw, 25vw" className="shop-product-image" />
+                                <div className="shop-product-copy"><p className="eyebrow">{product.category}</p><h2>{product.name}</h2><dl>{[["Crop", product.crop], ["Days to maturity", product.days], ["Grain colour", product.color], ["Hilum colour", product.color2], ["Potential yield", product.potential]].filter(([, value]) => value).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>{product.des && <p>{product.des}</p>}</div>
+                                <div className="shop-price-panel"><p>GH₵ <strong>{price}</strong><span> / {unit}</span></p><button onClick={() => handleAddOrRemove(product)} disabled={isAuthLoading} className="shop-cart-button">{inCart ? 'Remove from cart' : 'Add to cart'}<i className={inCart ? 'ri-subtract-line' : 'ri-arrow-right-line'} aria-hidden="true" /></button></div>
+                            </article>;
+                        })}
+                        {filteredProducts.length === 0 && <div className="shop-empty"><i className="ri-search-line" aria-hidden="true" /><h2>No products found</h2><p>Try another search or browse all our products.</p><button className="primary-link" onClick={() => { setSearch(''); setSelectedCategory('All'); }}>Clear filters</button></div>}
                     </div>
-                </div>
-
-                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                    {filteredProducts.map(product => {
-                        const inCart = cart.find(item => item.id === product.id);
-                        return (
-                            <div
-                                key={product.id}
-                                className="relative flex flex-col justify-between h-full border-gray-900 shadow-lg rounded-lg overflow-hidden p-4"
-                            >
-
-                                {/* 🔶 Show banner if pre-order */}
-                                {product.isPreOrder && (
-                                    <div className="absolute top-0 left-0 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-tr-xl rounded-bl-xl">
-                                        Pre-Order: 70% Advance Payment
-                                    </div>
-                                )}
-                                <div>
-                                    <img src={product.image.src} alt={product.name} loading='lazy' className="w-full h-64 object-cover mb-4" />
-                                    <h2 className="text-xl font-semibold">{product.name}</h2>
-
-                                    {product.crop && (
-                                        <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Crop: </span>{product.crop}
-                                        </p>
-                                    )}
-                                    {product.days && (
-                                        <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Days to Maturity: </span>{product.days}
-                                        </p>
-                                    )}
-                                    {product.color && (
-                                        <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Grain Colour: </span>{product.color}
-                                        </p>
-                                    )}
-                                    {product.color2 && (
-                                        <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Hilum Colour: </span>{product.color2}
-                                        </p>
-                                    )}
-                                    {product.potential && (
-                                        <p className="text-gray-500 font-bold mb-2">
-                                            <span className="text-gray-600">Potential yield: </span>{product.potential}
-                                        </p>
-                                    )}
-                                    {product.des && (
-                                        <p className="text-gray-500 font-bold mb-2">{product.des}</p>
-                                    )}
-                                    {product.price && (
-                                        <p className="text-gray-500 font-bold mb-4">
-                                            <span className="text-gray-600">Price: </span>GH₵{product.price}/kg
-                                        </p>
-                                    )}
-                                    {product.price2 && (
-                                        <p className="text-gray-500 font-bold mb-4">
-                                            <span className="text-gray-600">Price: </span>GH₵{product.price2}/50kg
-                                        </p>
-                                    )}
-                                    {product.price3 && (
-                                        <p className="text-gray-500 font-bold mb-4">
-                                            <span className="text-gray-600">Price: </span>GH₵{product.price3}/Bird
-                                        </p>
-                                    )}
-                                    {product.price4 && (
-                                        <p className="text-gray-500 font-bold mb-4">
-                                            <span className="text-gray-600">Price: </span>GH₵{product.price4}/Crate
-                                        </p>
-                                    )}
-                                </div>
-
-                                <button
-                                    className={`w-48 px-4 py-2 rounded-md mt-auto ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-green-900 hover:bg-green-900'} text-white`}
-                                    onClick={() => handleAddOrRemove(product)}
-                                    disabled={isAuthLoading}
-                                >
-                                    {inCart ? 'Remove from Cart' : 'Add to Cart'}
-                                </button>
-                            </div>
-                        );
-                    })}
-                </div>
+                </section>
             </div>
 
             {showCart && (

@@ -1,8 +1,4 @@
-'use client';
-
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import Image from 'next/image';
 
 import team1 from '../../assets/about/gloria.png';
 import team2 from '../../assets/about/godfred.jpg';
@@ -34,62 +30,11 @@ const teamMembers = [
 ];
 
 const TeamPage = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
 
-  return (
-    <section className="relative py-20 px-6 md:px-20 bg-stone-50">
-      {/* Header */}
-      <div className="text-center mb-16 z-10 relative" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-stone-900">Meet Our Dedicated Management Team</h2>
-        <p className="text-gray-700 mt-2 max-w-2xl mx-auto ">
-          A passionate and experienced team, committed to delivering solutions tailored to your needs and goals.
-        </p>
-      </div>
-
-      {/* Green Bar Background */}
-
-
-      {/* Cards */}
-      <div className="relative z-10 grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-        {teamMembers.map((member, index) => (
-          <div
-            key={index}
-            className="bg-[#eaeaea] rounded-lg  p-6 "
-            data-aos="fade-up"
-          >
-            {/* Circle avatar with gray bg */}
-            <div className="flex justify-center mb-4">
-              <div className="w-40 h-40 rounded-full bg-gray-300 overflow-hidden">
-                <img
-                  src={member.image.src}
-                  alt={member.name}
-                  loading='lazy'
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            <h3 className="text-lg font-bold text-stone-900">Name: {member.name}</h3>
-
-            <p className="text-sm text-gray-600 mt-1">
-              <span className="font-bold">Position:</span> {member.role}
-            </p>
-
-            <p className="text-sm text-gray-500 mt-4">
-              <span className="font-bold">Qualification:</span> {member.quali}
-            </p>
-
-            <p className="text-sm text-gray-500 mt-4">
-              <span className="font-bold">Expertise:</span> {member.expertise}
-            </p>
-
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+  return <section id="our-team" className="team-section editorial-width">
+    <div className="center-heading"><p className="eyebrow">The people behind our purpose</p><h2>Meet our management team</h2><p>A passionate and experienced team, committed to delivering solutions tailored to your needs and goals.</p></div>
+    <div className="team-grid">{teamMembers.map(member => <article className="team-card" key={member.name}><Image src={member.image} alt={member.name} sizes="(max-width: 767px) 100vw, 33vw" /><div><p className="eyebrow">{member.role}</p><h3>{member.name}</h3><p>{member.quali}</p><p>{member.expertise}</p></div></article>)}</div>
+  </section>;
 };
 
 export default TeamPage;

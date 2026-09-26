@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 import absa from '../assets/absalogo.png';
 import giz from '../assets/gizlogo.png';
 import kic from '../assets/kiclogo.png';
@@ -34,7 +35,7 @@ const PartnersPage = () => {
   ];
 
   return (
-    <section className="bg-stone-50 py-16 px-6 md:px-20">
+    <section className="partners-section editorial-width">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-900 mb-10">
         Our Partners
       </h2>
@@ -42,10 +43,11 @@ const PartnersPage = () => {
       <div className="overflow-x-hidden relative">
         <div className="flex animate-scroll min-w-[200%] gap-10 items-center">
           {logos.concat(logos).map((logo, index) => (
-            <img
+            <Image
               key={index}
-              src={logo.src}
-              alt={`Partner ${index + 1}`}
+              src={logo}
+              alt={index < logos.length ? ["Absa", "GIZ", "Kosmos Innovation Center", "Leverage", "NASTAG", "OCA", "Ghana Climate Innovation Centre", "Ghana TVET Service", "Forest and Farm Facility", "FAO"][index] : ""}
+              sizes="180px"
               className="h-12 md:h-20 w-auto object-contain"
             />
           ))}

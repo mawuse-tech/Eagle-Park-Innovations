@@ -34,7 +34,7 @@ export default function ContactUsPage() {
     }
   };
 
-  return <div className="editorial-page"><header className="contact-heading editorial-width"><h1>Contact Us</h1><p>Got a question, want to register for a class, or collaborate with us? Reach out—we’d love to hear from you!</p></header>
+  return <div className="editorial-page contact-page"><header className="contact-heading editorial-width"><p className="eyebrow">We’re here to help</p><h1>Contact us</h1><p>Got a question, want to register for a class, or collaborate with us? Reach out—we’d love to hear from you!</p></header>
   <section className="contact-layout editorial-width"><aside><ul className="contact-original-info"><li>Bundled Services/Grains: Nyankpala, Northern Region</li><li>Poultry: Ankaase, Ashanti Region</li><li><a href="tel:+233244175741">+233244175741</a></li><li>
     <a href="https://wa.me/233243919417" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp at +233 24 391 9417 (opens in a new tab)" className="inline-flex items-center gap-3 hover:text-green-800 transition-colors">
       <i className="ri-whatsapp-line text-2xl text-green-700" aria-hidden="true" />

@@ -1,121 +1,60 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useRef, useState } from 'react';
 import Swal from 'sweetalert2';
 import logo from '../assets/loggo.png';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/src/auth/AuthProvider';
 
-const Navbar = () => {
-  const pathname = usePathname();
-  const isProductPage = ['/seed', '/grain', '/poultry'].includes(pathname);
-  const productLinkClass = (href: string) =>
-    `px-4 py-2 text-sm ${pathname === href ? 'bg-[#e0e8d9] text-[#294834] font-semibold' : 'hover:bg-[#ede8d0]'}`;
-  const { user, isLoading: isAuthLoading, logout } = useAuth();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
+const products = [
+  ['/seed', 'Bundled Services', 'ri-seedling-line'],
+  ['/grain', 'Premium Grains', 'ri-plant-line'],
+  ['/poultry', 'Poultry Products', 'ri-sun-line'],
+];
 
+export default function Navbar() {
+  const pathname = usePathname();
+  const { user, isLoading, logout } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const productButton = useRef<HTMLButtonElement>(null);
+  const hasHero = ['/', '/ourstory', '/seed', '/grain', '/poultry', '/train'].includes(pathname);
+  const close = () => { setMenuOpen(false); setProductsOpen(false); };
+  const current = (href: string) => pathname === href ? 'page' as const : undefined;
   const handleLogout = async () => {
+    close();
     try { await logout(); }
     catch { await Swal.fire({ icon: 'error', title: 'Logout failed', text: 'Please try again.', confirmButtonColor: '#386347' }); }
   };
 
-  const handleCloseMenu = () => {
-    setIsMobileMenuOpen(false);
-    setIsMobileProductsOpen(false);
-  };
-
-  return (
-    <nav className="site-nav bg-white text-stone-800 px-4 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between flex-wrap py-1">
-        <div className="m-1.5 shrink-0">
-          <Link href="/">
-            <img
-              src={logo.src}
-              alt="Eagle Park Innovations home"
-              className="h-[3.5rem] w-auto items-center pr-2"
-            />
-          </Link>
+  return <header className={`site-header ${hasHero ? 'over-hero' : ''}`} onKeyDown={(event) => {
+    if (event.key === 'Escape') {
+      if (productsOpen) { setProductsOpen(false); productButton.current?.focus(); }
+      else { close(); menuButton.current?.focus(); }
+    }
+  }}>
+    <a href="#main-content" className="skip-link">Skip to content</a>
+    <div className="utility-nav"><span>Growing together. Building sustainable futures.</span><div><Link href="/ourstory">Our story</Link><Link href="/contact">Get in touch <i className="ri-arrow-right-up-line" aria-hidden="true" /></Link></div></div>
+    <nav className="site-nav" aria-label="Main navigation">
+      <Link className="brand" href="/" onClick={close}><Image src={logo} alt="Eagle Park Innovations home" sizes="110px" /></Link>
+      <button ref={menuButton} className="nav-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => { setMenuOpen(!menuOpen); setProductsOpen(false); }}><i className={menuOpen ? 'ri-close-line' : 'ri-menu-line'} aria-hidden="true" /></button>
+      <div id="main-navigation" className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
+        <Link href="/" aria-current={current('/')} onClick={close}>Home</Link>
+        <Link href="/ourstory" aria-current={current('/ourstory')} onClick={close}>About Us</Link>
+        <div className="nav-products" onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setProductsOpen(false); }}>
+          <button ref={productButton} type="button" aria-expanded={productsOpen} aria-controls="product-navigation" className={products.some(([href]) => href === pathname) ? 'is-active' : ''} onClick={() => setProductsOpen(!productsOpen)}>Products <i className="ri-arrow-down-s-line" aria-hidden="true" /></button>
+          {productsOpen && <div id="product-navigation" className="nav-dropdown">{products.map(([href, label, icon]) => <Link key={href} href={href} aria-current={current(href)} onClick={close}><i className={icon} aria-hidden="true" />{label}</Link>)}</div>}
         </div>
-        <div className="hidden xl:flex items-center gap-6 ml-6 text-[16px]">
-          <Link className={pathname === '/' ? "text-green-800" : "text-stone-800"} href="/">Home</Link>
-          <div>
-            <Link className={pathname === '/ourstory' ? "text-green-800" : "text-stone-800"} href='/ourstory'> About Us</Link>
-          </div>
-          <div className="relative group">
-           
-              <button type="button" className={`cursor-pointer ${isProductPage ? 'text-green-800 font-semibold' : ''}`}>Products <i className="ri-arrow-down-s-line text-sm" aria-hidden="true"></i></button>
-         
-            <div className="absolute top-full left-0 mt-0 group-hover:flex group-focus-within:flex hidden flex-col bg-white text-[#002920] shadow-lg rounded-md min-w-[160px] z-50">
-              <Link href="/seed" aria-current={pathname === '/seed' ? 'page' : undefined} className={productLinkClass('/seed')}>Bundled Services</Link>
-              <Link href="/grain" aria-current={pathname === '/grain' ? 'page' : undefined} className={productLinkClass('/grain')}>Premium Grains</Link>
-              <Link href="/poultry" aria-current={pathname === '/poultry' ? 'page' : undefined} className={productLinkClass('/poultry')}>Poultry Products</Link>
-            </div>
-          </div>
-
-          <Link className={pathname === '/train' ? "text-green-800" : "text-stone-800"} href="/train">Training and Consultancy Hub</Link>
-          <Link
-            href="/contact"
-            className={`flex items-center gap-1 hover:text-green-700 ${pathname === '/contact' ? "text-green-800 font-semibold" : "text-stone-800"}`}
-          >
-            Contact Us
-          </Link>
-
-        </div>
-        <div className="hidden xl:flex items-center gap-1 font-medium ">
-          {!isAuthLoading && user ? (
-            <>
-              {user.role === 'admin' && <Link href="/admin" className="mr-3 text-sm text-green-800 hover:text-green-700">Admin</Link>}
-              <span className="mr-3 max-w-32 truncate text-sm" title={user.name}>{user.name}</span>
-              <button type="button" onClick={() => void handleLogout()} className="rounded-full bg-stone-100 px-5 py-2.5 text-sm text-green-950 hover:bg-stone-200">Logout</button>
-            </>
-          ) : !isAuthLoading ? (
-            <Link href="/login" className="rounded-full bg-stone-100 px-6 py-3 text-sm text-green-950 hover:bg-stone-200">Login <i className="ri-login-box-line" aria-hidden="true" /></Link>
-          ) : null}
-        </div>
-        <div className="xl:hidden ml-auto">
-          <button aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            <i className={`text-3xl text-stone-800 ${isMobileMenuOpen ? 'ri-close-line' : 'ri-menu-line'}`}></i>
-          </button>
+        <Link href="/train" aria-current={current('/train')} onClick={close}>Training & Consultancy</Link>
+        <Link href="/shop" aria-current={current('/shop')} onClick={close}>Shop</Link>
+        <Link href="/contact" aria-current={current('/contact')} onClick={close}>Contact</Link>
+        <div className="nav-account">
+          {!isLoading && user ? <>{user.role === 'admin' && <Link href="/admin" onClick={close}>Admin</Link>}<button className="nav-login" onClick={() => void handleLogout()}>Logout <i className="ri-logout-box-r-line" aria-hidden="true" /></button></> : !isLoading ? <Link href="/login" className="nav-login" onClick={close}>Login <i className="ri-user-line" aria-hidden="true" /></Link> : null}
         </div>
       </div>
-      {isMobileMenuOpen && (
-        <div className="xl:hidden mt-3 flex flex-col gap-2 text-1xl font-medium px-4 pb-4">
-          <Link href="/" onClick={handleCloseMenu} className="hover:text-green-700">Home</Link>
-          <Link href="/ourstory" onClick={handleCloseMenu} className="hover:text-green-700">About Us</Link>
-          <div className="flex flex-col">
-            <button
-              aria-expanded={isMobileProductsOpen}
-              onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
-              className={`flex items-center gap-1 hover:text-green-700 w-full text-left ${isProductPage ? 'text-green-800 font-semibold' : ''}`}
-            >
-              Products <i className="ri-arrow-down-s-line text-sm"></i>
-            </button>
-            {isMobileProductsOpen && (
-              <div className="flex flex-col bg-white text-green-900 shadow-lg rounded-md mt-1">
-                <Link href="/seed" onClick={handleCloseMenu} aria-current={pathname === '/seed' ? 'page' : undefined} className={productLinkClass('/seed')}>Bundled Services</Link>
-                <Link href="/poultry" onClick={handleCloseMenu} aria-current={pathname === '/poultry' ? 'page' : undefined} className={productLinkClass('/poultry')}>Poultry products</Link>
-                <Link href="/grain" onClick={handleCloseMenu} aria-current={pathname === '/grain' ? 'page' : undefined} className={productLinkClass('/grain')}>Premium Grains</Link>
-              </div>
-            )}
-          </div>
-
-          <Link href="/train" onClick={handleCloseMenu} className="hover:text-green-700">Training and consultancy Hub</Link>
-          <Link href="/contact" onClick={handleCloseMenu} className="hover:text-green-700">Contact Us</Link>
-          {!isAuthLoading && user?.role === 'admin' && <Link href="/admin" onClick={handleCloseMenu} className="text-green-800">Admin</Link>}
-
-          <div className="mt-2">
-            {!isAuthLoading && user ? (
-              <button type="button" onClick={() => { handleCloseMenu(); void handleLogout(); }} className="bg-stone-100 hover:bg-stone-200 text-green-900 px-4 py-2 rounded-lg shadow-sm font-semibold w-full">Logout</button>
-            ) : !isAuthLoading ? (
-              <Link href="/login" onClick={handleCloseMenu} className="block bg-stone-100 hover:bg-stone-200 text-green-900 px-4 py-2 rounded-lg shadow-sm font-semibold w-full text-center">Login</Link>
-            ) : null}
-          </div>
-        </div>
-      )}
     </nav>
-  );
-};
-
-export default Navbar;
+  </header>;
+}
