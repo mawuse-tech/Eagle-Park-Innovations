@@ -36,7 +36,7 @@ const grains = [
 
 export default function GrainMain() {
   return <>
-    <section id="grain-catalogue" className="editorial-width catalogue-section"><div className="section-heading"><h2>Our Focus Grains</h2><p>We transform cereal and legume harvests into higher incomes and stronger food security.</p></div>
+    <section id="grain-catalogue" className="editorial-width catalogue-section"><div className="section-heading"><h2>Our Focus Grains</h2><p className="gold-text">We transform cereal and legume harvests into higher incomes and stronger food security.</p></div>
       <div className="grain-collection">{grains.map((grain) => <article key={grain.name} className="grain-entry"><div className="grain-photo"><Image src={grain.image} alt={grain.name} fill sizes="(max-width: 767px) 100vw, 40vw" className="object-cover" /></div><div className="grain-copy"><h3>{grain.name}</h3><p>{grain.description}</p></div></article>)}</div>
     </section>
     <Benefits />

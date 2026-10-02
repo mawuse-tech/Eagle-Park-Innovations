@@ -4,6 +4,7 @@ import Script from 'next/script';
 import type { ReactNode } from 'react';
 import Navbar from '@/src/Components/Navbar';
 import Footer from '@/src/Components/Footer';
+import HomeScrollReset from '@/src/Components/HomeScrollReset';
 import { AuthProvider } from '@/src/auth/AuthProvider';
 import './globals.css';
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en">
       <body className={roboto.className}>
         <AuthProvider>
+          <HomeScrollReset />
           <Navbar />
           <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />

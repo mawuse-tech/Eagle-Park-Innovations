@@ -1,7 +1,7 @@
 import Benefits from './WhyPoultryPage';
 import eggs from "../../../assets/poultry/eggs.webp";
-import man from "../../../assets/poultry/cmp.jpg";
-import hens from "../../../assets/poultry/redhenn.jpg";
+import man from "../../../assets/poultry/Hands.png";
+import hens from "../../../assets/poultry/hen.png";
 import Image from 'next/image';
 import { PageCallout } from '@/src/Components/design/PageIntro';
 const grains = [
@@ -25,7 +25,7 @@ const grains = [
 
 export default function PoultryMainSec() {
   return <>
-    <section id="poultry-products" className="editorial-width poultry-stories"><div className="section-heading"><h2>Our Poultry Products</h2><p>We provide high-quality poultry products and strengthen nutrition in our communities.</p></div>
+    <section id="poultry-products" className="editorial-width poultry-stories"><div className="section-heading"><h2>Our Poultry Products</h2><p className="gold-text">We provide high-quality poultry products and strengthen nutrition in our communities.</p></div>
     {grains.map((product) => <article className="poultry-story" key={product.name}><div className="poultry-photo"><Image src={product.image} alt={product.name} fill sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" /></div><div><h3>{product.name}</h3><p>{product.description}</p></div></article>)}
     </section>
     <Benefits />

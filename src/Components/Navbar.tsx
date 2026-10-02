@@ -37,7 +37,6 @@ export default function Navbar() {
     }
   }}>
     <a href="#main-content" className="skip-link">Skip to content</a>
-    <div className="utility-nav"><span>Growing together. Building sustainable futures.</span><div><Link href="/ourstory">Our story</Link><Link href="/contact">Get in touch <i className="ri-arrow-right-up-line" aria-hidden="true" /></Link></div></div>
     <nav className="site-nav" aria-label="Main navigation">
       <Link className="brand" href="/" onClick={close}><Image src={logo} alt="Eagle Park Innovations home" sizes="110px" /></Link>
       <button ref={menuButton} className="nav-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => { setMenuOpen(!menuOpen); setProductsOpen(false); }}><i className={menuOpen ? 'ri-close-line' : 'ri-menu-line'} aria-hidden="true" /></button>
@@ -45,12 +44,13 @@ export default function Navbar() {
         <Link href="/" aria-current={current('/')} onClick={close}>Home</Link>
         <Link href="/ourstory" aria-current={current('/ourstory')} onClick={close}>About Us</Link>
         <div className="nav-products" onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setProductsOpen(false); }}>
-          <button ref={productButton} type="button" aria-expanded={productsOpen} aria-controls="product-navigation" className={products.some(([href]) => href === pathname) ? 'is-active' : ''} onClick={() => setProductsOpen(!productsOpen)}>Products <i className="ri-arrow-down-s-line" aria-hidden="true" /></button>
+          <button ref={productButton} type="button" aria-expanded={productsOpen} aria-controls="product-navigation" className={products.some(([href]) => href === pathname) ? 'is-active' : ''} onClick={() => setProductsOpen(!productsOpen)}>Products & Services <i className="ri-arrow-down-s-line" aria-hidden="true" /></button>
           {productsOpen && <div id="product-navigation" className="nav-dropdown">{products.map(([href, label, icon]) => <Link key={href} href={href} aria-current={current(href)} onClick={close}><i className={icon} aria-hidden="true" />{label}</Link>)}</div>}
         </div>
         <Link href="/train" aria-current={current('/train')} onClick={close}>Training & Consultancy</Link>
+        <Link href="/news" aria-current={current('/news')} onClick={close}>News & Resources</Link>
         <Link href="/shop" aria-current={current('/shop')} onClick={close}>Shop</Link>
-        <Link href="/contact" aria-current={current('/contact')} onClick={close}>Contact</Link>
+        <Link href="/contact" aria-current={current('/contact')} onClick={close}>Contact Us</Link>
         <div className="nav-account">
           {!isLoading && user ? <>{user.role === 'admin' && <Link href="/admin" onClick={close}>Admin</Link>}<button className="nav-login" onClick={() => void handleLogout()}>Logout <i className="ri-logout-box-r-line" aria-hidden="true" /></button></> : !isLoading ? <Link href="/login" className="nav-login" onClick={close}>Login <i className="ri-user-line" aria-hidden="true" /></Link> : null}
         </div>

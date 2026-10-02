@@ -14,6 +14,7 @@ export function RegisterForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<RegisterErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -68,7 +69,12 @@ export function RegisterForm() {
         </div>
         <div>
           <label htmlFor="register-password" className="mb-1.5 block text-sm font-semibold text-green-950">Password</label>
-          <input id="register-password" type="password" autoComplete="new-password" value={password} onChange={(event) => setPassword(event.target.value)} aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? 'register-password-error' : 'register-password-hint'} className={fieldClass} placeholder="At least 8 characters" />
+          <div className="relative">
+            <input id="register-password" type={showPassword ? 'text' : 'password'} autoComplete="new-password" value={password} onChange={(event) => setPassword(event.target.value)} aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? 'register-password-error' : 'register-password-hint'} className={`${fieldClass} pr-12`} placeholder="At least 8 characters" />
+            <button type="button" onClick={() => setShowPassword((visible) => !visible)} aria-label={showPassword ? 'Hide password' : 'Show password'} aria-pressed={showPassword} className="absolute inset-y-0 right-0 grid w-12 place-items-center rounded-r-lg text-gray-600 hover:text-green-800 focus-visible:outline-green-700">
+              <i className={showPassword ? 'ri-eye-off-line' : 'ri-eye-line'} aria-hidden="true" />
+            </button>
+          </div>
           <p id="register-password-hint" className="mt-1.5 text-xs text-gray-500">Use at least 8 characters.</p>
           {errors.password && <p id="register-password-error" className="mt-1.5 text-sm text-red-700">{errors.password}</p>}
         </div>

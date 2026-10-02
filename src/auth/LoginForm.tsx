@@ -15,6 +15,7 @@ export function LoginForm() {
   const { login, user, isLoading: isCheckingAuth } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<LoginErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const requestedDestination = searchParams.get('returnTo');
@@ -73,7 +74,12 @@ export function LoginForm() {
         </div>
         <div>
           <label htmlFor="login-password" className="mb-1.5 block text-sm font-semibold text-green-950">Password</label>
-          <input id="login-password" type="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? 'login-password-error' : undefined} className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-green-700 focus:ring-2 focus:ring-green-700/20" placeholder="Enter your password" />
+          <div className="relative">
+            <input id="login-password" type={showPassword ? 'text' : 'password'} autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} aria-invalid={Boolean(errors.password)} aria-describedby={errors.password ? 'login-password-error' : undefined} className="w-full rounded-lg border border-gray-300 px-4 py-3 pr-12 text-gray-900 outline-none transition focus:border-green-700 focus:ring-2 focus:ring-green-700/20" placeholder="Enter your password" />
+            <button type="button" onClick={() => setShowPassword((visible) => !visible)} aria-label={showPassword ? 'Hide password' : 'Show password'} aria-pressed={showPassword} className="absolute inset-y-0 right-0 grid w-12 place-items-center rounded-r-lg text-gray-600 hover:text-green-800 focus-visible:outline-green-700">
+              <i className={showPassword ? 'ri-eye-off-line' : 'ri-eye-line'} aria-hidden="true" />
+            </button>
+          </div>
           {errors.password && <p id="login-password-error" className="mt-1.5 text-sm text-red-700">{errors.password}</p>}
         </div>
         <div className="flex flex-wrap items-center justify-end gap-2 text-sm">
@@ -84,7 +90,7 @@ export function LoginForm() {
           {isSubmitting ? 'Signing in…' : 'Login'}
         </button>
       </form>
-      <p className="mt-6 text-center text-sm text-gray-600">New to Eagle Park? <Link href="/register" className="font-semibold text-green-800 underline-offset-4 hover:underline">Create an account</Link></p>
+      <p className="mt-6 text-center text-sm text-gray-600">New to EPI? <Link href="/register" className="font-semibold text-green-800 underline-offset-4 hover:underline">Create an account</Link></p>
     </div>
   );
 }
