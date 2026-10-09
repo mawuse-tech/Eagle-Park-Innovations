@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "check": "npm run lint && npm run typecheck && npm run build",
     "create-admin": "node --conditions=react-server --import tsx scripts/create-admin.ts",
-    "test:auth": "node --conditions=react-server --import tsx scripts/test-auth.ts"
+    "test:auth": "node --conditions=react-server --import tsx scripts/test-auth.ts",
+    "test:news-flow": "node --conditions=react-server --import tsx scripts/test-news-flow.ts"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",

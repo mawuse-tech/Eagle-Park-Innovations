@@ -24,6 +24,10 @@ Mutating routes reject cross-origin requests. Login and registration require JSO
 
 Visitors can browse all public pages. The same login form handles both roles; admins go to `/admin`. Existing Add to Cart authentication checks, browser cart storage, and Formspree behavior remain in place.
 
+### Article cover image uploads
+
+The admin article editor accepts an image URL or a JPEG, PNG, WebP, AVIF, or GIF file up to 5 MB. File uploads are sent through the admin-only API to Cloudinary, and only the returned secure image URL is saved with the article. Configure `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in the server environment to enable uploads. URL entry remains available if image storage is not configured.
+
 ## Admin provisioning
 
 Run `npm run create-admin` with `ADMIN_NAME`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD` supplied through your terminal environment or secret manager. The script loads Next.js environment files, uses the same database/model, hashes the password, refuses duplicates, and prints no password. There is no admin registration API.
