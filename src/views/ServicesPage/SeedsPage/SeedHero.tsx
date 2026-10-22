@@ -4,10 +4,10 @@ import photo from '../../../assets/hero section _certified seeds page.jpg';
 import Content from './SeedMainSec';
 
 const services = [
-  { icon: '◒', title: 'Quality Inputs', detail: 'Inputs for productive farming' },
-  { icon: '✣', title: 'Knowledge', detail: 'Practical field support' },
-  { icon: '♣', title: 'Climate-Smart Support', detail: 'Resilient, sustainable production' },
-  { icon: '▮', title: 'Markets', detail: 'Connections beyond harvest' },
+  { icon: 'ri-seedling-line', title: 'Quality Inputs', detail: 'Inputs for productive farming' },
+  { icon: 'ri-book-open-line', title: 'Knowledge', detail: 'Practical field support' },
+  { icon: 'ri-leaf-line', title: 'Climate-Smart Support', detail: 'Resilient, sustainable production' },
+  { icon: 'ri-store-2-line', title: 'Markets', detail: 'Connections beyond harvest' },
 ];
 
 export default function SeedHero() {
@@ -24,7 +24,7 @@ export default function SeedHero() {
       <div className="absolute inset-x-4 bottom-4 z-10 rounded-xl border border-white/25 bg-[#183622c7] p-3 shadow-xl backdrop-blur-xl md:inset-x-8 md:bottom-6 md:p-5">
         <div className="grid grid-cols-1 divide-y divide-white/20 sm:grid-cols-2 sm:divide-y-0 md:grid-cols-4 md:divide-x md:divide-y-0">
           {services.map((service, index) => <div key={service.title} className={`flex items-center gap-3 px-3 py-3 md:px-5 ${index > 1 ? 'sm:border-t sm:border-white/20 md:border-t-0' : ''}`}>
-            <span aria-hidden="true" className={`grid size-10 shrink-0 place-items-center rounded-full text-lg font-black ${index % 2 === 0 ? 'bg-[#e3efd8] text-[#41634a]' : 'bg-[#ecdca7] text-[#8a6816]'}`}>{service.icon}</span>
+            <span aria-hidden="true" className={`grid size-10 shrink-0 place-items-center rounded-full text-xl ${index % 2 === 0 ? 'bg-[#e3efd8] text-[#41634a]' : 'bg-[#ecdca7] text-[#8a6816]'}`}><i className={service.icon} /></span>
             <span><strong className="block text-sm text-white">{service.title}</strong><span className="mt-0.5 block text-[11px] leading-snug text-[#dce6de]">{service.detail}</span></span>
           </div>)}
         </div>
