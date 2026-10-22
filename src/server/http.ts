@@ -25,7 +25,20 @@ export function errorResponse(error: unknown) {
 }
 export function requireSameOrigin(request: Request) {
   const origin = request.headers.get('origin');
-  if ((origin && origin !== new URL(request.url).origin) || request.headers.get('sec-fetch-site') === 'cross-site') {
+  const expectedOrigins = new Set([new URL(request.url).origin]);
+  const forwardedHost = request.headers.get('x-forwarded-host')?.split(',')[0]?.trim();
+  if (forwardedHost) {
+    const forwardedProto = request.headers.get('x-forwarded-proto')?.split(',')[0]?.trim();
+    const protocol = forwardedProto === 'https' || forwardedProto === 'http'
+      ? forwardedProto
+      : new URL(request.url).protocol.slice(0, -1);
+    try {
+      expectedOrigins.add(new URL(`${protocol}://${forwardedHost}`).origin);
+    } catch {
+      // Ignore malformed proxy headers; the request URL origin remains authoritative.
+    }
+  }
+  if ((origin && !expectedOrigins.has(origin)) || request.headers.get('sec-fetch-site') === 'cross-site') {
     throw new HttpError(403, 'Cross-origin requests are not allowed');
   }
 }

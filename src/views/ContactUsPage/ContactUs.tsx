@@ -35,7 +35,7 @@ export default function ContactUsPage() {
   };
 
   return <div className="editorial-page contact-page">
-    <header className="contact-heading editorial-width"><p className="eyebrow">Connect with EPI</p><h1>Let’s grow<br /><span>something lasting.</span></h1><p>From your next harvest to your next partnership, we’re here to help. Tell us what you have in mind.</p></header>
+    <header className="contact-heading editorial-width"><p className="eyebrow">Connect with EPI</p></header>
     <section className="contact-layout editorial-width" aria-label="Contact Us">
       <aside className="contact-details"><p className="eyebrow">Contact Us</p><h2>A conversation is<br />a good place to start.</h2>
         <div className="contact-detail"><i className="ri-mail-line" aria-hidden="true" /><div><h3>Email us</h3><a href="mailto:info@eagleparkinnovations.online">info@eagleparkinnovations.online</a><a href="mailto:eagleparkinnovations@yahoo.com">eagleparkinnovations@yahoo.com</a></div></div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { getAuthenticatedUser } from '@/src/server/auth';
 import AdminDashboard from '@/src/admin/AdminDashboard';
+
 export const metadata: Metadata = { title: 'Admin | Eagle Park Innovations' };
 export default async function AdminPage() {
   const user = await getAuthenticatedUser();

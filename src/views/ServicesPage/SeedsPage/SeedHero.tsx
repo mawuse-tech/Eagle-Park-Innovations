@@ -15,8 +15,8 @@ export default function SeedHero() {
     <header className="photo-hero relative isolate !min-h-[850px] !items-stretch !justify-start !px-0 !pb-0 !pt-36 text-white md:!min-h-[760px] md:!pt-40">
       <Image src={photo} alt="Farmer benefiting from EPI bundled services" fill priority sizes="100vw" className="hero-background is-visible" />
       <div className="hero-shade" />
-      <div className="editorial-width relative z-10 max-w-[1280px] -translate-y-4 pt-10 md:-translate-y-8 md:pt-16">
-        <p className="mb-3 text-xs font-black uppercase tracking-[.18em] !text-[#C99724]">Bundled Services</p>
+      <div className="editorial-width relative z-10 max-w-[1280px] -translate-y-4 pt-10 md:-translate-x-6 md:-translate-y-8 md:pt-16">
+        <p className="mb-3 text-xs font-black uppercase tracking-[.18em] text-white">Bundled Services</p>
         <h1 className="max-w-[710px] text-[clamp(44px,6vw,76px)] font-black leading-[.98] tracking-[-.05em] text-white">Farm Challenges Are Connected. Our Support Is Too.</h1>
         <p className="mt-6 max-w-[650px] text-lg leading-relaxed text-[#edf3ee]">Access complementary agricultural services through one connected system, at your convenience and hassle-free, so you can focus on what matters.</p>
         <Link href="#how" className="outline-link mt-7">See How It Works <i className="ri-arrow-down-line" aria-hidden="true" /></Link>
