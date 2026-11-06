@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from './AuthProvider';
 import { ApiError } from '@/src/lib/api';
+import { showToast } from '@/src/lib/alerts';
 
 interface LoginErrors { email?: string; password?: string; form?: string; }
 
@@ -46,6 +47,7 @@ export function LoginForm() {
     setIsSubmitting(true);
     try {
       const authenticatedUser = await login({ email: email.trim().toLowerCase(), password });
+      void showToast('success', 'Successfully signed in');
       router.replace(destinationFor(authenticatedUser.role));
     } catch (error) {
       setErrors({ form: error instanceof ApiError || error instanceof Error ? error.message : 'Login failed. Please try again.' });

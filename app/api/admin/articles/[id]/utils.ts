@@ -1,5 +1,6 @@
 import { HttpError } from '@/src/server/http';
 import { getVideoEmbedUrl } from '@/src/news/video';
+import { formatText, formatTitle } from '@/src/lib/text-format';
 const fields = ['title', 'coverImage', 'videoUrl', 'category', 'summary', 'content', 'contentBlocks', 'galleryImages', 'sections', 'author', 'publishedAt', 'status'] as const;
 export function articleUpdate(body: Record<string, unknown>) {
   const value = Object.fromEntries(fields.map(key => [key, body[key]])) as Record<(typeof fields)[number], unknown>;
@@ -24,9 +25,9 @@ export function articleUpdate(body: Record<string, unknown>) {
     if (typeof blockImage !== 'string' || blockImage.length > 1000 || (blockImage && !/^https?:\/\//i.test(blockImage) && !blockImage.startsWith('/'))) throw new HttpError(400, `Content block ${index + 1} needs a valid image URL`);
     if (typeof heading !== 'string' || heading.length > 140 || typeof blockContent !== 'string' || blockContent.length > 15000) throw new HttpError(400, `Content block ${index + 1} exceeds the allowed text length`);
     if (value.status === 'published' && (!blockImage || !heading.trim() || !blockContent.trim())) throw new HttpError(400, `Published content block ${index + 1} needs an image, heading and description`);
-    return { image: blockImage, heading: heading.trim(), content: blockContent.trim() };
+    return { image: blockImage, heading: formatTitle(heading), content: formatText(blockContent) };
   });
   const date = value.publishedAt ? new Date(String(value.publishedAt)) : new Date();
   if (Number.isNaN(date.getTime())) throw new HttpError(400, 'Publication date is invalid');
-  return { title: String(value.title).trim(), coverImage: image, videoUrl, category: String(value.category).trim(), summary: String(value.summary).trim(), content: String(value.content).trim(), contentBlocks, galleryImages: [], sections: [], author: String(value.author).trim(), status: value.status as 'draft' | 'published', publishedAt: value.status === 'published' ? date : null };
+  return { title: formatTitle(String(value.title)), coverImage: image, videoUrl, category: formatTitle(String(value.category)), summary: formatText(String(value.summary)), content: formatText(String(value.content)), contentBlocks, galleryImages: [], sections: [], author: formatText(String(value.author)), status: value.status as 'draft' | 'published', publishedAt: value.status === 'published' ? date : null };
 }

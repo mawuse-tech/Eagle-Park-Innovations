@@ -37,7 +37,7 @@ export default function ContactUsPage() {
   return <div className="editorial-page contact-page">
     <header className="contact-heading editorial-width"><p className="eyebrow">Connect with EPI</p></header>
     <section className="contact-layout editorial-width" aria-label="Contact Us">
-      <aside className="contact-details"><p className="eyebrow">Contact Us</p><h2>A conversation is<br />a good place to start.</h2>
+      <aside className="contact-details"><p className="eyebrow">Contact Us</p><h2>A conversation is<br />a good place to start.</h2><a className="contact-events-shortcut" href="/news#events">See upcoming events <i className="ri-arrow-right-line" aria-hidden="true" /></a>
         <div className="contact-detail"><i className="ri-mail-line" aria-hidden="true" /><div><h3>Email us</h3><a href="mailto:info@eagleparkinnovations.online">info@eagleparkinnovations.online</a><a href="mailto:eagleparkinnovations@yahoo.com">eagleparkinnovations@yahoo.com</a></div></div>
         <div className="contact-detail"><i className="ri-phone-line" aria-hidden="true" /><div><h3>Call or chat</h3><a href="tel:+233244175741">+233 244 175 741</a><a href="https://wa.me/233243919417" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp at +233 24 391 9417 (opens in a new tab)">WhatsApp: +233 24 391 9417 <i className="ri-arrow-right-up-line" aria-hidden="true" /></a></div></div>
         <div className="contact-detail"><i className="ri-map-pin-line" aria-hidden="true" /><div><h3>Find us</h3><p><strong>Bundled Services & Grains</strong><br />Nyankpala, Northern Region</p><p><strong>Poultry</strong><br />Ankaase, Ashanti Region</p></div></div>

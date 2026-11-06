@@ -1,12 +1,12 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import Swal from 'sweetalert2';
 import logo from '../assets/loggo.png';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/src/auth/AuthProvider';
+import { showToast } from '@/src/lib/alerts';
 
 const products = [
   ['/seed', 'Bundled Services', 'ri-seedling-line'],
@@ -26,8 +26,8 @@ export default function Navbar() {
   const current = (href: string) => pathname === href ? 'page' as const : undefined;
   const handleLogout = async () => {
     close();
-    try { await logout(); }
-    catch { await Swal.fire({ icon: 'error', title: 'Logout failed', text: 'Please try again.', confirmButtonColor: '#386347' }); }
+    try { await logout(); void showToast('success', 'Successfully signed out'); }
+    catch { void showToast('error', 'Sign out failed', 'Please try again.'); }
   };
 
   return <header className={`site-header ${hasHero ? 'over-hero' : ''}`} onKeyDown={(event) => {
@@ -48,7 +48,7 @@ export default function Navbar() {
           {productsOpen && <div id="product-navigation" className="nav-dropdown">{products.map(([href, label, icon]) => <Link key={href} href={href} aria-current={current(href)} onClick={close}><i className={icon} aria-hidden="true" />{label}</Link>)}</div>}
         </div>
         <Link href="/train" aria-current={current('/train')} onClick={close}>Training & Consultancy</Link>
-        <Link href="/news" aria-current={current('/news')} onClick={close}>News & Resources</Link>
+        <Link href="/news" aria-current={current('/news')} onClick={close}>News & Events</Link>
         <Link href="/shop" aria-current={current('/shop')} onClick={close}>Shop</Link>
         <Link href="/contact" aria-current={current('/contact')} onClick={close}>Contact Us</Link>
         <div className="nav-account">

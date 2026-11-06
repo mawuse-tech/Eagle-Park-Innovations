@@ -21,8 +21,9 @@ export async function connectDatabase(): Promise<typeof mongoose> {
       retryWrites: false,
       bufferCommands: false,
     }).catch(() => {
-      // Keep the rejected promise: later requests must not retry a failed connection.
-      // Restart the server explicitly after correcting database connectivity.
+      // Clear the rejected connection so a later request can recover after a
+      // transient outage or after the local environment is corrected.
+      globalDatabase.mongooseConnection = undefined;
       throw new DatabaseUnavailableError();
     });
   }

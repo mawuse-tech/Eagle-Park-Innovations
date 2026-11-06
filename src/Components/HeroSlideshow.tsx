@@ -42,6 +42,7 @@ export default function HeroSlideshow() {
     <div className="hero-images" aria-hidden="true">{slides.map((item, index) => <Image key={item.image.src} src={item.image} alt="" fill preload={index === 0} sizes="100vw" className={`hero-background ${index === current ? 'is-visible' : ''}`} />)}</div>
     <div className="hero-shade" />
     <div className="hero-copy" aria-live="off"><p className="eyebrow">{slide.label}</p><h1>{slide.title}</h1><p className="hero-description">{slide.description}</p></div>
+    <Link href="/news#events" className="home-events-link">See upcoming events <i className="ri-arrow-right-line" aria-hidden="true" /></Link>
     <div className="hero-controls">
       <div className="slide-dots" aria-label="Choose a slide">{slides.map((item, index) => <button key={item.href} type="button" aria-label={`Show slide ${index + 1}: ${item.label}`} aria-pressed={current === index} onClick={() => { setCurrent(index); setPaused(true); }}><span /></button>)}</div>
       <Link href={slide.href} className="outline-link">{slide.action}<i className="ri-arrow-right-line" aria-hidden="true" /></Link>

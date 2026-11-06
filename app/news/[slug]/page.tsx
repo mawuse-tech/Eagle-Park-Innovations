@@ -16,7 +16,10 @@ export default async function NewsArticlePage({ params }: Props) { const { slug 
  const legacyImages = Array.isArray(article.galleryImages) ? article.galleryImages : [];
  const legacySections = Array.isArray(article.sections) ? article.sections : [];
  const legacyBlocks = Array.from({ length: Math.max(legacyImages.length, legacySections.length) }, (_, index) => ({ image: legacyImages[index] || article.coverImage || '', heading: legacySections[index]?.heading || '', content: legacySections[index]?.content || '' }));
- const contentBlocks = Array.isArray(article.contentBlocks) && article.contentBlocks.length ? article.contentBlocks : legacyBlocks;
+ // Mongoose lean() keeps BSON ObjectIds on embedded subdocuments. Strip those
+ // internal fields and pass only strings across the Server/Client boundary.
+ const contentBlocks = (Array.isArray(article.contentBlocks) && article.contentBlocks.length ? article.contentBlocks : legacyBlocks)
+  .map(block => ({ image: String(block.image || ''), heading: String(block.heading || ''), content: String(block.content || '') }));
  return <article className="news-story editorial-width">
   <Link href="/news" className="news-story-back"><i className="ri-arrow-left-line"/> News &amp; Resources</Link>
   <header className="news-story-header news-story-title-header"><p className="eyebrow">{article.category}</p><h1>{article.title}</h1></header>

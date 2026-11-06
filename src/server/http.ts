@@ -11,7 +11,7 @@ export function json(body: unknown, status = 200) {
 }
 export function errorResponse(error: unknown) {
   if (error instanceof DatabaseUnavailableError || error instanceof mongoose.mongo.MongoNetworkError || error instanceof mongoose.mongo.MongoServerSelectionError) {
-    return json({ success: false, message: 'Database unavailable. Please contact support. No automatic retry will be made.' }, 503);
+    return json({ success: false, message: 'Database temporarily unavailable. Please try again shortly.' }, 503);
   }
   if (error instanceof HttpError) return json({ success: false, message: error.message }, error.status);
   if (error && typeof error === 'object' && 'code' in error && error.code === 11000) {

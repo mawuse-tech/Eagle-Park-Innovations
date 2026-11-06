@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Footer() {
   return <footer className="site-footer"><div className="editorial-width">
     <div className="footer-columns">
-      <div><h2>Explore EPI</h2><Link href="/ourstory">Our story</Link><Link href="/train">Training & Consultancy</Link><Link href="/shop">Shop our products</Link><Link href="/news">News & Resources</Link><Link href="/contact">Contact us</Link></div>
+      <div><h2>Explore EPI</h2><Link href="/ourstory">Our story</Link><Link href="/train">Training & Consultancy</Link><Link href="/shop">Shop our products</Link><Link href="/news">News & Resources</Link><Link href="/news#events">Upcoming events</Link><Link href="/contact">Contact us</Link></div>
       <div><h2>Our solutions</h2><Link href="/seed">Bundled Services</Link><Link href="/grain">Premium Grains</Link><Link href="/poultry">Poultry Products</Link></div>
       <div><h2>Visit us</h2><p>Bundled Services / Grains<br />Nyankpala, Northern Region</p><p>Poultry<br />Ankaase, Ashanti Region</p></div>
       <div><h2>Stay connected</h2><a href="tel:+233244175741">+233 244 175 741</a><a href="mailto:info@eagleparkinnovations.online">info@eagleparkinnovations.online</a><a href="mailto:eagleparkinnovations@yahoo.com">eagleparkinnovations@yahoo.com</a><div className="footer-socials">
