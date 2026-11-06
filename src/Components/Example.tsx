@@ -10,6 +10,6 @@ const services = [
 export default function Example() {
   return <section className="solutions-section editorial-width" aria-labelledby="solutions-heading">
     <div className="center-heading"><p className="eyebrow gold-text">Connected Solutions. Lasting Growth.</p><h2 id="solutions-heading">Grow your future with EPI</h2></div>
-    <div className="solutions-grid">{services.map(service => <Link className="solution-item" key={service.href} href={service.href}><i className={service.icon} aria-hidden="true" /><h3>{service.title}</h3><p>{service.text}</p><span className="solution-arrow" aria-hidden="true"><i className="ri-arrow-right-line" /></span></Link>)}</div>
+    <div className="solutions-grid">{services.map(service => <Link className="solution-item" key={service.href} href={service.href}>{service.title === 'Poultry Farming' ? <svg className="solution-chick-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="/icons/chick.svg#chick" /></svg> : <i className={service.icon} aria-hidden="true" />}<h3>{service.title}</h3><p>{service.text}</p><span className="solution-arrow" aria-hidden="true"><i className="ri-arrow-right-line" /></span></Link>)}</div>
   </section>;
 }

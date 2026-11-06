@@ -53,7 +53,7 @@ export default async function EventDetailsPage({ params }: Props) {
           {event.capacity && <p><i className="ri-team-line" aria-hidden="true"/><span><strong>Capacity</strong>{event.capacity} attendees</span></p>}
         </div>
         <section className="event-details-description"><h2>About this event</h2>{paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</section>
-        <div className="event-details-actions"><a className="primary-link" href={joinUrl} target="_blank" rel="noopener noreferrer">Join on WhatsApp <i className="ri-whatsapp-line" aria-hidden="true"/></a><Link className="outline-link" href={`/contact?event=${encodeURIComponent(event.title)}`}>Register <i className="ri-arrow-right-line" aria-hidden="true"/></Link></div>
+        <div className="event-details-actions"><a className="primary-link" href={joinUrl} target="_blank" rel="noopener noreferrer">Message us to join <i className="ri-whatsapp-line" aria-hidden="true"/></a><Link className="outline-link" href={`/contact?event=${encodeURIComponent(event.title)}`}>Register <i className="ri-arrow-right-line" aria-hidden="true"/></Link></div>
       </div>
     </article>
   </main>;
