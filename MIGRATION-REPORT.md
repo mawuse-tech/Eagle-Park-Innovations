@@ -11,6 +11,7 @@ Inspected the original Express app, controllers, routes, database configuration,
 ## Files
 
 Created:
+
 - `src/server/db.ts`, `src/server/models/User.ts`, `src/server/auth.ts`, `src/server/http.ts`
 - `app/api/auth/{register,login,me,logout}/route.ts`
 - `app/api/{admin,health}/route.ts`
@@ -18,6 +19,7 @@ Created:
 - ignored `.env.local` and this report
 
 Modified:
+
 - `src/lib/api.ts`, `src/lib/auth-api.ts`, `src/types/auth.ts`
 - `src/auth/AuthProvider.tsx`, `src/auth/LoginForm.tsx`, `src/auth/RegisterForm.tsx`
 - `src/Components/Navbar.tsx`, `app/admin/page.tsx`
@@ -43,6 +45,7 @@ The frontend uses relative same-origin API paths and restores sessions through `
 ## Verification performed
 
 Passed:
+
 - TypeScript and ESLint (five existing image warnings, zero errors).
 - Production build: `npm run build -- --webpack`.
 - 23 HTTP checks against that production server: all public routes, health, anonymous admin/page rejection, anonymous/invalid-cookie current-user rejection, invalid input/JSON/content type, cross-origin login/logout rejection, and production Secure/HttpOnly/SameSite cookie expiration.
@@ -52,6 +55,7 @@ Passed:
 - `.env.local` confirmed ignored; no application references to port 5050 remain.
 
 Blocked/pending:
+
 - Atlas connection and existing-user visibility, live registration/duplicates/login/wrong password, authenticated current-user/admin/customer authorization, successful provisioning, and role changes. The full `npm run test:auth` suite is ready but failed at initial database connection.
 - Interactive browser form submission, authenticated refresh/session persistence, and login/logout flows require a working database and remain unverified. HTTP page checks are not browser interaction tests.
 - Default Turbopack build hit an environment internal-port binding failure. Webpack production build succeeded; no build configuration was changed.

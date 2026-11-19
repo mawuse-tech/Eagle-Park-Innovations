@@ -1,6 +1,11 @@
-import HeroSlideshow from './HeroSlideshow';
-import Fixed from './Fixed';
+import HeroSlideshow from "./HeroSlideshow";
+import Fixed from "./Fixed";
 
 export default function HomePageContent() {
-  return <><HeroSlideshow /><Fixed /></>;
+  return (
+    <>
+      <HeroSlideshow />
+      <Fixed />
+    </>
+  );
 }

@@ -1,6 +1,6 @@
-import React from 'react'
-import logo from '../assets/loggo.png'
-import backgroundImage from '../assets/happy-farm.jpg'
+import React from "react";
+import logo from "../assets/loggo.png";
+import backgroundImage from "../assets/happy-farm.jpg";
 
 const MaintenancePage = () => {
   return (
@@ -31,14 +31,14 @@ const MaintenancePage = () => {
           </h1>
 
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-green-50 sm:text-lg md:text-xl">
-            We&rsquo;re currently making improvements to provide you with a better
-            experience. Our website will be back online shortly. Thank you for
-            your patience and understanding.
+            We&rsquo;re currently making improvements to provide you with a
+            better experience. Our website will be back online shortly. Thank
+            you for your patience and understanding.
           </p>
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default MaintenancePage
+export default MaintenancePage;

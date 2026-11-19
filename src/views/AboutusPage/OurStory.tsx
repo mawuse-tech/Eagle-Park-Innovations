@@ -1,6 +1,61 @@
-import Image from 'next/image';
-import story from '../../assets/about/stry.jpg';
+import Image from "next/image";
+import story from "../../assets/about/stry.jpg";
 
 export default function OurStory() {
-return <section id="our-story" className="editorial-width grid grid-cols-[.8fr_1.2fr] items-start gap-[70px] py-10 pb-24 max-[1199px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-7 max-[767px]:py-6 max-[767px]:pb-14"><aside><p className="eyebrow">About Us</p><h2 className="!text-[clamp(32px,3vw,44px)]">Rooted in Ghana.<br /><span className="text-[#386347]">Built for lasting growth.</span></h2><div className="relative mt-[30px] h-[340px] overflow-hidden rounded-[20px] max-[767px]:h-[280px]"><Image src={story} alt="EPI farming story" fill sizes="(max-width: 767px) 100vw, 35vw" className="object-cover object-top" /></div><p className="mt-[14px] text-xs !text-[#C99724]">Our People. Our Communities. Our Shared Future.</p></aside><div><p className="mb-6 text-[21px] leading-[1.6] !text-[#202923] max-[767px]:text-[19px]">We build connected, climate-smart farming systems that give farmers access to quality inputs, expert guidance, and reliable markets, enabling them to increase productivity, earn more, and build resilient livelihoods.</p><p className="mb-6 text-[15px]">Founded on 27 May 2020, Eagle Park Innovations Limited (EPI) is an agribusiness entity promoting sustainability and inclusive growth across Ghana’s agricultural sector. We also run a poultry farm that provides a reliable market for farmers’ grains while converting poultry waste into compost, closing the loop and strengthening our circular approach to agriculture. We operate across the Northern and Ashanti Regions and partner with distributors to connect farmers nationwide to inputs, services, and markets. Grounded in rural realities, our solutions enable clients and farming households to unlock their potential, increase productivity, build resilience, and strengthen food security.</p><p className="mb-6 text-[15px]">At EPI, we believe in more than one-off transactions. We build genuine, lasting partnerships with our clients to strengthen communities, protect the environment, and create sustainable livelihoods. Farming, to us, is more than a livelihood; it is a journey towards dignity, equity, and national transformation, requiring sustained collaboration, innovation, and investment.</p></div></section>;
+  return (
+    <section
+      id="our-story"
+      className="editorial-width grid grid-cols-[.8fr_1.2fr] items-start gap-[70px] py-10 pb-24 max-[1199px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-7 max-[767px]:py-6 max-[767px]:pb-14"
+    >
+      <aside>
+        <p className="eyebrow">About Us</p>
+        <h2 className="!text-[clamp(32px,3vw,44px)]">
+          Rooted in Ghana.
+          <br />
+          <span className="text-[#386347]">Built for lasting growth.</span>
+        </h2>
+        <div className="relative mt-[30px] h-[340px] overflow-hidden rounded-[20px] max-[767px]:h-[280px]">
+          <Image
+            src={story}
+            alt="EPI farming story"
+            fill
+            sizes="(max-width: 767px) 100vw, 35vw"
+            className="object-cover object-top"
+          />
+        </div>
+        <p className="mt-[14px] text-xs !text-[#C99724]">
+          Our People. Our Communities. Our Shared Future.
+        </p>
+      </aside>
+      <div>
+        <p className="mb-6 text-[21px] leading-[1.6] !text-[#202923] max-[767px]:text-[19px]">
+          We build connected, climate-smart farming systems that give farmers
+          access to quality inputs, expert guidance, and reliable markets,
+          enabling them to increase productivity, earn more, and build resilient
+          livelihoods.
+        </p>
+        <p className="mb-6 text-[15px]">
+          Founded on 27 May 2020, Eagle Park Innovations Limited (EPI) is an
+          agribusiness entity promoting sustainability and inclusive growth
+          across Ghana’s agricultural sector. We also run a poultry farm that
+          provides a reliable market for farmers’ grains while converting
+          poultry waste into compost, closing the loop and strengthening our
+          circular approach to agriculture. We operate across the Northern and
+          Ashanti Regions and partner with distributors to connect farmers
+          nationwide to inputs, services, and markets. Grounded in rural
+          realities, our solutions enable clients and farming households to
+          unlock their potential, increase productivity, build resilience, and
+          strengthen food security.
+        </p>
+        <p className="mb-6 text-[15px]">
+          At EPI, we believe in more than one-off transactions. We build
+          genuine, lasting partnerships with our clients to strengthen
+          communities, protect the environment, and create sustainable
+          livelihoods. Farming, to us, is more than a livelihood; it is a
+          journey towards dignity, equity, and national transformation,
+          requiring sustained collaboration, innovation, and investment.
+        </p>
+      </div>
+    </section>
+  );
 }

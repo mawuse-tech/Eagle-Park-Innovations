@@ -1,21 +1,26 @@
 export class ApiError extends Error {
-  constructor(public readonly status: number, message: string) {
+  constructor(
+    public readonly status: number,
+    message: string,
+  ) {
     super(message);
-    this.name = 'ApiError';
+    this.name = "ApiError";
   }
 }
 
 function errorMessage(body: unknown, status: number): string {
-  if (body && typeof body === 'object') {
-    if ('message' in body && typeof body.message === 'string') return body.message;
-    if ('error' in body && typeof body.error === 'string') return body.error;
-    if ('errors' in body && Array.isArray(body.errors)) {
+  if (body && typeof body === "object") {
+    if ("message" in body && typeof body.message === "string")
+      return body.message;
+    if ("error" in body && typeof body.error === "string") return body.error;
+    if ("errors" in body && Array.isArray(body.errors)) {
       const messages = body.errors.flatMap((error) => {
-        if (typeof error === 'string') return error;
-        if (error && typeof error === 'object' && 'msg' in error) return String(error.msg);
+        if (typeof error === "string") return error;
+        if (error && typeof error === "object" && "msg" in error)
+          return String(error.msg);
         return [];
       });
-      if (messages.length) return messages.join(' ');
+      if (messages.length) return messages.join(" ");
     }
   }
   return `Request failed with status ${status}`;
@@ -27,14 +32,22 @@ export async function apiRequest<T>(
 ): Promise<T> {
   const headers = new Headers(options.headers);
   if (options.body && !(options.body instanceof FormData)) {
-    headers.set('Content-Type', 'application/json');
+    headers.set("Content-Type", "application/json");
   }
 
   let response: Response;
   try {
-    response = await fetch(path, { ...options, headers, credentials: 'same-origin', cache: 'no-store' });
+    response = await fetch(path, {
+      ...options,
+      headers,
+      credentials: "same-origin",
+      cache: "no-store",
+    });
   } catch {
-    throw new ApiError(0, 'Unable to reach the server. Please check your connection and try again.');
+    throw new ApiError(
+      0,
+      "Unable to reach the server. Please check your connection and try again.",
+    );
   }
   if (!response.ok) {
     const body: unknown = await response.json().catch(() => null);

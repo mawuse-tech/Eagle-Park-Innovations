@@ -1,14 +1,43 @@
-'use client';
-import { useCallback, useEffect, useState, type FormEvent } from 'react';
-import { apiRequest } from '@/src/lib/api';
-import { confirmAdminDelete, showAdminAlert } from './alerts';
+"use client";
+import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { apiRequest } from "@/src/lib/api";
+import { confirmAdminDelete, showAdminAlert } from "./alerts";
 
-type EventItem = { _id: string; title: string; date: string; time: string; place: string; cost: string; audience: string; description: string; image: string; organizer: string; capacity: number | null; status: 'draft' | 'published' };
-type EventForm = Omit<EventItem, '_id'>;
-const blank: EventForm = { title: '', date: '', time: '', place: '', cost: 'Free', audience: '', description: '', image: '', organizer: '', capacity: null, status: 'published' };
+type EventItem = {
+  _id: string;
+  title: string;
+  date: string;
+  time: string;
+  place: string;
+  cost: string;
+  audience: string;
+  description: string;
+  image: string;
+  organizer: string;
+  capacity: number | null;
+  status: "draft" | "published";
+};
+type EventForm = Omit<EventItem, "_id">;
+const blank: EventForm = {
+  title: "",
+  date: "",
+  time: "",
+  place: "",
+  cost: "Free",
+  audience: "",
+  description: "",
+  image: "",
+  organizer: "",
+  capacity: null,
+  status: "published",
+};
 function notifyPublicEventsChanged() {
-  window.dispatchEvent(new Event('epi-events-updated'));
-  try { window.localStorage.setItem('epi-events-updated', String(Date.now())); } catch { /* Storage can be unavailable in private browsing. */ }
+  window.dispatchEvent(new Event("epi-events-updated"));
+  try {
+    window.localStorage.setItem("epi-events-updated", String(Date.now()));
+  } catch {
+    /* Storage can be unavailable in private browsing. */
+  }
 }
 
 export default function EventsManager() {
@@ -20,53 +49,470 @@ export default function EventsManager() {
   const [uploading, setUploading] = useState(false);
   const load = useCallback(async () => {
     setLoading(true);
-    try { const result = await apiRequest<{ events: EventItem[] }>('/api/admin/events'); setEvents(result.events); }
-    catch (e) { void showAdminAlert('error', 'Could not load events', e instanceof Error ? e.message : 'Unable to load events'); }
-    finally { setLoading(false); }
+    try {
+      const result = await apiRequest<{ events: EventItem[] }>(
+        "/api/admin/events",
+      );
+      setEvents(result.events);
+    } catch (e) {
+      void showAdminAlert(
+        "error",
+        "Could not load events",
+        e instanceof Error ? e.message : "Unable to load events",
+      );
+    } finally {
+      setLoading(false);
+    }
   }, []);
-  useEffect(() => { void load(); }, [load]);
-  function reset() { setForm(blank); setEditing(null); }
+  useEffect(() => {
+    void load();
+  }, [load]);
+  function reset() {
+    setForm(blank);
+    setEditing(null);
+  }
   async function uploadImage(file?: File) {
     if (!file) return;
     setUploading(true);
     try {
-      const upload = new FormData(); upload.append('image', file);
-      const result = await apiRequest<{ url: string }>('/api/admin/articles/upload', { method: 'POST', body: upload });
-      setForm(current => ({ ...current, image: result.url }));
-      void showAdminAlert('success', 'Event image uploaded', 'Save the event to keep this image.');
-    } catch (error) { void showAdminAlert('error', 'Image upload failed', error instanceof Error ? error.message : 'Please try again.'); }
-    finally { setUploading(false); }
+      const upload = new FormData();
+      upload.append("image", file);
+      const result = await apiRequest<{ url: string }>(
+        "/api/admin/articles/upload",
+        { method: "POST", body: upload },
+      );
+      setForm((current) => ({ ...current, image: result.url }));
+      void showAdminAlert(
+        "success",
+        "Event image uploaded",
+        "Save the event to keep this image.",
+      );
+    } catch (error) {
+      void showAdminAlert(
+        "error",
+        "Image upload failed",
+        error instanceof Error ? error.message : "Please try again.",
+      );
+    } finally {
+      setUploading(false);
+    }
   }
   async function save(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); setBusy(true);
+    event.preventDefault();
+    setBusy(true);
     try {
-      if (editing) await apiRequest(`/api/admin/events/${editing}`, { method: 'PATCH', body: JSON.stringify(form) });
-      else await apiRequest('/api/admin/events', { method: 'POST', body: JSON.stringify(form) });
+      if (editing)
+        await apiRequest(`/api/admin/events/${editing}`, {
+          method: "PATCH",
+          body: JSON.stringify(form),
+        });
+      else
+        await apiRequest("/api/admin/events", {
+          method: "POST",
+          body: JSON.stringify(form),
+        });
       notifyPublicEventsChanged();
-      void showAdminAlert('success', form.status === 'published' ? 'Event published' : 'Draft saved'); reset(); await load();
-    } catch (e) { void showAdminAlert('error', 'Could not save event', e instanceof Error ? e.message : 'Please try again.'); }
-    finally { setBusy(false); }
+      void showAdminAlert(
+        "success",
+        form.status === "published" ? "Event published" : "Draft saved",
+      );
+      reset();
+      await load();
+    } catch (e) {
+      void showAdminAlert(
+        "error",
+        "Could not save event",
+        e instanceof Error ? e.message : "Please try again.",
+      );
+    } finally {
+      setBusy(false);
+    }
   }
   async function remove(item: EventItem) {
-    if (!await confirmAdminDelete(item.title)) return;
-    try { await apiRequest(`/api/admin/events/${item._id}`, { method: 'DELETE' }); notifyPublicEventsChanged(); void showAdminAlert('success', 'Event deleted'); await load(); }
-    catch (e) { void showAdminAlert('error', 'Delete failed', e instanceof Error ? e.message : 'Please try again.'); }
+    if (!(await confirmAdminDelete(item.title))) return;
+    try {
+      await apiRequest(`/api/admin/events/${item._id}`, { method: "DELETE" });
+      notifyPublicEventsChanged();
+      void showAdminAlert("success", "Event deleted");
+      await load();
+    } catch (e) {
+      void showAdminAlert(
+        "error",
+        "Delete failed",
+        e instanceof Error ? e.message : "Please try again.",
+      );
+    }
   }
-  const update = (key: keyof EventForm, value: string) => setForm(current => ({ ...current, [key]: value }));
+  const update = (key: keyof EventForm, value: string) =>
+    setForm((current) => ({ ...current, [key]: value }));
 
-  return <>
-    <div className="flex items-end justify-between gap-5 py-9 max-[650px]:items-start max-[650px]:pt-[26px] max-[650px]:pb-[18px]"><div><p className="eyebrow mb-[9px] text-[11px]">PUBLISHING WORKSPACE</p><h1 className="font-[inherit] text-[clamp(34px,4vw,46px)] leading-[1.1] tracking-[-.03em] max-[650px]:text-[32px]">Events &amp; Announcements</h1><p className="mt-[9px] text-[15px] text-[#748078]">Schedule open sessions and share joining details with your community.</p></div><button className="inline-flex min-h-[42px] shrink-0 items-center justify-center gap-2 rounded-[7px] bg-[#17432e] px-4 text-xs font-bold text-white hover:bg-[#245b3e] max-[650px]:px-[11px] max-[650px]:text-[11px]" onClick={() => { reset(); document.getElementById('event-editor')?.scrollIntoView({ behavior: 'smooth' }); }}><i className="ri-add-line" /> New event</button></div>
-    <div className="mb-[22px] grid grid-cols-3 gap-[14px] max-[650px]:gap-[7px]"><div className="grid grid-cols-[1fr_auto] gap-[7px] rounded-[10px] border border-[#e4eae5] bg-white px-5 py-[18px] max-[650px]:px-[10px] max-[650px]:py-3"><small className="text-[10px] font-bold tracking-[.12em] text-[#7a877e] max-[650px]:text-[8px]">TOTAL EVENTS</small><strong className="col-start-2 row-span-2 self-center font-[inherit] text-[29px] font-bold max-[650px]:text-[23px]">{events.length}</strong><span className="text-xs text-[#89938c] max-[650px]:text-[10px]">Across your schedule</span></div><div className="grid grid-cols-[1fr_auto] gap-[7px] rounded-[10px] border border-[#e4eae5] bg-white px-5 py-[18px] max-[650px]:px-[10px] max-[650px]:py-3"><small className="text-[10px] font-bold tracking-[.12em] text-[#7a877e] max-[650px]:text-[8px]">PUBLISHED</small><strong className="col-start-2 row-span-2 self-center font-[inherit] text-[29px] font-bold max-[650px]:text-[23px]">{events.filter(item => item.status === 'published').length}</strong><span className="text-xs text-[#89938c] max-[650px]:text-[10px]">Visible before their date</span></div><div className="grid grid-cols-[1fr_auto] gap-[7px] rounded-[10px] border border-[#e4eae5] bg-white px-5 py-[18px] max-[650px]:px-[10px] max-[650px]:py-3"><small className="text-[10px] font-bold tracking-[.12em] text-[#7a877e] max-[650px]:text-[8px]">DRAFTS</small><strong className="col-start-2 row-span-2 self-center font-[inherit] text-[29px] font-bold max-[650px]:text-[23px]">{events.filter(item => item.status === 'draft').length}</strong><span className="text-xs text-[#89938c] max-[650px]:text-[10px]">Only in your workspace</span></div></div>
-    <section className="mb-[22px] overflow-hidden rounded-[11px] border border-[#e3e9e4] bg-white"><div className="flex items-center justify-between gap-[18px] border-b border-[#edf0ed] px-[22px] py-5 max-[650px]:items-start max-[650px]:flex-col max-[650px]:p-4"><div><h2 className="font-[inherit] text-[22px] tracking-[-.02em]">Your events</h2><p className="mt-[5px] text-[13px] text-[#828d85]">Published events disappear from the public page after their date.</p></div></div>
-      {loading ? <p className="flex min-h-[150px] flex-col items-center justify-center gap-[9px] text-[13px] text-[#8a958d]">Loading events…</p> : events.length ? <div className="overflow-x-auto"><table className="w-full border-collapse text-left"><thead><tr>{['EVENT', 'DATE', 'PLACE', 'STATUS'].map(label => <th className="bg-[#fafbfa] px-5 py-3 text-[10px] tracking-[.1em] text-[#8a958d] max-[650px]:px-3" key={label}>{label}</th>)}<th className="bg-[#fafbfa] px-5 py-3 text-[10px] tracking-[.1em] text-[#8a958d] max-[650px]:px-3"><span className="sr-only">Actions</span></th></tr></thead><tbody>{events.map(item => <tr className="text-xs text-[#737e75] [&>td]:border-t [&>td]:border-[#f0f2f0] [&>td]:px-5 [&>td]:py-[13px] [&>td]:whitespace-nowrap max-[650px]:[&>td]:px-3" key={item._id}><td><div><strong className="block max-w-[260px] overflow-hidden text-ellipsis text-[13px] text-[#34483a]">{item.title}</strong><small className="mt-1 block text-[11px] text-[#929c94]">{item.audience} · {item.cost}</small></div></td><td>{new Date(`${item.date}T12:00:00`).toLocaleDateString()}</td><td>{item.place}</td><td><span className={`text-[11px] ${item.status === 'published' ? 'text-[#388255]' : 'text-[#a98430]'}`}>● {item.status === 'published' ? 'Published' : 'Draft'}</span>{new Date(`${item.date}T23:59:59`).getTime() < Date.now() && <small className="mt-1 block text-[9px] text-[#a98430]">Past date · hidden publicly</small>}</td><td><div className="flex gap-1"><button className="grid size-7 place-items-center rounded-[5px] text-[#66766b] hover:bg-[#eff4ef] hover:text-[#17432e]" title="Edit" onClick={() => { setForm({ title: item.title, date: item.date, time: item.time || '', place: item.place, cost: item.cost, audience: item.audience, description: item.description || '', image: item.image || '', organizer: item.organizer || '', capacity: item.capacity ?? null, status: item.status }); setEditing(item._id); document.getElementById('event-editor')?.scrollIntoView({ behavior: 'smooth' }); }}><i className="ri-edit-line" /></button><button className="grid size-7 place-items-center rounded-[5px] text-[#66766b] hover:bg-[#eff4ef] hover:text-[#17432e]" title="Delete" onClick={() => void remove(item)}><i className="ri-delete-bin-line" /></button></div></td></tr>)}</tbody></table></div> : <div className="flex min-h-[150px] flex-col items-center justify-center gap-[9px] text-[13px] text-[#8a958d]"><i className="ri-calendar-event-line text-[25px] text-[#66866e]"/><strong className="font-[inherit] text-xl text-[#34483a]">No events added yet</strong><span>Add an open session here; it will appear separately from your stories.</span></div>}
-    </section>
-    <section id="event-editor" className="mb-[22px] overflow-hidden rounded-[11px] border border-[#e3e9e4] bg-white"><div className="flex items-center justify-between gap-[18px] border-b border-[#edf0ed] px-[22px] py-5 max-[650px]:items-start max-[650px]:flex-col max-[650px]:p-4"><div><h2 className="font-[inherit] text-[22px] tracking-[-.02em]">{editing ? 'Edit event' : 'Add an event'}</h2><p className="mt-[5px] text-[13px] text-[#828d85]">Add the full event information for the public details page.</p></div>{editing && <button className="inline-flex min-h-[38px] items-center justify-center rounded-md border border-[#e0e7e1] px-3 text-xs text-[#526257]" onClick={reset}>Cancel editing</button>}</div><form className="p-[22px] max-[650px]:p-4" onSubmit={save}><div className="grid grid-cols-2 gap-[17px] max-[650px]:grid-cols-1 [&>label]:flex [&>label]:flex-col [&>label]:gap-[7px] [&>label]:text-xs [&>label]:font-bold [&>label]:text-[#4e5b52] [&>label>input]:w-full [&>label>input]:rounded-md [&>label>input]:border [&>label>input]:border-[#e0e7e1] [&>label>input]:bg-white [&>label>input]:px-3 [&>label>input]:py-[11px] [&>label>input]:text-sm [&>label>input]:font-normal [&>label>input]:text-[#26372c] [&>label>input]:outline-none [&>label>input:focus]:border-[#6e9d78] [&>label>input:focus]:shadow-[0_0_0_3px_#70a17b20] [&>label>textarea]:w-full [&>label>textarea]:resize-y [&>label>textarea]:rounded-md [&>label>textarea]:border [&>label>textarea]:border-[#e0e7e1] [&>label>textarea]:bg-white [&>label>textarea]:px-3 [&>label>textarea]:py-[11px] [&>label>textarea]:text-sm [&>label>textarea]:font-normal [&>label>textarea]:text-[#26372c] [&>label>textarea]:outline-none [&>label>textarea:focus]:border-[#6e9d78] [&>label>textarea:focus]:shadow-[0_0_0_3px_#70a17b20] [&>label>select]:w-full [&>label>select]:rounded-md [&>label>select]:border [&>label>select]:border-[#e0e7e1] [&>label>select]:bg-white [&>label>select]:px-3 [&>label>select]:py-[11px] [&>label>select]:text-[11px] [&>label>select]:font-normal [&>label>select]:text-[#26372c] [&>label>select]:outline-none [&>label>select:focus]:border-[#6e9d78] [&>label>select:focus]:shadow-[0_0_0_3px_#70a17b20]"><label className="col-span-full">Event title<input required maxLength={160} value={form.title} onChange={e => update('title', e.target.value)} placeholder="e.g. Open poultry health training" /></label>
-      <div className="col-span-full flex flex-col gap-2 text-xs font-bold text-[#4e5b52]"><label>Event image</label><div className="flex flex-wrap items-center gap-2.5"><label htmlFor="event-image-file" className="relative inline-flex min-h-[38px] cursor-pointer items-center justify-center overflow-hidden rounded-md border border-[#e0e7e1] px-3 text-xs text-[#526257]">{uploading ? 'Uploading…' : form.image ? 'Replace event image' : 'Choose event image'}</label><input className="sr-only peer" id="event-image-file" type="file" accept="image/jpeg,image/png,image/webp,image/avif,image/gif" disabled={uploading} onChange={e => { void uploadImage(e.target.files?.[0]); e.currentTarget.value = ''; }}/><small className="text-[11px] font-normal text-[#829087] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-[3px] peer-focus-visible:outline-[#77ae88]">Optional · JPEG, PNG, WebP, AVIF or GIF · up to 5 MB</small></div>{form.image && <img className="max-h-[180px] max-w-[280px] rounded-[7px] border border-[#e0e7e1] object-cover" src={form.image} alt="Event preview"/>}</div>
-      <label>Date<input required type="date" value={form.date} onChange={e => update('date', e.target.value)} /></label><label>Time<input type="time" value={form.time} onChange={e => update('time', e.target.value)} /></label>
-      <label>Place or format<input required maxLength={180} value={form.place} onChange={e => update('place', e.target.value)} placeholder="e.g. Nyankpala or Online" /></label><label>Cost<input required maxLength={80} value={form.cost} onChange={e => update('cost', e.target.value)} placeholder="Free or GHS amount" /></label>
-      <label>Who it is for<input required maxLength={240} value={form.audience} onChange={e => update('audience', e.target.value)} placeholder="e.g. Smallholder poultry farmers" /></label><label>Organizer<input maxLength={160} value={form.organizer} onChange={e => update('organizer', e.target.value)} placeholder="Eagle Park Innovations" /></label>
-      <label>Capacity<input type="number" min="1" max="1000000" value={form.capacity ?? ''} onChange={e => setForm(current => ({ ...current, capacity: e.target.value ? Number(e.target.value) : null }))} placeholder="Optional" /></label><label>Status<select value={form.status} onChange={e => update('status', e.target.value)}><option value="published">Published</option><option value="draft">Draft</option></select></label>
-      <label className="col-span-full">Full description<textarea required maxLength={10000} rows={7} value={form.description} onChange={e => update('description', e.target.value)} placeholder="Share what attendees will learn, do, or need to bring." /></label>
-      </div><div className="mt-[22px] -mx-[22px] flex items-center justify-between gap-4 border-t border-[#edf0ed] bg-[#fcfdfc] px-[22px] py-[14px] max-[650px]:-mx-4 max-[650px]:items-start max-[650px]:flex-col max-[650px]:px-4"><span className="text-[11px] text-[#8b958e]">Past events are hidden from the public schedule automatically.</span><div className="flex flex-wrap justify-end gap-2 max-[650px]:w-full"><button type="button" className="inline-flex min-h-[38px] items-center justify-center rounded-md border border-[#e0e7e1] px-3 text-xs text-[#526257]" onClick={reset}>Clear</button><button type="submit" className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-[7px] bg-[#17432e] px-4 text-xs font-bold text-white hover:bg-[#245b3e] disabled:cursor-wait disabled:opacity-60 max-[650px]:flex-1" disabled={busy || uploading}>{busy ? 'Saving…' : editing ? 'Save changes' : 'Save event'}</button></div></div></form></section>
-  </>;
+  return (
+    <>
+      <div className="flex items-end justify-between gap-5 py-9 max-[650px]:items-start max-[650px]:pt-[26px] max-[650px]:pb-[18px]">
+        <div>
+          <p className="eyebrow mb-[9px] text-[11px]">PUBLISHING WORKSPACE</p>
+          <h1 className="font-[inherit] text-[clamp(34px,4vw,46px)] leading-[1.1] tracking-[-.03em] max-[650px]:text-[32px]">
+            Events &amp; Announcements
+          </h1>
+          <p className="mt-[9px] text-[15px] text-[#748078]">
+            Schedule open sessions and share joining details with your
+            community.
+          </p>
+        </div>
+        <button
+          className="inline-flex min-h-[42px] shrink-0 items-center justify-center gap-2 rounded-[7px] bg-[#17432e] px-4 text-xs font-bold text-white hover:bg-[#245b3e] max-[650px]:px-[11px] max-[650px]:text-[11px]"
+          onClick={() => {
+            reset();
+            document
+              .getElementById("event-editor")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          <i className="ri-add-line" /> New event
+        </button>
+      </div>
+      <div className="mb-[22px] grid grid-cols-3 gap-[14px] max-[650px]:gap-[7px]">
+        <div className="grid grid-cols-[1fr_auto] gap-[7px] rounded-[10px] border border-[#e4eae5] bg-white px-5 py-[18px] max-[650px]:px-[10px] max-[650px]:py-3">
+          <small className="text-[10px] font-bold tracking-[.12em] text-[#7a877e] max-[650px]:text-[8px]">
+            TOTAL EVENTS
+          </small>
+          <strong className="col-start-2 row-span-2 self-center font-[inherit] text-[29px] font-bold max-[650px]:text-[23px]">
+            {events.length}
+          </strong>
+          <span className="text-xs text-[#89938c] max-[650px]:text-[10px]">
+            Across your schedule
+          </span>
+        </div>
+        <div className="grid grid-cols-[1fr_auto] gap-[7px] rounded-[10px] border border-[#e4eae5] bg-white px-5 py-[18px] max-[650px]:px-[10px] max-[650px]:py-3">
+          <small className="text-[10px] font-bold tracking-[.12em] text-[#7a877e] max-[650px]:text-[8px]">
+            PUBLISHED
+          </small>
+          <strong className="col-start-2 row-span-2 self-center font-[inherit] text-[29px] font-bold max-[650px]:text-[23px]">
+            {events.filter((item) => item.status === "published").length}
+          </strong>
+          <span className="text-xs text-[#89938c] max-[650px]:text-[10px]">
+            Visible before their date
+          </span>
+        </div>
+        <div className="grid grid-cols-[1fr_auto] gap-[7px] rounded-[10px] border border-[#e4eae5] bg-white px-5 py-[18px] max-[650px]:px-[10px] max-[650px]:py-3">
+          <small className="text-[10px] font-bold tracking-[.12em] text-[#7a877e] max-[650px]:text-[8px]">
+            DRAFTS
+          </small>
+          <strong className="col-start-2 row-span-2 self-center font-[inherit] text-[29px] font-bold max-[650px]:text-[23px]">
+            {events.filter((item) => item.status === "draft").length}
+          </strong>
+          <span className="text-xs text-[#89938c] max-[650px]:text-[10px]">
+            Only in your workspace
+          </span>
+        </div>
+      </div>
+      <section className="mb-[22px] overflow-hidden rounded-[11px] border border-[#e3e9e4] bg-white">
+        <div className="flex items-center justify-between gap-[18px] border-b border-[#edf0ed] px-[22px] py-5 max-[650px]:items-start max-[650px]:flex-col max-[650px]:p-4">
+          <div>
+            <h2 className="font-[inherit] text-[22px] tracking-[-.02em]">
+              Your events
+            </h2>
+            <p className="mt-[5px] text-[13px] text-[#828d85]">
+              Published events disappear from the public page after their date.
+            </p>
+          </div>
+        </div>
+        {loading ? (
+          <p className="flex min-h-[150px] flex-col items-center justify-center gap-[9px] text-[13px] text-[#8a958d]">
+            Loading events…
+          </p>
+        ) : events.length ? (
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr>
+                  {["EVENT", "DATE", "PLACE", "STATUS"].map((label) => (
+                    <th
+                      className="bg-[#fafbfa] px-5 py-3 text-[10px] tracking-[.1em] text-[#8a958d] max-[650px]:px-3"
+                      key={label}
+                    >
+                      {label}
+                    </th>
+                  ))}
+                  <th className="bg-[#fafbfa] px-5 py-3 text-[10px] tracking-[.1em] text-[#8a958d] max-[650px]:px-3">
+                    <span className="sr-only">Actions</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {events.map((item) => (
+                  <tr
+                    className="text-xs text-[#737e75] [&>td]:border-t [&>td]:border-[#f0f2f0] [&>td]:px-5 [&>td]:py-[13px] [&>td]:whitespace-nowrap max-[650px]:[&>td]:px-3"
+                    key={item._id}
+                  >
+                    <td>
+                      <div>
+                        <strong className="block max-w-[260px] overflow-hidden text-ellipsis text-[13px] text-[#34483a]">
+                          {item.title}
+                        </strong>
+                        <small className="mt-1 block text-[11px] text-[#929c94]">
+                          {item.audience} · {item.cost}
+                        </small>
+                      </div>
+                    </td>
+                    <td>
+                      {new Date(`${item.date}T12:00:00`).toLocaleDateString()}
+                    </td>
+                    <td>{item.place}</td>
+                    <td>
+                      <span
+                        className={`text-[11px] ${item.status === "published" ? "text-[#388255]" : "text-[#a98430]"}`}
+                      >
+                        ● {item.status === "published" ? "Published" : "Draft"}
+                      </span>
+                      {new Date(`${item.date}T23:59:59`).getTime() <
+                        Date.now() && (
+                        <small className="mt-1 block text-[9px] text-[#a98430]">
+                          Past date · hidden publicly
+                        </small>
+                      )}
+                    </td>
+                    <td>
+                      <div className="flex gap-1">
+                        <button
+                          className="grid size-7 place-items-center rounded-[5px] text-[#66766b] hover:bg-[#eff4ef] hover:text-[#17432e]"
+                          title="Edit"
+                          onClick={() => {
+                            setForm({
+                              title: item.title,
+                              date: item.date,
+                              time: item.time || "",
+                              place: item.place,
+                              cost: item.cost,
+                              audience: item.audience,
+                              description: item.description || "",
+                              image: item.image || "",
+                              organizer: item.organizer || "",
+                              capacity: item.capacity ?? null,
+                              status: item.status,
+                            });
+                            setEditing(item._id);
+                            document
+                              .getElementById("event-editor")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                        >
+                          <i className="ri-edit-line" />
+                        </button>
+                        <button
+                          className="grid size-7 place-items-center rounded-[5px] text-[#66766b] hover:bg-[#eff4ef] hover:text-[#17432e]"
+                          title="Delete"
+                          onClick={() => void remove(item)}
+                        >
+                          <i className="ri-delete-bin-line" />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="flex min-h-[150px] flex-col items-center justify-center gap-[9px] text-[13px] text-[#8a958d]">
+            <i className="ri-calendar-event-line text-[25px] text-[#66866e]" />
+            <strong className="font-[inherit] text-xl text-[#34483a]">
+              No events added yet
+            </strong>
+            <span>
+              Add an open session here; it will appear separately from your
+              stories.
+            </span>
+          </div>
+        )}
+      </section>
+      <section
+        id="event-editor"
+        className="mb-[22px] overflow-hidden rounded-[11px] border border-[#e3e9e4] bg-white"
+      >
+        <div className="flex items-center justify-between gap-[18px] border-b border-[#edf0ed] px-[22px] py-5 max-[650px]:items-start max-[650px]:flex-col max-[650px]:p-4">
+          <div>
+            <h2 className="font-[inherit] text-[22px] tracking-[-.02em]">
+              {editing ? "Edit event" : "Add an event"}
+            </h2>
+            <p className="mt-[5px] text-[13px] text-[#828d85]">
+              Add the full event information for the public details page.
+            </p>
+          </div>
+          {editing && (
+            <button
+              className="inline-flex min-h-[38px] items-center justify-center rounded-md border border-[#e0e7e1] px-3 text-xs text-[#526257]"
+              onClick={reset}
+            >
+              Cancel editing
+            </button>
+          )}
+        </div>
+        <form className="p-[22px] max-[650px]:p-4" onSubmit={save}>
+          <div className="grid grid-cols-2 gap-[17px] max-[650px]:grid-cols-1 [&>label]:flex [&>label]:flex-col [&>label]:gap-[7px] [&>label]:text-xs [&>label]:font-bold [&>label]:text-[#4e5b52] [&>label>input]:w-full [&>label>input]:rounded-md [&>label>input]:border [&>label>input]:border-[#e0e7e1] [&>label>input]:bg-white [&>label>input]:px-3 [&>label>input]:py-[11px] [&>label>input]:text-sm [&>label>input]:font-normal [&>label>input]:text-[#26372c] [&>label>input]:outline-none [&>label>input:focus]:border-[#6e9d78] [&>label>input:focus]:shadow-[0_0_0_3px_#70a17b20] [&>label>textarea]:w-full [&>label>textarea]:resize-y [&>label>textarea]:rounded-md [&>label>textarea]:border [&>label>textarea]:border-[#e0e7e1] [&>label>textarea]:bg-white [&>label>textarea]:px-3 [&>label>textarea]:py-[11px] [&>label>textarea]:text-sm [&>label>textarea]:font-normal [&>label>textarea]:text-[#26372c] [&>label>textarea]:outline-none [&>label>textarea:focus]:border-[#6e9d78] [&>label>textarea:focus]:shadow-[0_0_0_3px_#70a17b20] [&>label>select]:w-full [&>label>select]:rounded-md [&>label>select]:border [&>label>select]:border-[#e0e7e1] [&>label>select]:bg-white [&>label>select]:px-3 [&>label>select]:py-[11px] [&>label>select]:text-[11px] [&>label>select]:font-normal [&>label>select]:text-[#26372c] [&>label>select]:outline-none [&>label>select:focus]:border-[#6e9d78] [&>label>select:focus]:shadow-[0_0_0_3px_#70a17b20]">
+            <label className="col-span-full">
+              Event title
+              <input
+                required
+                maxLength={160}
+                value={form.title}
+                onChange={(e) => update("title", e.target.value)}
+                placeholder="e.g. Open poultry health training"
+              />
+            </label>
+            <div className="col-span-full flex flex-col gap-2 text-xs font-bold text-[#4e5b52]">
+              <label>Event image</label>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <label
+                  htmlFor="event-image-file"
+                  className="relative inline-flex min-h-[38px] cursor-pointer items-center justify-center overflow-hidden rounded-md border border-[#e0e7e1] px-3 text-xs text-[#526257]"
+                >
+                  {uploading
+                    ? "Uploading…"
+                    : form.image
+                      ? "Replace event image"
+                      : "Choose event image"}
+                </label>
+                <input
+                  className="sr-only peer"
+                  id="event-image-file"
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/avif,image/gif"
+                  disabled={uploading}
+                  onChange={(e) => {
+                    void uploadImage(e.target.files?.[0]);
+                    e.currentTarget.value = "";
+                  }}
+                />
+                <small className="text-[11px] font-normal text-[#829087] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-[3px] peer-focus-visible:outline-[#77ae88]">
+                  Optional · JPEG, PNG, WebP, AVIF or GIF · up to 5 MB
+                </small>
+              </div>
+              {form.image && (
+                <img
+                  className="max-h-[180px] max-w-[280px] rounded-[7px] border border-[#e0e7e1] object-cover"
+                  src={form.image}
+                  alt="Event preview"
+                />
+              )}
+            </div>
+            <label>
+              Date
+              <input
+                required
+                type="date"
+                value={form.date}
+                onChange={(e) => update("date", e.target.value)}
+              />
+            </label>
+            <label>
+              Time
+              <input
+                type="time"
+                value={form.time}
+                onChange={(e) => update("time", e.target.value)}
+              />
+            </label>
+            <label>
+              Place or format
+              <input
+                required
+                maxLength={180}
+                value={form.place}
+                onChange={(e) => update("place", e.target.value)}
+                placeholder="e.g. Nyankpala or Online"
+              />
+            </label>
+            <label>
+              Cost
+              <input
+                required
+                maxLength={80}
+                value={form.cost}
+                onChange={(e) => update("cost", e.target.value)}
+                placeholder="Free or GHS amount"
+              />
+            </label>
+            <label>
+              Who it is for
+              <input
+                required
+                maxLength={240}
+                value={form.audience}
+                onChange={(e) => update("audience", e.target.value)}
+                placeholder="e.g. Smallholder poultry farmers"
+              />
+            </label>
+            <label>
+              Organizer
+              <input
+                maxLength={160}
+                value={form.organizer}
+                onChange={(e) => update("organizer", e.target.value)}
+                placeholder="Eagle Park Innovations"
+              />
+            </label>
+            <label>
+              Capacity
+              <input
+                type="number"
+                min="1"
+                max="1000000"
+                value={form.capacity ?? ""}
+                onChange={(e) =>
+                  setForm((current) => ({
+                    ...current,
+                    capacity: e.target.value ? Number(e.target.value) : null,
+                  }))
+                }
+                placeholder="Optional"
+              />
+            </label>
+            <label>
+              Status
+              <select
+                value={form.status}
+                onChange={(e) => update("status", e.target.value)}
+              >
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+              </select>
+            </label>
+            <label className="col-span-full">
+              Full description
+              <textarea
+                required
+                maxLength={10000}
+                rows={7}
+                value={form.description}
+                onChange={(e) => update("description", e.target.value)}
+                placeholder="Share what attendees will learn, do, or need to bring."
+              />
+            </label>
+          </div>
+          <div className="mt-[22px] -mx-[22px] flex items-center justify-between gap-4 border-t border-[#edf0ed] bg-[#fcfdfc] px-[22px] py-[14px] max-[650px]:-mx-4 max-[650px]:items-start max-[650px]:flex-col max-[650px]:px-4">
+            <span className="text-[11px] text-[#8b958e]">
+              Past events are hidden from the public schedule automatically.
+            </span>
+            <div className="flex flex-wrap justify-end gap-2 max-[650px]:w-full">
+              <button
+                type="button"
+                className="inline-flex min-h-[38px] items-center justify-center rounded-md border border-[#e0e7e1] px-3 text-xs text-[#526257]"
+                onClick={reset}
+              >
+                Clear
+              </button>
+              <button
+                type="submit"
+                className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-[7px] bg-[#17432e] px-4 text-xs font-bold text-white hover:bg-[#245b3e] disabled:cursor-wait disabled:opacity-60 max-[650px]:flex-1"
+                disabled={busy || uploading}
+              >
+                {busy ? "Saving…" : editing ? "Save changes" : "Save event"}
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </>
+  );
 }

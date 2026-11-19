@@ -1,3 +1,43 @@
 export default function MissionVision() {
-  return <section id="our-purpose" className="bg-[#edf5ee] py-[72px] text-center max-[767px]:py-14"><div className="editorial-width"><p className="eyebrow">What drives us</p><h2>Our Mission and Vision</h2><div className="mx-auto mt-12 grid max-w-[920px] grid-cols-2 gap-20 max-[767px]:grid-cols-1 max-[767px]:gap-10 max-[767px]:px-5"><div><i className="ri-seedling-line text-[52px] text-[#386347]" aria-hidden="true" /><h3 className="my-4 text-[26px]">Our Mission</h3><p className="text-[15px]">To advance sustainable agriculture through integrated, innovative solutions that prioritize people and the planet for food security and inclusive growth.</p></div><div><i className="ri-sun-line text-[52px] text-[#386347]" aria-hidden="true" /><h3 className="my-4 text-[26px]">Our Vision</h3><p className="text-[15px]">To lead Africa’s transformation towards sustainable agriculture by empowering communities, enriching lives, and protecting the environment.</p></div></div><blockquote className="mx-auto mt-12 max-w-none whitespace-nowrap text-[clamp(13px,1.55vw,21px)] leading-[1.5] text-[#C99724] max-[767px]:mt-10 max-[767px]:whitespace-normal max-[767px]:text-[17px]">“A seed today, a forest tomorrow. Together, we grow a sustainable future.”</blockquote></div></section>;
+  return (
+    <section
+      id="our-purpose"
+      className="bg-[#edf5ee] py-[72px] text-center max-[767px]:py-14"
+    >
+      <div className="editorial-width">
+        <p className="eyebrow">What drives us</p>
+        <h2>Our Mission and Vision</h2>
+        <div className="mx-auto mt-12 grid max-w-[920px] grid-cols-2 gap-20 max-[767px]:grid-cols-1 max-[767px]:gap-10 max-[767px]:px-5">
+          <div>
+            <i
+              className="ri-seedling-line text-[52px] text-[#386347]"
+              aria-hidden="true"
+            />
+            <h3 className="my-4 text-[26px]">Our Mission</h3>
+            <p className="text-[15px]">
+              To advance sustainable agriculture through integrated, innovative
+              solutions that prioritize people and the planet for food security
+              and inclusive growth.
+            </p>
+          </div>
+          <div>
+            <i
+              className="ri-sun-line text-[52px] text-[#386347]"
+              aria-hidden="true"
+            />
+            <h3 className="my-4 text-[26px]">Our Vision</h3>
+            <p className="text-[15px]">
+              To lead Africa’s transformation towards sustainable agriculture by
+              empowering communities, enriching lives, and protecting the
+              environment.
+            </p>
+          </div>
+        </div>
+        <blockquote className="mx-auto mt-12 max-w-none whitespace-nowrap text-[clamp(13px,1.55vw,21px)] leading-[1.5] text-[#C99724] max-[767px]:mt-10 max-[767px]:whitespace-normal max-[767px]:text-[17px]">
+          “A seed today, a forest tomorrow. Together, we grow a sustainable
+          future.”
+        </blockquote>
+      </div>
+    </section>
+  );
 }

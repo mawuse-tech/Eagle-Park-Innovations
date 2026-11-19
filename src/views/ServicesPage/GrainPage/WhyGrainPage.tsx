@@ -1,26 +1,51 @@
 const stats = [
   {
-    title: 'Inclusive Sourcing',
-    description: 'We source grains from local out-growers and cooperatives, including women and youth.',
-    icon: 'ri-community-line',
+    title: "Inclusive Sourcing",
+    description:
+      "We source grains from local out-growers and cooperatives, including women and youth.",
+    icon: "ri-community-line",
   },
   {
-    title: 'Fair Pricing',
-    description: 'Better returns for farmers, affordable grains for users.',
-    icon: 'ri-money-dollar-circle-line',
+    title: "Fair Pricing",
+    description: "Better returns for farmers, affordable grains for users.",
+    icon: "ri-money-dollar-circle-line",
   },
   {
-    title: 'Shared Opportunity',
-    description: 'Our partnerships with farmers and local actors create jobs, income, and value across farming communities.',
-    icon: 'ri-hand-heart-line',
+    title: "Shared Opportunity",
+    description:
+      "Our partnerships with farmers and local actors create jobs, income, and value across farming communities.",
+    icon: "ri-hand-heart-line",
   },
   {
-    title: 'Quality Assured',
-    description: 'Our grains meet high-quality standards from production to delivery.',
-    icon: 'ri-shield-check-line',
+    title: "Quality Assured",
+    description:
+      "Our grains meet high-quality standards from production to delivery.",
+    icon: "ri-shield-check-line",
   },
 ];
 
 export default function WhyGrainPage() {
-  return <section className="editorial-width mb-[88px] rounded-[22px] bg-[#edf5ee] px-12 py-[72px] text-center max-[767px]:mb-14 max-[767px]:px-6 max-[767px]:py-12"><div><h2 className="mb-14 max-[767px]:mb-9">Why Choose Us</h2></div><div className="grid grid-cols-4 gap-9 max-[1199px]:grid-cols-2 max-[1199px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-9">{stats.map((item) => <article key={item.title}><i className={`${item.icon} text-[44px] text-[#386347]`} aria-hidden="true" /><div><h3 className="mt-6 mb-4 text-[21px] leading-[1.2] max-[767px]:mt-4">{item.title}</h3><p className="text-sm">{item.description}</p></div></article>)}</div></section>;
+  return (
+    <section className="editorial-width mb-[88px] rounded-[22px] bg-[#edf5ee] px-12 py-[72px] text-center max-[767px]:mb-14 max-[767px]:px-6 max-[767px]:py-12">
+      <div>
+        <h2 className="mb-14 max-[767px]:mb-9">Why Choose Us</h2>
+      </div>
+      <div className="grid grid-cols-4 gap-9 max-[1199px]:grid-cols-2 max-[1199px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-9">
+        {stats.map((item) => (
+          <article key={item.title}>
+            <i
+              className={`${item.icon} text-[44px] text-[#386347]`}
+              aria-hidden="true"
+            />
+            <div>
+              <h3 className="mt-6 mb-4 text-[21px] leading-[1.2] max-[767px]:mt-4">
+                {item.title}
+              </h3>
+              <p className="text-sm">{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }

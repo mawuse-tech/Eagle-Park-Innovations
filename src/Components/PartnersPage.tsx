@@ -1,30 +1,17 @@
-import Image from 'next/image';
-import absa from '../assets/absalogo.png';
-import giz from '../assets/gizlogo.png';
-import kic from '../assets/kiclogo.png';
-import leverage from '../assets/levlogo.png';
-import nastag from '../assets/nastaglogo.png';
-import oca from '../assets/ocalogo.png';
-import gh from '../assets/ghlogo.png';
-import tvet from '../assets/TVET logo.png';
-import fff from '../assets/large_1_fff-logo-mandala.jpg';
-import fao from '../assets/fao.jpg';
-
-
+import Image from "next/image";
+import absa from "../assets/absalogo.png";
+import giz from "../assets/gizlogo.png";
+import kic from "../assets/kiclogo.png";
+import leverage from "../assets/levlogo.png";
+import nastag from "../assets/nastaglogo.png";
+import oca from "../assets/ocalogo.png";
+import gh from "../assets/ghlogo.png";
+import tvet from "../assets/TVET logo.png";
+import fff from "../assets/large_1_fff-logo-mandala.jpg";
+import fao from "../assets/fao.jpg";
 
 const PartnersPage = () => {
-  const logos = [
-    absa,
-    giz,
-    kic,
-    leverage,
-    nastag,
-    oca,
-    gh,
-    tvet,
-    fff,
-    fao
-  ];
+  const logos = [absa, giz, kic, leverage, nastag, oca, gh, tvet, fff, fao];
 
   return (
     <section className="editorial-width py-20 max-[767px]:py-14">
@@ -38,7 +25,22 @@ const PartnersPage = () => {
             <Image
               key={index}
               src={logo}
-              alt={index < logos.length ? ["Absa", "GIZ", "Kosmos Innovation Center", "Leverage", "NASTAG", "OCA", "Ghana Climate Innovation Centre", "Ghana TVET Service", "Forest and Farm Facility", "FAO"][index] : ""}
+              alt={
+                index < logos.length
+                  ? [
+                      "Absa",
+                      "GIZ",
+                      "Kosmos Innovation Center",
+                      "Leverage",
+                      "NASTAG",
+                      "OCA",
+                      "Ghana Climate Innovation Centre",
+                      "Ghana TVET Service",
+                      "Forest and Farm Facility",
+                      "FAO",
+                    ][index]
+                  : ""
+              }
               sizes="180px"
               className="h-12 md:h-20 w-auto object-contain"
             />

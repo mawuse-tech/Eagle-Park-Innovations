@@ -1,3 +1,5 @@
-import TrainPage from '@/src/views/ServicesPage/TrainingPage/TrainPage';
+import TrainPage from "@/src/views/ServicesPage/TrainingPage/TrainPage";
 
-export default function TrainingPage() { return <TrainPage />; }
+export default function TrainingPage() {
+  return <TrainPage />;
+}

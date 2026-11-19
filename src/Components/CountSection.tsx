@@ -1,31 +1,30 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import CountUp from 'react-countup';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
+import React, { useEffect, useRef, useState } from "react";
+import CountUp from "react-countup";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const stats = [
   {
-    title: '  Youth Trained',
+    title: "  Youth Trained",
     count: 350,
-    icon: " ri-team-line"
+    icon: " ri-team-line",
   },
   {
-    title: 'Farmers and Agripreneurs Impacted',
+    title: "Farmers and Agripreneurs Impacted",
     count: 9000,
-    icon: 'ri-leaf-line',
+    icon: "ri-leaf-line",
   },
   {
-    title: 'Businesses Supported',
+    title: "Businesses Supported",
     count: 15,
-    icon: 'ri-user-smile-line',
+    icon: "ri-user-smile-line",
   },
   {
-    title: 'Communities reached with tailored training',
+    title: "Communities reached with tailored training",
     count: 8,
-    icon: 'ri-group-line',
+    icon: "ri-group-line",
   },
 ];
 
@@ -43,7 +42,7 @@ const CountSection = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     const section = sectionRef.current;
@@ -63,7 +62,10 @@ const CountSection = () => {
       className="editorial-width overflow-hidden py-20 text-center max-[767px]:py-14"
       ref={sectionRef}
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-8" data-aos="fade-up">
+      <h2
+        className="text-2xl md:text-3xl font-bold text-stone-900 mb-8"
+        data-aos="fade-up"
+      >
         Our Impact
       </h2>
       <div className="flex flex-wrap justify-center items-center gap-6">
@@ -76,7 +78,13 @@ const CountSection = () => {
           >
             <i className={`${item.icon} text-2xl text-green-800 mb-2`}></i>
             <h3 className="text-4xl font-medium text-stone-900">
-              {hasAnimated ? <><CountUp end={item.count} duration={2} />+</> : '0+'}
+              {hasAnimated ? (
+                <>
+                  <CountUp end={item.count} duration={2} />+
+                </>
+              ) : (
+                "0+"
+              )}
             </h3>
 
             <p className="text-xs mt-1 text-gray-600">{item.title}</p>

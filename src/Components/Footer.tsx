@@ -1,16 +1,139 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Footer() {
-  return <footer className="rounded-t-[18px] bg-[#153a29] py-[30px] pb-5 text-white"><div className="editorial-width">
-    <div className="grid grid-cols-[1fr_.9fr_1.2fr_1.2fr] gap-6 pb-6 max-[1199px]:grid-cols-2 max-[1199px]:gap-10 max-[767px]:gap-x-5 max-[767px]:gap-y-8 max-[479px]:grid-cols-1">
-      <div><h2 className="mb-[14px] text-sm">Explore EPI</h2><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/ourstory">Our story</Link><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/train">Training & Consultancy</Link><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/shop">Shop our products</Link><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/news">News & Resources</Link><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/news#events">Upcoming events</Link><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/contact">Contact us</Link></div>
-      <div><h2 className="mb-[14px] text-sm">Our solutions</h2><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/seed">Bundled Services</Link><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/grain">Premium Grains</Link><Link className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="/poultry">Poultry Products</Link></div>
-      <div><h2 className="mb-[14px] text-sm">Visit us</h2><p className="mt-2 block break-words text-xs text-[#cfddd3]">Bundled Services / Grains<br />Nyankpala, Northern Region</p><p className="mt-2 block break-words text-xs text-[#cfddd3]">Poultry<br />Ankaase, Ashanti Region</p></div>
-      <div><h2 className="mb-[14px] text-sm">Stay connected</h2><a className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="tel:+233244175741">+233 244 175 741</a><a className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="mailto:info@eagleparkinnovations.online">info@eagleparkinnovations.online</a><a className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4" href="mailto:eagleparkinnovations@yahoo.com">eagleparkinnovations@yahoo.com</a><div className="mt-5 flex gap-3">
-        <a className="grid h-8 w-8 place-items-center rounded-full border border-white/25 text-lg" href="https://www.facebook.com/share/1Ahtriscx4/?mibextid=WC7FNe" target="_blank" rel="noopener noreferrer" aria-label="EPI on Facebook"><i className="ri-facebook-fill" aria-hidden="true" /></a>
-        <a className="grid h-8 w-8 place-items-center rounded-full border border-white/25 text-lg" href="https://www.instagram.com/p/DLncarnsdyb/?igsh=MW1nZW92YTR0aHB0bA==" target="_blank" rel="noopener noreferrer" aria-label="EPI on Instagram"><i className="ri-instagram-line" aria-hidden="true" /></a>
-        <a className="grid h-8 w-8 place-items-center rounded-full border border-white/25 text-lg" href="https://www.linkedin.com/company/eagle-park-innovations-limited/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="EPI on LinkedIn"><i className="ri-linkedin-fill" aria-hidden="true" /></a>
-      </div></div>
-    </div><div className="flex justify-between gap-6 border-t border-white/15 pt-[18px] text-[10px] text-[#cfddd3] max-[767px]:flex-col max-[767px]:gap-3"><span>© {new Date().getFullYear()} EPI. All rights reserved.</span><span>Rooted in Ghana. Growing together.</span></div>
-  </div></footer>;
+  return (
+    <footer className="rounded-t-[18px] bg-[#153a29] py-[30px] pb-5 text-white">
+      <div className="editorial-width">
+        <div className="grid grid-cols-[1fr_.9fr_1.2fr_1.2fr] gap-6 pb-6 max-[1199px]:grid-cols-2 max-[1199px]:gap-10 max-[767px]:gap-x-5 max-[767px]:gap-y-8 max-[479px]:grid-cols-1">
+          <div>
+            <h2 className="mb-[14px] text-sm">Explore EPI</h2>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/ourstory"
+            >
+              Our story
+            </Link>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/train"
+            >
+              Training & Consultancy
+            </Link>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/shop"
+            >
+              Shop our products
+            </Link>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/news"
+            >
+              News & Resources
+            </Link>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/news#events"
+            >
+              Upcoming events
+            </Link>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/contact"
+            >
+              Contact us
+            </Link>
+          </div>
+          <div>
+            <h2 className="mb-[14px] text-sm">Our solutions</h2>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/seed"
+            >
+              Bundled Services
+            </Link>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/grain"
+            >
+              Premium Grains
+            </Link>
+            <Link
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="/poultry"
+            >
+              Poultry Products
+            </Link>
+          </div>
+          <div>
+            <h2 className="mb-[14px] text-sm">Visit us</h2>
+            <p className="mt-2 block break-words text-xs text-[#cfddd3]">
+              Bundled Services / Grains
+              <br />
+              Nyankpala, Northern Region
+            </p>
+            <p className="mt-2 block break-words text-xs text-[#cfddd3]">
+              Poultry
+              <br />
+              Ankaase, Ashanti Region
+            </p>
+          </div>
+          <div>
+            <h2 className="mb-[14px] text-sm">Stay connected</h2>
+            <a
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="tel:+233244175741"
+            >
+              +233 244 175 741
+            </a>
+            <a
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="mailto:info@eagleparkinnovations.online"
+            >
+              info@eagleparkinnovations.online
+            </a>
+            <a
+              className="mt-2 block break-words text-xs text-[#cfddd3] hover:text-white hover:underline hover:underline-offset-4"
+              href="mailto:eagleparkinnovations@yahoo.com"
+            >
+              eagleparkinnovations@yahoo.com
+            </a>
+            <div className="mt-5 flex gap-3">
+              <a
+                className="grid h-8 w-8 place-items-center rounded-full border border-white/25 text-lg"
+                href="https://www.facebook.com/share/1Ahtriscx4/?mibextid=WC7FNe"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="EPI on Facebook"
+              >
+                <i className="ri-facebook-fill" aria-hidden="true" />
+              </a>
+              <a
+                className="grid h-8 w-8 place-items-center rounded-full border border-white/25 text-lg"
+                href="https://www.instagram.com/p/DLncarnsdyb/?igsh=MW1nZW92YTR0aHB0bA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="EPI on Instagram"
+              >
+                <i className="ri-instagram-line" aria-hidden="true" />
+              </a>
+              <a
+                className="grid h-8 w-8 place-items-center rounded-full border border-white/25 text-lg"
+                href="https://www.linkedin.com/company/eagle-park-innovations-limited/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="EPI on LinkedIn"
+              >
+                <i className="ri-linkedin-fill" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-between gap-6 border-t border-white/15 pt-[18px] text-[10px] text-[#cfddd3] max-[767px]:flex-col max-[767px]:gap-3">
+          <span>© {new Date().getFullYear()} EPI. All rights reserved.</span>
+          <span>Rooted in Ghana. Growing together.</span>
+        </div>
+      </div>
+    </footer>
+  );
 }

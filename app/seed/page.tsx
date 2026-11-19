@@ -1,3 +1,5 @@
-import SeedHero from '@/src/views/ServicesPage/SeedsPage/SeedHero';
+import SeedHero from "@/src/views/ServicesPage/SeedsPage/SeedHero";
 
-export default function SeedPage() { return <SeedHero />; }
+export default function SeedPage() {
+  return <SeedHero />;
+}

@@ -1,9 +1,24 @@
-'use client';
+"use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { useRouter } from 'next/navigation';
-import { authApi } from '@/src/lib/auth-api';
-import type { AuthState, AuthUser, LoginCredentials, RegisterPayload, RegisterResponse } from '@/src/types/auth';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import { useRouter } from "next/navigation";
+import { authApi } from "@/src/lib/auth-api";
+import type {
+  AuthState,
+  AuthUser,
+  LoginCredentials,
+  RegisterPayload,
+  RegisterResponse,
+} from "@/src/types/auth";
 
 interface AuthContextValue extends AuthState {
   login(credentials: LoginCredentials): Promise<AuthUser>;
@@ -17,7 +32,7 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 export function AuthProvider({ children }: Readonly<{ children: ReactNode }>) {
   const router = useRouter();
   const sessionCheckStarted = useRef(false);
-  const [user, setUser] = useState<AuthState['user']>(null);
+  const [user, setUser] = useState<AuthState["user"]>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const clearSession = useCallback(() => {
@@ -39,7 +54,11 @@ export function AuthProvider({ children }: Readonly<{ children: ReactNode }>) {
     if (sessionCheckStarted.current) return;
     sessionCheckStarted.current = true;
     // Discard the legacy Bearer credential; all new sessions use HttpOnly cookies.
-    try { window.localStorage.removeItem('eagleParkAuthToken'); } catch { /* Storage may be disabled. */ }
+    try {
+      window.localStorage.removeItem("eagleParkAuthToken");
+    } catch {
+      /* Storage may be disabled. */
+    }
     queueMicrotask(() => void refreshUser());
   }, [refreshUser]);
 
@@ -52,25 +71,28 @@ export function AuthProvider({ children }: Readonly<{ children: ReactNode }>) {
   const logout = useCallback(async () => {
     await authApi.logout();
     clearSession();
-    router.replace('/login');
+    router.replace("/login");
     router.refresh();
   }, [clearSession, router]);
 
-  const value = useMemo<AuthContextValue>(() => ({
-    user,
-    isAuthenticated: user !== null,
-    isLoading,
-    login,
-    register: authApi.register,
-    logout,
-    refreshUser,
-  }), [user, isLoading, login, logout, refreshUser]);
+  const value = useMemo<AuthContextValue>(
+    () => ({
+      user,
+      isAuthenticated: user !== null,
+      isLoading,
+      login,
+      register: authApi.register,
+      logout,
+      refreshUser,
+    }),
+    [user, isLoading, login, logout, refreshUser],
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth(): AuthContextValue {
   const context = useContext(AuthContext);
-  if (!context) throw new Error('useAuth must be used within AuthProvider.');
+  if (!context) throw new Error("useAuth must be used within AuthProvider.");
   return context;
 }
