@@ -36,8 +36,8 @@ const grains = [
 
 export default function GrainMain() {
   return <>
-    <section id="grain-catalogue" className="editorial-width catalogue-section"><div className="section-heading"><h2>Our Focus Grains</h2><p className="gold-text">We transform cereal and legume harvests into higher incomes and stronger food security.</p></div>
-      <div className="grain-collection">{grains.map((grain) => <article key={grain.name} className="grain-entry"><div className="grain-photo"><Image src={grain.image} alt={grain.name} fill sizes="(max-width: 767px) 100vw, 40vw" className="object-cover" /></div><div className="grain-copy"><h3>{grain.name}</h3><p>{grain.description}</p></div></article>)}</div>
+    <section id="grain-catalogue" className="editorial-width py-[88px] max-[767px]:py-14"><div className="section-heading"><h2>Our Focus Grains</h2><p className="gold-text">We transform cereal and legume harvests into higher incomes and stronger food security.</p></div>
+      <div className="grid grid-cols-3 gap-7 max-[1199px]:grid-cols-2 max-[767px]:grid-cols-1 max-[767px]:gap-6">{grains.map((grain) => <article key={grain.name} className="overflow-hidden rounded-[20px] border border-[#dce5de] bg-white"><div className="relative h-[250px] overflow-hidden"><Image src={grain.image} alt={grain.name} fill sizes="(max-width: 767px) 100vw, 40vw" className="object-cover" /></div><div className="p-[26px]"><h3 className="text-[28px]">{grain.name}</h3><p className="mt-[14px] text-sm">{grain.description}</p></div></article>)}</div>
     </section>
     <Benefits />
     <PageCallout title={<>In need of grains with an excellent nutrient profile for food, feed, or industrial use? <br />

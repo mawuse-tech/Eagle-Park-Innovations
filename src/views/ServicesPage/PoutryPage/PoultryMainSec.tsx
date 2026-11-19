@@ -25,8 +25,8 @@ const grains = [
 
 export default function PoultryMainSec() {
   return <>
-    <section id="poultry-products" className="editorial-width poultry-stories"><div className="section-heading"><h2>Our Poultry Products</h2><p className="gold-text">We provide high-quality poultry products and strengthen nutrition in our communities.</p></div>
-    {grains.map((product) => <article className="poultry-story" key={product.name}><div className="poultry-photo"><Image src={product.image} alt={product.name} fill sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" /></div><div><h3>{product.name}</h3><p>{product.description}</p></div></article>)}
+    <section id="poultry-products" className="editorial-width py-[88px] max-[767px]:py-14"><div className="section-heading"><h2>Our Poultry Products</h2><p className="gold-text">We provide high-quality poultry products and strengthen nutrition in our communities.</p></div>
+    {grains.map((product) => <article className="relative isolate mt-8 flex min-h-[440px] items-center overflow-hidden rounded-[22px] bg-[#163e2a] text-white max-[767px]:min-h-[480px] max-[767px]:items-end" key={product.name}><div className="absolute inset-0 z-[-2]"><Image src={product.image} alt={product.name} fill sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" /></div><div className="absolute inset-0 z-[-1] bg-[linear-gradient(90deg,#071c16e8,#071c1626)] max-[767px]:bg-[linear-gradient(0deg,#071c16f5,#071c1633)]" /><div className="max-w-[620px] p-16 max-[767px]:px-6 max-[767px]:py-8"><h3 className="mb-6 text-[clamp(32px,3.5vw,48px)] leading-[1.1] max-[767px]:text-[32px]">{product.name}</h3><p className="text-[15px] !text-white">{product.description}</p></div></article>)}
     </section>
     <Benefits />
     <PageCallout title={<>Looking for healthy, high-quality poultry products for food or farming?<br />

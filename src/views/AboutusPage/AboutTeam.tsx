@@ -31,9 +31,9 @@ const teamMembers = [
 
 const TeamPage = () => {
 
-  return <section id="our-team" className="team-section editorial-width">
+  return <section id="our-team" className="editorial-width py-24 max-[767px]:py-14">
     <div className="center-heading"><p className="eyebrow">The people behind our purpose</p><h2>Meet our management team</h2><p>A passionate and experienced team, committed to delivering solutions tailored to your needs and goals.</p></div>
-    <div className="team-grid">{teamMembers.map(member => <article className="team-card" key={member.name}><Image src={member.image} alt={member.name} sizes="(max-width: 767px) 100vw, 33vw" /><div><p className="eyebrow">{member.role}</p><h3>{member.name}</h3><p>{member.quali}</p><p>{member.expertise}</p></div></article>)}</div>
+    <div className="grid grid-cols-3 gap-7 max-[767px]:grid-cols-1 max-[767px]:gap-8">{teamMembers.map(member => <article key={member.name}><Image className="h-[320px] w-full rounded-[20px] bg-[#edf5ee] object-cover object-top max-[767px]:h-[360px]" src={member.image} alt={member.name} sizes="(max-width: 767px) 100vw, 33vw" /><div className="relative mx-3 -mt-7 border-b-[3px] border-[#386347] bg-white p-7 rounded-2xl shadow-[0_10px_28px_#163e2a14] max-[1199px]:mx-1.5 max-[1199px]:p-5 max-[767px]:mx-4 max-[767px]:p-6"><p className="eyebrow text-[10px]">{member.role}</p><h3 className="mb-4 text-[23px]">{member.name}</h3><p className="mt-3 text-[13px]">{member.quali}</p><p className="mt-3 text-[13px]">{member.expertise}</p></div></article>)}</div>
   </section>;
 };
 

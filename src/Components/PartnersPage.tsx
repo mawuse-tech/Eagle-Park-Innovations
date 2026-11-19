@@ -1,6 +1,3 @@
-'use client';
-
-import { useEffect } from 'react';
 import Image from 'next/image';
 import absa from '../assets/absalogo.png';
 import giz from '../assets/gizlogo.png';
@@ -16,11 +13,6 @@ import fao from '../assets/fao.jpg';
 
 
 const PartnersPage = () => {
-  useEffect(() => {
-    // Optional: prevent scroll-jank on slow devices
-    document.documentElement.style.setProperty('--scroll-speed', '40s');
-  }, []);
-
   const logos = [
     absa,
     giz,
@@ -35,13 +27,13 @@ const PartnersPage = () => {
   ];
 
   return (
-    <section className="partners-section editorial-width">
+    <section className="editorial-width py-20 max-[767px]:py-14">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-900 mb-10">
         Our Partners
       </h2>
 
       <div className="overflow-x-hidden relative">
-        <div className="flex animate-scroll min-w-[200%] gap-10 items-center">
+        <div className="flex min-w-[200%] items-center gap-10 animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]">
           {logos.concat(logos).map((logo, index) => (
             <Image
               key={index}
