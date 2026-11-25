@@ -4,6 +4,7 @@ import CountSection from "../../../Components/CountSection";
 import Link from "next/link";
 import Image from "next/image";
 import fieldTraining from "../../../assets/training/train.jpg";
+import TrainingRequestActions from "./TrainingRequestActions";
 const programs = [
   {
     title: "Sustainable Agricultural Practices",
@@ -50,8 +51,7 @@ export default function TrainPage() {
         }
         image={train}
         imageAlt="Practical agricultural training at EPI"
-        action="Register"
-        href="/contact"
+        heroActions={<TrainingRequestActions />}
       />
       <section
         id="programmes"

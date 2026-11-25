@@ -43,7 +43,7 @@ export default function SeedHero() {
           <p className="mb-3 text-xs font-black uppercase tracking-[.18em] !text-white">
             Bundled Services
           </p>
-          <h1 className="max-w-[710px] text-[clamp(44px,6vw,76px)] font-black leading-[.98] tracking-[-.05em] text-white">
+          <h1 className="max-w-[710px] text-[clamp(38px,5vw,64px)] font-black leading-[.98] tracking-[-.05em] text-white">
             Farm Challenges Are Connected. Our Support Is Too.
           </h1>
           <p className="mt-6 max-w-[650px] text-lg leading-relaxed !text-[#edf3ee]">

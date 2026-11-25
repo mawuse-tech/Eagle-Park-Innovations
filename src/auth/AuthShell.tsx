@@ -23,7 +23,7 @@ export function AuthShell({
       <div className="absolute inset-0 bg-gradient-to-br from-[#e0e8d9]/95 via-[#e0e8d9]/70 to-[#e0e8d9]/85" />
       <div className="relative mx-auto grid min-h-[68vh] max-w-5xl items-center gap-10 lg:grid-cols-[1fr_28rem]">
         <div className="hidden max-w-xl text-[#294834] lg:block">
-          <h1 className="text-5xl font-bold leading-tight">{title}</h1>
+          <h1 className="text-[2.85rem] font-bold leading-tight">{title}</h1>
           <p className="mt-5 max-w-lg text-lg leading-relaxed text-[#294834]">
             {text}
           </p>

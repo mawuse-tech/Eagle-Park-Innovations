@@ -56,13 +56,6 @@ export default function ContactUsPage() {
             A conversation is
             <br />a good place to start.
           </h2>
-          <a
-            className="mb-6 mt-1 inline-flex items-center gap-[9px] text-[13px] font-bold text-[#f1cf71] underline underline-offset-4"
-            href="/news#events"
-          >
-            See upcoming events{" "}
-            <i className="ri-arrow-right-line" aria-hidden="true" />
-          </a>
           <div className="flex items-start gap-4 border-t border-white/15 py-[22px] [@media(min-width:1024px)_and_(min-height:851px)]:gap-3 [@media(min-width:1024px)_and_(min-height:851px)]:py-[14px] [@media(min-width:1024px)_and_(max-height:850px)]:gap-[10px] [@media(min-width:1024px)_and_(max-height:850px)]:py-[10px]">
             <i
               className="ri-mail-line shrink-0 text-2xl text-[#C99724] [@media(min-width:1024px)_and_(max-height:850px)]:text-[21px]"
@@ -136,6 +129,7 @@ export default function ContactUsPage() {
           </div>
         </aside>
         <form
+          id="contact-form"
           onSubmit={handleSubmit}
           className="flex flex-col rounded-[22px] border border-[#dce5de] bg-white p-10 shadow-[0_12px_40px_#163e2a06] [@media(min-width:1024px)_and_(min-height:851px)]:p-7 [@media(min-width:1024px)_and_(max-height:850px)]:p-5 max-[767px]:px-[22px] max-[767px]:py-7"
           aria-busy={isSubmitting}

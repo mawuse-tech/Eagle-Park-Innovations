@@ -9,7 +9,13 @@ export default function OurStoryHome() {
     <div className="editorial-page about-page">
       <PageIntro
         eyebrow="About EPI"
-        title={<>Empowering Farmers Through Integrated Solutions</>}
+        title={
+          <>
+            Empowering <br className="max-[767px]:hidden" />
+            Farmers Through <br className="max-[767px]:hidden" />
+            Integrated Solutions
+          </>
+        }
         description={
           <p>
             Our convenient end-to-end solution connects farmers to quality
@@ -20,6 +26,7 @@ export default function OurStoryHome() {
         image={women}
         imageAlt="Two women holding maize grown in their farming community"
         action="Discover our story"
+        actionPlacement="copy"
         href="#our-story"
       />
       <nav

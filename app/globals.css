@@ -173,12 +173,21 @@ button:disabled {
 }
 
 /* About: shortcuts, a readable story, purpose and people. */
+.about-page > header {
+  padding-bottom: 80px;
+}
 
 /* Service content and training. */
 
 /* Contact: a green information panel alongside an accessible enquiry form. */
 
 @media (max-width: 767px) {
+  .about-page > header {
+    padding-bottom: 56px;
+  }
+  .about-page > header > img {
+    object-position: 86% top;
+  }
   html {
     scroll-padding-top: 100px;
   }

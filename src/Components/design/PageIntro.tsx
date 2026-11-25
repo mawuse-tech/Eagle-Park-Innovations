@@ -7,12 +7,22 @@ type Props = {
   description: ReactNode;
   image: StaticImageData;
   imageAlt: string;
-  action: string;
-  href: string;
   eyebrow?: string;
-  actionPlacement?: "hero" | "copy";
   tallImage?: boolean;
-};
+} & (
+  | {
+      action: string;
+      href: string;
+      actionPlacement?: "hero" | "copy";
+      heroActions?: never;
+    }
+  | {
+      heroActions: ReactNode;
+      action?: never;
+      href?: never;
+      actionPlacement?: never;
+    }
+);
 
 export default function PageIntro({
   title,
@@ -23,11 +33,12 @@ export default function PageIntro({
   href,
   eyebrow,
   actionPlacement = "hero",
+  heroActions,
   tallImage = false,
 }: Props) {
   return (
     <header
-      className={`relative isolate flex min-h-[760px] flex-col justify-center bg-[#163e2a] px-[max(8vw,calc((100vw-1200px)/2))] pt-[195px] pb-[154px] text-white [&_p]:!text-white max-[1199px]:px-[7%] max-[767px]:min-h-[730px] max-[767px]:justify-center max-[767px]:px-6 max-[767px]:pt-[142px] max-[767px]:pb-40 ${tallImage ? "min-h-[760px] pt-[145px] pb-[100px] max-[767px]:min-h-[730px] max-[767px]:px-6 max-[767px]:pt-[110px] max-[767px]:pb-[90px]" : ""}`}
+      className={`relative isolate flex min-h-[760px] flex-col justify-center bg-[#163e2a] px-[max(8vw,calc((100vw-1200px)/2))] pt-[195px] pb-[154px] text-white max-[1199px]:px-[7%] max-[767px]:min-h-[730px] max-[767px]:justify-center max-[767px]:px-6 max-[767px]:pt-[142px] max-[767px]:pb-40 ${tallImage ? "min-h-[760px] pt-[145px] pb-[100px] max-[767px]:min-h-[730px] max-[767px]:px-6 max-[767px]:pt-[110px] max-[767px]:pb-[90px]" : ""}`}
     >
       {tallImage ? (
         <div className="absolute inset-0 z-[-2]">
@@ -60,7 +71,7 @@ export default function PageIntro({
           </p>
         )}
         <h1
-          className={`text-[clamp(42px,4.6vw,66px)] leading-[1.04] tracking-[-.035em] max-[767px]:text-[clamp(36px,9.5vw,48px)] max-[767px]:leading-[1.06] ${tallImage ? "text-[clamp(44px,6vw,76px)] max-[767px]:text-[clamp(44px,9.5vw,76px)] max-[767px]:leading-[1.06]" : ""}`}
+          className={`leading-[1.04] tracking-[-.035em] max-[767px]:leading-[1.06] ${tallImage ? "text-[clamp(38px,5vw,64px)] max-[767px]:text-[clamp(38px,8vw,54px)]" : "text-[clamp(40px,4.35vw,63px)] max-[767px]:text-[clamp(34px,9vw,46px)]"}`}
         >
           {title}
         </h1>
@@ -69,14 +80,15 @@ export default function PageIntro({
         >
           {description}
         </div>
-        {actionPlacement === "copy" && (
+        {actionPlacement === "copy" && href && (
           <Link href={href} className="outline-link mt-7">
             {action}
             <i className="ri-arrow-right-line" aria-hidden="true" />
           </Link>
         )}
       </div>
-      {actionPlacement === "hero" && (
+      {heroActions}
+      {actionPlacement === "hero" && href && (
         <div className="absolute right-8 bottom-[38px] flex min-h-[68px] max-w-[calc(100%-64px)] items-center justify-center rounded-[10px] border border-white/15 bg-white/15 px-[18px] py-[10px] backdrop-blur-2xl max-[767px]:right-4 max-[767px]:bottom-[34px] max-[767px]:min-h-[76px] max-[767px]:max-w-[calc(100%-32px)] max-[767px]:px-4 max-[767px]:py-3">
           <Link href={href} className="outline-link max-w-full">
             {action}

@@ -1,6 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  NewsConnections,
+  NewsHero,
+  type FeaturedEvent,
+} from "./NewsHighlights";
 
 type Article = {
   id: string;
@@ -12,63 +17,112 @@ type Article = {
   author: string;
   publishedAt: string;
 };
-type Event = {
-  id: string;
-  date: string;
-  time: string;
-  title: string;
-  place: string;
-  cost: string;
-  audience: string;
-  image: string;
-  description: string;
-  organizer: string;
-  capacity: number | null;
-};
 
 const trainingRequestUrl =
   "https://wa.me/233243919417?text=Hi%20EPI%2C%20I%E2%80%99d%20like%20to%20request%20training%20for%20my%20group.%20Please%20share%20the%20details.";
 
-function EventCard({ event, index }: { event: Event; index: number }) {
+function EventCard({ event }: { event: FeaturedEvent }) {
   return (
-    <article
-      className={`relative flex-[0_0_min(400px,calc((min(100vw_-_64px,_1280px)_-_36px)/3))] overflow-hidden rounded-xl border bg-[#f7faf7] max-[1023px]:basis-[calc((100vw-50px)/2)] max-[767px]:basis-[85vw] max-[767px]:max-w-[calc(100vw-32px)] ${index === 0 ? "border-[#93b49a] shadow-[inset_0_3px_#386347]" : "border-[#dce5de]"}`}
-    >
+    <article className="min-w-0">
       <Link
-        className="group flex h-full flex-col text-inherit"
+        className="group flex h-full items-center gap-4 rounded-2xl border border-[#dce5de] bg-[#f7faf7] p-4 hover:border-[#91ad94]"
         href={`/events/${event.id}`}
       >
         {event.image ? (
           <img
-            className="block aspect-video w-full bg-[#e8eee8] object-cover"
+            className="size-14 shrink-0 rounded-lg bg-[#e4efda] object-cover"
             src={event.image}
             alt=""
             loading="lazy"
           />
         ) : (
-          <div className="grid aspect-video w-full place-items-center bg-[#e8eee8] text-[#709078]">
-            <i
-              className="ri-calendar-event-line text-[42px]"
-              aria-hidden="true"
-            />
-          </div>
+          <i
+            className="ri-calendar-event-line grid size-14 shrink-0 place-items-center rounded-lg bg-[#e4efda] text-2xl text-[#226732]"
+            aria-hidden="true"
+          />
         )}
-        <div className="flex flex-1 flex-col items-start px-[22px] pt-5 pb-[22px]">
-          <p className="mb-[10px] flex w-full flex-wrap items-center gap-2 text-xs font-bold text-[#31543a]">
-            <i className="ri-calendar-line" aria-hidden="true" />
-            {new Date(`${event.date}T12:00:00`).toLocaleDateString(undefined, {
+        <div className="min-w-0 flex-1">
+          <time
+            dateTime={event.date}
+            className="text-[13px] font-medium text-[#31543a]"
+          >
+            {new Date(`${event.date}T12:00:00`).toLocaleDateString("en-GB", {
               day: "numeric",
-              month: "long",
+              month: "short",
               year: "numeric",
             })}
-            {index === 0 && (
-              <span className="ml-auto rounded-[30px] bg-[#e4efe5] px-[9px] py-[5px]">
-                Next event
-              </span>
+          </time>
+          <h3 className="mt-1 text-lg leading-tight break-words group-hover:underline">
+            {event.title}
+          </h3>
+          {event.place && <p className="mt-1 text-sm">{event.place}</p>}
+        </div>
+        <i
+          className="ri-arrow-right-line shrink-0 text-lg text-[#155421]"
+          aria-hidden="true"
+        />
+      </Link>
+    </article>
+  );
+}
+
+function ArticleCard({
+  article,
+  showSummary,
+}: {
+  article: Article;
+  showSummary: boolean;
+}) {
+  const date = new Date(article.publishedAt);
+  return (
+    <article className="min-w-0 rounded-2xl border border-[#e1e8df] bg-[#f8faf6] shadow-sm">
+      <Link
+        href={`/news/${article.slug}`}
+        className="group flex h-full flex-col overflow-hidden rounded-2xl"
+      >
+        <div className="aspect-[2.15] w-full overflow-hidden bg-[#e4efda]">
+          {article.coverImage ? (
+            <img
+              className="size-full object-cover transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
+              src={article.coverImage}
+              alt=""
+              loading="lazy"
+            />
+          ) : (
+            <div className="grid size-full place-items-center text-[#386347]">
+              <i className="ri-newspaper-line text-4xl" aria-hidden="true" />
+            </div>
+          )}
+        </div>
+        <div className="flex flex-1 flex-col items-start gap-2.5 p-4">
+          <div className="flex w-full flex-wrap items-center justify-between gap-x-3 gap-y-2">
+            <span className="max-w-full rounded-full bg-[#155421] px-2.5 py-1 text-xs font-bold break-words text-white">
+              {article.category}
+            </span>
+            {article.publishedAt && !Number.isNaN(date.getTime()) && (
+              <time
+                dateTime={article.publishedAt}
+                className="inline-flex items-center gap-1.5 text-[13px] text-[#344b3b]"
+              >
+                <i className="ri-calendar-line" aria-hidden="true" />
+                {date.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })}
+              </time>
             )}
-          </p>
-          <h3 className="mb-5 text-xl leading-[1.25]">{event.title}</h3>
-          <span className="mt-auto inline-flex items-center gap-[9px] text-xs font-bold uppercase tracking-[.04em] text-[#386347] group-hover:underline group-hover:underline-offset-4">
+          </div>
+          <h3 className="text-xl leading-tight break-words">{article.title}</h3>
+          {showSummary && (
+            <>
+              <p className="text-sm leading-relaxed">{article.summary}</p>
+              <span className="text-[13px] text-[#526259]">
+                {article.author}
+              </span>
+            </>
+          )}
+          <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-bold text-[#155421] group-hover:underline">
             Read more <i className="ri-arrow-right-line" aria-hidden="true" />
           </span>
         </div>
@@ -79,7 +133,7 @@ function EventCard({ event, index }: { event: Event; index: number }) {
 
 export default function NewsListing() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [events, setEvents] = useState<Event[]>([]);
+  const [events, setEvents] = useState<FeaturedEvent[]>([]);
   const [eventsStatus, setEventsStatus] = useState<
     "loading" | "ready" | "error"
   >("loading");
@@ -87,6 +141,7 @@ export default function NewsListing() {
   const [author, setAuthor] = useState("");
   const [year, setYear] = useState("");
   const [page, setPage] = useState(1);
+  const [showAll, setShowAll] = useState(false);
   const [status, setStatus] = useState<"loading" | "ready" | "error">(
     "loading",
   );
@@ -204,101 +259,54 @@ export default function NewsListing() {
   );
   const pageSize = 3;
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
-  const visible = filtered.slice((page - 1) * pageSize, page * pageSize);
-  function updateFilter(setter: (value: string) => void, value: string) {
-    setter(value);
+  const visible = showAll
+    ? filtered
+    : articles.slice((page - 1) * pageSize, page * pageSize);
+  const announcements = articles.filter(({ category }) =>
+    /\bannouncements?\b/i.test(category),
+  );
+  function toggleAllStories() {
+    setShowAll((value) => !value);
+    setCategory("");
+    setAuthor("");
+    setYear("");
     setPage(1);
   }
   return (
     <div className="editorial-page">
+      <NewsHero event={upcomingEvents[0]} />
       <section
-        className="editorial-width scroll-mt-[150px] pt-3 pb-[54px] max-[767px]:pb-[38px]"
-        id="events"
-        aria-labelledby="events-heading"
+        className="editorial-width pt-8 pb-10 md:pt-10 md:pb-12"
+        id="latest-news"
+        aria-labelledby="latest-news-heading"
       >
-        <div className="mb-[22px] flex items-end justify-between">
+        <header className="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
           <div>
-            <p className="eyebrow mb-2">LEARN WITH EPI</p>
-            <h2 className="text-[clamp(28px,3.4vw,42px)]" id="events-heading">
-              Upcoming events
+            <p className="mb-2 text-sm font-bold uppercase tracking-wide !text-[#174327]">
+              Latest News and Events
+            </p>
+            <h2
+              id="latest-news-heading"
+              className="!text-[clamp(1.9rem,3.4vw,2.8rem)]"
+            >
+              What’s Happening at EPI
             </h2>
           </div>
-        </div>
-        {eventsStatus === "loading" ? (
-          <div
-            className="min-h-28 rounded-lg bg-[linear-gradient(100deg,#eef2ee_25%,#f8faf8_40%,#eef2ee_65%)] bg-[length:200%_100%] animate-[news-shimmer_1.2s_ease-in-out_infinite]"
-            aria-label="Loading upcoming events"
-          />
-        ) : eventsStatus === "error" ? (
-          <div className="flex items-center justify-between gap-6 overflow-hidden rounded-xl border border-[#dce5de] bg-[#f7faf7] px-[30px] py-[26px] max-[767px]:items-start max-[767px]:flex-col max-[767px]:p-[22px]">
-            <div>
-              <h3 className="text-[22px]">
-                Events are temporarily unavailable
-              </h3>
-              <p className="mt-[5px] text-sm">
-                You can still contact EPI to request training for your group.
-              </p>
-            </div>
-            <a
-              className="primary-link shrink-0 gap-[10px] max-[767px]:w-full"
-              href={trainingRequestUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+          {status === "ready" && articles.length > 0 && (
+            <button
+              type="button"
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-[#155421] hover:underline"
+              aria-expanded={showAll}
+              onClick={toggleAllStories}
             >
-              Request training for your group{" "}
-              <i className="ri-whatsapp-line" aria-hidden="true" />
-            </a>
-          </div>
-        ) : upcomingEvents.length ? (
-          <div
-            className="w-full overflow-hidden"
-            aria-label="Upcoming events carousel"
-          >
-            <div
-              className={`flex w-max ${upcomingEvents.length < 2 ? "animate-none" : "animate-[events-marquee-scroll_40s_linear_infinite] hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-reduce:animate-none"}`}
-            >
-              <div className="flex flex-none items-stretch gap-[18px] pr-[18px]">
-                {upcomingEvents.map((event, index) => (
-                  <EventCard key={event.id} event={event} index={index} />
-                ))}
-              </div>
-              {upcomingEvents.length > 1 && (
-                <div
-                  className="flex flex-none items-stretch gap-[18px] pr-[18px]"
-                  aria-hidden="true"
-                >
-                  {upcomingEvents.map((event, index) => (
-                    <EventCard key={event.id} event={event} index={index} />
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        ) : (
-          <div className="flex items-center justify-between gap-6 overflow-hidden rounded-xl border border-[#dce5de] bg-[#f7faf7] px-[30px] py-[26px] max-[767px]:items-start max-[767px]:flex-col max-[767px]:p-[22px]">
-            <div>
-              <h3 className="text-[22px]">No open sessions right now</h3>
-              <p className="mt-[5px] text-sm">
-                Training can be arranged for your group. Message us to discuss
-                what you need.
-              </p>
-            </div>
-            <a
-              className="primary-link shrink-0 gap-[10px] max-[767px]:w-full"
-              href={trainingRequestUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Request training for your group{" "}
-              <i className="ri-whatsapp-line" aria-hidden="true" />
-            </a>
-          </div>
-        )}
-      </section>
-      <section
-        className="mx-auto w-[min(1280px,calc(100%-64px))] pb-[92px] max-[767px]:w-[calc(100%-32px)] max-[600px]:pb-[60px]"
-        aria-label="News and resources"
-      >
+              {showAll ? "Show latest news" : "View all news"}
+              <i
+                className={showAll ? "ri-arrow-up-line" : "ri-arrow-right-line"}
+                aria-hidden="true"
+              />
+            </button>
+          )}
+        </header>
         {status === "loading" ? (
           <div
             className="grid min-h-[290px] grid-cols-3 gap-6 py-[30px] max-[767px]:grid-cols-1 max-[767px]:min-h-[240px]"
@@ -379,60 +387,54 @@ export default function NewsListing() {
               New stories coming soon
             </h2>
             <p className="my-[10px] mb-[18px]">
-              Get in touch to hear about EPI news and resources.
+              Subscribe to hear about EPI news and resources.
             </p>
-            <a
-              className="primary-link"
-              href="https://wa.me/233243919417?text=Hi%20EPI%2C%20please%20keep%20me%20updated%20on%20new%20stories%20and%20resources."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get updates on WhatsApp{" "}
-              <i className="ri-whatsapp-line" aria-hidden="true" />
+            <a className="primary-link" href="#subscribe">
+              Subscribe for updates
+              <i className="ri-mail-line" aria-hidden="true" />
             </a>
           </div>
         ) : (
           <>
-            <header className="flex flex-col items-center border-0 px-0 pb-8 text-center max-[600px]:pb-6">
-              <p className="eyebrow mb-[5px]">EXPLORE EPI</p>
-              <h2 className="relative pb-[18px] !text-[clamp(30px,3.4vw,42px)] after:absolute after:bottom-0 after:left-1/2 after:h-1 after:w-[50px] after:-translate-x-1/2 after:rounded-[3px] after:bg-[#C99724]">
-                All stories
-              </h2>
-            </header>
-            <div
-              className="grid grid-cols-3 gap-4 pb-[34px] max-[600px]:grid-cols-1 max-[600px]:gap-3 max-[600px]:pb-[26px]"
-              aria-label="Filter stories"
-            >
-              {[
-                ["Category", category, setCategory, categories],
-                ["Author", author, setAuthor, authors],
-                ["Year", year, setYear, years.map(String)],
-              ].map(([label, value, setter, options]) => (
-                <label
-                  className="grid gap-[7px] text-xs font-semibold text-[#626c65]"
-                  key={label as string}
-                >
-                  <span>{label as string}</span>
-                  <select
-                    className="min-h-12 w-full appearance-none rounded-[2px] border border-[#cfd8d1] bg-white bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23202923%22 stroke-width=%222%22%3E%3Cpath d=%22m6 9 6 6 6-6%22/%3E%3C/svg%3E')] bg-[position:right_14px_center] bg-no-repeat px-[14px] pr-[42px] text-sm text-[#202923]"
-                    value={value as string}
-                    onChange={(e) =>
-                      updateFilter(
-                        setter as (value: string) => void,
-                        e.target.value,
-                      )
-                    }
+            {showAll && (
+              <div
+                className="mb-6 grid grid-cols-3 gap-4 rounded-2xl bg-[#f1f6ed] p-4 max-[600px]:grid-cols-1 max-[600px]:gap-3"
+                aria-label="Filter stories"
+              >
+                {(
+                  [
+                    [
+                      "Category",
+                      "All categories",
+                      category,
+                      setCategory,
+                      categories,
+                    ],
+                    ["Author", "All authors", author, setAuthor, authors],
+                    ["Year", "All years", year, setYear, years.map(String)],
+                  ] as const
+                ).map(([label, placeholder, value, setter, options]) => (
+                  <label
+                    className="grid gap-[7px] text-xs font-semibold text-[#626c65]"
+                    key={label}
                   >
-                    <option value="">All {String(label).toLowerCase()}s</option>
-                    {(options as string[]).map((item) => (
-                      <option key={item} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              ))}
-            </div>
+                    <span>{label}</span>
+                    <select
+                      className="min-h-12 w-full appearance-none rounded-[2px] border border-[#cfd8d1] bg-white bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23202923%22 stroke-width=%222%22%3E%3Cpath d=%22m6 9 6 6 6-6%22/%3E%3C/svg%3E')] bg-[position:right_14px_center] bg-no-repeat px-[14px] pr-[42px] text-sm text-[#202923]"
+                      value={value}
+                      onChange={(event) => setter(event.target.value)}
+                    >
+                      <option value="">{placeholder}</option>
+                      {options.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                ))}
+              </div>
+            )}
             {filtered.length === 0 ? (
               <div className="grid min-h-[250px] justify-items-center px-5 py-[60px] text-center text-[#748078]">
                 <i className="ri-filter-3-line mb-[14px] text-[30px] text-[#386347]" />
@@ -456,90 +458,187 @@ export default function NewsListing() {
               </div>
             ) : (
               <>
-                <p className="-mt-[10px] mb-[18px] text-xs text-[#747f77]">
-                  {filtered.length}{" "}
-                  {filtered.length === 1 ? "story" : "stories"}
-                </p>
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-x-[26px] gap-y-[34px] max-[900px]:gap-x-5 max-[900px]:gap-y-7 max-[600px]:grid-cols-1">
-                  {visible.map((a) => (
-                    <article className="min-w-0" key={a.id}>
-                      <Link
-                        href={`/news/${a.slug}`}
-                        className="group block h-full text-inherit"
+                <div className="relative">
+                  <div
+                    className={`grid gap-5 sm:grid-cols-2 lg:grid-cols-3 ${!showAll && pageCount > 1 ? "lg:px-12" : ""}`}
+                  >
+                    {visible.map((article) => (
+                      <ArticleCard
+                        key={article.id}
+                        article={article}
+                        showSummary={showAll}
+                      />
+                    ))}
+                  </div>
+                  {!showAll && pageCount > 1 && (
+                    <nav
+                      className="mt-5 flex items-center justify-center gap-3"
+                      aria-label="News pages"
+                    >
+                      <button
+                        type="button"
+                        className="grid size-10 place-items-center rounded-full border border-[#c9d6c8] bg-white text-xl text-[#173f23] hover:bg-[#edf5e9] disabled:cursor-default lg:absolute lg:top-1/2 lg:left-0 lg:-translate-y-1/2"
+                        aria-label="Previous news page"
+                        disabled={page === 1}
+                        onClick={() => setPage((value) => value - 1)}
                       >
-                        <figure className="flex h-full flex-col gap-[15px] max-[600px]:gap-[13px]">
-                          <div className="relative aspect-video max-h-[440px] w-full overflow-hidden bg-[#eef2ee]">
-                            <span className="absolute bottom-[18px] left-[18px] z-10 max-w-[calc(100%-36px)] overflow-hidden bg-[#202923] px-[10px] py-[7px] text-ellipsis whitespace-nowrap text-[11px] font-semibold text-white max-[600px]:bottom-3 max-[600px]:left-3">
-                              {new Date(a.publishedAt).toLocaleDateString(
-                                undefined,
-                                {
-                                  day: "numeric",
-                                  month: "short",
-                                  year: "numeric",
-                                },
-                              )}
-                            </span>
-                            {a.coverImage ? (
-                              <img
-                                className="h-full w-full object-cover transition-transform duration-[250ms] ease-out group-hover:scale-[1.045]"
-                                src={a.coverImage}
-                                alt=""
-                                loading="lazy"
+                        <i
+                          className="ri-arrow-left-s-line"
+                          aria-hidden="true"
+                        />
+                      </button>
+                      {pageCount <= 7 ? (
+                        <div className="flex" aria-label="Choose a news page">
+                          {Array.from(
+                            { length: pageCount },
+                            (_, index) => index + 1,
+                          ).map((number) => (
+                            <button
+                              key={number}
+                              type="button"
+                              className="grid size-8 place-items-center rounded-full"
+                              aria-label={`News page ${number}`}
+                              aria-current={
+                                page === number ? "page" : undefined
+                              }
+                              onClick={() => setPage(number)}
+                            >
+                              <span
+                                aria-hidden="true"
+                                className={`size-3 rounded-full ${page === number ? "bg-[#155421]" : "bg-[#dce5da] hover:bg-[#96af99]"}`}
                               />
-                            ) : (
-                              <div className="grid h-full w-full place-items-center bg-[linear-gradient(135deg,#dce9d9,#eef3ea)] text-[#386347]">
-                                <i className="ri-leaf-line text-[44px]" />
-                              </div>
-                            )}
-                          </div>
-                          <figcaption className="flex flex-1 flex-col items-start gap-[7px]">
-                            <span className="text-[10px] font-bold uppercase tracking-[.09em] text-[#386347]">
-                              {a.category}
-                            </span>
-                            <h3 className="text-[22px] leading-[1.25] tracking-[-.02em] group-hover:underline group-hover:decoration-[#C99724] group-hover:underline-offset-4 max-[600px]:text-xl">
-                              {a.title}
-                            </h3>
-                            <p className="text-[13px] leading-[1.6] text-[#626c65]">
-                              {a.summary}
-                            </p>
-                            <span className="mt-auto block border-l-2 border-[#C99724] pl-2 text-[11px] text-[#626c65]">
-                              {a.author}
-                            </span>
-                          </figcaption>
-                        </figure>
-                      </Link>
-                    </article>
-                  ))}
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-sm">
+                          Page {page} of {pageCount}
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        className="grid size-10 place-items-center rounded-full border border-[#c9d6c8] bg-white text-xl text-[#173f23] hover:bg-[#edf5e9] disabled:cursor-default lg:absolute lg:top-1/2 lg:right-0 lg:-translate-y-1/2"
+                        aria-label="Next news page"
+                        disabled={page === pageCount}
+                        onClick={() => setPage((value) => value + 1)}
+                      >
+                        <i
+                          className="ri-arrow-right-s-line"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </nav>
+                  )}
                 </div>
-                <nav
-                  className="mt-[42px] flex items-center justify-center gap-[22px] max-[600px]:mt-8"
-                  aria-label="Story pages"
-                >
-                  <button
-                    className="grid size-[42px] place-items-center rounded-full bg-[#202923] text-[17px] text-white hover:bg-[#386347] disabled:cursor-default disabled:opacity-[.32]"
-                    aria-label="Previous page"
-                    disabled={page === 1}
-                    onClick={() => setPage((p) => p - 1)}
-                  >
-                    <i className="ri-arrow-left-line" />
-                  </button>
-                  <span className="min-w-[74px] text-center text-[13px] text-[#525e55]">
-                    Page: {page}/{pageCount}
-                  </span>
-                  <button
-                    className="grid size-[42px] place-items-center rounded-full bg-[#202923] text-[17px] text-white hover:bg-[#386347] disabled:cursor-default disabled:opacity-[.32]"
-                    aria-label="Next page"
-                    disabled={page === pageCount}
-                    onClick={() => setPage((p) => p + 1)}
-                  >
-                    <i className="ri-arrow-right-line" />
-                  </button>
-                </nav>
               </>
             )}
           </>
         )}
       </section>
+      <section
+        className="editorial-width pb-10 md:pb-12"
+        id="events"
+        aria-labelledby="events-heading"
+      >
+        <div className="mb-[22px] flex items-end justify-between">
+          <div>
+            <p className="eyebrow mb-2">LEARN WITH EPI</p>
+            <h2
+              className="!text-[clamp(1.75rem,3vw,2.5rem)]"
+              id="events-heading"
+            >
+              Upcoming events
+            </h2>
+          </div>
+        </div>
+        {eventsStatus === "loading" ? (
+          <div
+            className="min-h-28 rounded-lg bg-[linear-gradient(100deg,#eef2ee_25%,#f8faf8_40%,#eef2ee_65%)] bg-[length:200%_100%] animate-[news-shimmer_1.2s_ease-in-out_infinite]"
+            aria-label="Loading upcoming events"
+          />
+        ) : eventsStatus === "error" ? (
+          <div className="flex items-center justify-between gap-6 overflow-hidden rounded-xl border border-[#dce5de] bg-[#f7faf7] px-[30px] py-[26px] max-[767px]:items-start max-[767px]:flex-col max-[767px]:p-[22px]">
+            <div>
+              <h3 className="text-[22px]">
+                Events are temporarily unavailable
+              </h3>
+              <p className="mt-[5px] text-sm">
+                You can still contact EPI to request training for your group.
+              </p>
+            </div>
+            <a
+              className="primary-link shrink-0 gap-[10px] max-[767px]:w-full"
+              href={trainingRequestUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Request training for your group{" "}
+              <i className="ri-whatsapp-line" aria-hidden="true" />
+            </a>
+          </div>
+        ) : upcomingEvents.length ? (
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3">
+            {upcomingEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center justify-between gap-6 overflow-hidden rounded-xl border border-[#dce5de] bg-[#f7faf7] px-[30px] py-[26px] max-[767px]:items-start max-[767px]:flex-col max-[767px]:p-[22px]">
+            <div>
+              <h3 className="text-[22px]">No open sessions right now</h3>
+              <p className="mt-[5px] text-sm">
+                Training can be arranged for your group. Message us to discuss
+                what you need.
+              </p>
+            </div>
+            <a
+              className="primary-link shrink-0 gap-[10px] max-[767px]:w-full"
+              href={trainingRequestUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Request training for your group{" "}
+              <i className="ri-whatsapp-line" aria-hidden="true" />
+            </a>
+          </div>
+        )}
+      </section>
+      {announcements.length > 0 ? (
+        <section
+          id="announcements"
+          aria-labelledby="announcements-heading"
+          className="editorial-width pb-10 md:pb-12"
+        >
+          <div className="rounded-2xl border border-[#e4ebe0] bg-[#f6f8f4] p-5 md:p-6">
+            <h2
+              id="announcements-heading"
+              className="flex items-center gap-3 !text-2xl"
+            >
+              <i
+                className="ri-megaphone-line text-[#226732]"
+                aria-hidden="true"
+              />
+              Announcements
+            </h2>
+            <ul className="mt-3 divide-y divide-[#dce5de]">
+              {announcements.map((article) => (
+                <li key={article.id}>
+                  <Link
+                    href={`/news/${article.slug}`}
+                    className="inline-flex min-h-11 items-center gap-2 py-2 font-bold text-[#155421] hover:underline"
+                  >
+                    {article.title}
+                    <i className="ri-arrow-right-line" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : (
+        <div id="announcements" />
+      )}
+      <NewsConnections />
     </div>
   );
 }

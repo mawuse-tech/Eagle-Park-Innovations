@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import musahHawa from "../../../assets/seeds/musah-hawa.jpg";
 
 const phases = [
   [
@@ -123,20 +125,33 @@ export default function SeedMainSec() {
             </h2>
           </header>
           <div className="grid gap-8 md:grid-cols-2 md:items-center md:gap-10">
-            <article className="rounded-[28px] border-l-[6px] border-[#C99724] bg-[#f4f7f2] p-7 md:p-10">
-              <span className="mb-5 inline-block rounded-full bg-[#183b29] px-3 py-2 text-[11px] font-black uppercase tracking-[.12em] text-white">
-                Farmer Result
-              </span>
-              <p className="text-xl leading-relaxed text-[#17241c] md:text-[22px]">
-                “Having the support connected made it easier to plan and manage
-                the season.”
-              </p>
-              <div className="my-5 h-0.5 w-[52px] bg-[#C99724]" />
-              <p className="text-sm">
-                <strong className="text-[#17241c]">Farmer testimonial</strong>
-                <br />
-                EPI Bundled Services
-              </p>
+            <article className="grid gap-5 rounded-[28px] border-l-[6px] border-[#C99724] bg-[#f4f7f2] p-6 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] xl:items-center xl:gap-7 xl:p-7">
+              <figure className="mx-auto w-full max-w-[230px] xl:mx-0">
+                <Image
+                  src={musahHawa}
+                  alt="Pouring maize from a bowl into a sack"
+                  className="h-auto w-full rounded-xl"
+                  sizes="(max-width: 320px) 75vw, 230px"
+                />
+                <figcaption className="mt-2 text-sm font-bold text-[#17241c]">
+                  Musah Hawa
+                </figcaption>
+              </figure>
+              <div>
+                <span className="mb-5 inline-block rounded-full bg-[#183b29] px-3 py-2 text-[11px] font-black uppercase tracking-[.12em] text-white">
+                  Farmer Result
+                </span>
+                <blockquote className="text-xl leading-relaxed text-[#17241c] md:text-[22px]">
+                  “Having the support connected made it easier to plan and
+                  manage the season.”
+                </blockquote>
+                <div className="my-5 h-0.5 w-[52px] bg-[#C99724]" />
+                <p className="text-sm">
+                  <strong className="text-[#17241c]">Farmer testimonial</strong>
+                  <br />
+                  EPI Bundled Services
+                </p>
+              </div>
             </article>
             <div className="grid gap-3 sm:grid-cols-2">
               {reasons.map(([title, detail]) => (
